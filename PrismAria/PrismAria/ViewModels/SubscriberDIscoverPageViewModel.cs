@@ -8,6 +8,13 @@ namespace PrismAria.ViewModels
 {
     public class SubscriberDIscoverPageViewModel : BindableBase
     {
+        private string _sampleText = "Sample Text here";
+        public string SampleText
+        {
+            get { return _sampleText; }
+            set { SetProperty(ref _sampleText, value); }
+        }
+
         public SubscriberDIscoverPageViewModel()
         {
 

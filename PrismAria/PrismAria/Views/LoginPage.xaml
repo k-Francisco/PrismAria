@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismAria.Views.LoginPage">
+
+    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Login Page" />
+    </StackLayout>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+
+        <StackLayout 
+            BackgroundColor="BurlyWood"
+            Grid.Row="0">
+            
+            <controls:CustomLabel
+                Text="pste wa diay text ang amaw"
+                StyleId="Milkshake"
+                FontFamily="Milkshake"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+            
+        </StackLayout>
+        <StackLayout 
+            BackgroundColor="DarkSlateGray"
+            Grid.Row="1">
+        </StackLayout>
+        <StackLayout 
+            BackgroundColor="DarkGoldenrod"
+            Grid.Row="2">
+        </StackLayout>
+    </Grid>
+  
+</ContentPage>

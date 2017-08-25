@@ -2,6 +2,8 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\PrismAria.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Settings.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Settings.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Prism.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Prism.Forms.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Prism.Unity.Forms.dll
@@ -11,6 +13,9 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Xamarin.Forms.Xaml.d
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Settings.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Settings.Abstractions.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Settings.Abstractions.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Prism.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Prism.Forms.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Prism.Unity.Forms.xml
@@ -21,11 +26,11 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Xamarin.Forms.Platfo
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Xamarin.Forms.Xaml.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Xamarin.Forms.Xaml.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.App.xaml.g.cs
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.csprojResolveAssemblyReference.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.SubscriberLandingPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.SubscriberDIscoverPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.SubscriberFavoritesPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.SubscriberNotificationPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.SubscriberLeaderboardPage.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.LoginPage.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.pdb

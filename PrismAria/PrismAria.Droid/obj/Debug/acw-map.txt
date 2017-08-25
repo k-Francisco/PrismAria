@@ -6,6 +6,10 @@ PrismAria.Droid.SplashActivity, PrismAria.Droid;md5a028cc1fb0b122b8509bdb81bf308
 PrismAria.Droid.SplashActivity, PrismAria.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity
 PrismAria.Droid.SplashActivity;md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity
 prismaria.droid.SplashActivity;md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity
+PrismAria.Droid.CustomRenderers.CustomLabelRenderer, PrismAria.Droid;md52afd1bc2b0438d27113fc6044af0fe61.CustomLabelRenderer
+PrismAria.Droid.CustomRenderers.CustomLabelRenderer, PrismAria.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52afd1bc2b0438d27113fc6044af0fe61.CustomLabelRenderer
+PrismAria.Droid.CustomRenderers.CustomLabelRenderer;md52afd1bc2b0438d27113fc6044af0fe61.CustomLabelRenderer
+prismaria.droid.customrenderers.CustomLabelRenderer;md52afd1bc2b0438d27113fc6044af0fe61.CustomLabelRenderer
 Android.Support.V4.Widget.SearchViewCompat/IOnCloseListenerImplementor, Xamarin.Android.Support.Compat;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor
 Android.Support.V4.Widget.SearchViewCompat+IOnCloseListenerImplementor, Xamarin.Android.Support.Compat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor
 Android.Support.V4.Widget.SearchViewCompat.IOnCloseListenerImplementor;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor

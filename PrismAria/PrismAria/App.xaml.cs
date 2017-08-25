@@ -1,4 +1,5 @@
 ﻿using Prism.Unity;
+using PrismAria.Helpers;
 using PrismAria.Views;
 using Xamarin.Forms;
 
@@ -11,7 +12,10 @@ namespace PrismAria
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync("RootPage/SubscriberLanding");
+            if(Settings.Token.Equals(string.Empty))
+                NavigationService.NavigateAsync("LoginPage");
+            else
+                NavigationService.NavigateAsync("RootPage/SubscriberLanding");
         }
 
         protected override void RegisterTypes()
@@ -22,6 +26,7 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<SubscriberFavoritesPage>();
             Container.RegisterTypeForNavigation<SubscriberNotificationPage>();
             Container.RegisterTypeForNavigation<SubscriberLeaderboardPage>();
+            Container.RegisterTypeForNavigation<LoginPage>();
         }
     }
 

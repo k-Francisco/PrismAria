@@ -7,7 +7,7 @@
              AutomationId="Discover">
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Discover" />
+        <Label Text="{Binding SampleText}" />
     </StackLayout>
 
 </ContentPage>
