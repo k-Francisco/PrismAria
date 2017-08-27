@@ -4,29 +4,66 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Plugin.Connectivity;
+using PrismAria.Helpers;
 
 namespace PrismAria.ViewModels
 {
-	public class LoginPageViewModel : BindableBase
-	{
-        private bool _canSignUpProp;
-        public bool CanSignUpProp
-        {
-            get { return _canSignUpProp; }
-            set { SetProperty(ref _canSignUpProp, value); }
-        }
-        private DelegateCommand _signUpCommand;
-        public DelegateCommand SignUpCommand =>
-            _signUpCommand ?? (_signUpCommand = new DelegateCommand(SignUp).ObservesProperty(() => CanSignUpProp));
+    public class LoginPageViewModel : BindableBase
+    {
+        #region Setting variables, getters and setters
 
+        private bool _isConnected = CrossConnectivity.Current.IsConnected;
+
+        #region SignUp
+
+        private DelegateCommand _signUpCommand;
+	    public DelegateCommand SignUpCommand =>
+	        _signUpCommand ?? (_signUpCommand = new DelegateCommand(SignUp));
+
+	    
+        
 	    private void SignUp()
 	    {
-	        Debug.WriteLine("sign up");
+	        if (_isConnected)
+	        {
+                //TODO implement sign up animation and functionality
+	        }
+	        else
+	        {
+	            //TODO implement dialog to alert user that he/she is offline
+	        }
+        }
+
+        #endregion
+
+        #region Facebook Integration
+        private DelegateCommand _fbLoginCommand;
+        public DelegateCommand FbLoginCommand =>
+            _fbLoginCommand ?? (_fbLoginCommand = new DelegateCommand(FbLogin));
+
+	    private void FbLogin()
+	    {
+	        if (_isConnected)
+	        {
+	            Debug.WriteLine("hello");
+	        }
+	        else
+	        {
+	        }
 	    }
 
-	    public LoginPageViewModel()
-        {
+	    #endregion
 
-        }
+        #endregion
+
+	    public LoginPageViewModel()
+	    {
+	        CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+	        {
+                _isConnected = args.IsConnected;
+	        };
+	    }
 	}
+
 }

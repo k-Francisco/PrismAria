@@ -102,6 +102,8 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Microsoft.Practices.ServiceLocation.dll",
 		"Microsoft.Practices.Unity.dll",
+		"Plugin.Connectivity.Abstractions.dll",
+		"Plugin.Connectivity.dll",
 		"Plugin.Settings.Abstractions.dll",
 		"Plugin.Settings.dll",
 		"Prism.dll",

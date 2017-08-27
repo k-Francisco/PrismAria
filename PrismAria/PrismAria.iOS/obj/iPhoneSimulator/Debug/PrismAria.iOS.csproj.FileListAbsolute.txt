@@ -105,3 +105,10 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.Abstractions.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.Abstractions.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.Connectivity.dll.mdb

@@ -16,6 +16,8 @@ namespace PrismAria
                 NavigationService.NavigateAsync("LoginPage");
             else
                 NavigationService.NavigateAsync("RootPage/SubscriberLanding");
+
+           
         }
 
         protected override void RegisterTypes()

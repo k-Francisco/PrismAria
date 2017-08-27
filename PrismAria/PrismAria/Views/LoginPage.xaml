@@ -86,6 +86,7 @@
                 TextColor="White"/>
 
             <Button
+                Command="{Binding FbLoginCommand}"
                 Text="Login with facebook"
                 BackgroundColor="#3B5998"
                 HorizontalOptions="FillAndExpand"

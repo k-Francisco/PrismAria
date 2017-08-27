@@ -107,3 +107,11 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.Abstractions.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.Abstractions.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Plugin.Connectivity.dll.mdb

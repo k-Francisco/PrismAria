@@ -35,3 +35,9 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.Logi
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.csprojResolveAssemblyReference.cache
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Connectivity.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Connectivity.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Connectivity.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Connectivity.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Connectivity.Abstractions.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\Plugin.Connectivity.Abstractions.xml

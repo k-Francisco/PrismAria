@@ -2,6 +2,8 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\FormsViewGroup.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Microsoft.Practices.ServiceLocation.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Microsoft.Practices.Unity.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Plugin.Connectivity.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Plugin.Connectivity.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Plugin.Settings.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Prism.dll
@@ -48,8 +50,8 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Runtime.Extensions.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Threading.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Reflection.Extensions.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.ObjectModel.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.ObjectModel.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.ComponentModel.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.IO.dll
