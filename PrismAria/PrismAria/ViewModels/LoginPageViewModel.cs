@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Plugin.Connectivity;
+using Prism.Services;
 using PrismAria.Helpers;
 
 namespace PrismAria.ViewModels
 {
     public class LoginPageViewModel : BindableBase
     {
+        private readonly IPageDialogService _dialogService;
+
         #region Setting variables, getters and setters
 
         private bool _isConnected = CrossConnectivity.Current.IsConnected;
@@ -31,8 +34,8 @@ namespace PrismAria.ViewModels
 	        }
 	        else
 	        {
-	            //TODO implement dialog to alert user that he/she is offline
-	        }
+	            _dialogService.DisplayAlertAsync("Connectivity Issues", "Your device is not connected to the internet!", "OK");
+            }
         }
 
         #endregion
@@ -50,6 +53,7 @@ namespace PrismAria.ViewModels
 	        }
 	        else
 	        {
+	            _dialogService.DisplayAlertAsync("Connectivity Issues","Your device is not connected to the internet!", "OK");
 	        }
 	    }
 
@@ -57,8 +61,9 @@ namespace PrismAria.ViewModels
 
         #endregion
 
-	    public LoginPageViewModel()
+	    public LoginPageViewModel(IPageDialogService dialogService)
 	    {
+	        _dialogService = dialogService;
 	        CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
 	        {
                 _isConnected = args.IsConnected;
