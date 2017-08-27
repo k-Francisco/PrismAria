@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace PrismAria.Droid
 {
-    [Activity(Label = "SplashActivity", 
+    [Activity(Label = "Aria", 
         Icon = "@drawable/icon", 
         NoHistory = true,
         MainLauncher = true, 

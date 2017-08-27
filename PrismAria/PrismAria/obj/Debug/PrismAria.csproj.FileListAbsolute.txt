@@ -34,3 +34,4 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.Subs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.Views.LoginPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\PrismAria.csprojResolveAssemblyReference.cache

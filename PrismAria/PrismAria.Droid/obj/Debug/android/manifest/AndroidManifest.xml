@@ -7,7 +7,7 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:label="PrismAria.Droid" android:theme="@style/MyTheme" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="PrismAria" android:name="md5a028cc1fb0b122b8509bdb81bf308f99.MainActivity" />
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="SplashActivity" android:noHistory="true" android:theme="@style/SplashTheme" android:name="md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity">
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="Aria" android:noHistory="true" android:theme="@style/SplashTheme" android:name="md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

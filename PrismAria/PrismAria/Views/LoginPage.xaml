@@ -6,39 +6,106 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.LoginPage">
 
-    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Login Page" />
-    </StackLayout>-->
+    <ContentPage.Resources>
+        <!--Resources Here-->
+    </ContentPage.Resources>
 
-    <Grid>
+    <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
 
-        <StackLayout 
-            BackgroundColor="BurlyWood"
-            Grid.Row="0">
+
+        <controls:CustomLabel Grid.Row="0"
+            TextColor="Black"
+            Text="Aria"
+            StyleId="Milkshake"
+            FontFamily="Milkshake"
+            FontSize="62"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,16"/>
+
+        <StackLayout Grid.Row="1">
+            <StackLayout.Spacing>
+                <OnPlatform x:TypeArguments="x:Double"
+                            Android="4"
+                            iOS="12"/>    
+            </StackLayout.Spacing>
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Android="16,32,16,32"
+                            iOS="16,52,16,32"/>
+            </StackLayout.Padding>
             
+            <Button
+                Text="Login"
+                BackgroundColor="#2C3E50"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                TextColor="White"/>
+
+                <Button
+                Text="Login with facebook"
+                BackgroundColor="#3B5998"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                TextColor="White"/>
+
             <controls:CustomLabel
-                Text="pste wa diay text ang amaw"
-                StyleId="Milkshake"
-                FontFamily="Milkshake"
-                FontSize="Large"
+                Text="Sign up here!"
+                TextColor="#2C3E50"
                 HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-            
+                FontSize="16"
+                FontFamily="BryantBoldAlt-Regular"
+                StyleId="BryantMediumAlt-Regular"/>
+
         </StackLayout>
-        <StackLayout 
-            BackgroundColor="DarkSlateGray"
-            Grid.Row="1">
+        
+        <!--2nd stack layout-->
+
+        <StackLayout Grid.Row="1">
+            <StackLayout.Spacing>
+                <OnPlatform x:TypeArguments="x:Double"
+                            Android="4"
+                            iOS="12"/>
+            </StackLayout.Spacing>
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Android="16,32,16,32"
+                            iOS="16,52,16,32"/>
+            </StackLayout.Padding>
+
+            <Button
+                Text="Login"
+                BackgroundColor="#2C3E50"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                TextColor="White"/>
+
+            <Button
+                Text="Login with facebook"
+                BackgroundColor="#3B5998"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                TextColor="White"/>
+
+            <controls:CustomLabel
+                Text="Sign up here!"
+                TextColor="#2C3E50"
+                HorizontalOptions="Center"
+                FontSize="16"
+                FontFamily="BryantBoldAlt-Regular"
+                StyleId="BryantMediumAlt-Regular">
+                <controls:CustomLabel.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                </controls:CustomLabel.GestureRecognizers>
+            </controls:CustomLabel>
+
         </StackLayout>
-        <StackLayout 
-            BackgroundColor="DarkGoldenrod"
-            Grid.Row="2">
-        </StackLayout>
+
     </Grid>
   
 </ContentPage>
