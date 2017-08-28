@@ -112,3 +112,5 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.exe
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.xml

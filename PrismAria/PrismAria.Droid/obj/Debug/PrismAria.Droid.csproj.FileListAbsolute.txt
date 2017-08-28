@@ -5,6 +5,7 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droi
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FormsViewGroup.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Newtonsoft.Json.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.Abstractions.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Settings.Abstractions.dll
@@ -40,6 +41,7 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Prac
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.ServiceLocation.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Newtonsoft.Json.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.Connectivity.dll.mdb
