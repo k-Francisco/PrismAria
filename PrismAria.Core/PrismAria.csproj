@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
+    <PackageReference Include="Prism.Core" Version="6.3.0" />
+    <PackageReference Include="Prism.Forms" Version="6.3.0" />
+    <PackageReference Include="Prism.Unity.Forms" Version="6.3.0" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.0.2" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.266-pre1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubscriberDIscoverPage.xaml.cs">
+      <DependentUpon>SubscriberDIscoverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubscriberFavoritesPage.xaml.cs">
+      <DependentUpon>SubscriberFavoritesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubscriberLandingPage.xaml.cs">
+      <DependentUpon>SubscriberLandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubscriberLeaderboardPage.xaml.cs">
+      <DependentUpon>SubscriberLeaderboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubscriberNotificationPage.xaml.cs">
+      <DependentUpon>SubscriberNotificationPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

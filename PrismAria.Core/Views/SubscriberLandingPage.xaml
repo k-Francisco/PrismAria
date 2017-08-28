@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:local="clr-namespace:PrismAria.Views;assembly=PrismAria"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="PrismAria.Views.SubscriberLandingPage">
+
+    <local:SubscriberDIscoverPage
+        Icon="ic_discover.png"/>
+    <local:SubscriberFavoritesPage
+        Icon="ic_favorites.png"/>
+    <local:SubscriberNotificationPage
+        Icon="ic_notification.png"/>
+    <local:SubscriberLeaderboardPage
+        Icon="ic_leaderboard.png"/>
+
+
+</TabbedPage>
