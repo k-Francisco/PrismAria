@@ -225,8 +225,8 @@
     <BundleResource Include="Resources\ic_leaderboard%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PrismAria.Core\PrismAria.csproj">
-      <Project>{52188121-d553-46b5-ad95-bed2d60ec458}</Project>
+    <ProjectReference Include="..\PrismAria\PrismAria.csproj">
+      <Project>{1908a528-f7ca-4aa6-9f6e-f59042de2f34}</Project>
       <Name>PrismAria</Name>
     </ProjectReference>
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Plugin.Connectivity;
+using Prism.Navigation;
 using Prism.Services;
 using PrismAria.Helpers;
 
@@ -12,7 +13,8 @@ namespace PrismAria.ViewModels
 {
     public class LoginPageViewModel : BindableBase
     {
-        private readonly IPageDialogService _dialogService;
+        private IPageDialogService _dialogService;
+        private INavigationService _navigationService;
 
         #region Setting variables, getters and setters
 
@@ -47,10 +49,10 @@ namespace PrismAria.ViewModels
 
 	    private void FbLogin()
 	    {
-	        if (_isConnected)
+            if (_isConnected)
 	        {
-	            Debug.WriteLine("hello");
-	        }
+	            _navigationService.NavigateAsync("FacebookLoginPage", null, true, true);
+            }
 	        else
 	        {
 	            _dialogService.DisplayAlertAsync("Connectivity Issues","Your device is not connected to the internet!", "OK");
@@ -61,9 +63,10 @@ namespace PrismAria.ViewModels
 
         #endregion
 
-	    public LoginPageViewModel(IPageDialogService dialogService)
+	    public LoginPageViewModel(IPageDialogService dialogService, INavigationService navigationService)
 	    {
 	        _dialogService = dialogService;
+	        _navigationService = navigationService;
 	        CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
 	        {
                 _isConnected = args.IsConnected;
