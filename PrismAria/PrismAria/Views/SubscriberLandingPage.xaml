@@ -6,14 +6,14 @@
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="PrismAria.Views.SubscriberLandingPage">
 
-    <local:SubscriberDIscoverPage
+    <TabbedPage.Children>
+        <local:SubscriberDIscoverPage
         Icon="ic_discover.png"/>
-    <local:SubscriberFavoritesPage
+        <local:SubscriberFavoritesPage
         Icon="ic_favorites.png"/>
-    <local:SubscriberNotificationPage
+        <local:SubscriberNotificationPage
         Icon="ic_notification.png"/>
-    <local:SubscriberLeaderboardPage
+        <local:SubscriberLeaderboardPage
         Icon="ic_leaderboard.png"/>
-
-
+    </TabbedPage.Children>
 </TabbedPage>

@@ -51,7 +51,7 @@ namespace PrismAria.ViewModels
 	    {
             if (_isConnected)
 	        {
-	            _navigationService.NavigateAsync("FacebookLoginPage", null, true, true);
+	            _navigationService.NavigateAsync("FacebookLoginPage", null, true, false);
             }
 	        else
 	        {
