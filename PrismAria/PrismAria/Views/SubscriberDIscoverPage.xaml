@@ -8,6 +8,8 @@
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="{Binding SampleText}" />
+        <Image Source="{Binding ProfilePicture}"/>
+        <Image Source="{Binding CoverPhoto}"/>
     </StackLayout>
 
 </ContentPage>
