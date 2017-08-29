@@ -16,7 +16,7 @@ namespace PrismAria.ViewModels
     public class FacebookLoginPageViewModel : BindableBase
     {
         private readonly INavigationService _navigationService;
-        private readonly IEventAggregator _ea;
+        private IEventAggregator _ea;
 
         public FacebookLoginPageViewModel(INavigationService navigationService, IEventAggregator ea)
         {
@@ -27,14 +27,12 @@ namespace PrismAria.ViewModels
 	    public async Task SetFacebookUserProfileAsync(string accessToken)
 	    {
 	        var facebookServices = new FacebookLoginService();
-
-	        var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
-            Debug.WriteLine(Fbprofile.Name);
-            _ea.GetEvent<LoginEvent>().Publish(Fbprofile);
-            //await _navigationService.GoBackAsync();
-            await _navigationService.NavigateAsync("RootPage/SubscriberLanding", null, true, false);
-
-	    }
+            var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
+            //_ea.GetEvent<LoginEvent>().Publish(Fbprofile);
+            var navigationParams = new NavigationParameters();
+            navigationParams.Add("profile", Fbprofile);
+            await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), navigationParams, true, false);
+        }
     }
 
     public class RootPage : NavigationPage

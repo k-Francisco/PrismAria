@@ -11,11 +11,11 @@ using Prism.Navigation;
 
 namespace PrismAria.ViewModels
 {
-    public class SubscriberDIscoverPageViewModel : BindableBase, INavigatingAware
+    public class SubscriberDIscoverPageViewModel : BindableBase, INavigatedAware
     {
         private string _sampleText;
-        private readonly IEventAggregator _ea;
-        private bool HasInitialized { get; set; }
+        private IEventAggregator _ea;
+        private FacebookProfile _profile;
 
         public string SampleText
         {
@@ -26,21 +26,22 @@ namespace PrismAria.ViewModels
         public SubscriberDIscoverPageViewModel(IEventAggregator ea)
         {
             _ea = ea;
-            _ea.GetEvent<LoginEvent>().Subscribe(SetProfile);
         }
 
-        private void SetProfile(FacebookProfile obj)
+        private void SetProfile()
         {
-            Debug.WriteLine(obj.Name);
-            _sampleText = obj.Name;
+            SampleText = _profile.Name;
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public void OnNavigatedFrom(NavigationParameters parameters)
         {
-            if (HasInitialized)
-                return;
+            throw new NotImplementedException();
+        }
 
-            HasInitialized = true;
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            _profile = (FacebookProfile)parameters["profile"];
+            SetProfile();
         }
     }
 }
