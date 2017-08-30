@@ -89,6 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomRenderers\CustomLabelRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

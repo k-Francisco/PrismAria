@@ -21,6 +21,7 @@ namespace PrismAria.Views
                 Source = apiRequest,
                 HeightRequest = 1,
             };
+
             webView.Navigated += WebViewOnNavigated;
 
             Content = webView;

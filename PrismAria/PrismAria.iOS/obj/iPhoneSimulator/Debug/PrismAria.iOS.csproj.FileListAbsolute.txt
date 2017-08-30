@@ -141,11 +141,11 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_leaderboard@3x.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_leaderboard.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_leaderboard@2x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_search.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_search@2x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_search@3x.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.csprojResolveAssemblyReference.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.exe
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_search.png
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_search@2x.png
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_search@3x.png
