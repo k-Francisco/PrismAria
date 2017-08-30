@@ -17,37 +17,9 @@ namespace PrismAria.ViewModels
         private IEventAggregator _ea;
         private FacebookProfile _profile;
 
-        private string _coverPhoto;
-        public string CoverPhoto
-        {
-            get { return _coverPhoto; }
-            set { SetProperty(ref _coverPhoto, value); }
-        }
-
-        private string _profilePicture;
-        public string ProfilePicture
-        {
-            get { return _profilePicture; }
-            set { SetProperty(ref _profilePicture, value); }
-        }
-
-        private string _sampleText;
-        public string SampleText
-        {
-            get { return _sampleText; }
-            set { SetProperty(ref _sampleText, value); }
-        }
-
         public SubscriberDIscoverPageViewModel(IEventAggregator ea)
         {
             _ea = ea;
-        }
-
-        private void SetProfile()
-        {
-            SampleText = _profile.Name;
-            ProfilePicture = _profile.Picture.Data.Url;
-            CoverPhoto = _profile.Cover.Source;
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -58,7 +30,6 @@ namespace PrismAria.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             _profile = (FacebookProfile)parameters["profile"];
-            SetProfile();
         }
     }
 }

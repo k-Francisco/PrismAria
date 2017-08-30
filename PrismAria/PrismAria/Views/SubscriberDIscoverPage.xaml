@@ -8,20 +8,6 @@
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
              AutomationId="Discover">
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="{Binding SampleText}" />
-        <ffImageLoading:CachedImage
-            DownsampleToViewSize="True"
-            HeightRequest="70"
-            WidthRequest="70"
-            Source="{Binding ProfilePicture}">
-            <ffImageLoading:CachedImage.Transformations>
-                <ffImageTransformations:CircleTransformation/>
-            </ffImageLoading:CachedImage.Transformations>
-        </ffImageLoading:CachedImage>
-        <ffImageLoading:CachedImage
-            DownsampleToViewSize="True"
-            Source="{Binding CoverPhoto}"/>
-    </StackLayout>
+    
 
 </ContentPage>

@@ -7,10 +7,11 @@ using System.Linq;
 using Prism.Navigation;
 using PrismAria.Events;
 using PrismAria.Models;
+using System.Diagnostics;
 
 namespace PrismAria.ViewModels
 {
-    public class SubscriberLandingPageViewModel : BaseViewModel
+    public class SubscriberLandingPageViewModel : BaseViewModel, INavigatedAware
     {
         private IEventAggregator _ea;
 
@@ -19,6 +20,14 @@ namespace PrismAria.ViewModels
             _ea = ea;
         }
 
-        
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            Debug.WriteLine("niagi ang boang dri");
+        }
     }
 }
