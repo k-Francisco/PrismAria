@@ -2,14 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffImageTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
              AutomationId="Discover">
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="{Binding SampleText}" />
-        <Image Source="{Binding ProfilePicture}"/>
-        <Image Source="{Binding CoverPhoto}"/>
+        <ffImageLoading:CachedImage
+            DownsampleToViewSize="True"
+            HeightRequest="70"
+            WidthRequest="70"
+            Source="{Binding ProfilePicture}">
+            <ffImageLoading:CachedImage.Transformations>
+                <ffImageTransformations:CircleTransformation/>
+            </ffImageLoading:CachedImage.Transformations>
+        </ffImageLoading:CachedImage>
+        <ffImageLoading:CachedImage
+            DownsampleToViewSize="True"
+            Source="{Binding CoverPhoto}"/>
     </StackLayout>
 
 </ContentPage>

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.4/",
-    "signature": "7f8151a0d74ba9d38f223b6c5dd232fc9f481d9e"
+    "signature": "588e642ea775018164c93b8f2750b50f59498c85"
   },
   "compilationOptions": {},
   "targets": {
@@ -17,6 +17,9 @@
           "Prism.Unity.Forms": "6.3.0",
           "Xam.Plugin.Connectivity": "3.0.2",
           "Xam.Plugins.Settings": "3.0.1",
+          "Xamarin.FFImageLoading.Forms": "2.2.10-pre-466",
+          "Xamarin.FFImageLoading.Svg.Forms": "2.2.10-pre-466",
+          "Xamarin.FFImageLoading.Transformations": "2.2.10-pre-466",
           "Xamarin.Forms": "2.4.0.266-pre1"
         },
         "runtime": {
@@ -208,6 +211,11 @@
       "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0": {},
+      "skiasharp/1.59.1": {
+        "runtime": {
+          "lib/netstandard1.3/SkiaSharp.dll": {}
+        }
+      },
       "system.appcontext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -811,6 +819,47 @@
           "lib/netstandard1.0/Plugin.Settings.dll": {}
         }
       },
+      "xamarin.ffimageloading/2.2.10-pre-466": {
+        "runtime": {
+          "lib/netstandard1.0/FFImageLoading.Platform.dll": {},
+          "lib/netstandard1.0/FFImageLoading.dll": {}
+        }
+      },
+      "xamarin.ffimageloading.forms/2.2.10-pre-466": {
+        "dependencies": {
+          "Xamarin.FFImageLoading": "2.2.10-pre-466",
+          "Xamarin.Forms": "2.4.0.266-pre1"
+        },
+        "runtime": {
+          "lib/portable-net45+win8+wpa81+wp8+netstandard1.0/FFImageLoading.Forms.dll": {}
+        }
+      },
+      "xamarin.ffimageloading.svg/2.2.10-pre-466": {
+        "dependencies": {
+          "SkiaSharp": "1.59.1",
+          "Xamarin.FFImageLoading": "2.2.10-pre-466"
+        },
+        "runtime": {
+          "lib/portable-net45+win8+wpa81+wp8+netstandard1.0/FFImageLoading.Svg.Platform.dll": {}
+        }
+      },
+      "xamarin.ffimageloading.svg.forms/2.2.10-pre-466": {
+        "dependencies": {
+          "Xamarin.FFImageLoading.Forms": "2.2.10-pre-466",
+          "Xamarin.FFImageLoading.Svg": "2.2.10-pre-466"
+        },
+        "runtime": {
+          "lib/portable-net45+win8+wpa81+wp8+netstandard1.0/FFImageLoading.Svg.Forms.dll": {}
+        }
+      },
+      "xamarin.ffimageloading.transformations/2.2.10-pre-466": {
+        "dependencies": {
+          "Xamarin.FFImageLoading": "2.2.10-pre-466"
+        },
+        "runtime": {
+          "lib/portable-net45+win8+wpa81+wp8+netstandard1.0/FFImageLoading.Transformations.dll": {}
+        }
+      },
       "xamarin.forms/2.4.0.266-pre1": {
         "runtime": {
           "lib/netstandard1.0/Xamarin.Forms.Core.dll": {},
@@ -1014,6 +1063,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "skiasharp/1.59.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Le+YqP0aWwJ5ImHikWiLWOWjdH8oOV6F2D7fknzKp9ArzDIrtPASeiHpI1RgqQEK/GGvR56B2l5belsDzwK7uQ==",
+      "path": "skiasharp/1.59.1",
+      "hashPath": "skiasharp.1.59.1.nupkg.sha512"
     },
     "system.appcontext/4.3.0": {
       "type": "package",
@@ -1420,6 +1476,41 @@
       "sha512": "sha512-kdW6sarcRfu+BWlw8iAycIsxR2zgfh8c0QuHsSGC0pww00JlhOKqAHI8YsaZyB7mfKNKZga+Kh2R61daoUtt7g==",
       "path": "xam.plugins.settings/3.0.1",
       "hashPath": "xam.plugins.settings.3.0.1.nupkg.sha512"
+    },
+    "xamarin.ffimageloading/2.2.10-pre-466": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6wWr5p+2F9PwZD07x5HEACjYB8KWvjamb89B7kGIGCT5AeIsSuusR5hL4GThn6HL2dcv2AJrjYS0hJrHkkD97w==",
+      "path": "xamarin.ffimageloading/2.2.10-pre-466",
+      "hashPath": "xamarin.ffimageloading.2.2.10-pre-466.nupkg.sha512"
+    },
+    "xamarin.ffimageloading.forms/2.2.10-pre-466": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j5vzvP5U5wbNE0raWN8dhZwJKZdfML47DReXo/bBwl6WCeuUyUcrfWrc3AfLwJ0OSrTlwxKpkRsJKgBqt+HUUw==",
+      "path": "xamarin.ffimageloading.forms/2.2.10-pre-466",
+      "hashPath": "xamarin.ffimageloading.forms.2.2.10-pre-466.nupkg.sha512"
+    },
+    "xamarin.ffimageloading.svg/2.2.10-pre-466": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ylelse4aVi3eLA7yVSnNdZ6BOq78+iFLmxmtkURutztjaSiiHZVIkxBfrRbR9lu1wt1iKL7Y8jA1EHgKeqot7g==",
+      "path": "xamarin.ffimageloading.svg/2.2.10-pre-466",
+      "hashPath": "xamarin.ffimageloading.svg.2.2.10-pre-466.nupkg.sha512"
+    },
+    "xamarin.ffimageloading.svg.forms/2.2.10-pre-466": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Dv/MeE9N0qYPPMDUTPGBESpTA258RzyN6Ip8MoDbFLnYKYUfMAPdyx5fR7gG5kCi2gG6cZZD1dkqLftdFqLLIA==",
+      "path": "xamarin.ffimageloading.svg.forms/2.2.10-pre-466",
+      "hashPath": "xamarin.ffimageloading.svg.forms.2.2.10-pre-466.nupkg.sha512"
+    },
+    "xamarin.ffimageloading.transformations/2.2.10-pre-466": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/hnX3o75OxTy44jRt1PqPabtNAwTtHbT1VCDU403fILUT8H8+jo8bFW9PfLLjexioTlvTayekK5J8tKltzTuBA==",
+      "path": "xamarin.ffimageloading.transformations/2.2.10-pre-466",
+      "hashPath": "xamarin.ffimageloading.transformations.2.2.10-pre-466.nupkg.sha512"
     },
     "xamarin.forms/2.4.0.266-pre1": {
       "type": "package",

@@ -13,6 +13,9 @@
     <PackageReference Include="Prism.Unity.Forms" Version="6.3.0" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.0.2" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.2.10-pre-466" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.2.10-pre-466" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.10-pre-466" />
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.266-pre1" />
   </ItemGroup>
 

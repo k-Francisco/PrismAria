@@ -6,6 +6,8 @@ using Foundation;
 using UIKit;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using FFImageLoading.Forms.Touch;
+using FFImageLoading.Transformations;
 
 namespace PrismAria.iOS
 {
@@ -26,9 +28,9 @@ namespace PrismAria.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
-
+            CachedImageRenderer.Init();
             UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(44, 62,80);
-
+            var ignore = new CircleTransformation();
             return base.FinishedLaunching(app, options);
         }
     }
