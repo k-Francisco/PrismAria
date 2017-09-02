@@ -18,6 +18,7 @@
           "Xam.Plugin.Connectivity": "3.0.2",
           "Xam.Plugins.Settings": "3.0.1",
           "Xamarin.FFImageLoading.Forms": "2.2.10-pre-466",
+          "Xamarin.FFImageLoading.Svg": "2.2.10-pre-466",
           "Xamarin.FFImageLoading.Svg.Forms": "2.2.10-pre-466",
           "Xamarin.FFImageLoading.Transformations": "2.2.10-pre-466",
           "Xamarin.Forms": "2.4.0.266-pre1"

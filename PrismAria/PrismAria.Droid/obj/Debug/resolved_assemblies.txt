@@ -1,4 +1,6 @@
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\PrismAria.Droid.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\CarouselView.FormsPlugin.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\CarouselView.FormsPlugin.Android.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\FFImageLoading.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\FFImageLoading.Forms.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\FFImageLoading.Forms.Droid.dll
@@ -51,10 +53,11 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Runtime.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Collections.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Reflection.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.IO.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Collections.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Text.RegularExpressions.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Net.Primitives.dll
@@ -65,7 +68,6 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.ObjectModel.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Globalization.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Linq.Expressions.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Diagnostics.Tools.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Reflection.Extensions.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Runtime.Numerics.dll

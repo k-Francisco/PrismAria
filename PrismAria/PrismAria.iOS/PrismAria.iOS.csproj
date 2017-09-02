@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="CustomRenderers\CustomLabelRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
+    <Compile Include="CustomRenderers\HorizontalListViewRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

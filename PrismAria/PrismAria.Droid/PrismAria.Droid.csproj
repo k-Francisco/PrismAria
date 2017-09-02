@@ -179,6 +179,7 @@
   <ItemGroup>
     <Compile Include="CustomRenderers\CustomLabelRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
+    <Compile Include="CustomRenderers\HorizontalListViewRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

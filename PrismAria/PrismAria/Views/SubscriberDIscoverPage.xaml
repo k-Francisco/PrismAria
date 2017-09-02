@@ -4,10 +4,61 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffImageTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
              AutomationId="Discover">
 
+    <ListView ItemsSource="{Binding Discovery}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout
+                        Padding="0,16,0,-10">
+                        <controls:CustomLabel 
+                            TextColor="#2C3E50"
+                            Text="{Binding categoryName}"
+                            StyleId="BryantBoldAlt-Regular"
+                            FontSize="Large"
+                            Margin="16,0,0,0"/>
+
+                        <controls:HorizontalListView ItemSource="{Binding bandList}"
+                                        Orientation="Horizontal" HeightRequest="140">
+                            <controls:HorizontalListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout
+                                            Orientation="Vertical"
+                                            Margin="16,0,-10,0">
+                                            <Frame
+                                                 Padding="0"
+                                                 Margin="0"
+                                                 CornerRadius="4">
+                                                <ffImageLoading:CachedImage Source="{Binding imgSource}" 
+                                                                            HeightRequest="100" 
+                                                                            WidthRequest="100"/>
+                                            </Frame>
+                                            <controls:CustomLabel Text="{Binding bandName}"
+                                                                  StyleId="BryantMediumAlt-Regular"
+                                                                  FontSize="14"
+                                                                  LineBreakMode="TailTruncation"
+                                                                  WidthRequest="80"
+                                                                  XAlign="Center"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </controls:HorizontalListView.ItemTemplate>
+                        </controls:HorizontalListView>
+
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
     
+
 
 </ContentPage>
