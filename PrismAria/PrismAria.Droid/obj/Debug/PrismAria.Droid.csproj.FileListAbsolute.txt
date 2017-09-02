@@ -2,8 +2,6 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droi
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid.apk
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid-Signed.apk
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\CarouselView.FormsPlugin.Abstractions.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\CarouselView.FormsPlugin.Android.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.Forms.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.Forms.Droid.dll

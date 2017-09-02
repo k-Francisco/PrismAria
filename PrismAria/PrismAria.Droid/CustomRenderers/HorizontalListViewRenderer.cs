@@ -26,7 +26,7 @@ namespace PrismAria.Droid.CustomRenderers
             var element = e.NewElement as HorizontalListView;
             element?.Render();
 
-            if (this.Element == null)
+            if (e.OldElement != null || this.Element == null)
                 return;
 
             if (e.OldElement != null)
@@ -38,7 +38,6 @@ namespace PrismAria.Droid.CustomRenderers
         private void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             this.HorizontalScrollBarEnabled = false;
-            this.VerticalScrollBarEnabled = false;
         }
     }
 }

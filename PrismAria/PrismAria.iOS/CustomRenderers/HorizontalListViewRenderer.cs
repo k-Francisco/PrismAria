@@ -18,9 +18,9 @@ namespace PrismAria.iOS.CustomRenderers
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
+            this.ShowsHorizontalScrollIndicator = false;
             var element = e.NewElement as HorizontalListView;
             element?.Render();
-
 
         }
     }

@@ -11,7 +11,8 @@
 
     <ListView ItemsSource="{Binding Discovery}"
               HasUnevenRows="True"
-              SeparatorVisibility="None">
+              SeparatorVisibility="None"
+              Margin="0,0,0,16">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -38,7 +39,8 @@
                                                  CornerRadius="4">
                                                 <ffImageLoading:CachedImage Source="{Binding imgSource}" 
                                                                             HeightRequest="100" 
-                                                                            WidthRequest="100"/>
+                                                                            WidthRequest="100"
+                                                                            Aspect="AspectFit"/>
                                             </Frame>
                                             <controls:CustomLabel Text="{Binding bandName}"
                                                                   StyleId="BryantMediumAlt-Regular"

@@ -99,8 +99,6 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "PrismAria.Droid.dll" comes first in this list. */
 		"PrismAria.Droid.dll",
-		"CarouselView.FormsPlugin.Abstractions.dll",
-		"CarouselView.FormsPlugin.Android.dll",
 		"FFImageLoading.dll",
 		"FFImageLoading.Forms.dll",
 		"FFImageLoading.Forms.Droid.dll",
