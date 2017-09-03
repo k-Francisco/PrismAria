@@ -217,6 +217,20 @@
           "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.Unity.Forms.dll": {}
         }
       },
+      "Rg.Plugins.Popup/1.1.0-pre2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.4.224"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -1754,6 +1768,32 @@
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.Unity.Forms.xml",
         "prism.unity.forms.6.3.0.nupkg.sha512",
         "prism.unity.forms.nuspec"
+      ]
+    },
+    "Rg.Plugins.Popup/1.1.0-pre2": {
+      "sha512": "FvRPpRf2dqUTTtzbjKKRN4vZPJ+4mUW5G2Zgt+j5ckHcTwVTByC8YOgyzvqts7sn2ba54wU/j4dADNJwBZ77pA==",
+      "type": "package",
+      "path": "rg.plugins.popup/1.1.0-pre2",
+      "files": [
+        "lib/MonoAndroid/Rg.Plugins.Popup.Droid.dll",
+        "lib/MonoAndroid/Rg.Plugins.Popup.Platform.dll",
+        "lib/MonoAndroid/Rg.Plugins.Popup.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.IOS.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.Platform.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.IOS.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.Platform.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.dll",
+        "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.Platform.dll",
+        "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.Platform.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.UWP.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.dll",
+        "lib/wpa81/Rg.Plugins.Popup.Platform.dll",
+        "lib/wpa81/Rg.Plugins.Popup.WinPhone.dll",
+        "lib/wpa81/Rg.Plugins.Popup.dll",
+        "rg.plugins.popup.1.1.0-pre2.nupkg.sha512",
+        "rg.plugins.popup.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -5486,6 +5526,7 @@
       "Prism.Core >= 6.3.0",
       "Prism.Forms >= 6.3.0",
       "Prism.Unity.Forms >= 6.3.0",
+      "Rg.Plugins.Popup >= 1.1.0-pre2",
       "Xam.Plugin.Connectivity >= 3.0.2",
       "Xam.Plugins.Settings >= 3.0.1",
       "Xamarin.FFImageLoading.Forms >= 2.2.10-pre-466",
@@ -5533,6 +5574,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "2.4.0.266-pre1"
+          },
+          "Rg.Plugins.Popup": {
+            "target": "Package",
+            "version": "1.1.0-pre2"
           },
           "Xamarin.FFImageLoading.Transformations": {
             "target": "Package",

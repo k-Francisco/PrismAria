@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popanim="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="PrismAria.PopupPages.Page1"
+             HasSystemPadding="True">
+
+    <pages:PopupPage.Animation>
+        <popanim:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="BounceIn"
+            EasingOut="BounceOut"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <StackLayout
+        BackgroundColor="White">
+        <Label Text="Welcome to Xamarin Forms!"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+    </StackLayout>
+    
+</pages:PopupPage>

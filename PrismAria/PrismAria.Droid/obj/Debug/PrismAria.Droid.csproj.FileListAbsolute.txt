@@ -21,6 +21,9 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Prism.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Prism.Forms.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Prism.Unity.Forms.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Rg.Plugins.Popup.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Rg.Plugins.Popup.Droid.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Rg.Plugins.Popup.Platform.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\SkiaSharp.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Android.Support.Annotations.dll
@@ -65,7 +68,6 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.Transformations.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.Transformations.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FormsViewGroup.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FormsViewGroup.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Microsoft.Practices.ServiceLocation.dll.mdb
@@ -89,12 +91,9 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Prism.Unity.Fo
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\SkiaSharp.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Core.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Core.xml
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Core.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Platform.Android.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Xaml.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\PrismAria.Droid.csprojResolveAssemblyReference.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\PrismAria.Droid.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\PrismAria.Droid.dll
@@ -136,6 +135,10 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-x
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\splash.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\R.cs.flag
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\uploadflags.txt
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FormsViewGroup.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Core.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\FFImageLoading.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\FFImageLoading.Forms.dll.mdb

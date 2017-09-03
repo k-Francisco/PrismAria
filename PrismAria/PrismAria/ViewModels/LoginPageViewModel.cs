@@ -9,6 +9,7 @@ using Prism.Navigation;
 using Prism.Services;
 using PrismAria.Helpers;
 
+
 namespace PrismAria.ViewModels
 {
     public class LoginPageViewModel : BindableBase
@@ -30,9 +31,10 @@ namespace PrismAria.ViewModels
         
 	    private void SignUp()
 	    {
+           
 	        if (_isConnected)
 	        {
-                //TODO implement sign up animation and functionality
+                
 	        }
 	        else
 	        {

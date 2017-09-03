@@ -1,9 +1,14 @@
-﻿using Prism.Navigation;
+﻿using System;
+using System.Windows.Input;
+using Prism.Navigation;
 using Prism.Unity;
 using PrismAria.Helpers;
 using PrismAria.Models;
 using PrismAria.Views;
 using Xamarin.Forms;
+using System.Diagnostics;
+using PrismAria.PopupPages;
+using Rg.Plugins.Popup.Extensions;
 
 namespace PrismAria
 {
@@ -14,7 +19,7 @@ namespace PrismAria
         protected override void OnInitialized()
         {
             InitializeComponent();
-            if(!Settings.Token.Equals(string.Empty))
+            if(Settings.Token.Equals(string.Empty))
                 NavigationService.NavigateAsync("LoginPage");
             else
                 NavigationService.NavigateAsync("RootPage/SubscriberLanding");
@@ -38,12 +43,21 @@ namespace PrismAria
     class RootPage : NavigationPage, INavigatedAware
     {
         FacebookProfile _profile;
+        public ICommand HelloCommand { get; private set; }
 
         public RootPage()
         {
             this.BarTextColor = Color.FromHex("#2C3E50");
-            ToolbarItems.Add(new ToolbarItem { Icon = "ic_search.png"});
-            ToolbarItems.Add(new ToolbarItem { Icon = "ic_discover.png" });
+            HelloCommand = new Command(ShowUserOption);
+            ToolbarItems.Add(new ToolbarItem { Icon = "ic_search.png" });
+            ToolbarItems.Add(new ToolbarItem { Icon = "ic_discover.png",
+                Command = HelloCommand });
+        }
+
+        private void ShowUserOption(object obj)
+        {
+            var popup = new UserPopupPage(_profile.Picture.Data.Url, _profile.Name);
+            Navigation.PushPopupAsync(popup, true);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -53,7 +67,6 @@ namespace PrismAria
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             _profile = (FacebookProfile)parameters["profile"];
-            ToolbarItems.Add(new ToolbarItem { Icon = _profile.Picture.Data.Url});
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)

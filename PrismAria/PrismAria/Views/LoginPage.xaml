@@ -80,6 +80,7 @@
             </StackLayout.Padding>
 
             <Button
+                x:Name="LogLog"
                 Text="Login"
                 BackgroundColor="#2C3E50"
                 HorizontalOptions="FillAndExpand"

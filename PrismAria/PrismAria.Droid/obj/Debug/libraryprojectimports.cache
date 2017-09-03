@@ -9,6 +9,8 @@
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Transformations\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Connectivity\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Settings\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Rg.Plugins.Popup.Droid\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Rg.Plugins.Popup.Platform\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\SkiaSharp\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
@@ -28,6 +30,8 @@
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FFImageLoading.Transformations\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Plugin.Connectivity\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Plugin.Settings\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Rg.Plugins.Popup.Droid\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Rg.Plugins.Popup.Platform\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\SkiaSharp\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Xamarin.Android.Support.v4\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
@@ -42,6 +46,8 @@
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Transformations.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Connectivity.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Settings.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Rg.Plugins.Popup.Droid.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Rg.Plugins.Popup.Platform.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\SkiaSharp.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
