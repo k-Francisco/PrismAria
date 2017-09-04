@@ -36,7 +36,8 @@
                                             <Frame
                                                  Padding="0"
                                                  Margin="0"
-                                                 CornerRadius="4">
+                                                 CornerRadius="4"
+                                                 HasShadow="False">
                                                 <ffImageLoading:CachedImage Source="{Binding imgSource}" 
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"

@@ -4,34 +4,95 @@
              xmlns:popanim="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              x:Class="PrismAria.PopupPages.UserPopupPage"
              HasSystemPadding="True">
     <pages:PopupPage.Animation>
         <popanim:ScaleAnimation
             PositionIn="Center"
             PositionOut="Center"
-            ScaleIn="1.2"
+            ScaleIn="0.8"
             ScaleOut="0.8"
             DurationIn="400"
             DurationOut="300"
-            EasingIn="BounceIn"
-            EasingOut="BounceOut"
+            EasingIn="SpringOut"
+            EasingOut="SpringOut"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
+
+    <Frame CornerRadius="12"
+           Margin="25"
+           Padding="0">
+        <Grid RowSpacing="0"
+              Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0"
+                     Spacing="0"
+                     BackgroundColor="AliceBlue">
+
+                <ffimage:CachedImage Source="Default.png"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="CenterAndExpand"
+                                     DownsampleToViewSize="True"
+                                     HeightRequest="120"
+                                     WidthRequest="120">
+                    <ffimage:CachedImage.Transformations>
+                        <fftrans:CircleTransformation/>
+                    </ffimage:CachedImage.Transformations>
+                </ffimage:CachedImage>
+
+                <controls:CustomLabel Text="Name Here"
+                                      HorizontalOptions="Center"
+                                      Margin="0,8,0,0"
+                                      StyleId="BryantBoldAlt-Regular"
+                                      FontFamily="BryantBoldAlt-Regular"
+                                      FontSize="Large"/>
+
+                <Grid RowSpacing="0"
+                  Padding="0"
+                  VerticalOptions="EndAndExpand"
+                      Margin="8,0,8,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button TextColor="White"
+                        BackgroundColor="#2C3E50"
+                        Text="Profile"
+                        BorderRadius="4"
+                        Grid.Column="0"
+                        HeightRequest="40"/>
+                    <Button TextColor="White"
+                        BackgroundColor="#2C3E50"
+                        Text="Edit"
+                        BorderRadius="4"
+                        Grid.Column="1"
+                        HeightRequest="40"/>
+                    <Button TextColor="White"
+                        BackgroundColor="#2C3E50"
+                        Text="Log out"
+                        BorderRadius="4"
+                        Grid.Column="2"
+                        HeightRequest="40"/>
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"
+                         BackgroundColor="Chocolate"></StackLayout>
+
+        </Grid>
+
+    </Frame>
+
     
-    <StackLayout
-        Padding="50">
 
-        <ffimage:CachedImage x:Name="Picture" 
-                             Aspect="AspectFit"
-                             DownsampleToViewSize="True"
-                             HeightRequest="70"
-                             WidthRequest="70"/>
-
-        <Label x:Name="Name"
-               XAlign="Center"
-               YAlign="Center"
-               BackgroundColor="White"/>
-
-    </StackLayout>
+    
 </pages:PopupPage>

@@ -14,15 +14,12 @@ namespace PrismAria.PopupPages
 	public partial class UserPopupPage : PopupPage
 	{
         private string _currentPic, name;
-		public UserPopupPage (string currentPic, string name)
+		public UserPopupPage ()
 		{
 			InitializeComponent ();
             BindingContext = this;
-            this.name = name;
-            _currentPic = currentPic;
+       
 
-            Picture.Source = currentPic;
-            Name.Text = name;
 		}
 
 	}

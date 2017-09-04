@@ -19,7 +19,7 @@ namespace PrismAria
         protected override void OnInitialized()
         {
             InitializeComponent();
-            if(Settings.Token.Equals(string.Empty))
+            if(!Settings.Token.Equals(string.Empty))
                 NavigationService.NavigateAsync("LoginPage");
             else
                 NavigationService.NavigateAsync("RootPage/SubscriberLanding");
@@ -56,7 +56,7 @@ namespace PrismAria
 
         private void ShowUserOption(object obj)
         {
-            var popup = new UserPopupPage(_profile.Picture.Data.Url, _profile.Name);
+            var popup = new UserPopupPage();
             Navigation.PushPopupAsync(popup, true);
         }
 
