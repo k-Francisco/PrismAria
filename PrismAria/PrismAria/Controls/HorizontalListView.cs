@@ -27,6 +27,8 @@ namespace PrismAria.Controls
             set { SetValue(ItemTemplateProperty, value); }
         }
 
+
+
         public void Render()
         {
             if (this.ItemTemplate == null || this.ItemSource == null)

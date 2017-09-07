@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Pages;
+﻿using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,11 @@ namespace PrismAria.PopupPages
 		{
 			InitializeComponent ();
             BindingContext = this;
-       
-
 		}
+
+        public void ClosePopup(object sender, EventArgs e) {
+            Navigation.PopPopupAsync(true);
+        }
 
 	}
 }

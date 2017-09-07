@@ -35,12 +35,23 @@
                      Spacing="0"
                      BackgroundColor="AliceBlue">
 
-                <ffimage:CachedImage Source="Default.png"
+                <ffimage:CachedImage Source="ic_close.png"
+                                    HorizontalOptions="Start"
+                                     HeightRequest="16"
+                                     WidthRequest="16"
+                                     Margin="16,16,0,0">
+                    <ffimage:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClosePopup" NumberOfTapsRequired="1"/>
+                    </ffimage:CachedImage.GestureRecognizers>
+                </ffimage:CachedImage>
+
+                <ffimage:CachedImage Source="icon.png"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
                                      DownsampleToViewSize="True"
-                                     HeightRequest="120"
-                                     WidthRequest="120">
+                                     HeightRequest="100"
+                                     WidthRequest="100"
+                                     CacheDuration="1">
                     <ffimage:CachedImage.Transformations>
                         <fftrans:CircleTransformation/>
                     </ffimage:CachedImage.Transformations>
@@ -54,33 +65,40 @@
                                       FontSize="Large"/>
 
                 <Grid RowSpacing="0"
-                  Padding="0"
-                  VerticalOptions="EndAndExpand"
-                      Margin="8,0,8,8">
+                    Padding="0"
+                    VerticalOptions="EndAndExpand"
+                    Margin="8,0,8,8">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Button TextColor="White"
-                        BackgroundColor="#2C3E50"
-                        Text="Profile"
-                        BorderRadius="4"
-                        Grid.Column="0"
-                        HeightRequest="40"/>
-                    <Button TextColor="White"
-                        BackgroundColor="#2C3E50"
-                        Text="Edit"
-                        BorderRadius="4"
-                        Grid.Column="1"
-                        HeightRequest="40"/>
-                    <Button TextColor="White"
-                        BackgroundColor="#2C3E50"
-                        Text="Log out"
-                        BorderRadius="4"
-                        Grid.Column="2"
-                        HeightRequest="40"/>
+                    <Frame Grid.Column="0"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Image Source="ic_settings_black.png"/>
+                            <Label Text="Settings" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Image Source="ic_power_settings.png"/>
+                            <Label Text="Logout" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
                 </Grid>
 
             </StackLayout>

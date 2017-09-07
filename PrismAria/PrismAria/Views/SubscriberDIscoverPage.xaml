@@ -13,11 +13,17 @@
               HasUnevenRows="True"
               SeparatorVisibility="None"
               Margin="0,0,0,16">
+        <x:Arguments>
+            <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
+        </x:Arguments>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout
                         Padding="0,16,0,-10">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DoNothingCommand}"/>
+                        </StackLayout.GestureRecognizers>
                         <controls:CustomLabel 
                             TextColor="#2C3E50"
                             Text="{Binding categoryName}"
@@ -42,6 +48,7 @@
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"
                                                                             Aspect="AspectFit"/>
+
                                             </Frame>
                                             <controls:CustomLabel Text="{Binding bandName}"
                                                                   StyleId="BryantMediumAlt-Regular"

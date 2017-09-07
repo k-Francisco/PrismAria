@@ -152,3 +152,12 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.IOS.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.Platform.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_power_settings@3x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_power_settings.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_power_settings@2x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_settings_black@3x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_settings_black.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_settings_black@2x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_close@3x.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_close.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_close@2x.png

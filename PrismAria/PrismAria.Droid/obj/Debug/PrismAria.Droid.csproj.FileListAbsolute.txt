@@ -156,3 +156,15 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-hdpi\ic_power_settings.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-xhdpi\ic_power_settings.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-xxhdpi\ic_power_settings.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_power_settings.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-hdpi\ic_settings_black.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-xhdpi\ic_settings_black.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-xxhdpi\ic_settings_black.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_settings_black.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-hdpi\ic_close.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_close.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-xhdpi\ic_close.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable-xxhdpi\ic_close.png

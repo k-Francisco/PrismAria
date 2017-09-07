@@ -53,6 +53,15 @@ namespace PrismAria.ViewModels
             set { discovery = value; }
         }
 
+        private DelegateCommand _doNothinfCommand;
+        public DelegateCommand DoNothingCommand =>
+            _doNothinfCommand ?? (_doNothinfCommand = new DelegateCommand(DoNothing));
+
+        private void DoNothing()
+        {
+            Debug.WriteLine("Hello");
+        }
+
         public SubscriberDIscoverPageViewModel(IEventAggregator ea)
         {
             _ea = ea;
@@ -66,19 +75,6 @@ namespace PrismAria.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             _profile = (FacebookProfile)parameters["profile"];
-        }
-
-        private ObservableCollection<string> sample = new ObservableCollection<string>();
-        public ObservableCollection<string> Sample {
-            get {
-                if (!sample.Any()) {
-                    sample.Add("sample 1");
-                    sample.Add("sample 2");
-                    sample.Add("sample 3");
-                    sample.Add("sample 4");
-                    sample.Add("sample 5");
-                }
-                return sample; }
         }
 
     }

@@ -49,7 +49,6 @@ namespace PrismAria
         {
             this.BarTextColor = Color.FromHex("#2C3E50");
             HelloCommand = new Command(ShowUserOption);
-            ToolbarItems.Add(new ToolbarItem { Icon = "ic_search.png" });
             ToolbarItems.Add(new ToolbarItem { Icon = "ic_discover.png",
                 Command = HelloCommand });
         }
