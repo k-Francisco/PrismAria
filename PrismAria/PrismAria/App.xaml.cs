@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using PrismAria.PopupPages;
 using Rg.Plugins.Popup.Extensions;
+using PrismAria.ViewModels;
 
 namespace PrismAria
 {
@@ -19,7 +20,7 @@ namespace PrismAria
         protected override void OnInitialized()
         {
             InitializeComponent();
-            if(!Settings.Token.Equals(string.Empty))
+            if(Settings.Token.Equals(string.Empty))
                 NavigationService.NavigateAsync("LoginPage");
             else
                 NavigationService.NavigateAsync("RootPage/SubscriberLanding");
@@ -29,6 +30,7 @@ namespace PrismAria
 
         protected override void RegisterTypes()
         {
+            Container.RegisterTypeForNavigation<UserPopupPage, UserPopupPageViewModel>();
             Container.RegisterTypeForNavigation<RootPage>();
             Container.RegisterTypeForNavigation<SubscriberLandingPage>("SubscriberLanding");
             Container.RegisterTypeForNavigation<SubscriberDIscoverPage>("Discover");

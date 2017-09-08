@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:popanim="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:fftrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              x:Class="PrismAria.PopupPages.UserPopupPage"
-             HasSystemPadding="True">
+             HasSystemPadding="True"
+             CloseWhenBackgroundIsClicked="False">
     <pages:PopupPage.Animation>
         <popanim:ScaleAnimation
             PositionIn="Center"
@@ -35,34 +38,38 @@
                      Spacing="0"
                      BackgroundColor="AliceBlue">
 
-                <ffimage:CachedImage Source="ic_close.png"
+                <ffimage:CachedImage
+                                    Source="ic_close.png"
                                     HorizontalOptions="Start"
-                                     HeightRequest="16"
-                                     WidthRequest="16"
-                                     Margin="16,16,0,0">
+                                    HeightRequest="16"
+                                    WidthRequest="16"
+                                    Margin="16,16,0,0">
                     <ffimage:CachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ClosePopup" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding ClosePopupCommand}" NumberOfTapsRequired="1"/>
                     </ffimage:CachedImage.GestureRecognizers>
                 </ffimage:CachedImage>
 
-                <ffimage:CachedImage Source="icon.png"
+                <ffimage:CachedImage Source="{Binding UserPic}"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
                                      DownsampleToViewSize="True"
-                                     HeightRequest="100"
-                                     WidthRequest="100"
+                                     DownsampleUseDipUnits="True"
+                                     DownsampleHeight="100"
+                                     WidthRequest="70"
+                                     HeightRequest="70"
                                      CacheDuration="1">
                     <ffimage:CachedImage.Transformations>
                         <fftrans:CircleTransformation/>
                     </ffimage:CachedImage.Transformations>
                 </ffimage:CachedImage>
 
-                <controls:CustomLabel Text="Name Here"
+                <controls:CustomLabel Text="{Binding UserName}"
                                       HorizontalOptions="Center"
                                       Margin="0,8,0,0"
                                       StyleId="BryantBoldAlt-Regular"
                                       FontFamily="BryantBoldAlt-Regular"
-                                      FontSize="Large"/>
+                                      FontSize="Large"
+                                      TextColor="#2C3E50"/>
 
                 <Grid RowSpacing="0"
                     Padding="0"
@@ -83,7 +90,10 @@
                         </Frame.GestureRecognizers>
                         <StackLayout>
                             <Image Source="ic_settings_black.png"/>
-                            <Label Text="Settings" HorizontalOptions="Center"/>
+                            <controls:CustomLabel Text="Settings"
+                                                  HorizontalOptions="Center"
+                                                  StyleId="BryantMediumAlt-Regular"
+                                                  FontFamily="BryantMediumAlt-Regular"/>
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Column="1"
@@ -92,11 +102,14 @@
                            HeightRequest="70"
                            BackgroundColor="Transparent">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                            <TapGestureRecognizer Command="{Binding LogoutCommand}" NumberOfTapsRequired="1"/>
                         </Frame.GestureRecognizers>
                         <StackLayout>
                             <Image Source="ic_power_settings.png"/>
-                            <Label Text="Logout" HorizontalOptions="Center"/>
+                            <controls:CustomLabel Text="Logout"
+                                                  HorizontalOptions="Center"
+                                                  StyleId="BryantMediumAlt-Regular"
+                                                  FontFamily="BryantMediumAlt-Regular"/>
                         </StackLayout>
                     </Frame>
                 </Grid>

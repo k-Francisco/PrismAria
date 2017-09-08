@@ -1,6 +1,7 @@
 // Helpers/Settings.cs
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using PrismAria.Models;
 
 namespace PrismAria.Helpers
 {
@@ -24,6 +25,9 @@ namespace PrismAria.Helpers
 		private const string tokenKey = "token_key";
 		private static readonly string tokenDefault = string.Empty;
 
+        private const string profileKey = "profile_key";
+        private static readonly string profile = string.Empty;
+
 		#endregion
 
 
@@ -38,6 +42,21 @@ namespace PrismAria.Helpers
 				AppSettings.AddOrUpdateValue(tokenKey, value);
 			}
 		}
+
+        public static string Profile {
+            get
+            {
+                return AppSettings.GetValueOrDefault(profileKey, profile);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(profileKey, value);
+            }
+        }
+
+        public static void ClearEverything() {
+            AppSettings.Clear();
+        }
 
 	}
 }

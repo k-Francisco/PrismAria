@@ -51,25 +51,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.11\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.Forms.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.2.11\lib\MonoAndroid10\FFImageLoading.Forms.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Forms.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.Forms.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.2.11\lib\MonoAndroid10\FFImageLoading.Forms.Droid.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.11\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Svg.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.Svg.Forms.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.Svg.Forms.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Svg.Forms.2.2.11\lib\MonoAndroid10\FFImageLoading.Svg.Forms.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Svg.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.Svg.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.Svg.Platform.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Svg.2.2.11\lib\MonoAndroid10\FFImageLoading.Svg.Platform.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Transformations, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.2.10-pre-466\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.2.11\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.266-pre1\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
@@ -188,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomRenderers\CustomLabelRenderer.cs" />
-    <Compile Include="CustomRenderers\CustomViewCellRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
     <Compile Include="CustomRenderers\HorizontalListViewRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />

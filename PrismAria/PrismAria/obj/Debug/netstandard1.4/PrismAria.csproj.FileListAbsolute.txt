@@ -21,6 +21,7 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.App.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.Page1.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.UserPopupPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.FacebookLoginPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.LoginPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberDIscoverPage.xaml.g.cs
@@ -31,4 +32,3 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.AssemblyInfo.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.UserPopupPage.xaml.g.cs

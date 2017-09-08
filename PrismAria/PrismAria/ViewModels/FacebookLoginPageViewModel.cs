@@ -11,6 +11,8 @@ using Prism.Events;
 using PrismAria.Events;
 using System.Diagnostics;
 using PrismAria.Models;
+using PrismAria.Helpers;
+using Newtonsoft.Json;
 
 namespace PrismAria.ViewModels
 {
@@ -30,11 +32,11 @@ namespace PrismAria.ViewModels
 	    {
 	        var facebookServices = new FacebookLoginService();
             var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
-            UserPhoto = Fbprofile.Picture.Data.Url;
-            //_ea.GetEvent<LoginEvent>().Publish(Fbprofile);
-            var navigationParams = new NavigationParameters();
-            navigationParams.Add("profile", Fbprofile);
-            await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), navigationParams, true, false);
+            Settings.Token = accessToken;
+            Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
+            //var navigationParams = new NavigationParameters();
+            //navigationParams.Add("profile", Fbprofile);
+            await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, false);
         }
     }
 }
