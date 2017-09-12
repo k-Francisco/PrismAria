@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace PrismAria.Models
@@ -15,5 +17,13 @@ namespace PrismAria.Models
 
         public string imgSource { get; set; }
         public string bandName { get; set; }
+        private DelegateCommand _bandClickCommand;
+        public DelegateCommand BandClickCommand =>
+            _bandClickCommand ?? (_bandClickCommand = new DelegateCommand(BandClick));
+
+        private void BandClick()
+        {
+            Debug.WriteLine(this.bandName);
+        }
     }
 }

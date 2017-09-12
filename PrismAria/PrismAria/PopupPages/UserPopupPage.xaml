@@ -50,6 +50,7 @@
                 </ffimage:CachedImage>
 
                 <ffimage:CachedImage Source="{Binding UserPic}"
+                                     Aspect="AspectFit"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
                                      DownsampleToViewSize="True"

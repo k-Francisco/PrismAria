@@ -17,7 +17,7 @@ namespace PrismAria.ViewModels
 
         
         private readonly INavigationService _navigationService;
-
+        
         #region Close User Popup
 
         private DelegateCommand _closePopupCommand;

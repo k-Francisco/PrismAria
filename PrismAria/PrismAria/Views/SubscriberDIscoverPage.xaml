@@ -9,10 +9,11 @@
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
              AutomationId="Discover">
 
-    <ListView ItemsSource="{Binding Discovery}"
+    <ListView x:Name="lvDiscover"
+              ItemsSource="{Binding Discovery}"
               HasUnevenRows="True"
               SeparatorVisibility="None"
-              Margin="0,0,0,16">
+              Margin="0">
         <x:Arguments>
             <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
         </x:Arguments>
@@ -22,7 +23,7 @@
                     <StackLayout
                         Padding="0,16,0,-10">
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding DoNothingCommand}"/>
+                            <TapGestureRecognizer/>
                         </StackLayout.GestureRecognizers>
                         <controls:CustomLabel 
                             TextColor="#2C3E50"
@@ -47,7 +48,12 @@
                                                 <ffImageLoading:CachedImage Source="{Binding imgSource}" 
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"
-                                                                            Aspect="AspectFit"/>
+                                                                            Aspect="AspectFit">
+                                                    <ffImageLoading:CachedImage.GestureRecognizers>
+                                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                                              Command="{Binding BandClickCommand}"/>
+                                                    </ffImageLoading:CachedImage.GestureRecognizers>
+                                                </ffImageLoading:CachedImage>
 
                                             </Frame>
                                             <controls:CustomLabel Text="{Binding bandName}"

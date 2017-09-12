@@ -10,6 +10,7 @@ using System.Diagnostics;
 using PrismAria.PopupPages;
 using Rg.Plugins.Popup.Extensions;
 using PrismAria.ViewModels;
+using Rg.Plugins.Popup.Services;
 
 namespace PrismAria
 {
@@ -57,8 +58,10 @@ namespace PrismAria
 
         private void ShowUserOption(object obj)
         {
-            var popup = new UserPopupPage();
-            Navigation.PushPopupAsync(popup, true);
+            if (PopupNavigation.PopupStack.Count == 0) {
+                var popup = new UserPopupPage();
+                Navigation.PushPopupAsync(popup, true);
+            }
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

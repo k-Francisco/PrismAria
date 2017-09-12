@@ -9,14 +9,14 @@ using PrismAria.Models;
 using System.Diagnostics;
 using Prism.Navigation;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace PrismAria.ViewModels
 {
     public class SubscriberDIscoverPageViewModel : BindableBase, INavigatedAware
     {
-        
         private IEventAggregator _ea;
-        private FacebookProfile _profile;
         private List<BandModel> _bandList = new List<BandModel>()
         {
                     new BandModel(){ imgSource = "logo.png", bandName="Maroon 5"},
@@ -53,15 +53,6 @@ namespace PrismAria.ViewModels
             set { discovery = value; }
         }
 
-        private DelegateCommand _doNothinfCommand;
-        public DelegateCommand DoNothingCommand =>
-            _doNothinfCommand ?? (_doNothinfCommand = new DelegateCommand(DoNothing));
-
-        private void DoNothing()
-        {
-            Debug.WriteLine("Hello");
-        }
-
         public SubscriberDIscoverPageViewModel(IEventAggregator ea)
         {
             _ea = ea;
@@ -74,7 +65,7 @@ namespace PrismAria.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            _profile = (FacebookProfile)parameters["profile"];
+            
         }
 
     }
