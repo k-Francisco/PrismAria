@@ -105,7 +105,7 @@
         <member name="F:FFImageLoading.Svg.Forms.SvgCachedImage.SourceProperty">
             <summary>
             The source property.
-            </summary> 
+            </summary>
         </member>
         <member name="P:FFImageLoading.Svg.Forms.SvgCachedImage.Source">
             <summary>
@@ -140,14 +140,14 @@
         </member>
         <member name="P:FFImageLoading.Svg.Forms.SvgCachedImage.ReplaceStringMap">
             <summary>
-            Used to define replacement map which will be used to 
+            Used to define replacement map which will be used to
             replace text inside SVG file (eg. changing colors values)
             </summary>
             <value>The replace string map.</value>
         </member>
         <member name="M:FFImageLoading.Svg.Forms.SvgCachedImage.SetupOnBeforeImageLoading(FFImageLoading.Work.TaskParameter)">
             <summary>
-            Setups the on before image loading. 
+            Setups the on before image loading.
             You can add additional logic here to configure image loader settings before loading
             </summary>
             <param name="imageLoader">Image loader.</param>

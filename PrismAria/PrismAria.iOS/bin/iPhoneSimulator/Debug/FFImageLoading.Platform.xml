@@ -159,7 +159,7 @@
         </member>
         <member name="M:FFImageLoading.Cross.MvxCachedImageView.SetupOnBeforeImageLoading(FFImageLoading.Work.TaskParameter)">
             <summary>
-            Setups the on before image loading. 
+            Setups the on before image loading.
             You can add additional logic here to configure image loader settings before loading
             eg. custom cache keys, svg data resolvers, etc
             </summary>
@@ -173,7 +173,7 @@
         </member>
         <member name="M:FFImageLoading.ImageService.Initialize">
             <summary>
-            Initializes FFImageLoading with a default Configuration. 
+            Initializes FFImageLoading with a default Configuration.
             Also forces to run disk cache cleaning routines (avoiding delay for first image loading tasks)
             </summary>
             <param name="configuration">Configuration.</param>

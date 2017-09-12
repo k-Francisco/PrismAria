@@ -51,7 +51,8 @@
                                                                             Aspect="AspectFit">
                                                     <ffImageLoading:CachedImage.GestureRecognizers>
                                                         <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                                              Command="{Binding BandClickCommand}"/>
+                                                                              Command="{Binding BandClick}"
+                                                                              CommandParameter="{Binding .}"/>
                                                     </ffImageLoading:CachedImage.GestureRecognizers>
                                                 </ffImageLoading:CachedImage>
 

@@ -19,13 +19,13 @@ namespace PrismAria.ViewModels
         private IEventAggregator _ea;
         private List<BandModel> _bandList = new List<BandModel>()
         {
-                    new BandModel(){ imgSource = "logo.png", bandName="Maroon 5"},
-                    new BandModel(){ imgSource = "logo.png", bandName="Paramore"},
-                    new BandModel(){ imgSource = "logo.png", bandName="Panic at the Disco"},
-                    new BandModel(){ imgSource = "logo.png", bandName="Sleeping with the sirens"},
-                    new BandModel(){ imgSource = "logo.png", bandName="Up Dharma Down"},
-                    new BandModel(){ imgSource = "logo.png", bandName="Fall Out Boys"},
-                    new BandModel(){ imgSource = "logo.png", bandName="All Time Low"},
+                    new BandModel(){ imgSource = "logo.png", bandName="Maroon 5", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
+                    new BandModel(){ imgSource = "logo.png", bandName="Paramore", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
+                    new BandModel(){ imgSource = "logo.png", bandName="Panic at the Disco", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
+                    new BandModel(){ imgSource = "logo.png", bandName="Sleeping with the sirens", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
+                    new BandModel(){ imgSource = "logo.png", bandName="Up Dharma Down", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
+                    new BandModel(){ imgSource = "logo.png", bandName="Fall Out Boys", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
+                    new BandModel(){ imgSource = "logo.png", bandName="All Time Low", BandClick = new DelegateCommand<BandModel>((obj) => { Debug.WriteLine(obj.bandName); }) },
         };
         ObservableCollection<DiscoverPageModel> discovery = new ObservableCollection<DiscoverPageModel>();
         public List<BandModel> BandList
