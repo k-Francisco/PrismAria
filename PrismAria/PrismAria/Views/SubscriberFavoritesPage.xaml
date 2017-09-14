@@ -6,8 +6,23 @@
              x:Class="PrismAria.Views.SubscriberFavoritesPage"
              AutomationId="Favorites">
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Favorites" />
-    </StackLayout>
+    <!--<ListView>
+        <x:Argmuents>
+            <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
+        </x:Argmuents>
 
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <RelativeLayout>
+                        
+                    </RelativeLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+    <StackLayout>
+    <Label Text="Favorites" HorizontalOptions="Center"
+           VerticalOptions="Center"/>
+    </StackLayout>
 </ContentPage>

@@ -15,7 +15,8 @@ namespace PrismAria.iOS.CustomRenderers
         {
             base.OnElementChanged(e);
             var cookies = NSHttpCookieStorage.SharedStorage.Cookies;
-            foreach (NSHttpCookie cookie in cookies) {
+            foreach (NSHttpCookie cookie in cookies)
+            {
                 NSHttpCookieStorage.SharedStorage.DeleteCookie(cookie);
             }
 

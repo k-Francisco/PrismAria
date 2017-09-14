@@ -10,7 +10,7 @@
              AutomationId="Discover">
 
     <ListView x:Name="lvDiscover"
-              ItemsSource="{Binding Discovery}"
+              ItemsSource="{Binding DiscoverList}"
               HasUnevenRows="True"
               SeparatorVisibility="None"
               Margin="0">
