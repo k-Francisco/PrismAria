@@ -168,3 +168,9 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.Droid.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.Droid.pdb

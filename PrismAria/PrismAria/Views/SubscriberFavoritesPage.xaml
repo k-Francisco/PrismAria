@@ -2,27 +2,84 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberFavoritesPage"
              AutomationId="Favorites">
 
-    <!--<ListView>
-        <x:Argmuents>
+    <ListView ItemsSource="{Binding FavoritesCollection}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None"
+              Margin="0">
+        <x:Arguments>
             <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
-        </x:Argmuents>
+        </x:Arguments>
 
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <RelativeLayout>
-                        
-                    </RelativeLayout>
+
+                    <StackLayout Padding="8">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    
+                        <RelativeLayout HeightRequest="170">
+                            <RelativeLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                            </RelativeLayout.GestureRecognizers>
+
+                            <ffImage:CachedImage Source="{Binding bandImage}"
+                                                 Aspect="AspectFill"
+                                                 RelativeLayout.HeightConstraint=
+                                                 "{ConstraintExpression Type=RelativeToParent, 
+                                                                        Property=Height, 
+                                                                        Factor=1}"
+                                                 RelativeLayout.WidthConstraint=
+                                                 "{ConstraintExpression Type=RelativeToParent, 
+                                                                        Property=Width, 
+                                                                        Factor=1}"/>
+                            <BoxView Color="Black"
+                                     Opacity=".6"
+                                     RelativeLayout.YConstraint=
+                                     "{ConstraintExpression Type=RelativeToParent,
+                                                            Property=Y,
+                                                            Constant=115}"
+                                     RelativeLayout.WidthConstraint=
+                                     "{ConstraintExpression Type=RelativeToParent, 
+                                                            Property=Width, 
+                                                            Factor=1}"
+                                     RelativeLayout.HeightConstraint=
+                                     "{ConstraintExpression Type=RelativeToParent,
+                                                            Property=Height,
+                                                            Factor=.27}"/>
+                            <controls:CustomLabel Text="{Binding bandName }"
+                                                  TextColor="White"
+                                                  FontSize="Medium"
+                                                  FontFamily="BryantBoldAlt-Regular"
+                                                  StyleId="BryantBoldAlt-Regular"
+                                                  Margin="8,0"
+                                                  RelativeLayout.YConstraint=
+                                                  "{ConstraintExpression Type=RelativeToParent, 
+                                                                         Property=Y, 
+                                                                         Constant=118 }"/>
+
+                            <controls:CustomLabel Text="{Binding songsAndAlbums }"
+                                                  TextColor="White"
+                                                  FontSize="Small"
+                                                  FontFamily="BryantMediumAlt-Regular"
+                                                  StyleId="BryantMediumAlt-Regular"
+                                                  Margin="8,0"
+                                                  RelativeLayout.YConstraint=
+                                                  "{ConstraintExpression Type=RelativeToParent, 
+                                                                         Property=Y, 
+                                                                         Constant=140 }"/>
+                        </RelativeLayout>
+                    </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>-->
-    <StackLayout>
-    <Label Text="Favorites" HorizontalOptions="Center"
-           VerticalOptions="Center"/>
-    </StackLayout>
+    </ListView>
+    
 </ContentPage>

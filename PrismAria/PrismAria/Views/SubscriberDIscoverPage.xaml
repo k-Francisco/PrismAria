@@ -9,8 +9,7 @@
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
              AutomationId="Discover">
 
-    <ListView x:Name="lvDiscover"
-              ItemsSource="{Binding DiscoverList}"
+    <ListView ItemsSource="{Binding DiscoverList}"
               HasUnevenRows="True"
               SeparatorVisibility="None"
               Margin="0">
