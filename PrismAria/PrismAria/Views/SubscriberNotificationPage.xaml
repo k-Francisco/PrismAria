@@ -6,7 +6,7 @@
              x:Class="PrismAria.Views.SubscriberNotificationPage"
              AutomationId="Notifications">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Notification" />
+        <Label Text="Notification"/>
     </StackLayout>
 
 </ContentPage>

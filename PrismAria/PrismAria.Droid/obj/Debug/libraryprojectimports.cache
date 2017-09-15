@@ -7,8 +7,6 @@
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Svg.Forms\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Svg.Platform\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Transformations\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Lottie\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Lottie.Forms.Droid\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Connectivity\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Settings\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Rg.Plugins.Popup.Droid\library_project_imports\res</ResolvedResourceDirectory>
@@ -30,8 +28,6 @@
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FFImageLoading.Svg.Forms\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FFImageLoading.Svg.Platform\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FFImageLoading.Transformations\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Lottie\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Lottie.Forms.Droid\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Plugin.Connectivity\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Plugin.Settings\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Rg.Plugins.Popup.Droid\library_project_imports\assets</ResolvedAssetDirectory>
@@ -48,8 +44,6 @@
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Svg.Forms.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Svg.Platform.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\FFImageLoading.Transformations.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Lottie.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Lottie.Forms.Droid.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Connectivity.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Plugin.Settings.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\__library_projects__\Rg.Plugins.Popup.Droid.stamp</ResolvedResourceDirectoryStamp>

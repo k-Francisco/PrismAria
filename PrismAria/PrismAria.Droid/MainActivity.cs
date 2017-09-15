@@ -9,7 +9,6 @@ using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using FFImageLoading.Forms.Droid;
-using Lottie.Forms.Droid;
 
 namespace PrismAria.Droid
 {
@@ -24,7 +23,6 @@ namespace PrismAria.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init();
-            AnimationViewRenderer.Init();
             LoadApplication(new App(new AndroidInitializer()));
             
         }
