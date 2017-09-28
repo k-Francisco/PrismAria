@@ -34,8 +34,7 @@ namespace PrismAria.ViewModels
             var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
             Settings.Token = accessToken;
             Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
-            //var navigationParams = new NavigationParameters();
-            //navigationParams.Add("profile", Fbprofile);
+            
             await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, false);
         }
     }

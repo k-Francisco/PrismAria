@@ -11,6 +11,7 @@ using PrismAria.PopupPages;
 using Rg.Plugins.Popup.Extensions;
 using PrismAria.ViewModels;
 using Rg.Plugins.Popup.Services;
+using DLToolkit.Forms.Controls;
 
 namespace PrismAria
 {
@@ -21,6 +22,7 @@ namespace PrismAria
         protected override void OnInitialized()
         {
             InitializeComponent();
+            FlowListView.Init();
             if(Settings.Token.Equals(string.Empty))
                 NavigationService.NavigateAsync("LoginPage");
             else

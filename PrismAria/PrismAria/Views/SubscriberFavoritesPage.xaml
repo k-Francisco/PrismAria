@@ -4,82 +4,57 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberFavoritesPage"
              AutomationId="Favorites">
 
-    <ListView ItemsSource="{Binding FavoritesCollection}"
-              HasUnevenRows="True"
-              SeparatorVisibility="None"
-              Margin="0">
-        <x:Arguments>
-            <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
-        </x:Arguments>
+    <flv:FlowListView FlowItemsSource="{Binding FavoritesCollection}"
+                      FlowColumnCount="2"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      IsPullToRefreshEnabled="True">
 
-        <ListView.ItemTemplate>
+        <!--<flv:FlowListView.FlowLoadingTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="loading"/>
+
+                    </ViewCell>
+                </DataTemplate>
+            </flv:FlowListView.FlowLoadingTemplate>-->
+
+        <flv:FlowListView.FlowColumnTemplate>
             <DataTemplate>
-                <ViewCell>
+                <Grid
+                        Margin="8,12,8,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="130"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
 
-                    <StackLayout Padding="8">
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
-                        </StackLayout.GestureRecognizers>
-                    
-                        <RelativeLayout HeightRequest="170">
-                            <RelativeLayout.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1"/>
-                            </RelativeLayout.GestureRecognizers>
+                    <ffImage:CachedImage Grid.Row="0"
+                                             Source="{Binding bandImage}"
+                                             Aspect="AspectFill"/>
 
-                            <ffImage:CachedImage Source="{Binding bandImage}"
-                                                 Aspect="AspectFill"
-                                                 RelativeLayout.HeightConstraint=
-                                                 "{ConstraintExpression Type=RelativeToParent, 
-                                                                        Property=Height, 
-                                                                        Factor=1}"
-                                                 RelativeLayout.WidthConstraint=
-                                                 "{ConstraintExpression Type=RelativeToParent, 
-                                                                        Property=Width, 
-                                                                        Factor=1}"/>
-                            <BoxView Color="Black"
-                                     Opacity=".6"
-                                     RelativeLayout.YConstraint=
-                                     "{ConstraintExpression Type=RelativeToParent,
-                                                            Property=Y,
-                                                            Constant=115}"
-                                     RelativeLayout.WidthConstraint=
-                                     "{ConstraintExpression Type=RelativeToParent, 
-                                                            Property=Width, 
-                                                            Factor=1}"
-                                     RelativeLayout.HeightConstraint=
-                                     "{ConstraintExpression Type=RelativeToParent,
-                                                            Property=Height,
-                                                            Factor=.27}"/>
-                            <controls:CustomLabel Text="{Binding bandName }"
-                                                  TextColor="White"
-                                                  FontSize="Medium"
-                                                  FontFamily="BryantBoldAlt-Regular"
-                                                  StyleId="BryantBoldAlt-Regular"
-                                                  Margin="8,0"
-                                                  RelativeLayout.YConstraint=
-                                                  "{ConstraintExpression Type=RelativeToParent, 
-                                                                         Property=Y, 
-                                                                         Constant=118 }"/>
+                    <controls:CustomLabel Grid.Row="1"
+                                              Text="{Binding bandName}"
+                                              TextColor="#2C3E50"
+                                              FontSize="Medium"
+                                              Margin="0"
+                                              FontFamily="BryantBoldAlt-Regular"
+                                              StyleId="BryantBoldAlt-Regular"/>
 
-                            <controls:CustomLabel Text="{Binding songsAndAlbums }"
-                                                  TextColor="White"
-                                                  FontSize="Small"
-                                                  FontFamily="BryantMediumAlt-Regular"
-                                                  StyleId="BryantMediumAlt-Regular"
-                                                  Margin="8,0"
-                                                  RelativeLayout.YConstraint=
-                                                  "{ConstraintExpression Type=RelativeToParent, 
-                                                                         Property=Y, 
-                                                                         Constant=140 }"/>
-                        </RelativeLayout>
-                    </StackLayout>
-                </ViewCell>
+                    <controls:CustomLabel Grid.Row="1"
+                                              Text="{Binding songsAndAlbums}"
+                                              TextColor="#2C3E50"
+                                              FontSize="Small"
+                                              Margin="0,20,0,0"
+                                              FontFamily="BryantMediumAlt-Regular"
+                                              StyleId="BryantMediumAlt-Regular"/>
+                </Grid>
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </flv:FlowListView.FlowColumnTemplate>
+    </flv:FlowListView>
     
 </ContentPage>

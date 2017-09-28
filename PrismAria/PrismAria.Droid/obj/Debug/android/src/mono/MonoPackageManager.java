@@ -99,6 +99,7 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "PrismAria.Droid.dll" comes first in this list. */
 		"PrismAria.Droid.dll",
+		"DLToolkit.Forms.Controls.FlowListView.dll",
 		"FFImageLoading.dll",
 		"FFImageLoading.Forms.dll",
 		"FFImageLoading.Forms.Droid.dll",
@@ -107,9 +108,6 @@ class MonoPackageManager_Resources {
 		"FFImageLoading.Svg.Platform.dll",
 		"FFImageLoading.Transformations.dll",
 		"FormsViewGroup.dll",
-		"Lottie.dll",
-		"Lottie.Forms.dll",
-		"Lottie.Forms.Droid.dll",
 		"Microsoft.Practices.ServiceLocation.dll",
 		"Microsoft.Practices.Unity.dll",
 		"Newtonsoft.Json.dll",

@@ -2,6 +2,7 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droi
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid.apk
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.Droid-Signed.apk
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\DLToolkit.Forms.Controls.FlowListView.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.Forms.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.Forms.Droid.dll
@@ -46,6 +47,7 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Platform.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\PrismAria.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\DLToolkit.Forms.Controls.FlowListView.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.xml
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\FFImageLoading.dll.mdb
@@ -168,9 +170,3 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.Droid.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Lottie.Forms.Droid.pdb
