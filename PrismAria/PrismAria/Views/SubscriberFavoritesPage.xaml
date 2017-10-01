@@ -12,8 +12,7 @@
     <flv:FlowListView FlowItemsSource="{Binding FavoritesCollection}"
                       FlowColumnCount="2"
                       HasUnevenRows="True"
-                      SeparatorVisibility="None"
-                      IsPullToRefreshEnabled="True">
+                      SeparatorVisibility="None">
 
         <!--<flv:FlowListView.FlowLoadingTemplate>
                 <DataTemplate>

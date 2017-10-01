@@ -6,11 +6,6 @@
       <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\UIViewController-X5k-f2-b5h~ipad.nib\objects.nib">
-      <LogicalName>LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h~ipad.nib/objects.nib</LogicalName>
-      <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
-      <Optimize>false</Optimize>
-    </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\UIViewController-X5k-f2-b5h~ipad.nib\runtime.nib">
       <LogicalName>LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h~ipad.nib/runtime.nib</LogicalName>
       <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
@@ -18,11 +13,6 @@
     </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\UIViewController-X5k-f2-b5h~iphone.nib\objects-8.0+.nib">
       <LogicalName>LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h~iphone.nib/objects-8.0+.nib</LogicalName>
-      <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
-      <Optimize>false</Optimize>
-    </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\UIViewController-X5k-f2-b5h~iphone.nib\objects.nib">
-      <LogicalName>LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h~iphone.nib/objects.nib</LogicalName>
       <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
@@ -36,11 +26,6 @@
       <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\X5k-f2-b5h-view-yd7-JS-zBw~ipad.nib\objects.nib">
-      <LogicalName>LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw~ipad.nib/objects.nib</LogicalName>
-      <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
-      <Optimize>false</Optimize>
-    </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\X5k-f2-b5h-view-yd7-JS-zBw~ipad.nib\runtime.nib">
       <LogicalName>LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw~ipad.nib/runtime.nib</LogicalName>
       <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
@@ -48,11 +33,6 @@
     </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\X5k-f2-b5h-view-yd7-JS-zBw~iphone.nib\objects-8.0+.nib">
       <LogicalName>LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw~iphone.nib/objects-8.0+.nib</LogicalName>
-      <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
-      <Optimize>false</Optimize>
-    </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\X5k-f2-b5h-view-yd7-JS-zBw~iphone.nib\objects.nib">
-      <LogicalName>LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw~iphone.nib/objects.nib</LogicalName>
       <InterfaceDefinition>Resources/LaunchScreen.storyboard</InterfaceDefinition>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
