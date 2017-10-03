@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace PrismAria.ViewModels
 {
-    public class SubscriberLandingPageViewModel : BaseViewModel, INavigatedAware
+    public class SubscriberLandingPageViewModel : BindableBase, INavigatedAware
     {
         private IEventAggregator _ea;
 
@@ -22,12 +22,10 @@ namespace PrismAria.ViewModels
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
-            throw new NotImplementedException();
         }
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            Debug.WriteLine("niagi ang boang dri");
         }
     }
 }

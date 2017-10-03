@@ -7,6 +7,8 @@ namespace PrismAria.Views
         public SubscriberLeaderboardPage()
         {
             InitializeComponent();
+            if (Device.RuntimePlatform.Equals(Device.iOS))
+                this.Title = "Leaderboard";
         }
     }
 }

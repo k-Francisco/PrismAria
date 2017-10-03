@@ -8,6 +8,11 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
              AutomationId="Discover">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0"/>
+    </ContentPage.Padding>
 
     <ListView ItemsSource="{Binding DiscoverList}"
               HasUnevenRows="True"
@@ -28,6 +33,7 @@
                             TextColor="#2C3E50"
                             Text="{Binding categoryName}"
                             StyleId="BryantBoldAlt-Regular"
+                            FontFamily="Bryant 2"
                             FontSize="Large"
                             Margin="16,0,0,0"/>
 
@@ -58,6 +64,7 @@
                                             </Frame>
                                             <controls:CustomLabel Text="{Binding bandName}"
                                                                   StyleId="BryantMediumAlt-Regular"
+                                                                  FontFamily="Bryant 2"
                                                                   FontSize="14"
                                                                   LineBreakMode="TailTruncation"
                                                                   WidthRequest="80"

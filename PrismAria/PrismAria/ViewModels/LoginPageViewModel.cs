@@ -8,7 +8,8 @@ using Plugin.Connectivity;
 using Prism.Navigation;
 using Prism.Services;
 using PrismAria.Helpers;
-
+using Rg.Plugins.Popup.Services;
+using PrismAria.Views;
 
 namespace PrismAria.ViewModels
 {
@@ -49,15 +50,17 @@ namespace PrismAria.ViewModels
         public DelegateCommand FbLoginCommand =>
             _fbLoginCommand ?? (_fbLoginCommand = new DelegateCommand(FbLogin));
 
-	    private void FbLogin()
+	    private async void FbLogin()
 	    {
             if (_isConnected)
 	        {
-	            _navigationService.NavigateAsync("FacebookLoginPage", null, true, false);
+                
+                var fbPop = new FacebookLoginPage();
+                await PopupNavigation.Instance.PushAsync(fbPop, false);
             }
 	        else
 	        {
-	            _dialogService.DisplayAlertAsync("Connectivity Issues","Your device is not connected to the internet!", "OK");
+	            await _dialogService.DisplayAlertAsync("Connectivity Issues","Your device is not connected to the internet!", "OK");
 	        }
 	    }
 

@@ -7,6 +7,8 @@ namespace PrismAria.Views
         public SubscriberFavoritesPage()
         {
             InitializeComponent();
+            if (Device.RuntimePlatform.Equals(Device.iOS))
+                this.Title = "Favorites";
         }
     }
 }

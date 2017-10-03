@@ -5,6 +5,11 @@
             xmlns:local="clr-namespace:PrismAria.Views;assembly=PrismAria"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="PrismAria.Views.SubscriberLandingPage">
+    <TabbedPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0"/>
+    </TabbedPage.Padding>
 
     <TabbedPage.Children>
         <local:SubscriberDIscoverPage

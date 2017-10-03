@@ -1,10 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pop:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:pop="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:popanim="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:controls="clr-namespace:PrismAria.Controls"
              prism:ViewModelLocator.AutowireViewModel="True"
-             ControlTemplate="{StaticResource NavBar}"
-             x:Class="PrismAria.Views.FacebookLoginPage">
+             x:Class="PrismAria.Views.FacebookLoginPage"
+             HasSystemPadding="True"
+             CloseWhenBackgroundIsClicked="False">
+
+    <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <controls:CustomWebView x:Name="webby" Grid.Row="0"
+                                Source="{Binding ApiRequest}"
+                                HeightRequest="1"/>
+        <Image Source="ic_close.png"
+                   Grid.Row="0"
+                   HeightRequest="24"
+                   WidthRequest="24"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start"
+                   Margin="8,8,0,0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CloseLoginPageCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
+    
 
 
-</ContentPage>
+</pop:PopupPage>

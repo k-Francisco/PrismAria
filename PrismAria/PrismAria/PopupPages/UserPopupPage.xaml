@@ -69,7 +69,7 @@
                                       HorizontalOptions="Center"
                                       Margin="0,8,0,0"
                                       StyleId="BryantBoldAlt-Regular"
-                                      FontFamily="BryantBoldAlt-Regular"
+                                      FontFamily="BryantBoldAlt Regular"
                                       FontSize="Large"
                                       TextColor="#2C3E50"/>
 

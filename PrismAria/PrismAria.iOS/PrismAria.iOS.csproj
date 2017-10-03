@@ -90,6 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomRenderers\CustomLabelRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomNavigationPageRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
     <Compile Include="CustomRenderers\HorizontalListViewRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
@@ -102,8 +103,8 @@
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
     <BundleResource Include="Resources\Fonts\Milkshake.otf" />
-    <BundleResource Include="Resources\Fonts\BryantBoldAlt-Regular.otf" />
-    <BundleResource Include="Resources\Fonts\BryantMediumAlt-Regular.otf" />
+    <BundleResource Include="Resources\Fonts\BryantBoldAlt Regular.otf" />
+    <BundleResource Include="Resources\Fonts\BryantMediumAlt Regular.otf" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

@@ -13,6 +13,7 @@ using System.Diagnostics;
 using PrismAria.Models;
 using PrismAria.Helpers;
 using Newtonsoft.Json;
+using Rg.Plugins.Popup.Services;
 
 namespace PrismAria.ViewModels
 {
@@ -20,12 +21,26 @@ namespace PrismAria.ViewModels
     {
         private readonly INavigationService _navigationService;
         private IEventAggregator _ea;
-        public string UserPhoto;
+        public WebViewSource ApiRequest { get; set; }
+        private string _clientId = "1936064290001318";
+
+        private DelegateCommand _closeLoginPageCommand;
+        public DelegateCommand CloseLoginPageCommand =>
+            _closeLoginPageCommand ?? (_closeLoginPageCommand = new DelegateCommand(CloseLoginPage));
+
+        private void CloseLoginPage()
+        {
+            PopupNavigation.Instance.PopAllAsync(false);
+            //Debug.WriteLine("hello");
+        }
 
         public FacebookLoginPageViewModel(INavigationService navigationService, IEventAggregator ea)
         {
             _navigationService = navigationService;
             _ea = ea;
+            ApiRequest = "https://www.facebook.com/dialog/oauth?client_id="
+                + _clientId
+                + "&display=popup&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html";
         }
 
 	    public async Task SetFacebookUserProfileAsync(string accessToken)
@@ -34,7 +49,7 @@ namespace PrismAria.ViewModels
             var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
             Settings.Token = accessToken;
             Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
-            
+            CloseLoginPage();
             await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, false);
         }
     }

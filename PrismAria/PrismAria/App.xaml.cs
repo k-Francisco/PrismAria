@@ -12,6 +12,7 @@ using Rg.Plugins.Popup.Extensions;
 using PrismAria.ViewModels;
 using Rg.Plugins.Popup.Services;
 using DLToolkit.Forms.Controls;
+using PrismAria.Controls;
 
 namespace PrismAria
 {
@@ -19,16 +20,21 @@ namespace PrismAria
     {
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
 
-        protected override void OnInitialized()
+        protected async override void OnInitialized()
         {
             InitializeComponent();
             FlowListView.Init();
-            if(Settings.Token.Equals(string.Empty))
-                NavigationService.NavigateAsync("LoginPage");
-            else
-                NavigationService.NavigateAsync("RootPage/SubscriberLanding");
+            if (Settings.Token.Equals(string.Empty))
+               await NavigationService.NavigateAsync("LoginPage");
+            else {
+                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.iOS))
+                    await NavigationService.NavigateAsync("SubscriberLanding");
+                else
+                    await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
+            }
+                
 
-           
+
         }
 
         protected override void RegisterTypes()
@@ -41,18 +47,17 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<SubscriberNotificationPage>();
             Container.RegisterTypeForNavigation<SubscriberLeaderboardPage>();
             Container.RegisterTypeForNavigation<LoginPage>();
-            Container.RegisterTypeForNavigation<FacebookLoginPage>();
+            Container.RegisterTypeForNavigation<FacebookLoginPage, FacebookLoginPageViewModel>();
         }
     }
 
-    class RootPage : NavigationPage, INavigatedAware
+    class RootPage : CustomNavigationPage, INavigatedAware
     {
         FacebookProfile _profile;
         public ICommand HelloCommand { get; private set; }
 
-        public RootPage()
+        public RootPage(Page root):base(root)
         {
-            this.BarTextColor = Color.FromHex("#2C3E50");
             HelloCommand = new Command(ShowUserOption);
             ToolbarItems.Add(new ToolbarItem { Icon = "ic_user.png",
                 Command = HelloCommand });

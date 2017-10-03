@@ -7,6 +7,8 @@ namespace PrismAria.Views
         public SubscriberDIscoverPage()
         {
             InitializeComponent();
+            if (Device.RuntimePlatform.Equals(Device.iOS))
+                this.Title = "Discover";
         }
     }
 }
