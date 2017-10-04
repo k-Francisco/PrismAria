@@ -4,7 +4,8 @@
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             xmlns:local="clr-namespace:PrismAria.Views;assembly=PrismAria"
             prism:ViewModelLocator.AutowireViewModel="True"
-            x:Class="PrismAria.Views.SubscriberLandingPage">
+            x:Class="PrismAria.Views.SubscriberLandingPage"
+            AutomationId="LandingPage">
     <TabbedPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"

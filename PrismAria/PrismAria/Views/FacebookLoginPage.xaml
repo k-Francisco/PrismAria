@@ -10,6 +10,19 @@
              HasSystemPadding="True"
              CloseWhenBackgroundIsClicked="False">
 
+    <pop:PopupPage.Animation>
+        <popanim:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="0.8"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SpringOut"
+            EasingOut="SpringOut"
+            HasBackgroundAnimation="True"/>
+    </pop:PopupPage.Animation>
+
     <Grid Margin="25">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

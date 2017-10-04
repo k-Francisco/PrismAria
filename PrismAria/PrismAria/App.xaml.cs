@@ -48,6 +48,7 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<SubscriberLeaderboardPage>();
             Container.RegisterTypeForNavigation<LoginPage>();
             Container.RegisterTypeForNavigation<FacebookLoginPage, FacebookLoginPageViewModel>();
+            Container.RegisterTypeForNavigation<SubscriberViewBandPage>();
         }
     }
 
@@ -55,12 +56,40 @@ namespace PrismAria
     {
         FacebookProfile _profile;
         public ICommand HelloCommand { get; private set; }
+        ToolbarItem userPageItem = new ToolbarItem()
+        {
+            Icon = "ic_user.png",
+        };
 
-        public RootPage(Page root):base(root)
+        public RootPage()
         {
             HelloCommand = new Command(ShowUserOption);
-            ToolbarItems.Add(new ToolbarItem { Icon = "ic_user.png",
-                Command = HelloCommand });
+            userPageItem.Command = HelloCommand;
+            this.ChildAdded += RootPage_ChildAdded;
+            this.ChildRemoved += RootPage_ChildRemoved;
+        }
+
+        private void RootPage_ChildRemoved(object sender, ElementEventArgs e)
+        {
+            BarBackgroundColor = Color.White;
+            BarTextColor = Color.FromHex("#2C3E50");
+            ToolbarItems.Add(userPageItem);
+        }
+
+        private void RootPage_ChildAdded(object sender, ElementEventArgs e)
+        {
+            if (e.Element.AutomationId.Equals("LandingPage"))
+            {
+                BarBackgroundColor = Color.White;
+                BarTextColor = Color.FromHex("#2C3E50");
+                ToolbarItems.Add(userPageItem);
+            }
+            else
+            {
+                BarBackgroundColor = Color.FromHex("#2C3E50");
+                BarTextColor = Color.White;
+                ToolbarItems.Remove(userPageItem);
+            }
         }
 
         private void ShowUserOption(object obj)

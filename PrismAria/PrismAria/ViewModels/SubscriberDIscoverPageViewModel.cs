@@ -19,6 +19,7 @@ namespace PrismAria.ViewModels
     {
         private DiscoverListService _discoverService;
         private IEventAggregator _ea;
+        private readonly INavigationService _navigationService;
         private ObservableCollection<DiscoverPageModel> _discoverList;
         public ObservableCollection<DiscoverPageModel> DiscoverList
         {
@@ -26,11 +27,12 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _discoverList, value); }
         }
 
-        public SubscriberDIscoverPageViewModel(IEventAggregator ea)
+        public SubscriberDIscoverPageViewModel(IEventAggregator ea, INavigationService navigationService)
         {
             _ea = ea;
+            _navigationService = navigationService;
             _discoverService = new DiscoverListService();
-            _discoverList = _discoverService.GetDiscoverList();
+            _discoverList = _discoverService.GetDiscoverList(_navigationService);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

@@ -56,7 +56,7 @@ namespace PrismAria.ViewModels
 	        {
                 
                 var fbPop = new FacebookLoginPage();
-                await PopupNavigation.Instance.PushAsync(fbPop, false);
+                await PopupNavigation.Instance.PushAsync(fbPop, true);
             }
 	        else
 	        {
