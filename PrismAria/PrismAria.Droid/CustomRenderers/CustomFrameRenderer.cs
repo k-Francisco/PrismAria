@@ -26,6 +26,7 @@ namespace PrismAria.Droid.CustomRenderers
             if (e.OldElement != null || Element == null)
                 return;
 
+            
         }
     }
 }

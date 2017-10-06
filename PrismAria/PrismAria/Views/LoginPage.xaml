@@ -6,10 +6,6 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.LoginPage">
 
-    <ContentPage.Resources>
-        <!--Resources Here-->
-    </ContentPage.Resources>
-    
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,55 +13,20 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-
-        <controls:CustomLabel Grid.Row="0"
-            TextColor="Black"
-            Text="Aria"
-            StyleId="Milkshake"
-            FontFamily="Milkshake"
-            FontSize="62"
-            HorizontalOptions="Center"
-            VerticalOptions="End"
-            Margin="0,0,0,16"/>
-
-        <!--<StackLayout Grid.Row="1">
-            <StackLayout.Spacing>
-                <OnPlatform x:TypeArguments="x:Double"
-                            Android="4"
-                            iOS="12"/>    
-            </StackLayout.Spacing>
-            <StackLayout.Padding>
-                <OnPlatform x:TypeArguments="Thickness"
-                            Android="16,32,16,32"
-                            iOS="16,52,16,32"/>
-            </StackLayout.Padding>
-            
-            <Button
-                Text="Login"
-                BackgroundColor="#2C3E50"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center"
-                TextColor="White"/>
-            
-                <Button
-                Command="{Binding FbLoginCommand}"
-                Text="Login with facebook"
-                BackgroundColor="#3B5998"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center"
-                TextColor="White"/>
-
-            <controls:CustomLabel
-                Text="Sign up here!"
-                TextColor="#2C3E50"
-                HorizontalOptions="Center"
-                FontSize="16"
-                FontFamily="BryantBoldAlt-Regular"
-                StyleId="BryantMediumAlt-Regular"/>
-
-        </StackLayout>-->
-        
-        <!--2nd stack layout-->
+        <Label Grid.Row="0"
+               Text="Aria"
+               TextColor="Black"
+               FontSize="62"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,0,0,16">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS">Milkshake</On>
+                    <On Platform="Android">Milkshake.otf#Milkshake</On>
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
 
         <StackLayout Grid.Row="1">
             <StackLayout.Spacing>
@@ -95,17 +56,20 @@
                 VerticalOptions="Center"
                 TextColor="White"/>
 
-            <controls:CustomLabel
-                Text="Sign up here!"
-                TextColor="#2C3E50"
-                HorizontalOptions="Center"
-                FontSize="16"
-                FontFamily="BryantBoldAlt-Regular"
-                StyleId="BryantMediumAlt-Regular">
-                <controls:CustomLabel.GestureRecognizers>
+            <Label Text="Sign up here!"
+                   TextColor="#2C3E50"
+                   HorizontalOptions="Center"
+                   FontSize="16">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+                <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
-                </controls:CustomLabel.GestureRecognizers>
-            </controls:CustomLabel>
+                </Label.GestureRecognizers>
+            </Label>
 
         </StackLayout>
 

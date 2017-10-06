@@ -193,7 +193,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomRenderers\CustomFrameRenderer.cs" />
-    <Compile Include="CustomRenderers\CustomLabelRenderer.cs" />
     <Compile Include="CustomRenderers\CustomNavigationPageRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
     <Compile Include="CustomRenderers\HorizontalListViewRenderer.cs" />
