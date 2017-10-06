@@ -32,9 +32,6 @@ namespace PrismAria
                 else
                     await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
             }
-                
-
-
         }
 
         protected override void RegisterTypes()
@@ -49,6 +46,7 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<LoginPage>();
             Container.RegisterTypeForNavigation<FacebookLoginPage, FacebookLoginPageViewModel>();
             Container.RegisterTypeForNavigation<SubscriberViewBandPage>();
+            Container.RegisterTypeForNavigation<CreateBandPopupPage>();
         }
     }
 

@@ -33,3 +33,4 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csprojResolveAssemblyReference.cache
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.CreateBandPopupPage.xaml.g.cs

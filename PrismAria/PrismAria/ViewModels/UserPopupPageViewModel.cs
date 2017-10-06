@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using PrismAria.Helpers;
 using PrismAria.Models;
 using PrismAria.Services;
@@ -17,6 +18,7 @@ namespace PrismAria.ViewModels
 	public class UserPopupPageViewModel : BindableBase
 	{
         private readonly INavigationService _navigationService;
+        private readonly IPageDialogService pageDialogService;
         private readonly UserBandsService _userBandsService;
         #region Close User Popup
 
@@ -46,6 +48,25 @@ namespace PrismAria.ViewModels
         }
         #endregion
 
+        #region create band
+        private DelegateCommand _createBandCommand;
+        public DelegateCommand CreateBandCommand =>
+            _createBandCommand ?? (_createBandCommand = new DelegateCommand(CreateBand));
+
+        private async void CreateBand()
+        {
+            await PopupNavigation.Instance.PopAllAsync();
+            var webserve = new WebServices();
+            var fbProfile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
+            var isSuccess = await webserve.CreateBand(fbProfile.Id);
+            if (isSuccess)
+                await pageDialogService.DisplayAlertAsync("NICE KA", "GOOD GOOD GOOD", "OK");
+            else
+                await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
+
+        }
+        #endregion
+
         private ObservableCollection<UserBandModel> _userBands;
         public ObservableCollection<UserBandModel> UserBands
         {
@@ -56,9 +77,10 @@ namespace PrismAria.ViewModels
         public string UserPic { get; set; }
         public string UserName { get; set; }
 
-        public UserPopupPageViewModel(INavigationService navigationService)
+        public UserPopupPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             _navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
             var profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
             UserPic = profile.Picture.Data.Url;
             UserName = profile.Name;
