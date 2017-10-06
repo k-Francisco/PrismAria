@@ -62,10 +62,6 @@ FFImageLoading.Cross.MvxCachedImageView, FFImageLoading.Platform;ffimageloading.
 FFImageLoading.Cross.MvxCachedImageView, FFImageLoading.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;ffimageloading.cross.MvxCachedImageView
 FFImageLoading.Cross.MvxCachedImageView;ffimageloading.cross.MvxCachedImageView
 ffimageloading.cross.MvxCachedImageView;ffimageloading.cross.MvxCachedImageView
-FFImageLoading.Cross.MvxSvgCachedImageView, FFImageLoading.Svg.Platform;ffimageloading.cross.MvxSvgCachedImageView
-FFImageLoading.Cross.MvxSvgCachedImageView, FFImageLoading.Svg.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;ffimageloading.cross.MvxSvgCachedImageView
-FFImageLoading.Cross.MvxSvgCachedImageView;ffimageloading.cross.MvxSvgCachedImageView
-ffimageloading.cross.MvxSvgCachedImageView;ffimageloading.cross.MvxSvgCachedImageView
 Plugin.Connectivity.ConnectivityChangeBroadcastReceiver, Plugin.Connectivity;md5a7903531ac28e2eb4c8576cdf2655bda.ConnectivityChangeBroadcastReceiver
 Plugin.Connectivity.ConnectivityChangeBroadcastReceiver, Plugin.Connectivity, Version=3.0.2.0, Culture=neutral, PublicKeyToken=null;md5a7903531ac28e2eb4c8576cdf2655bda.ConnectivityChangeBroadcastReceiver
 Plugin.Connectivity.ConnectivityChangeBroadcastReceiver;md5a7903531ac28e2eb4c8576cdf2655bda.ConnectivityChangeBroadcastReceiver

@@ -104,8 +104,6 @@ class MonoPackageManager_Resources {
 		"FFImageLoading.Forms.dll",
 		"FFImageLoading.Forms.Droid.dll",
 		"FFImageLoading.Platform.dll",
-		"FFImageLoading.Svg.Forms.dll",
-		"FFImageLoading.Svg.Platform.dll",
 		"FFImageLoading.Transformations.dll",
 		"FormsViewGroup.dll",
 		"Microsoft.Practices.ServiceLocation.dll",

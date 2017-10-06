@@ -20,7 +20,7 @@ namespace PrismAria.Droid
             TabLayoutResource = Resource.Layout.tabs;
             ToolbarResource = Resource.Layout.toolbar;
             base.OnCreate(bundle);
-
+            Xamarin.Forms.Forms.SetFlags("FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init();
             LoadApplication(new App(new AndroidInitializer()));

@@ -408,6 +408,13 @@
             </summary>
             <param name="imageLoader">Image loader.</param>
         </member>
+        <member name="M:FFImageLoading.Forms.CachedImage.SetupOnBeforeImageLoading(FFImageLoading.Work.TaskParameter@,FFImageLoading.Forms.IImageSourceBinding,FFImageLoading.Forms.IImageSourceBinding,FFImageLoading.Forms.IImageSourceBinding)">
+            <summary>
+            Setups the on before image loading.
+            You can add additional logic here to configure image loader settings before loading
+            </summary>
+            <param name="imageLoader">Image loader.</param>
+        </member>
         <member name="T:FFImageLoading.Forms.EmbeddedResourceImageSource">
             <summary>
             Embedded resource image source.
