@@ -25,10 +25,10 @@ namespace PrismAria
             InitializeComponent();
             FlowListView.Init();
             if (Settings.Token.Equals(string.Empty))
-               await NavigationService.NavigateAsync("LoginPage");
+               await NavigationService.NavigateAsync("LoginPage", null, true, true);
             else {
                 if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.iOS))
-                    await NavigationService.NavigateAsync("SubscriberLanding");
+                    await NavigationService.NavigateAsync("SubscriberLanding", null, true, true);
                 else
                     await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
             }
@@ -73,6 +73,7 @@ namespace PrismAria
         {
             BarBackgroundColor = Color.White;
             BarTextColor = Color.FromHex("#2C3E50");
+            if(ToolbarItems.Count == 0)
             ToolbarItems.Add(userPageItem);
         }
 

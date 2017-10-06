@@ -36,10 +36,11 @@ namespace PrismAria.Droid.CustomRenderers
         //protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         //{
         //    base.OnElementPropertyChanged(sender, e);
-
+            
         //    var page = this.Element as NavigationPage;
 
-        //    if (page != null && toolbar != null) {
+        //    if (page != null && toolbar != null)
+        //    {
 
         //        Typeface tf = Typeface.CreateFromAsset(Android.App.Application.Context.Assets, "BryantBoldAlt-Regular.otf");
 

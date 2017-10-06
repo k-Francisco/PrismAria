@@ -20,7 +20,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.2.11" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.2.11" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.11" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.266-pre1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
   </ItemGroup>
 
   <ItemGroup>

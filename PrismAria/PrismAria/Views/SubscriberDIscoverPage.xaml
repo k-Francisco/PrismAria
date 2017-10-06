@@ -4,6 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffImageTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
@@ -29,13 +30,17 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer/>
                         </StackLayout.GestureRecognizers>
-                        <controls:CustomLabel 
-                            TextColor="#2C3E50"
-                            Text="{Binding categoryName}"
-                            StyleId="BryantBoldAlt-Regular"
-                            FontFamily="Bryant 2"
-                            FontSize="Large"
-                            Margin="16,0,0,0"/>
+                        <Label Text="{Binding categoryName}"
+                               TextColor="#2C3E50"
+                               FontSize="Large"
+                               Margin="16,0">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
 
                         <controls:HorizontalListView ItemSource="{Binding bandList}"
                                         Orientation="Horizontal" HeightRequest="140">
@@ -45,11 +50,11 @@
                                         <StackLayout
                                             Orientation="Vertical"
                                             Margin="16,0,-10,0">
-                                            <Frame
+                                            <controls:CustomFrame
                                                  Padding="0"
                                                  Margin="0"
                                                  CornerRadius="4"
-                                                 HasShadow="False">
+                                                 HasShadow="True">
                                                 <ffImageLoading:CachedImage Source="{Binding imgSource}" 
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"
@@ -61,14 +66,20 @@
                                                     </ffImageLoading:CachedImage.GestureRecognizers>
                                                 </ffImageLoading:CachedImage>
 
-                                            </Frame>
-                                            <controls:CustomLabel Text="{Binding bandName}"
-                                                                  StyleId="BryantMediumAlt-Regular"
-                                                                  FontFamily="Bryant 2"
-                                                                  FontSize="14"
-                                                                  LineBreakMode="TailTruncation"
-                                                                  WidthRequest="80"
-                                                                  XAlign="Center"/>
+                                            </controls:CustomFrame>
+
+                                            <Label Text="{Binding bandName}"
+                                                   FontSize="14"
+                                                   LineBreakMode="TailTruncation"
+                                                   WidthRequest="80"
+                                                   XAlign="Center">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
                                         </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>

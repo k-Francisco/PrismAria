@@ -19,15 +19,6 @@
                       HasUnevenRows="True"
                       SeparatorVisibility="None">
 
-        <!--<flv:FlowListView.FlowLoadingTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Label Text="loading"/>
-
-                    </ViewCell>
-                </DataTemplate>
-            </flv:FlowListView.FlowLoadingTemplate>-->
-
         <flv:FlowListView.FlowColumnTemplate>
             <DataTemplate>
                 <Grid
@@ -40,22 +31,31 @@
                     <ffImage:CachedImage Grid.Row="0"
                                              Source="{Binding bandImage}"
                                              Aspect="AspectFill"/>
+                    <Label Grid.Row="1"
+                           Text="{Binding bandName}"
+                           TextColor="#2C3E50"
+                           FontSize="Medium"
+                           Margin="0">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
 
-                    <controls:CustomLabel Grid.Row="1"
-                                              Text="{Binding bandName}"
-                                              TextColor="#2C3E50"
-                                              FontSize="Medium"
-                                              Margin="0"
-                                              FontFamily="BryantBoldAlt-Regular"
-                                              StyleId="BryantBoldAlt-Regular"/>
-
-                    <controls:CustomLabel Grid.Row="1"
-                                              Text="{Binding songsAndAlbums}"
-                                              TextColor="#2C3E50"
-                                              FontSize="Small"
-                                              Margin="0,20,0,0"
-                                              FontFamily="BryantMediumAlt-Regular"
-                                              StyleId="BryantMediumAlt-Regular"/>
+                    <Label Grid.Row="1"
+                           Text="{Binding songsAndAlbums}"
+                           TextColor="#2C3E50"
+                           FontSize="Small"
+                           Margin="0,20,0,0">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
                 </Grid>
             </DataTemplate>
         </flv:FlowListView.FlowColumnTemplate>

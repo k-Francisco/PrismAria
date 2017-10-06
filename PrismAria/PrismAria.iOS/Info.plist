@@ -4,9 +4,9 @@
   <dict>
 <key>UIAppFonts</key>
 <array>
-   <string>Fonts/BryantBoldAlt Regular.otf</string>
-   <string>Fonts/BryantMediumAlt Regular.otf</string>
-   <string>Fonts/Milkshake.otf</string>
+   <string>BryantBoldAlt-Regular.otf</string>
+   <string>BryantMediumAlt-Regular.otf</string>
+   <string>Milkshake.otf</string>
 </array>
     <key>UIDeviceFamily</key>
     <array>

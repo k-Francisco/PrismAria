@@ -8,7 +8,10 @@ namespace PrismAria.Views
         {
             InitializeComponent();
             if (Device.RuntimePlatform.Equals(Device.iOS))
+            {
                 this.Title = "Discover";
+            }
+           
         }
     }
 }

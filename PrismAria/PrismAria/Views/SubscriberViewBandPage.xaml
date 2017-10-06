@@ -6,9 +6,22 @@
              x:Class="PrismAria.Views.SubscriberViewBandPage"
              Title="Band Page"
              AutomationId="SubPage">
-
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Band Page Here"/>
-    </StackLayout>
+    <ContentPage.Content>
+        <OnPlatform x:TypeArguments="View">
+            <On Platform="iOS">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Band Page Here"/>
+                </StackLayout>
+            </On>
+            <On Platform="Android">
+                <StackLayout>
+                    <Label Text="Band Page Here"/>
+                </StackLayout>
+            </On>
+        </OnPlatform>
+    </ContentPage.Content>
+    
+    
+    
   
 </ContentPage>

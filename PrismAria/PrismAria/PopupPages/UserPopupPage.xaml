@@ -36,21 +36,21 @@
             </Grid.RowDefinitions>
 
             <ScrollView Grid.Row="0">
-            <StackLayout 
+                <StackLayout 
                      Spacing="0">
 
-                <Image
+                    <Image
                       Source="ic_close.png"
                       HorizontalOptions="Start"
                       HeightRequest="16"
                       WidthRequest="16"
                       Margin="16,16,0,0">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ClosePopupCommand}" NumberOfTapsRequired="1"/>
-                    </Image.GestureRecognizers>
-                </Image>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClosePopupCommand}" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
 
-                <ffimage:CachedImage Source="{Binding UserPic}"
+                    <ffimage:CachedImage Source="{Binding UserPic}"
                                      Aspect="AspectFit"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
@@ -60,70 +60,90 @@
                                      HeightRequest="70"
                                      CacheDuration="1"
                                      Margin="0,24,0,0">
-                    <ffimage:CachedImage.Transformations>
-                        <fftrans:CircleTransformation/>
-                    </ffimage:CachedImage.Transformations>
-                </ffimage:CachedImage>
+                        <ffimage:CachedImage.Transformations>
+                            <fftrans:CircleTransformation/>
+                        </ffimage:CachedImage.Transformations>
+                    </ffimage:CachedImage>
 
-                <controls:CustomLabel Text="{Binding UserName}"
-                                      HorizontalOptions="Center"
-                                      Margin="0,8,0,0"
-                                      StyleId="BryantBoldAlt-Regular"
-                                      FontFamily="BryantBoldAlt Regular"
-                                      FontSize="Large"
-                                      TextColor="#2C3E50"/>
+                    <Label Text="{Binding UserName}"
+                           HorizontalOptions="Center"
+                           Margin="0,8,0,0"
+                           FontSize="Large"
+                           TextColor="#2C3E50">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
 
-                <Grid RowSpacing="0"
+                    <Grid RowSpacing="0"
                     Padding="0"
                     VerticalOptions="EndAndExpand"
                     Margin="8,0,8,8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
-                    <Frame Grid.Column="0"
+                        <Frame Grid.Column="0"
                            CornerRadius="4"
                            HasShadow="False"
                            HeightRequest="70"
                            BackgroundColor="Transparent">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
-                        </Frame.GestureRecognizers>
-                        <StackLayout>
-                            <Image Source="ic_settings_black.png"/>
-                            <controls:CustomLabel Text="Settings"
-                                                  HorizontalOptions="Center"
-                                                  StyleId="BryantMediumAlt-Regular"
-                                                  FontFamily="BryantMediumAlt-Regular"/>
-                        </StackLayout>
-                    </Frame>
-                    <Frame Grid.Column="1"
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Image Source="ic_settings_black.png"/>
+                                <Label Text="Settings"
+                                       HorizontalOptions="Center">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS">Bryant</On>
+                                            <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1"
                            CornerRadius="4"
                            HasShadow="False"
                            HeightRequest="70"
                            BackgroundColor="Transparent">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding LogoutCommand}" NumberOfTapsRequired="1"/>
-                        </Frame.GestureRecognizers>
-                        <StackLayout>
-                            <Image Source="ic_power_settings.png"/>
-                            <controls:CustomLabel Text="Logout"
-                                                  HorizontalOptions="Center"
-                                                  StyleId="BryantMediumAlt-Regular"
-                                                  FontFamily="BryantMediumAlt-Regular"/>
-                        </StackLayout>
-                    </Frame>
-                </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LogoutCommand}" NumberOfTapsRequired="1"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Image Source="ic_power_settings.png"/>
+                                <Label Text="Logout"
+                                       HorizontalOptions="Center">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS">Bryant</On>
+                                            <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
 
-            </StackLayout>
+                </StackLayout>
             </ScrollView>
 
-            <controls:CustomLabel Grid.Row="1" Text="Switch to your band: "
-                                  FontSize="Small"
-                                  Margin="8,0"
-                                  StyleId="BryantMediumAlt-Regular"
-                                  FontFamily="BryantMediumAlt-Regular"/>
+            <Label Grid.Row="1" Text="Switch to your band: "
+                   FontSize="Small"
+                   Margin="8,0">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
             
             <flv:FlowListView Grid.Row="1" FlowItemsSource="{Binding UserBands}"
                                   FlowColumnCount="1"
@@ -152,12 +172,17 @@
                                 </ffimage:CachedImage.Transformations>
                             </ffimage:CachedImage>
 
-                            <controls:CustomLabel Grid.Column="1" Text="{Binding userBandName}"
-                                                      TextColor="#2C3E50"
-                                                      FontSize="Medium"
-                                                      StyleId="BryantMediumAlt-Regular"
-                                                      FontFamily="BryantMediumAlt-Regular"
-                                                      VerticalOptions="CenterAndExpand"/>
+                            <Label Grid.Column="1" Text="{Binding userBandName}"
+                                   TextColor="#2C3E50"
+                                   FontSize="Medium"
+                                   VerticalOptions="CenterAndExpand">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
 
 
 

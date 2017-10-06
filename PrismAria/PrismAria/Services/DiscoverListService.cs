@@ -36,18 +36,21 @@ namespace PrismAria.Services
 
         private List<BandModel> GetBands(INavigationService navigationService) {
             var showBandPage = new DelegateCommand<BandModel>((obj) => {
-                navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
+                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
+                    navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
+                else
+                    navigationService.NavigateAsync("SubscriberViewBandPage", null, true, true);
                 Debug.WriteLine(obj.bandName);
             });
             if(bandList.Count == 0)
             {
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "Maroon 5", BandClick = showBandPage });
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "Paramore", BandClick = showBandPage });
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "Panic at the Disco", BandClick = showBandPage });
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "Sleeping with the sirens", BandClick = showBandPage });
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "Up Dharma Down", BandClick = showBandPage });
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "Fall Out Boys", BandClick = showBandPage });
-                bandList.Add(new BandModel() { imgSource = "logo.png", bandName = "All Time Low", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Maroon 5", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Paramore", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Panic at the Disco", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Sleeping with the sirens", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Up Dharma Down", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Fall Out Boys", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "All Time Low", BandClick = showBandPage });
             }
             return bandList;
         }

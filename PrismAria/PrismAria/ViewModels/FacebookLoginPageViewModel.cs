@@ -31,7 +31,6 @@ namespace PrismAria.ViewModels
         private void CloseLoginPage()
         {
             PopupNavigation.Instance.PopAllAsync(false);
-            //Debug.WriteLine("hello");
         }
 
         public FacebookLoginPageViewModel(INavigationService navigationService, IEventAggregator ea)
@@ -50,7 +49,15 @@ namespace PrismAria.ViewModels
             Settings.Token = accessToken;
             Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
             CloseLoginPage();
-            await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, false);
+            //await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
+            {
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            }
+            else
+            {
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            }
         }
     }
 }

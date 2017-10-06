@@ -42,7 +42,7 @@ namespace PrismAria.ViewModels
             await _navigationService.NavigateAsync(new Uri("http://myapp.com/LoginPage", UriKind.Absolute),
                 null,
                 true,
-                false);
+                true);
         }
         #endregion
 
