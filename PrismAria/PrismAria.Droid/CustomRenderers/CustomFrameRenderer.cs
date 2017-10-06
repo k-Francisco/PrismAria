@@ -26,7 +26,17 @@ namespace PrismAria.Droid.CustomRenderers
             if (e.OldElement != null || Element == null)
                 return;
 
+            if (e.OldElement != null)
+                e.OldElement.PropertyChanged -= OnElementPropertyChanged;
+
+            e.NewElement.PropertyChanged += OnElementPropertyChanged;
             
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            this.Elevation = 20;
         }
     }
 }

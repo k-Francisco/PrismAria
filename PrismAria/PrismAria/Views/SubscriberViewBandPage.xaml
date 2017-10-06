@@ -2,23 +2,563 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:controls="clr-namespace:PrismAria.Controls"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberViewBandPage"
+             BackgroundColor="White"
              Title="Band Page"
              AutomationId="SubPage">
     <ContentPage.Content>
         <OnPlatform x:TypeArguments="View">
             <On Platform="iOS">
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label Text="Band Page Here"/>
-                </StackLayout>
+                <Grid ColumnSpacing="0">
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    iOS="0,20,0,0"
+                                    Android="0"/>
+                    </Grid.Padding>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                             BackgroundColor="#2C3E50"/>
+
+                    <Image Grid.Column="0" Grid.Row="0"
+                           Source="ic_left_arrow.png"
+                           HeightRequest="20"
+                           WidthRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CloseBandPageCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label Grid.Column="1" Grid.Row="0"
+                           Text="Band Page"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           Margin="16,0"
+                           VerticalOptions="Center">
+
+                    </Label>
+
+                    <!--Layout-->
+                    <controls:HorizontalListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            Orientation="Vertical"
+                            Padding="0"
+                            Margin="0,-8,0,0">
+
+                        <StackLayout>
+                            <Grid Margin="0,16,0,0"
+                              RowSpacing="0"
+                              ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="130"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ffimage:CachedImage Grid.Column="0" Grid.Row="0"
+                                                 Source="sample_pic.png"
+                                                 Aspect="AspectFill"
+                                                 DownsampleToViewSize="True"
+                                                 HeightRequest="120"
+                                                 WidthRequest="120"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center">
+                                    <ffimage:CachedImage.Transformations>
+                                        <fftrans:CircleTransformation/>
+                                    </ffimage:CachedImage.Transformations>
+                                </ffimage:CachedImage>
+
+                                <Label Grid.Row="0" Grid.Column="1"
+                                   Text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="4">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS">Bryant</On>
+                                            <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+
+                                <Button Grid.Row="1" Grid.Column="0"
+                                    Text="Follow"
+                                    BorderRadius="8"
+                                    BorderWidth="2"
+                                    BorderColor="#2C3E50"
+                                    TextColor="#2C3E50"
+                                    BackgroundColor="Transparent"
+                                    Margin="8">
+                                    <Button.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS">Bryant</On>
+                                            <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                        </OnPlatform>
+                                    </Button.FontFamily>
+                                </Button>
+
+                                <Label Grid.Row="1" Grid.Column="1" 
+                                   Text="23,002,231 &#10; Followers"
+                                   FontSize="Medium"
+                                   TextColor="#2C3E50"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS">Bryant</On>
+                                            <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </Grid>
+
+                            <Label Text="Popular"
+                               FontSize="Large"
+                               TextColor="#2C3E50"
+                               Margin="16,8,0,0">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <flv:FlowListView FlowItemsSource="{Binding PopularList}"
+                                          HasUnevenRows="True"
+                                          SeparatorVisibility="None"
+                                          FlowColumnCount="1"
+                                          HeightRequest="400">
+                                <flv:FlowListView.FlowColumnTemplate>
+                                    <DataTemplate>
+                                        <Grid RowSpacing="0"
+                                          ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="85"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="40"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                                               Source="ic_dot.png"
+                                               HeightRequest="8"
+                                               WidthRequest="8"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"/>
+
+                                            <ffimage:CachedImage Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                                             Source="{Binding SongAlbum}"
+                                                             Aspect="AspectFill"
+                                                             DownsampleToViewSize="True"
+                                                             HeightRequest="70"
+                                                             WidthRequest="70"
+                                                             Margin="0"
+                                                             HorizontalOptions="Center"
+                                                             VerticalOptions="Center"/>
+
+                                            <Label Grid.Row="0" Grid.Column="2"
+                                               Text="{Binding SongName}"
+                                               TextColor="#2C3E50"
+                                               FontSize="20"
+                                               Margin="8,0,0,0"
+                                               VerticalOptions="End">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+
+                                            <Label Grid.Row="1" Grid.Column="2"
+                                               Text="{Binding SongListenedCount}"
+                                               TextColor="#2C3E50"
+                                               FontSize="20"
+                                               Margin="8,0,0,0">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </flv:FlowListView.FlowColumnTemplate>
+                            </flv:FlowListView>
+
+                            <Label Text="View all songs"
+                               HorizontalOptions="End"
+                               FontSize="12"
+                               Margin="0,0,16,0"
+                               TextColor="#2C3E50">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <Label Text="Albums"
+                               FontSize="Large"
+                               TextColor="#2C3E50"
+                               Margin="16,8,0,0">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <!--hello-->
+                            <flv:FlowListView FlowItemsSource="{Binding AlbumList}"
+                                          HasUnevenRows="True"
+                                          SeparatorVisibility="None"
+                                          FlowColumnCount="2"
+                                          HeightRequest="320">
+                                <flv:FlowListView.FlowColumnTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Margin="0">
+                                            <ffimage:CachedImage Source="{Binding AlbumPic}"
+                                                             Aspect="AspectFill"
+                                                             DownsampleToViewSize="True"
+                                                             HeightRequest="100"
+                                                             WidthRequest="140"
+                                                             HorizontalOptions="Center"/>
+
+                                            <Label Text="{Binding AlbumTitle}"
+                                               FontSize="Medium"
+                                               TextColor="#2C3E50"
+                                               HorizontalOptions="Center">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+
+                                            <Label Text="{Binding AlbumLikes}"
+                                               FontSize="Small"
+                                               HorizontalOptions="Center"
+                                               Margin="0,-8,0,12">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </flv:FlowListView.FlowColumnTemplate>
+                            </flv:FlowListView>
+                            <!--hello-->
+
+                            <Label Text="View all albums"
+                               HorizontalOptions="End"
+                               FontSize="12"
+                               Margin="0,-10,16,16"
+                               TextColor="#2C3E50">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                        </StackLayout>
+                    </controls:HorizontalListView>
+                    <!--Layout-->
+
+                </Grid>
             </On>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <On Platform="Android">
-                <StackLayout>
-                    <Label Text="Band Page Here"/>
-                </StackLayout>
+                <controls:HorizontalListView
+                            Orientation="Vertical"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="0">
+
+                    <StackLayout VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand">
+                        <Grid Margin="0,16,0,0"
+                              RowSpacing="0"
+                              ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="130"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ffimage:CachedImage Grid.Column="0" Grid.Row="0"
+                                                 Source="sample_pic.png"
+                                                 Aspect="AspectFill"
+                                                 DownsampleToViewSize="True"
+                                                 HeightRequest="120"
+                                                 WidthRequest="120"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center">
+                                <ffimage:CachedImage.Transformations>
+                                    <fftrans:CircleTransformation/>
+                                </ffimage:CachedImage.Transformations>
+                            </ffimage:CachedImage>
+
+                            <Label Grid.Row="0" Grid.Column="1"
+                                   Text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="4">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <Button Grid.Row="1" Grid.Column="0"
+                                    Text="Follow"
+                                    BorderRadius="8"
+                                    BorderWidth="2"
+                                    BorderColor="#2C3E50"
+                                    TextColor="#2C3E50"
+                                    BackgroundColor="Transparent"
+                                    Margin="8">
+                                <Button.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Button.FontFamily>
+                            </Button>
+
+                            <Label Grid.Row="1" Grid.Column="1" 
+                                   Text="23,002,231 &#10; Followers"
+                                   FontSize="Medium"
+                                   TextColor="#2C3E50"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                        </Grid>
+
+                        <Label Text="Popular"
+                               FontSize="Large"
+                               TextColor="#2C3E50"
+                               Margin="16,8,0,0">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                        <flv:FlowListView FlowItemsSource="{Binding PopularList}"
+                                          HasUnevenRows="True"
+                                          SeparatorVisibility="None"
+                                          FlowColumnCount="1"
+                                          HeightRequest="400">
+                            <flv:FlowListView.FlowColumnTemplate>
+                                <DataTemplate>
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="85"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40"/>
+                                            <RowDefinition Height="40"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                                               Source="ic_dot.png"
+                                               HeightRequest="8"
+                                               WidthRequest="8"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"/>
+
+                                        <ffimage:CachedImage Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                                             Source="{Binding SongAlbum}"
+                                                             Aspect="AspectFill"
+                                                             DownsampleToViewSize="True"
+                                                             HeightRequest="70"
+                                                             WidthRequest="70"
+                                                             Margin="0"
+                                                             HorizontalOptions="Center"
+                                                             VerticalOptions="Center"/>
+
+                                        <Label Grid.Row="0" Grid.Column="2"
+                                               Text="{Binding SongName}"
+                                               TextColor="#2C3E50"
+                                               FontSize="20"
+                                               Margin="8,0,0,0"
+                                               VerticalOptions="End">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+
+                                        <Label Grid.Row="1" Grid.Column="2"
+                                               Text="{Binding SongListenedCount}"
+                                               TextColor="#2C3E50"
+                                               FontSize="20"
+                                               Margin="8,0,0,0">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </flv:FlowListView.FlowColumnTemplate>
+                        </flv:FlowListView>
+
+                        <Label Text="View all songs"
+                               HorizontalOptions="End"
+                               FontSize="12"
+                               Margin="0,0,16,0"
+                               TextColor="#2C3E50">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                        <Label Text="Albums"
+                               FontSize="Large"
+                               TextColor="#2C3E50"
+                               Margin="16,8,0,0">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        
+                        <!--hello-->
+                        <flv:FlowListView FlowItemsSource="{Binding AlbumList}"
+                                          HasUnevenRows="True"
+                                          SeparatorVisibility="None"
+                                          FlowColumnCount="2">
+                            <flv:FlowListView.FlowColumnTemplate>
+                                <DataTemplate>
+                                    <StackLayout Margin="0">
+                                        <ffimage:CachedImage Source="{Binding AlbumPic}"
+                                                             Aspect="AspectFill"
+                                                             DownsampleToViewSize="True"
+                                                             HeightRequest="100"
+                                                             WidthRequest="140"
+                                                             HorizontalOptions="Center"/>
+
+                                        <Label Text="{Binding AlbumTitle}"
+                                               FontSize="Medium"
+                                               TextColor="#2C3E50"
+                                               HorizontalOptions="Center">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+
+                                        <Label Text="{Binding AlbumLikes}"
+                                               FontSize="Small"
+                                               HorizontalOptions="Center"
+                                               Margin="0,-8,0,12">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                        
+                                    </StackLayout>
+                                </DataTemplate>
+                            </flv:FlowListView.FlowColumnTemplate>
+                        </flv:FlowListView>
+                        <!--hello-->
+
+                        <Label Text="View all albums"
+                               HorizontalOptions="End"
+                               FontSize="12"
+                               Margin="0,-64,16,16"
+                               TextColor="#2C3E50">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                </controls:HorizontalListView>
             </On>
         </OnPlatform>
+        
     </ContentPage.Content>
     
     

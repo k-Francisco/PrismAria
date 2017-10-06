@@ -38,6 +38,8 @@ namespace PrismAria.Droid.CustomRenderers
         private void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             this.HorizontalScrollBarEnabled = false;
+            this.VerticalScrollBarEnabled = false;
+            this.ScrollBarSize = 0;
         }
     }
 }

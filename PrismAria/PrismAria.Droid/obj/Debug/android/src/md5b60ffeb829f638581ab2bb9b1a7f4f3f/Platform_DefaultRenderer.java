@@ -12,7 +12,6 @@ public class Platform_DefaultRenderer
 		__md_methods = 
 			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_dispatchTouchEvent:(Landroid/view/MotionEvent;)Z:GetDispatchTouchEvent_Landroid_view_MotionEvent_Handler\n" +
-			"n_getChildDrawingOrder:(II)I:GetGetChildDrawingOrder_IIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.Platform+DefaultRenderer, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null", Platform_DefaultRenderer.class, __md_methods);
 	}
@@ -56,14 +55,6 @@ public class Platform_DefaultRenderer
 	}
 
 	private native boolean n_dispatchTouchEvent (android.view.MotionEvent p0);
-
-
-	public int getChildDrawingOrder (int p0, int p1)
-	{
-		return n_getChildDrawingOrder (p0, p1);
-	}
-
-	private native int n_getChildDrawingOrder (int p0, int p1);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

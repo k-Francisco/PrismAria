@@ -20,6 +20,8 @@ namespace PrismAria.iOS.CustomRenderers
             base.OnElementChanged(e);
             this.ShowsHorizontalScrollIndicator = false;
             var element = e.NewElement as HorizontalListView;
+            this.ShowsHorizontalScrollIndicator = false;
+            this.ShowsVerticalScrollIndicator = false;
             element?.Render();
 
         }
