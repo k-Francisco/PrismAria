@@ -10,8 +10,15 @@
              xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              x:Class="PrismAria.PopupPages.UserPopupPage"
-             HasSystemPadding="True"
              CloseWhenBackgroundIsClicked="False">
+
+    <pages:PopupPage.HasSystemPadding>
+        <OnPlatform x:TypeArguments="x:Boolean">
+            <On Platform="iOS">False</On>
+            <On Platform="Android">True</On>
+        </OnPlatform>
+    </pages:PopupPage.HasSystemPadding>
+    
     <pages:PopupPage.Animation>
         <popanim:ScaleAnimation
             PositionIn="Center"
@@ -25,32 +32,23 @@
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
 
-    <Frame CornerRadius="12"
-           Margin="25"
-           Padding="0">
-        <Grid RowSpacing="0"
-              Margin="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <pages:PopupPage.Content>
+        <OnPlatform x:TypeArguments="View">
+            <On Platform="iOS">
 
-            <ScrollView Grid.Row="0">
-                <StackLayout 
+                <Grid RowSpacing="0"
+              Margin="0"
+                      BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <ScrollView Grid.Row="0">
+                        <StackLayout 
                      Spacing="0">
 
-                    <Image
-                      Source="ic_close.png"
-                      HorizontalOptions="Start"
-                      HeightRequest="16"
-                      WidthRequest="16"
-                      Margin="16,16,0,0">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ClosePopupCommand}" NumberOfTapsRequired="1"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-
-                    <ffimage:CachedImage Source="{Binding UserPic}"
+                            <ffimage:CachedImage Source="{Binding UserPic}"
                                      Aspect="AspectFit"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
@@ -60,106 +58,131 @@
                                      HeightRequest="70"
                                      CacheDuration="1"
                                      Margin="0,24,0,0">
-                        <ffimage:CachedImage.Transformations>
-                            <fftrans:CircleTransformation/>
-                        </ffimage:CachedImage.Transformations>
-                    </ffimage:CachedImage>
+                                <ffimage:CachedImage.Transformations>
+                                    <fftrans:CircleTransformation/>
+                                </ffimage:CachedImage.Transformations>
+                            </ffimage:CachedImage>
 
-                    <Label Text="{Binding UserName}"
+                            <Label Text="{Binding UserName}"
                            HorizontalOptions="Center"
                            Margin="0,8,0,0"
                            FontSize="Large"
                            TextColor="#2C3E50">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <Grid RowSpacing="0"
+                    Padding="0"
+                    VerticalOptions="EndAndExpand"
+                    Margin="8,0,8,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Grid.Column="0"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CreateBandCommand}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Image Source="ic_add_band.png"
+                                                   HeightRequest="32"
+                                                   WidthRequest="32"
+                                                   Margin="0"/>
+                                        <Label Text="Add Band">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame Grid.Column="1"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Image Source="ic_settings_black.png"/>
+                                        <Label Text="Settings"
+                                       HorizontalOptions="Center">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame Grid.Column="2"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding LogoutCommand}" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Image Source="ic_power_settings.png"/>
+                                        <Label Text="Logout"
+                                       HorizontalOptions="Center">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+
+                        </StackLayout>
+                    </ScrollView>
+
+                    <Label Grid.Row="1" Text="Switch to your band: "
+                   FontSize="Small"
+                   Margin="8,0">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS">Bryant</On>
-                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
                             </OnPlatform>
                         </Label.FontFamily>
                     </Label>
 
-                    <Grid RowSpacing="0"
-                    Padding="0"
-                    VerticalOptions="EndAndExpand"
-                    Margin="8,0,8,8">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <Frame Grid.Column="0"
-                           CornerRadius="4"
-                           HasShadow="False"
-                           HeightRequest="70"
-                           BackgroundColor="Transparent">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1"/>
-                            </Frame.GestureRecognizers>
-                            <StackLayout>
-                                <Image Source="ic_settings_black.png"/>
-                                <Label Text="Settings"
-                                       HorizontalOptions="Center">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="iOS">Bryant</On>
-                                            <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Grid.Column="1"
-                           CornerRadius="4"
-                           HasShadow="False"
-                           HeightRequest="70"
-                           BackgroundColor="Transparent">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding LogoutCommand}" NumberOfTapsRequired="1"/>
-                            </Frame.GestureRecognizers>
-                            <StackLayout>
-                                <Image Source="ic_power_settings.png"/>
-                                <Label Text="Logout"
-                                       HorizontalOptions="Center">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="iOS">Bryant</On>
-                                            <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
-
-                </StackLayout>
-            </ScrollView>
-
-            <Label Grid.Row="1" Text="Switch to your band: "
-                   FontSize="Small"
-                   Margin="8,0">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS">Bryant</On>
-                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                    </OnPlatform>
-                </Label.FontFamily>
-            </Label>
-            
-            <flv:FlowListView Grid.Row="1" FlowItemsSource="{Binding UserBands}"
+                    <flv:FlowListView Grid.Row="1" FlowItemsSource="{Binding UserBands}"
                                   FlowColumnCount="1"
                                   SeparatorVisibility="None"
                                   HasUnevenRows="True"
                                   Margin="0,20,0,0">
 
-                    <flv:FlowListView.FlowColumnTemplate>
-                        <DataTemplate>
-                            <Grid Margin="8">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="70"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                        <flv:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <Grid Margin="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
 
-                            <ffimage:CachedImage Grid.Column="0" Source="{Binding userBandImage}"
+                                    <ffimage:CachedImage Grid.Column="0" Source="{Binding userBandImage}"
                                                      Aspect="AspectFit"
                                                      DownsampleToViewSize="True"
                                                      CacheDuration="1"
@@ -167,52 +190,235 @@
                                                      WidthRequest="45"
                                                  VerticalOptions="Center"
                                                  HorizontalOptions="Center">
-                                <ffimage:CachedImage.Transformations>
-                                    <fftrans:CircleTransformation/>
-                                </ffimage:CachedImage.Transformations>
-                            </ffimage:CachedImage>
+                                        <ffimage:CachedImage.Transformations>
+                                            <fftrans:CircleTransformation/>
+                                        </ffimage:CachedImage.Transformations>
+                                    </ffimage:CachedImage>
 
-                            <Label Grid.Column="1" Text="{Binding userBandName}"
+                                    <Label Grid.Column="1" Text="{Binding userBandName}"
                                    TextColor="#2C3E50"
                                    FontSize="Medium"
                                    VerticalOptions="CenterAndExpand">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="iOS">Bryant</On>
-                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS">Bryant</On>
+                                                <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </flv:FlowListView.FlowColumnTemplate>
+                    </flv:FlowListView>
+                </Grid>
+
+            </On>
 
 
 
-                        </Grid>
-                        </DataTemplate>
-                    </flv:FlowListView.FlowColumnTemplate>
-                </flv:FlowListView>
 
-            <Label Grid.Row="1"
-                   Text="Create band Here"
-                   VerticalOptions="End"
-                   HorizontalOptions="End"
-                   Margin="0,0,16,8">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS">Bryant</On>
-                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
-                    </OnPlatform>
-                </Label.FontFamily>
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CreateBandCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
-     
+            <On Platform="Android">
+                
+                
+                <Frame CornerRadius="12"
+           Margin="25"
+           Padding="0">
+                    <Grid RowSpacing="0"
+              Margin="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-        </Grid>
+                        <ScrollView Grid.Row="0">
+                            <StackLayout 
+                     Spacing="0">
 
-    </Frame>
+                                <Image
+                      Source="ic_close.png"
+                      HorizontalOptions="Start"
+                      HeightRequest="16"
+                      WidthRequest="16"
+                      Margin="16,16,0,0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ClosePopupCommand}" NumberOfTapsRequired="1"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
 
-    
+                                <ffimage:CachedImage Source="{Binding UserPic}"
+                                     Aspect="AspectFit"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="CenterAndExpand"
+                                     DownsampleToViewSize="True"
+                                     DownsampleHeight="100"
+                                     WidthRequest="70"
+                                     HeightRequest="70"
+                                     CacheDuration="1"
+                                     Margin="0,24,0,0">
+                                    <ffimage:CachedImage.Transformations>
+                                        <fftrans:CircleTransformation/>
+                                    </ffimage:CachedImage.Transformations>
+                                </ffimage:CachedImage>
 
-    
+                                <Label Text="{Binding UserName}"
+                           HorizontalOptions="Center"
+                           Margin="0,8,0,0"
+                           FontSize="Large"
+                           TextColor="#2C3E50">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS">Bryant</On>
+                                            <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+
+                                <Grid RowSpacing="0"
+                    Padding="0"
+                    VerticalOptions="EndAndExpand"
+                    Margin="8,0,8,8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CreateBandCommand}"/>
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout>
+                                            <Image Source="ic_add_band.png"
+                                                   HeightRequest="32"
+                                                   WidthRequest="32"
+                                                   Margin="0"/>
+                                            <Label Text="Add Band"
+                                                   FontSize="Small">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                    
+                                    <Frame Grid.Column="1"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout>
+                                            <Image Source="ic_settings_black.png"/>
+                                            <Label Text="Settings"
+                                       HorizontalOptions="Center">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame Grid.Column="2"
+                           CornerRadius="4"
+                           HasShadow="False"
+                           HeightRequest="70"
+                           BackgroundColor="Transparent">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding LogoutCommand}" NumberOfTapsRequired="1"/>
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout>
+                                            <Image Source="ic_power_settings.png"/>
+                                            <Label Text="Logout"
+                                       HorizontalOptions="Center">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+
+                            </StackLayout>
+                        </ScrollView>
+
+                        <Label Grid.Row="1" Text="Switch to your band: "
+                   FontSize="Small"
+                   Margin="8,0">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                        <flv:FlowListView Grid.Row="1" FlowItemsSource="{Binding UserBands}"
+                                  FlowColumnCount="1"
+                                  SeparatorVisibility="None"
+                                  HasUnevenRows="True"
+                                  Margin="0,20,0,0">
+
+                            <flv:FlowListView.FlowColumnTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="8">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="70"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <ffimage:CachedImage Grid.Column="0" Source="{Binding userBandImage}"
+                                                     Aspect="AspectFit"
+                                                     DownsampleToViewSize="True"
+                                                     CacheDuration="1"
+                                                     HeightRequest="45"
+                                                     WidthRequest="45"
+                                                 VerticalOptions="Center"
+                                                 HorizontalOptions="Center">
+                                            <ffimage:CachedImage.Transformations>
+                                                <fftrans:CircleTransformation/>
+                                            </ffimage:CachedImage.Transformations>
+                                        </ffimage:CachedImage>
+
+                                        <Label Grid.Column="1" Text="{Binding userBandName}"
+                                   TextColor="#2C3E50"
+                                   FontSize="Medium"
+                                   VerticalOptions="CenterAndExpand">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+
+
+
+                                    </Grid>
+                                </DataTemplate>
+                            </flv:FlowListView.FlowColumnTemplate>
+                        </flv:FlowListView>
+
+                    </Grid>
+
+                </Frame>
+                
+            </On>
+        </OnPlatform>
+    </pages:PopupPage.Content>
+
+
 </pages:PopupPage>

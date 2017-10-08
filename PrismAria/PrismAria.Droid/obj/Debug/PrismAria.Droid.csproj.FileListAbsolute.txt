@@ -158,3 +158,4 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_dot.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_add_band.png

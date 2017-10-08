@@ -33,6 +33,7 @@
                                              Aspect="AspectFill"/>
                     <Label Grid.Row="1"
                            Text="{Binding bandName}"
+                           FontAttributes="Bold"
                            TextColor="#2C3E50"
                            FontSize="Medium"
                            Margin="0">

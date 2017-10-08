@@ -102,9 +102,9 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
-    <BundleResource Include="Resources\BryantBoldAlt-Regular.otf" />
-    <BundleResource Include="Resources\BryantMediumAlt-Regular.otf" />
     <BundleResource Include="Resources\Milkshake.otf" />
+    <BundleResource Include="Resources\BryantBoldAlt.ttf" />
+    <BundleResource Include="Resources\BryantMediumAlt.ttf" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -332,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_left_arrow%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_add_band.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
