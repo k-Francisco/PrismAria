@@ -46,7 +46,7 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<LoginPage>();
             Container.RegisterTypeForNavigation<FacebookLoginPage, FacebookLoginPageViewModel>();
             Container.RegisterTypeForNavigation<SubscriberViewBandPage>();
-            Container.RegisterTypeForNavigation<CreateBandPopupPage>();
+            Container.RegisterTypeForNavigation<CreateBandPopupPage, CreateBandPopupPageViewModel>();
         }
     }
 

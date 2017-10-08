@@ -5,6 +5,7 @@ using Prism.Navigation;
 using Prism.Services;
 using PrismAria.Helpers;
 using PrismAria.Models;
+using PrismAria.PopupPages;
 using PrismAria.Services;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -56,13 +57,14 @@ namespace PrismAria.ViewModels
         private async void CreateBand()
         {
             await PopupNavigation.Instance.PopAllAsync();
-            var webserve = new WebServices();
-            var fbProfile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
-            var isSuccess = await webserve.CreateBand(fbProfile.Id);
-            if (isSuccess)
-                await pageDialogService.DisplayAlertAsync("NICE KA", "GOOD GOOD GOOD", "OK");
-            else
-                await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
+            await PopupNavigation.Instance.PushAsync(new CreateBandPopupPage());
+            //var webserve = new WebServices();
+            //var fbProfile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
+            //var isSuccess = await webserve.CreateBand(fbProfile.Id);
+            //if (isSuccess)
+            //    await pageDialogService.DisplayAlertAsync("NICE KA", "GOOD GOOD GOOD", "OK");
+            //else
+            //    await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
 
         }
         #endregion

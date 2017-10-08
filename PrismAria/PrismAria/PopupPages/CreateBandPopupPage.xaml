@@ -6,7 +6,8 @@
              xmlns:popanim="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.PopupPages.CreateBandPopupPage"
-             HasSystemPadding="True">
+             HasSystemPadding="True"
+             CloseWhenBackgroundIsClicked="False">
 
     <popup:PopupPage.Animation>
         <popanim:ScaleAnimation
@@ -20,5 +21,25 @@
             EasingOut="SpringOut"
             HasBackgroundAnimation="True"/>
     </popup:PopupPage.Animation>
+
+    <Frame Padding="0"
+           Margin="30,50,30,50">
+        <StackLayout Orientation="Vertical">
+            <Label Text="Band Name">
+            </Label>
+            <Entry Text="{Binding BandName, Mode=TwoWay}"/>
+            <Label Text="band role">
+            </Label>
+            <Picker ItemsSource="{Binding BandRoles}"
+                    SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+            </Picker>
+            
+            <Button Text="create"
+                    Command="{Binding CreateBandCommand}"/>
+            <Button Text="close"
+                    Command="{Binding CloseCommand}"/>
+        </StackLayout>
+
+    </Frame>
 
 </popup:PopupPage>
