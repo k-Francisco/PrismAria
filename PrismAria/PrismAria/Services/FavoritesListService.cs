@@ -19,14 +19,14 @@ namespace PrismAria.Services
                 favoritesCollection.Add( 
                     new FavoritesModel() {
                         bandImage = profile.Cover.Source,
-                        bandName = "Band Name Here",
+                        bandName = "PATD!",
                         songsAndAlbums = "3 albums, 20 songs"}
                     );
                 favoritesCollection.Add(
                     new FavoritesModel()
                     {
                         bandImage = profile.Cover.Source,
-                        bandName = "Band Name Here",
+                        bandName = "Maroon 5",
                         songsAndAlbums = "3 albums, 20 songs"
                     }
                     );
@@ -34,7 +34,7 @@ namespace PrismAria.Services
                     new FavoritesModel()
                     {
                         bandImage = profile.Cover.Source,
-                        bandName = "Band Name Here",
+                        bandName = "Fall out boys",
                         songsAndAlbums = "3 albums, 20 songs"
                     }
                     );

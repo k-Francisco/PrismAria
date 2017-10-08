@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -44,6 +45,15 @@ namespace PrismAria.ViewModels
         private void CreateBand()
         {
             Debug.WriteLine("Band name: " + _bandName + "\nBand Role: " + _bandRoles[_selectedIndex]);
+        }
+
+        private DelegateCommand _closeCommand;
+        public DelegateCommand CloseCommand =>
+            _closeCommand ?? (_closeCommand = new DelegateCommand(Close));
+
+        private void Close()
+        {
+            PopupNavigation.Instance.PopAllAsync();
         }
 
         public CreateBandPopupPageViewModel()
