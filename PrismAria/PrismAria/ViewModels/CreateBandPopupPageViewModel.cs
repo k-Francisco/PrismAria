@@ -1,5 +1,9 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Mvvm;
+using PrismAria.Helpers;
+using PrismAria.Models;
+using PrismAria.Services;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +15,8 @@ namespace PrismAria.ViewModels
 {
     public class CreateBandPopupPageViewModel : BindableBase
     {
+        private readonly WebServices webServices;
+
         private ObservableCollection<string> _bandRoles = new ObservableCollection<string>() {
                 "Vocalist",
                 "Guitarist",
@@ -42,9 +48,14 @@ namespace PrismAria.ViewModels
         public DelegateCommand CreateBandCommand =>
             _createBandCommand ?? (_createBandCommand = new DelegateCommand(CreateBand));
 
-        private void CreateBand()
+        private async void CreateBand()
         {
-            Debug.WriteLine("Band name: " + _bandName + "\nBand Role: " + _bandRoles[_selectedIndex]);
+            
+            var fbprofile = new FacebookProfile();
+            fbprofile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
+            //Debug.WriteLine("Band name: " + _bandName + "\nBand Role: " + _bandRoles[_selectedIndex] + "\nUser id: " + fbprofile.Id);
+            //await webServices.AddBandMember(fbprofile.Id, _bandName, _bandRoles[_selectedIndex]);
+            Debug.WriteLine(await webServices.GetBandAlbum("1"));
         }
 
         private DelegateCommand _closeCommand;
@@ -58,6 +69,7 @@ namespace PrismAria.ViewModels
 
         public CreateBandPopupPageViewModel()
         {
+            webServices = new WebServices();
         }
 	}
 }
