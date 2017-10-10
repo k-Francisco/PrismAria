@@ -1,2 +1,2 @@
 android.app.Application
-PrismAria.Droid
+com.droid.aria

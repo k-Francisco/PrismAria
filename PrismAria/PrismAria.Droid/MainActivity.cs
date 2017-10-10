@@ -9,6 +9,7 @@ using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using FFImageLoading.Forms.Droid;
+using Plugin.Permissions;
 
 namespace PrismAria.Droid
 {
@@ -25,6 +26,11 @@ namespace PrismAria.Droid
             CachedImageRenderer.Init();
             LoadApplication(new App(new AndroidInitializer()));
             
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 

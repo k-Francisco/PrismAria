@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Prism.Commands;
 using Prism.Mvvm;
 using PrismAria.Helpers;
@@ -9,7 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PrismAria.ViewModels
 {
@@ -50,12 +55,36 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            
-            var fbprofile = new FacebookProfile();
-            fbprofile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
+            //var media = CrossMedia.Current;
+            //try
+            //{
+            //    var file = await media.PickPhotoAsync();
+
+            //    while (File.ReadAllBytes(file.Path).Length == 0)
+            //    {
+            //        await Task.Delay(1000);
+            //    }
+            //    var upFileBytes = File.ReadAllBytes(file.Path);
+
+            //    //MultipartFormDataContent content = new MultipartFormDataContent();
+            //    ByteArrayContent baContent = new ByteArrayContent(upFileBytes);
+            //    //content.Add(baContent, "File", "bandPic.ext");
+
+            //    await webServices.EditBandPic(upFileBytes);
+
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(e.Message);
+            //}
+
+
+            await webServices.EditBandDetails();
+            //var fbprofile = new FacebookProfile();
+            //fbprofile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
             //Debug.WriteLine("Band name: " + _bandName + "\nBand Role: " + _bandRoles[_selectedIndex] + "\nUser id: " + fbprofile.Id);
-            //await webServices.AddBandMember(fbprofile.Id, _bandName, _bandRoles[_selectedIndex]);
-            Debug.WriteLine(await webServices.GetBandAlbum("1"));
+            //await webServices.CreateBand(fbprofile.Id, _bandName, _bandRoles[_selectedIndex]);
+            //Debug.WriteLine(await webServices.GetBandAlbum("1"));
         }
 
         private DelegateCommand _closeCommand;

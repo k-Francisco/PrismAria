@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.4/",
-    "signature": "d5c56630a74d08348347573a26e0f47d5ef0b411"
+    "signature": "26c168c47fb265d62da3b547116a96c48ef40110"
   },
   "compilationOptions": {},
   "targets": {
@@ -19,6 +19,7 @@
           "Prism.Unity.Forms": "6.3.0",
           "Rg.Plugins.Popup": "1.1.0-pre2",
           "Xam.Plugin.Connectivity": "3.0.3",
+          "Xam.Plugin.Media": "3.0.1",
           "Xam.Plugins.Settings": "3.0.1",
           "Xamarin.FFImageLoading": "2.2.20",
           "Xamarin.FFImageLoading.Forms": "2.2.20",
@@ -825,6 +826,15 @@
           "lib/netstandard1.0/Plugin.Connectivity.dll": {}
         }
       },
+      "xam.plugin.media/3.0.1": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Media.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Media.dll": {}
+        }
+      },
       "xam.plugins.settings/3.0.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -1473,6 +1483,13 @@
       "sha512": "sha512-BvzZjl/qGGmLBMyGmrb3IbNgXmiLkvTvrYJsGk0Bnkd7Op8nr57jOA7mtJsAoC1J0Abtr0G2j4zL9dVzb7zCqg==",
       "path": "xam.plugin.connectivity/3.0.3",
       "hashPath": "xam.plugin.connectivity.3.0.3.nupkg.sha512"
+    },
+    "xam.plugin.media/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g/FOs1yxjrHGlcVp4tNcSIAl92dazWxCLP2N1/h8P9h/eGsFj8uIgrJDZrtb1Laam2//4A8FyQy8kzOODWNGnA==",
+      "path": "xam.plugin.media/3.0.1",
+      "hashPath": "xam.plugin.media.3.0.1.nupkg.sha512"
     },
     "xam.plugins.settings/3.0.1": {
       "type": "package",

@@ -51,7 +51,7 @@ namespace PrismAria.ViewModels
             var webserve = new WebServices();
 	        var facebookServices = new FacebookLoginService();
             var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
-
+            
             //Settings.Token = accessToken;
             //Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
             //CloseLoginPage();
