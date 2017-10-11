@@ -11,6 +11,8 @@ namespace PrismAria.ViewModels
 {
 	public class SubscriberViewBandPageViewModel : BindableBase
 	{
+        private readonly INavigationService navigationService;
+
         private ObservableCollection<BandPagePopularModel> _popularList = new ObservableCollection<BandPagePopularModel>();
         public ObservableCollection<BandPagePopularModel> PopularList
         {
@@ -26,7 +28,7 @@ namespace PrismAria.ViewModels
         }
 
         private DelegateCommand _closeBandPageCommand;
-        private readonly INavigationService navigationService;
+        
 
         public DelegateCommand CloseBandPageCommand =>
             _closeBandPageCommand ?? (_closeBandPageCommand = new DelegateCommand(CloseBandPage));
@@ -36,9 +38,24 @@ namespace PrismAria.ViewModels
             navigationService.GoBackAsync();
         }
 
+        private int _popularHeight;
+        public int PopularHeight
+        {
+            get { return _popularHeight; }
+            set { SetProperty(ref _popularHeight, value); }
+        }
+
+        private int _albumHeight;
+        public int AlbumHeight
+        {
+            get { return _albumHeight; }
+            set { SetProperty(ref _albumHeight, value); }
+        }
+
+
         public SubscriberViewBandPageViewModel(INavigationService navigationService)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 _popularList.Add(new BandPagePopularModel()
                 {
@@ -47,6 +64,8 @@ namespace PrismAria.ViewModels
                     SongListenedCount = "23,000,032"
                 });
             }
+
+            _popularHeight = 3 * 80;
 
             for (int i = 0; i < 4; i++)
             {
@@ -57,6 +76,8 @@ namespace PrismAria.ViewModels
                     AlbumLikes = "15,000 liked this"
                 });
             }
+
+            _albumHeight = (4 / 2) * 150;
 
             this.navigationService = navigationService;
         }

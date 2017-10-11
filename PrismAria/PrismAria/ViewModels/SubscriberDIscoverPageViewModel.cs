@@ -26,17 +26,6 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _discoverList, value); }
         }
 
-
-        private DelegateCommand<BandModel> _navigateToBandPageCommand;
-        public DelegateCommand<BandModel> NavigateToBandPageCommand =>
-            _navigateToBandPageCommand ?? (_navigateToBandPageCommand = new DelegateCommand<BandModel>(NavigateToBandPage));
-
-        private void NavigateToBandPage(BandModel obj)
-        {
-            Debug.WriteLine(obj.bandName);
-            _navigationService.NavigateAsync("SubscriberViewBandPage");
-        }
-
         private IEventAggregator _ea;
         private readonly INavigationService _navigationService;
 
@@ -45,7 +34,7 @@ namespace PrismAria.ViewModels
             _ea = ea;
             _navigationService = navigationService;
             _discoverService = new DiscoverListService();
-            _discoverList = _discoverService.GetDiscoverList();
+            _discoverList = _discoverService.GetDiscoverList(_navigationService);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

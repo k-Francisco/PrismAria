@@ -11,7 +11,6 @@ namespace PrismAria.Models
     {
         public string categoryName { get; set; }
         public List<BandModel> bandList { get; set; }
-        public bool isTop { get; set; }
 
     }
 
@@ -19,6 +18,7 @@ namespace PrismAria.Models
         
         public string imgSource { get; set; }
         public string bandName { get; set; }
+        public DelegateCommand<BandModel> BandClick { get; set; }
 
     }
 }

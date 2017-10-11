@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:views="clr-namespace:PrismAria.Views"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="PrismAria.Views.BandLandingPage"
+            AutomationId="BandLandingPage">
+
+    <TabbedPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0"/>
+    </TabbedPage.Padding>
+
+    <TabbedPage.Children>
+        <views:BandDetailsPage Title="Details"/>
+        <views:BandArticlesPage Title="Articles"/>
+        <views:BandSongsAndAlbumsPage Title="Songs and Albums"/>
+        <views:BandStatisticsPage Title="Statistics"/>
+    </TabbedPage.Children>
+  
+</TabbedPage>

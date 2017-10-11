@@ -37,7 +37,7 @@
                     <Label Grid.Row="1"
                            Text="{Binding bandName}"
                            FontAttributes="Bold"
-                           TextColor="#2C3E50"
+                           TextColor="#212121"
                            FontSize="Medium"
                            Margin="0">
                         <Label.FontFamily>
@@ -50,7 +50,7 @@
 
                     <Label Grid.Row="1"
                            Text="{Binding songsAndAlbums}"
-                           TextColor="#2C3E50"
+                           TextColor="#212121"
                            FontSize="Small"
                            Margin="0,20,0,0">
                         <Label.FontFamily>

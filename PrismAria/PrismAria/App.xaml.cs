@@ -47,10 +47,15 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<SubscriberViewBandPage>();
             Container.RegisterTypeForNavigation<CreateBandPopupPage, CreateBandPopupPageViewModel>();
             Container.RegisterTypeForNavigation<SubscriberFeed>();
+            Container.RegisterTypeForNavigation<BandLandingPage>();
+            Container.RegisterTypeForNavigation<BandDetailsPage>();
+            Container.RegisterTypeForNavigation<BandSongsAndAlbumsPage>();
+            Container.RegisterTypeForNavigation<BandStatisticsPage>();
+            Container.RegisterTypeForNavigation<BandArticlesPage>();
         }
     }
 
-    class RootPage : CustomNavigationPage, INavigatedAware
+    public class RootPage : CustomNavigationPage, INavigatedAware
     {
         FacebookProfile _profile;
         public ICommand HelloCommand { get; private set; }
@@ -58,6 +63,8 @@ namespace PrismAria
         {
             Icon = "ic_user.png",
         };
+
+        private bool isSubscriber = true;
 
         public RootPage()
         {
@@ -77,7 +84,10 @@ namespace PrismAria
 
         private void RootPage_ChildAdded(object sender, ElementEventArgs e)
         {
-            if (e.Element.AutomationId.Equals("LandingPage"))
+            if (e.Element.AutomationId.Equals("BandLandingPage"))
+                isSubscriber = false;
+
+            if (e.Element.AutomationId.Equals("LandingPage") || e.Element.AutomationId.Equals("BandLandingPage"))
             {
                 BarBackgroundColor = Color.White;
                 BarTextColor = Color.FromHex("#2C3E50");
@@ -93,8 +103,8 @@ namespace PrismAria
 
         private void ShowUserOption(object obj)
         {
-            if (PopupNavigation.PopupStack.Count == 0) {
-                var popup = new UserPopupPage();
+            if (PopupNavigation.Instance.PopupStack.Count == 0) {
+                var popup = new UserPopupPage(isSubscriber);
                 Navigation.PushPopupAsync(popup, true);
             }
         }

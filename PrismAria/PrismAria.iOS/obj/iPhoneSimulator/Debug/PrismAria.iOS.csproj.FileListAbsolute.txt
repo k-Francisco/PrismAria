@@ -24,6 +24,7 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.Platform.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\SkiaSharp.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\WebP.Touch.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.CarouselView.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.iOS.dll
@@ -167,4 +168,3 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.exe
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.CarouselView.dll

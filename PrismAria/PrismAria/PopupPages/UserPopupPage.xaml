@@ -48,7 +48,8 @@
                         <StackLayout 
                      Spacing="0">
 
-                            <ffimage:CachedImage Source="{Binding UserPic}"
+                            <ffimage:CachedImage x:Name="UserPiciOS"
+                                     Source="{Binding UserPic}"
                                      Aspect="AspectFit"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
@@ -172,7 +173,8 @@
                                   FlowColumnCount="1"
                                   SeparatorVisibility="None"
                                   HasUnevenRows="True"
-                                  Margin="0,20,0,0">
+                                  Margin="0,20,0,0"
+                                  FlowItemTappedCommand="{Binding NavigateToBandCommand}">
 
                         <flv:FlowListView.FlowColumnTemplate>
                             <DataTemplate>
@@ -245,7 +247,8 @@
                                     </Image.GestureRecognizers>
                                 </Image>
 
-                                <ffimage:CachedImage Source="{Binding UserPic}"
+                                <ffimage:CachedImage x:Name="UserPicAndroid"
+                                     Source="{Binding UserPic}"
                                      Aspect="AspectFit"
                                      HorizontalOptions="Center"
                                      VerticalOptions="CenterAndExpand"
@@ -370,7 +373,8 @@
                                   FlowColumnCount="1"
                                   SeparatorVisibility="None"
                                   HasUnevenRows="True"
-                                  Margin="0,20,0,0">
+                                  Margin="0,20,0,0"
+                                          FlowItemTappedCommand="{Binding NavigateToBandCommand}">
 
                             <flv:FlowListView.FlowColumnTemplate>
                                 <DataTemplate>

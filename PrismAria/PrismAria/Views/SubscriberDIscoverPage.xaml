@@ -102,6 +102,11 @@
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"
                                                                             Aspect="AspectFit">
+                                                <ffImageLoading:CachedImage.GestureRecognizers>
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                          Command="{Binding BandClick}"
+                                                                          CommandParameter="{Binding .}"/>
+                                                </ffImageLoading:CachedImage.GestureRecognizers>
                                             </ffImageLoading:CachedImage>
 
                                         </controls:CustomFrame>
@@ -136,7 +141,8 @@
                     Android="0"/>
     </ContentPage.Padding>
 
-    <StackLayout Padding="0"
+    <StackLayout x:Name="mainLayout"
+                  Padding="0"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand">
         <ActivityIndicator IsRunning="False"
@@ -147,9 +153,9 @@
 
 
         <flv:FlowListView FlowItemsSource="{Binding DiscoverList}"
-                              FlowColumnCount="1"
-                              HasUnevenRows="True"
-                              SeparatorVisibility="None"
+                          FlowColumnCount="1"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None"
                           FlowColumnTemplate="{StaticResource BotTemplate}"/>
 
 

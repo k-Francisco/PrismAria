@@ -13,7 +13,7 @@ namespace PrismAria.Views
 
             if (Device.RuntimePlatform.Equals(Device.iOS))
             {
-                this.Children.Add(new UserPopupPage() { Icon="ic_user.png", Title="Profile"});
+                this.Children.Add(new UserPopupPage(true) { Icon="ic_user.png", Title="Profile"});
             }
 
             this.Title = this.CurrentPage.AutomationId;

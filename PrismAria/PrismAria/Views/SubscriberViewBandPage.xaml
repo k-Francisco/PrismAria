@@ -146,7 +146,7 @@
                                           HasUnevenRows="True"
                                           SeparatorVisibility="None"
                                           FlowColumnCount="1"
-                                          HeightRequest="400">
+                                          HeightRequest="{Binding PopularHeight}">
                                 <flv:FlowListView.FlowColumnTemplate>
                                     <DataTemplate>
                                         <Grid RowSpacing="0"
@@ -240,7 +240,7 @@
                                           HasUnevenRows="True"
                                           SeparatorVisibility="None"
                                           FlowColumnCount="2"
-                                          HeightRequest="320">
+                                          HeightRequest="{Binding AlbumHeight}">
                                 <flv:FlowListView.FlowColumnTemplate>
                                     <DataTemplate>
                                         <StackLayout Margin="0">
@@ -284,7 +284,7 @@
                             <Label Text="View all albums"
                                HorizontalOptions="End"
                                FontSize="12"
-                               Margin="0,-10,16,16"
+                               Margin="0,0,16,16"
                                TextColor="#2C3E50">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
@@ -408,7 +408,7 @@
                                           HasUnevenRows="True"
                                           SeparatorVisibility="None"
                                           FlowColumnCount="1"
-                                          HeightRequest="400">
+                                          HeightRequest="{Binding PopularHeight}">
                             <flv:FlowListView.FlowColumnTemplate>
                                 <DataTemplate>
                                     <Grid RowSpacing="0"
@@ -501,7 +501,8 @@
                         <flv:FlowListView FlowItemsSource="{Binding AlbumList}"
                                           HasUnevenRows="True"
                                           SeparatorVisibility="None"
-                                          FlowColumnCount="2">
+                                          FlowColumnCount="2"
+                                          HeightRequest="{Binding AlbumHeight}">
                             <flv:FlowListView.FlowColumnTemplate>
                                 <DataTemplate>
                                     <StackLayout Margin="0">
@@ -545,7 +546,7 @@
                         <Label Text="View all albums"
                                HorizontalOptions="End"
                                FontSize="12"
-                               Margin="0,-64,16,16"
+                               Margin="0,0,16,16"
                                TextColor="#2C3E50">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">

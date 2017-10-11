@@ -6,7 +6,8 @@
             xmlns:controls="clr-namespace:PrismAria.Controls"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="PrismAria.Views.SubscriberLandingPage"
-            AutomationId="LandingPage">
+            AutomationId="LandingPage"
+            BackgroundColor="#FAFAFA">
     <TabbedPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"

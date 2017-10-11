@@ -1,4 +1,6 @@
 ﻿
+using Prism.Commands;
+using Prism.Navigation;
 using PrismAria.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,11 +12,10 @@ namespace PrismAria.Services
     {
         ObservableCollection<DiscoverPageModel> discoverList = new ObservableCollection<DiscoverPageModel>();
         List<BandModel> bandList = new List<BandModel>();
-        public ObservableCollection<DiscoverPageModel> GetDiscoverList() {
+        public ObservableCollection<DiscoverPageModel> GetDiscoverList(INavigationService navigationService) {
             if (discoverList.Count == 0) {
-
-                discoverList.Add(new DiscoverPageModel() { categoryName = "Top 10", bandList = GetBands(), isTop = true});
                 var categories = new List<string>() {
+                    "Top 10",
                     "Trending",
                     "Most Favorite",
                     "Recommended",
@@ -25,7 +26,7 @@ namespace PrismAria.Services
                     "New"
                 };
                 foreach (var item in categories) {
-                    discoverList.Add(new DiscoverPageModel() { categoryName = item, bandList = GetBands() , isTop= false});
+                    discoverList.Add(new DiscoverPageModel() { categoryName = item, bandList = GetBands(navigationService) });
                 }
             }
 
@@ -33,16 +34,25 @@ namespace PrismAria.Services
             return discoverList;
         }
 
-        private List<BandModel> GetBands() {
-            if(bandList.Count == 0)
+        private List<BandModel> GetBands(INavigationService navigationService) {
+
+            var showBandPage = new DelegateCommand<BandModel>((obj) => {
+                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
+                    navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
+                else
+                    navigationService.NavigateAsync("SubscriberViewBandPage", null, true, true);
+
+            });
+
+            if (bandList.Count == 0)
             {
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Maroon 5" });
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Paramore" });
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Panic at the Disco" });
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Sleeping with the sirens"});
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Up Dharma Down" });
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Fall Out Boys" });
-                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "All Time Low" });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Maroon 5", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Paramore", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Panic at the Disco", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Sleeping with the sirens", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Up Dharma Down", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "Fall Out Boys", BandClick = showBandPage });
+                bandList.Add(new BandModel() { imgSource = "sample_pic.png", bandName = "All Time Low", BandClick = showBandPage });
             }
             return bandList;
         }
