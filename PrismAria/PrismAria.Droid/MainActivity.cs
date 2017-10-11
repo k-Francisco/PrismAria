@@ -11,6 +11,7 @@ using Microsoft.Practices.Unity;
 using FFImageLoading.Forms.Droid;
 using Plugin.Permissions;
 
+
 namespace PrismAria.Droid
 {
     [Activity(Label = "PrismAria", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

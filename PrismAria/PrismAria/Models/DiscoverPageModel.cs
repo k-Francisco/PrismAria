@@ -11,24 +11,14 @@ namespace PrismAria.Models
     {
         public string categoryName { get; set; }
         public List<BandModel> bandList { get; set; }
+        public bool isTop { get; set; }
 
     }
 
     public class BandModel {
-
         
-
         public string imgSource { get; set; }
         public string bandName { get; set; }
-        //private DelegateCommand _bandClickCommand;
-        //public DelegateCommand BandClickCommand =>
-        //    _bandClickCommand ?? (_bandClickCommand = new DelegateCommand(BandClick));
 
-        //private void BandClick()
-        //{
-        //    Debug.WriteLine(this.bandName);
-        //}
-
-        public DelegateCommand<BandModel> BandClick { get; set; }
     }
 }

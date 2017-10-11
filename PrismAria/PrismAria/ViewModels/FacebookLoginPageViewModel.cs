@@ -51,42 +51,42 @@ namespace PrismAria.ViewModels
             var webserve = new WebServices();
 	        var facebookServices = new FacebookLoginService();
             var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
-            
-            //Settings.Token = accessToken;
-            //Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
-            //CloseLoginPage();
-            //if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
-            //{
-            //    await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-            //}
-            //else
-            //{
-            //    await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-            //}
 
-            bool register = await webserve.RegisterUser(Fbprofile.Id,
-                Fbprofile.FirstName,
-                Fbprofile.LastName,
-                Fbprofile.Name,
-                Fbprofile.Locale,
-                Fbprofile.Picture.Data.Url);
-
-            if (register)
+            Settings.Token = accessToken;
+            Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
+            CloseLoginPage();
+            if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
             {
-                Settings.Token = accessToken;
-                Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
-                CloseLoginPage();
-                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
-                {
-                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-                }
-                else
-                {
-                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-                }
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
             }
             else
-                await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
+            {
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            }
+
+            //bool register = await webserve.RegisterUser(Fbprofile.Id,
+            //    Fbprofile.FirstName,
+            //    Fbprofile.LastName,
+            //    Fbprofile.Name,
+            //    Fbprofile.Locale,
+            //    Fbprofile.Picture.Data.Url);
+
+            //if (register)
+            //{
+            //    Settings.Token = accessToken;
+            //    Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
+            //    CloseLoginPage();
+            //    if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
+            //    {
+            //        await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            //    }
+            //    else
+            //    {
+            //        await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            //    }
+            //}
+            //else
+            //    await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
         }
     }
 }

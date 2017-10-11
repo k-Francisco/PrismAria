@@ -1,4 +1,5 @@
-﻿using PrismAria.PopupPages;
+﻿using PrismAria.Controls;
+using PrismAria.PopupPages;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 

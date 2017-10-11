@@ -21,6 +21,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.2.20" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.20" />
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
+    <PackageReference Include="Xamarin.Forms.CarouselView" Version="2.3.0-pre2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,9 +42,6 @@
     </Compile>
     <Compile Update="Views\SubscriberLandingPage.xaml.cs">
       <DependentUpon>SubscriberLandingPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\SubscriberLeaderboardPage.xaml.cs">
-      <DependentUpon>SubscriberLeaderboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SubscriberNotificationPage.xaml.cs">
       <DependentUpon>SubscriberNotificationPage.xaml</DependentUpon>

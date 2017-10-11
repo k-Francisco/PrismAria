@@ -42,11 +42,11 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<SubscriberDIscoverPage>("Discover");
             Container.RegisterTypeForNavigation<SubscriberFavoritesPage>();
             Container.RegisterTypeForNavigation<SubscriberNotificationPage>();
-            Container.RegisterTypeForNavigation<SubscriberLeaderboardPage>();
             Container.RegisterTypeForNavigation<LoginPage>();
             Container.RegisterTypeForNavigation<FacebookLoginPage, FacebookLoginPageViewModel>();
             Container.RegisterTypeForNavigation<SubscriberViewBandPage>();
             Container.RegisterTypeForNavigation<CreateBandPopupPage, CreateBandPopupPageViewModel>();
+            Container.RegisterTypeForNavigation<SubscriberFeed>();
         }
     }
 

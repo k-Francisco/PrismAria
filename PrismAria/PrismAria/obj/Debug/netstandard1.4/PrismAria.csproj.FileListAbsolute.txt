@@ -17,7 +17,6 @@ D:\Xamarin Projects\PrismAria\PrismAria.Core\obj\Debug\netstandard1.4\PrismAria.
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\netstandard1.4\PrismAria.deps.json
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\netstandard1.4\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\netstandard1.4\PrismAria.pdb
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csprojResolveAssemblyReference.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.App.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.CreateBandPopupPage.xaml.g.cs
@@ -27,10 +26,11 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.LoginPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberDIscoverPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberFavoritesPage.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberFeed.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberLandingPage.xaml.g.cs
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberLeaderboardPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberNotificationPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.SubscriberViewBandPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.AssemblyInfo.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csprojResolveAssemblyReference.cache

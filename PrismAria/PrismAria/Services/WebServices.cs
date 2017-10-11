@@ -154,7 +154,7 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<bool> EditBandPic(byte[] bandPic) {
+        public async Task<bool> EditBandPic(System.IO.Stream bandPic) {
             isSuccess = false;
             //var contents = CreateBody("{" +
             //    "\"band_pic\":\"" + bandPic + "\"," +
@@ -168,7 +168,7 @@ namespace PrismAria.Services
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;
-
+                
 
                 var data = await result.Content.ReadAsStringAsync();
                 Debug.WriteLine(data);

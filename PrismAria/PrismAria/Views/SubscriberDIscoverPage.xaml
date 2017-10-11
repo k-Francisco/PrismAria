@@ -8,92 +8,151 @@
              xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberDIscoverPage"
-             AutomationId="Discover">
+             AutomationId="Explore">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<DataTemplate x:Key="TopTemplate">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding categoryName}"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   Margin="16,16,0,0"
+                   TextColor="#212121">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+
+                    <carouselV:CarouselViewControl ItemsSource="{Binding bandList}"
+                                                   Orientation="Horizontal"
+                                                   InterPageSpacing="10">
+                        <carouselV:CarouselViewControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="8,0,8,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+
+                                    <ffImageLoading:CachedImage Grid.Row="0" Grid.RowSpan="2"
+                                                            Source="{Binding imgSource}"
+                                                            Aspect="Fill"
+                                                            DownsampleToViewSize="True"/>
+                                    <BoxView Grid.Row="1"
+                                         Color="#212121"
+                                         Opacity=".3"/>
+                                    <Label Grid.Row="1"
+                                       Text="{Binding bandName}"
+                                       TextColor="#FAFAFA"
+                                       FontSize="Medium"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS">Bryant</On>
+                                                <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </carouselV:CarouselViewControl.ItemTemplate>
+                    </carouselV:CarouselViewControl>
+
+                </StackLayout>
+            </DataTemplate>-->
+
+            <DataTemplate x:Key="BotTemplate">
+
+                <StackLayout
+                        Padding="0,16,0,-10">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="{Binding categoryName}"
+                               TextColor="#212121"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               Margin="16,0">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+
+                    <controls:HorizontalListView ItemSource="{Binding bandList}"
+                                        Orientation="Horizontal" HeightRequest="140">
+                        <controls:HorizontalListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                            Orientation="Vertical"
+                                            Margin="16,0,-10,0">
+                                        <controls:CustomFrame
+                                                 Padding="0"
+                                                 Margin="0"
+                                                 CornerRadius="4"
+                                                 HasShadow="True">
+                                            <ffImageLoading:CachedImage Source="{Binding imgSource}" 
+                                                                            HeightRequest="100" 
+                                                                            WidthRequest="100"
+                                                                            Aspect="AspectFit">
+                                            </ffImageLoading:CachedImage>
+
+                                        </controls:CustomFrame>
+
+                                        <Label Text="{Binding bandName}"
+                                                   FontSize="14"
+                                                   LineBreakMode="TailTruncation"
+                                                   WidthRequest="80"
+                                                   XAlign="Center">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS">Bryant</On>
+                                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:HorizontalListView.ItemTemplate>
+                    </controls:HorizontalListView>
+                </StackLayout>
+
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"
                     Android="0"/>
     </ContentPage.Padding>
 
-    <ListView ItemsSource="{Binding DiscoverList}"
-              HasUnevenRows="True"
-              SeparatorVisibility="None"
-              Margin="0">
-        <x:Arguments>
-            <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
-        </x:Arguments>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout
-                        Padding="0,16,0,-10">
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer/>
-                        </StackLayout.GestureRecognizers>
-                        <Label Text="{Binding categoryName}"
-                               TextColor="#2C3E50"
-                               FontSize="Large"
-                               FontAttributes="Bold"
-                               Margin="16,0">
-                            <Label.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS">Bryant</On>
-                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
-                                </OnPlatform>
-                            </Label.FontFamily>
-                        </Label>
-
-                        <controls:HorizontalListView ItemSource="{Binding bandList}"
-                                        Orientation="Horizontal" HeightRequest="140">
-                            <controls:HorizontalListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <StackLayout
-                                            Orientation="Vertical"
-                                            Margin="16,0,-10,0">
-                                            <controls:CustomFrame
-                                                 Padding="0"
-                                                 Margin="0"
-                                                 CornerRadius="4"
-                                                 HasShadow="True">
-                                                <ffImageLoading:CachedImage Source="{Binding imgSource}" 
-                                                                            HeightRequest="100" 
-                                                                            WidthRequest="100"
-                                                                            Aspect="AspectFit">
-                                                    <ffImageLoading:CachedImage.GestureRecognizers>
-                                                        <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                                              Command="{Binding BandClick}"
-                                                                              CommandParameter="{Binding .}"/>
-                                                    </ffImageLoading:CachedImage.GestureRecognizers>
-                                                </ffImageLoading:CachedImage>
-
-                                            </controls:CustomFrame>
-
-                                            <Label Text="{Binding bandName}"
-                                                   FontSize="14"
-                                                   LineBreakMode="TailTruncation"
-                                                   WidthRequest="80"
-                                                   XAlign="Center">
-                                                <Label.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String">
-                                                        <On Platform="iOS">Bryant</On>
-                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                                                    </OnPlatform>
-                                                </Label.FontFamily>
-                                            </Label>
-                                        </StackLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </controls:HorizontalListView.ItemTemplate>
-                        </controls:HorizontalListView>
+    <StackLayout Padding="0"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand">
+        <ActivityIndicator IsRunning="False"
+                           IsVisible="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Color="#212121"/>
 
 
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-    
+        <flv:FlowListView FlowItemsSource="{Binding DiscoverList}"
+                              FlowColumnCount="1"
+                              HasUnevenRows="True"
+                              SeparatorVisibility="None"
+                          FlowColumnTemplate="{StaticResource BotTemplate}"/>
 
 
+
+    </StackLayout>
 </ContentPage>

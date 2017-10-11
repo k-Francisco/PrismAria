@@ -17,9 +17,8 @@ namespace PrismAria.ViewModels
 {
     public class SubscriberDIscoverPageViewModel : BindableBase, INavigatedAware
     {
+
         private DiscoverListService _discoverService;
-        private IEventAggregator _ea;
-        private readonly INavigationService _navigationService;
         private ObservableCollection<DiscoverPageModel> _discoverList;
         public ObservableCollection<DiscoverPageModel> DiscoverList
         {
@@ -27,12 +26,26 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _discoverList, value); }
         }
 
+
+        private DelegateCommand<BandModel> _navigateToBandPageCommand;
+        public DelegateCommand<BandModel> NavigateToBandPageCommand =>
+            _navigateToBandPageCommand ?? (_navigateToBandPageCommand = new DelegateCommand<BandModel>(NavigateToBandPage));
+
+        private void NavigateToBandPage(BandModel obj)
+        {
+            Debug.WriteLine(obj.bandName);
+            _navigationService.NavigateAsync("SubscriberViewBandPage");
+        }
+
+        private IEventAggregator _ea;
+        private readonly INavigationService _navigationService;
+
         public SubscriberDIscoverPageViewModel(IEventAggregator ea, INavigationService navigationService)
         {
             _ea = ea;
             _navigationService = navigationService;
             _discoverService = new DiscoverListService();
-            _discoverList = _discoverService.GetDiscoverList(_navigationService);
+            _discoverList = _discoverService.GetDiscoverList();
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

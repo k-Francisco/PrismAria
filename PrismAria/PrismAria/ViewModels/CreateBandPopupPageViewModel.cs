@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace PrismAria.ViewModels
 {
@@ -55,31 +56,33 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            //var media = CrossMedia.Current;
-            //try
-            //{
-            //    var file = await media.PickPhotoAsync();
+            var media = CrossMedia.Current;
+            try
+            {
+                var file = await media.PickPhotoAsync();
 
-            //    while (File.ReadAllBytes(file.Path).Length == 0)
-            //    {
-            //        await Task.Delay(1000);
-            //    }
-            //    var upFileBytes = File.ReadAllBytes(file.Path);
+                while (File.ReadAllBytes(file.Path).Length == 0)
+                {
+                    await Task.Delay(1000);
+                }
+                var upFileBytes = File.ReadAllBytes(file.Path);
+                var stream = file.GetStream();
+                file.Dispose();
+                
+                //MultipartFormDataContent content = new MultipartFormDataContent();
+                //ByteArrayContent baContent = new ByteArrayContent(upFileBytes);
+                //content.Add(baContent, "File", "bandPic.png");
 
-            //    //MultipartFormDataContent content = new MultipartFormDataContent();
-            //    ByteArrayContent baContent = new ByteArrayContent(upFileBytes);
-            //    //content.Add(baContent, "File", "bandPic.ext");
+                await webServices.EditBandPic(stream);
 
-            //    await webServices.EditBandPic(upFileBytes);
-
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.WriteLine(e.Message);
-            //}
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
 
 
-            await webServices.EditBandDetails();
+            //await webServices.EditBandDetails();
             //var fbprofile = new FacebookProfile();
             //fbprofile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
             //Debug.WriteLine("Band name: " + _bandName + "\nBand Role: " + _bandRoles[_selectedIndex] + "\nUser id: " + fbprofile.Id);
