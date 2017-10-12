@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using PrismAria.Events;
 using PrismAria.Helpers;
 using PrismAria.Models;
 using PrismAria.PopupPages;
@@ -16,10 +18,11 @@ using System.Linq;
 
 namespace PrismAria.ViewModels
 {
-	public class UserPopupPageViewModel : BindableBase, INavigatedAware
+	public class UserPopupPageViewModel : BindableBase
 	{
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService pageDialogService;
+        private readonly IEventAggregator _eventAggregator;
         private readonly UserBandsService _userBandsService;
         #region Close User Popup
 
@@ -56,7 +59,7 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            await PopupNavigation.Instance.PopAllAsync();
+            //await PopupNavigation.Instance.PopAllAsync();
             await PopupNavigation.Instance.PushAsync(new CreateBandPopupPage());
             //var webserve = new WebServices();
             //var fbProfile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
@@ -65,6 +68,7 @@ namespace PrismAria.ViewModels
             //    await pageDialogService.DisplayAlertAsync("NICE KA", "GOOD GOOD GOOD", "OK");
             //else
             //    await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
+
 
         }
         #endregion
@@ -102,16 +106,6 @@ namespace PrismAria.ViewModels
             
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-      
-        }
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-     
-        }
-
         public async void WhereToNavigate(bool isSubscriber) {
 
             if (isSubscriber)
@@ -133,16 +127,23 @@ namespace PrismAria.ViewModels
         public string UserPic { get; set; }
         public string UserName { get; set; }
 
-        public UserPopupPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public UserPopupPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IEventAggregator eventAggregator)
         {
             _navigationService = navigationService;
             this.pageDialogService = pageDialogService;
+            _eventAggregator = eventAggregator;
             var profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
             UserPic = profile.Picture.Data.Url;
             UserName = profile.Name;
 
             _userBandsService = new UserBandsService();
             _userBands = _userBandsService.GetUserBands();
+            _eventAggregator.GetEvent<UserBandsEvent>().Subscribe(PublishBand);
         }
-	}
+
+        private void PublishBand(UserBandModelForEvent obj)
+        {
+            _userBandsService.AddBands(obj.userBandName, obj.userBandRole, obj.userBandImage);
+        }
+    }
 }

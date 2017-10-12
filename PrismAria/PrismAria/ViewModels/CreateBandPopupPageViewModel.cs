@@ -2,7 +2,9 @@
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using PrismAria.Events;
 using PrismAria.Helpers;
 using PrismAria.Models;
 using PrismAria.Services;
@@ -22,6 +24,7 @@ namespace PrismAria.ViewModels
     public class CreateBandPopupPageViewModel : BindableBase
     {
         private readonly WebServices webServices;
+        private UserBandsService _userBandService = new UserBandsService();
 
         private ObservableCollection<string> _bandRoles = new ObservableCollection<string>() {
                 "Vocalist",
@@ -65,23 +68,27 @@ namespace PrismAria.ViewModels
                 {
                     await Task.Delay(1000);
                 }
-                var upFileBytes = File.ReadAllBytes(file.Path);
-                var stream = file.GetStream();
-                file.Dispose();
+                //var upFileBytes = File.ReadAllBytes(file.Path);
+                //var stream = file.GetStream();
+                //file.Dispose();
                 
                 //MultipartFormDataContent content = new MultipartFormDataContent();
                 //ByteArrayContent baContent = new ByteArrayContent(upFileBytes);
                 //content.Add(baContent, "File", "bandPic.png");
 
-                await webServices.EditBandPic(stream);
+                //await webServices.EditBandPic(stream);
+                _userBandService.AddBands(_bandName, _bandRoles[_selectedIndex], file.Path);
 
+                var newBand = new UserBandModelForEvent() { userBandImage=file.Path, userBandName=_bandName, userBandRole = _bandRoles[_selectedIndex] };
+                eventAggregator.GetEvent<UserBandsEvent>().Publish(newBand);
+                await PopupNavigation.Instance.PopAsync();
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }
 
-
+            
             //await webServices.EditBandDetails();
             //var fbprofile = new FacebookProfile();
             //fbprofile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
@@ -91,6 +98,8 @@ namespace PrismAria.ViewModels
         }
 
         private DelegateCommand _closeCommand;
+        private readonly IEventAggregator eventAggregator;
+
         public DelegateCommand CloseCommand =>
             _closeCommand ?? (_closeCommand = new DelegateCommand(Close));
 
@@ -99,9 +108,10 @@ namespace PrismAria.ViewModels
             PopupNavigation.Instance.PopAllAsync();
         }
 
-        public CreateBandPopupPageViewModel()
+        public CreateBandPopupPageViewModel(IEventAggregator eventAggregator)
         {
             webServices = new WebServices();
+            this.eventAggregator = eventAggregator;
         }
-	}
+    }
 }
