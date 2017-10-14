@@ -14,6 +14,7 @@ namespace PrismAria.Services
         private ObservableCollection<UserBandModel> _userBands = new ObservableCollection<UserBandModel>();
         FacebookProfile profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
         public ObservableCollection<UserBandModel> GetUserBands() {
+            _userBands.Add(new UserBandModel() { userBandName = "Band Name Here", userBandImage = "sample_pic.png" });
             return _userBands;
         }
 

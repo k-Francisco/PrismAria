@@ -32,7 +32,7 @@ namespace PrismAria.ViewModels
 
         private void ClosePopup()
         {
-            PopupNavigation.PopAllAsync();
+            PopupNavigation.Instance.PopAllAsync();
         }
         #endregion
 
@@ -44,7 +44,7 @@ namespace PrismAria.ViewModels
         private async void Logout()
         {
             Settings.ClearEverything();
-            await PopupNavigation.PopAllAsync(true);
+            await PopupNavigation.Instance.PopAllAsync(true);
             await _navigationService.NavigateAsync(new Uri("http://myapp.com/LoginPage", UriKind.Absolute),
                 null,
                 true,
@@ -135,7 +135,6 @@ namespace PrismAria.ViewModels
             var profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
             UserPic = profile.Picture.Data.Url;
             UserName = profile.Name;
-
             _userBandsService = new UserBandsService();
             _userBands = _userBandsService.GetUserBands();
             _eventAggregator.GetEvent<UserBandsEvent>().Subscribe(PublishBand);

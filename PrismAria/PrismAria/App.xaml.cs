@@ -13,6 +13,8 @@ using PrismAria.ViewModels;
 using Rg.Plugins.Popup.Services;
 using DLToolkit.Forms.Controls;
 using PrismAria.Controls;
+using System.Collections.ObjectModel;
+using Prism.Events;
 
 namespace PrismAria
 {
@@ -31,6 +33,8 @@ namespace PrismAria
                     await NavigationService.NavigateAsync("SubscriberLanding", null, true, true);
                 else
                     await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
+
+                
             }
         }
 

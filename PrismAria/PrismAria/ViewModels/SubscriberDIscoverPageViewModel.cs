@@ -20,6 +20,7 @@ namespace PrismAria.ViewModels
 
         private DiscoverListService _discoverService;
         private ObservableCollection<DiscoverPageModel> _discoverList;
+        private Singleton _singleton;
         public ObservableCollection<DiscoverPageModel> DiscoverList
         {
             get { return _discoverList; }
@@ -34,7 +35,8 @@ namespace PrismAria.ViewModels
             _ea = ea;
             _navigationService = navigationService;
             _discoverService = new DiscoverListService();
-            _discoverList = _discoverService.GetDiscoverList(_navigationService);
+            _singleton = Singleton.Instance;
+            _discoverList = _singleton.DiscoverCollection = _discoverService.GetDiscoverList(_navigationService);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
