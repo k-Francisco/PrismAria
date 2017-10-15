@@ -146,3 +146,4 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.CarouselView.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_back.png

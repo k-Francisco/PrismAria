@@ -93,4 +93,3 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Collections.Concurrent.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.Runtime.InteropServices.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Mono.Security.dll
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\System.IO.FileSystem.dll

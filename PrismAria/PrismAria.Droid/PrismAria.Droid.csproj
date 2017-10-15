@@ -100,6 +100,12 @@
     <Reference Include="Plugin.Media.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugin.Media.3.0.1\lib\MonoAndroid10\Plugin.Media.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.MediaManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\MonoAndroid\Plugin.MediaManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\MonoAndroid\Plugin.MediaManager.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.Permissions, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.Permissions.2.0.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
     </Reference>
@@ -286,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\file_paths.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

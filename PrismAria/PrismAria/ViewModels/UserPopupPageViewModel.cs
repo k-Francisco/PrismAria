@@ -59,17 +59,10 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            //await PopupNavigation.Instance.PopAllAsync();
-            await PopupNavigation.Instance.PushAsync(new CreateBandPopupPage());
-            //var webserve = new WebServices();
-            //var fbProfile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
-            //var isSuccess = await webserve.CreateBand(fbProfile.Id);
-            //if (isSuccess)
-            //    await pageDialogService.DisplayAlertAsync("NICE KA", "GOOD GOOD GOOD", "OK");
-            //else
-            //    await pageDialogService.DisplayAlertAsync("GAGO", "NAAY SAYOP GAGO", "OK");
-
-
+            
+            PopupNavigation.Instance.PopAllAsync();
+            await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
+            
         }
         #endregion
 

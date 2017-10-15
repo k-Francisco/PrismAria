@@ -165,6 +165,12 @@
     <Reference Include="Plugin.Media.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugin.Media.3.0.1\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.MediaManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\Xamarin.iOS10\Plugin.MediaManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\Xamarin.iOS10\Plugin.MediaManager.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.Settings, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.3.0.1\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
     </Reference>
@@ -343,7 +349,10 @@
     <BundleResource Include="Resources\ic_left_arrow%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_add_band.png" />
+    <BundleResource Include="Resources\ic_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\ic_add_band.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

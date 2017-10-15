@@ -162,9 +162,13 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_left_arrow@3x.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_left_arrow.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_left_arrow@2x.png
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_add_band.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.csprojResolveAssemblyReference.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.exe
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\PrismAria.iOS.pdb
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\obj\iPhoneSimulator\Debug\optimized\ic_back.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.MediaManager.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.MediaManager.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.MediaManager.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.iOS\bin\iPhoneSimulator\Debug\Plugin.MediaManager.Abstractions.xml

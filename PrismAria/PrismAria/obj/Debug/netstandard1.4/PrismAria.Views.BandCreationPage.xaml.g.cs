@@ -8,16 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrismAria.PopupPages {
+namespace PrismAria.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Xamarin Projects\\PrismAria\\PrismAria\\PrismAria\\PopupPages\\CreateBandPopupPage." +
-        "xaml")]
-    public partial class CreateBandPopupPage : global::Rg.Plugins.Popup.Pages.PopupPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Xamarin Projects\\PrismAria\\PrismAria\\PrismAria\\Views\\BandCreationPage.xaml")]
+    public partial class BandCreationPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CreateBandPopupPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(BandCreationPage));
         }
     }
 }

@@ -48,6 +48,12 @@
                            TextColor="White"
                            Margin="16,0"
                            VerticalOptions="Center">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
 
                     </Label>
 

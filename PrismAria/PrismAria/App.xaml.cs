@@ -15,6 +15,7 @@ using DLToolkit.Forms.Controls;
 using PrismAria.Controls;
 using System.Collections.ObjectModel;
 using Prism.Events;
+using PrismAria.Events;
 
 namespace PrismAria
 {
@@ -49,13 +50,13 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<LoginPage>();
             Container.RegisterTypeForNavigation<FacebookLoginPage, FacebookLoginPageViewModel>();
             Container.RegisterTypeForNavigation<SubscriberViewBandPage>();
-            Container.RegisterTypeForNavigation<CreateBandPopupPage, CreateBandPopupPageViewModel>();
             Container.RegisterTypeForNavigation<SubscriberFeed>();
             Container.RegisterTypeForNavigation<BandLandingPage>();
             Container.RegisterTypeForNavigation<BandDetailsPage>();
             Container.RegisterTypeForNavigation<BandSongsAndAlbumsPage>();
             Container.RegisterTypeForNavigation<BandStatisticsPage>();
             Container.RegisterTypeForNavigation<BandArticlesPage>();
+            Container.RegisterTypeForNavigation<BandCreationPage>();
         }
     }
 
@@ -69,13 +70,16 @@ namespace PrismAria
         };
 
         private bool isSubscriber = true;
+        private readonly IEventAggregator eventAggregator;
+        
 
-        public RootPage()
+        public RootPage(IEventAggregator eventAggregator)
         {
             HelloCommand = new Command(ShowUserOption);
             userPageItem.Command = HelloCommand;
             this.ChildAdded += RootPage_ChildAdded;
             this.ChildRemoved += RootPage_ChildRemoved;
+            this.eventAggregator = eventAggregator;
         }
 
         private void RootPage_ChildRemoved(object sender, ElementEventArgs e)

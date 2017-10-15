@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismAria.Views.BandCreationPage">
+
+    <Grid ColumnSpacing="0">
+        <Grid.Padding>
+            <OnPlatform x:TypeArguments="Thickness"
+                        iOS="0,20,0,0"
+                        Android="0"/>
+        </Grid.Padding>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+            <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                     BackgroundColor="#FAFAFA"/>
+
+            <Image Grid.Column="0" Grid.Row="0"
+                               Source="ic_back.png"
+                               HeightRequest="20"
+                               WidthRequest="20"
+                   Margin="16,0,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GoBackCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label Grid.Column="1" Grid.Row="0"
+                           Text="Create Band"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           TextColor="#212121"
+                           Margin="32,0"
+                           VerticalOptions="Center">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS">Bryant</On>
+                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                </OnPlatform>
+            </Label.FontFamily>
+            </Label>
+
+        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                     Padding="16"
+                     BackgroundColor="#FAFAFA">
+            
+            <Label Text="Band Name">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <Entry Text="{Binding BandName, Mode=TwoWay}"/>
+
+            <Label Text="Band Desc">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <Entry Text="{Binding BandDesc, Mode=TwoWay}"/>
+
+            <Label Text="Band Image">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <!--<Image Source="{Binding BandPic}"
+                   HeightRequest="100"
+                   HorizontalOptions="FillAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PickBandImageCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>-->
+
+            <ffimage:CachedImage Source="{Binding BandPic}"
+                                 HeightRequest="100"
+                                 HorizontalOptions="FillAndExpand">
+                <ffimage:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PickBandImageCommand}"/>
+                </ffimage:CachedImage.GestureRecognizers>
+            </ffimage:CachedImage>
+
+            <Label Text="Your Role">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <Picker ItemsSource="{Binding RoleList}"
+                    SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
+
+            <Button Text="Create"/>
+
+        </StackLayout>
+
+    </Grid>
+  
+</ContentPage>

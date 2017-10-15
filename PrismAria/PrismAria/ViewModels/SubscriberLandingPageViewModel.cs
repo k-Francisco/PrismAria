@@ -14,10 +14,13 @@ namespace PrismAria.ViewModels
     public class SubscriberLandingPageViewModel : BindableBase, INavigatedAware
     {
         private IEventAggregator _ea;
+        private readonly INavigationService navigationService;
 
-        public SubscriberLandingPageViewModel(IEventAggregator ea)
+        public SubscriberLandingPageViewModel(IEventAggregator ea, INavigationService navigationService)
         {
             _ea = ea;
+            this.navigationService = navigationService;
+           
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
