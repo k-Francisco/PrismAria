@@ -2,13 +2,132 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:PrismAria.Controls"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.BandSongsAndAlbumsPage"
              AutomationId="Songs and Albums">
 
-    <StackLayout HorizontalOptions="Center"
-                 VerticalOptions="Center">
-        <Label Text="Band Songs and Albums Page"/>
-    </StackLayout>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0"/>
+    </ContentPage.Padding>
+
+    <controls:HorizontalListView Orientation="Vertical"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical">
+
+            <flv:FlowListView FlowItemsSource="{Binding SongCollection}"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      FlowColumnCount="1"
+                              HeightRequest="{Binding SongCollectionHeight}">
+                <flv:FlowListView.Header>
+                    <Label Text="Songs"
+                   FontSize="32"
+                   TextColor="#212121"
+                   FontAttributes="Bold"
+                   Margin="8,16,0,0">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                </flv:FlowListView.Header>
+
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal"
+                             HeightRequest="40"
+                             HorizontalOptions="FillAndExpand">
+
+                            <Label 
+                           Text="{Binding SongName}"
+                           FontSize="Medium"
+                           TextColor="#212121"
+                           Margin="24,0,0,0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <Image 
+                           Source="ic_edit.png"
+                           Margin="8"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center"/>
+                            <Image 
+                           Source="ic_delete.png"
+                           Margin="8"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"/>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+
+            <flv:FlowListView FlowItemsSource="{Binding AlbumCollection}"
+                      FlowColumnCount="2"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      Margin="0,16,0,0">
+
+                <flv:FlowListView.Header>
+                    <Label Text="Albums"
+                   FontSize="32"
+                   TextColor="#212121"
+                   FontAttributes="Bold"
+                   Margin="8,16,0,0">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                </flv:FlowListView.Header>
+
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="8">
+                            <ffimage:CachedImage Source="{Binding AlbumPic}"
+                                                             Aspect="AspectFill"
+                                                             DownsampleToViewSize="True"
+                                                             HeightRequest="100"
+                                                             WidthRequest="140"
+                                                             HorizontalOptions="Center"/>
+
+                            <Label Text="{Binding AlbumTitle}"
+                                               FontSize="Medium"
+                                               TextColor="#2C3E50"
+                                               HorizontalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+
+            </flv:FlowListView>
+
+        </StackLayout>
+    </controls:HorizontalListView>
 
 </ContentPage>

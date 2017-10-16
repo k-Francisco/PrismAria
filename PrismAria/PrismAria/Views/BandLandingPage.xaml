@@ -14,10 +14,10 @@
     </TabbedPage.Padding>
 
     <TabbedPage.Children>
-        <views:BandDetailsPage Title="Details"/>
-        <views:BandArticlesPage Title="Articles"/>
-        <views:BandSongsAndAlbumsPage Title="Songs and Albums"/>
-        <views:BandStatisticsPage Title="Statistics"/>
+        <views:BandDetailsPage Icon="ic_details.png"/>
+        <views:BandArticlesPage Icon="ic_article.png"/>
+        <views:BandSongsAndAlbumsPage Icon="ic_songs.png"/>
+        <views:BandStatisticsPage Icon="ic_stats.png"/>
     </TabbedPage.Children>
   
 </TabbedPage>

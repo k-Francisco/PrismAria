@@ -6,7 +6,8 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.BandCreationPage">
 
-    <Grid ColumnSpacing="0">
+    <Grid ColumnSpacing="0"
+          BackgroundColor="#FAFAFA">
         <Grid.Padding>
             <OnPlatform x:TypeArguments="Thickness"
                         iOS="0,20,0,0"
@@ -84,15 +85,7 @@
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
-
-            <!--<Image Source="{Binding BandPic}"
-                   HeightRequest="100"
-                   HorizontalOptions="FillAndExpand">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PickBandImageCommand}"/>
-                </Image.GestureRecognizers>
-            </Image>-->
-
+            
             <ffimage:CachedImage Source="{Binding BandPic}"
                                  HeightRequest="100"
                                  HorizontalOptions="FillAndExpand">

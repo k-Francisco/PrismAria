@@ -25,5 +25,9 @@ namespace PrismAria.Services
 
             return articles;
         }
+
+        public void AddArticles(ObservableCollection<ArticlesModel> collection) {
+            collection.Add(new ArticlesModel() { BandName = "Maroon 5", BandPic = "sample_pic.png", ArticleTitle = "New Album", Article = "Our album named shit is very nice and shit" });
+        }
     }
 }

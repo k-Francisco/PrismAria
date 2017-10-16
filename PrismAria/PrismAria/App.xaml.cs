@@ -31,9 +31,9 @@ namespace PrismAria
                await NavigationService.NavigateAsync("LoginPage", null, true, true);
             else {
                 if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.iOS))
-                    await NavigationService.NavigateAsync("SubscriberLanding", null, true, true);
+                    await NavigationService.NavigateAsync("BandLandingPage", null, true, true);
                 else
-                    await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
+                    await NavigationService.NavigateAsync("RootPage/BandLandingPage");
 
                 
             }

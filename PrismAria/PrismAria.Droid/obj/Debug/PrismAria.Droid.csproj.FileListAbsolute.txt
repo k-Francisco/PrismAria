@@ -147,3 +147,13 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Xamarin.Forms.CarouselView.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_back.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.MediaManager.Abstractions.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.MediaManager.dll
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.MediaManager.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\bin\Debug\Plugin.MediaManager.Abstractions.xml
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_stats.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_songs.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_article.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_details.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_edit.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_delete.png

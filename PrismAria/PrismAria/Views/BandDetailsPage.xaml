@@ -2,9 +2,178 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:PrismAria.Controls"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.BandDetailsPage"
-             AutomationId="Details">
+             AutomationId="Details"
+             BackgroundColor="#FAFAFA">
 
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0"/>
+    </ContentPage.Padding>
+
+    <controls:HorizontalListView Orientation="Vertical"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 Padding="0">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     BackgroundColor="#FAFAFA">
+
+            <Grid Padding="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ffimage:CachedImage Grid.Column="0"
+                                 Source="sample_pic.png"
+                                 DownsampleToViewSize="True"
+                                 DownsampleHeight="70"
+                                 Aspect="Fill"
+                                 HeightRequest="70"
+                                 WidthRequest="70"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Start"
+                                 Margin="8">
+                    <ffimage:CachedImage.Transformations>
+                        <fftrans:CircleTransformation BorderSize="16"
+                                                  BorderHexColor="#F79012"/>
+                    </ffimage:CachedImage.Transformations>
+                </ffimage:CachedImage>
+
+                <Label Grid.Column="1"
+                   Text="Band Name Here"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="#212121"
+                   Margin="0,8,0,0">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Bryant</On>
+                            <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+                <Label Grid.Column="1"
+                       Text="Band Description here"
+                       FontSize="Small"
+                       Margin="0,32,0,16">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Bryant</On>
+                            <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+                <Label Grid.Column="1"
+                       Text="Edit Band Details"
+                       FontSize="Small"
+                       FontAttributes="Bold"
+                       HorizontalOptions="End"
+                       VerticalOptions="End">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Bryant</On>
+                            <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+            </Grid>
+
+            <Label Text="Band Members"
+                   FontSize="Medium"
+                   Margin="8,0,0,0"
+                   TextColor="#212121">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <flv:FlowListView FlowItemsSource="{Binding BandMembersCollection}"
+                              HasUnevenRows="True"
+                              SeparatorVisibility="None"
+                              FlowColumnCount="2"
+                              HeightRequest="{Binding BandMemberCollectionHeight}">
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <Grid Margin="8" ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ffimage:CachedImage Grid.Column="0"
+                                                 Source="{Binding MemberPic}"
+                                                 DownsampleToViewSize="True"
+                                                 DownsampleHeight="50"
+                                                 Aspect="Fill"
+                                                 HeightRequest="50"
+                                                 WidthRequest="50"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center">
+                                <ffimage:CachedImage.Transformations>
+                                    <fftrans:CircleTransformation BorderHexColor="#F79012"
+                                                                  BorderSize="16"/>
+                                </ffimage:CachedImage.Transformations>
+                            </ffimage:CachedImage>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding MemberName}"
+                                   FontSize="Small"
+                                   FontAttributes="Bold"
+                                   TextColor="#212121"
+                                   Margin="8,8,0,0">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding MemberRole}"
+                                   FontSize="Small"
+                                   Margin="8,24,0,0">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS">Bryant</On>
+                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </Grid>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+
+            <Label Text="Edit Band Members"
+                   FontSize="Small"
+                   FontAttributes="Bold"
+                   HorizontalOptions="End"
+                   VerticalOptions="Start"
+                   Margin="0,0,16,150">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Bryant</On>
+                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+        </StackLayout>
+    </controls:HorizontalListView>
   
 </ContentPage>

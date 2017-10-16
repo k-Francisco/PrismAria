@@ -48,21 +48,27 @@ namespace PrismAria.ViewModels
 
 	    public async Task SetFacebookUserProfileAsync(string accessToken)
 	    {
-            var webserve = new WebServices();
-	        var facebookServices = new FacebookLoginService();
-            var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
+            try {
+                var webserve = new WebServices();
+                var facebookServices = new FacebookLoginService();
+                var Fbprofile = await facebookServices.GetFacebookProfileAsync(accessToken);
 
-            Settings.Token = accessToken;
-            Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
-            CloseLoginPage();
-            if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
-            {
-                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+                Settings.Token = accessToken;
+                Settings.Profile = JsonConvert.SerializeObject(Fbprofile);
+                CloseLoginPage();
+                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
+                {
+                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+                }
+                else
+                {
+                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+                }
             }
-            else
-            {
-                await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
+            catch (Exception e) {
+                Debug.WriteLine(e.Message);
             }
+            
 
             //bool register = await webserve.RegisterUser(Fbprofile.Id,
             //    Fbprofile.FirstName,

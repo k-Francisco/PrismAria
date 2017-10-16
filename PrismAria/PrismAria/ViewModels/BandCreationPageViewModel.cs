@@ -67,22 +67,21 @@ namespace PrismAria.ViewModels
         private async void PickBandImage()
         {
             await CrossMedia.Current.Initialize();
+           
 
             if(!CrossMedia.Current.IsPickPhotoSupported)
             {
                 await pageDialogService.DisplayAlertAsync("Error", "The device deos not support picking of photos", "Ok");
                 return;
             }
-            else
-            {
+            
+            
                 var file = await CrossMedia.Current.PickPhotoAsync();
                 if (file == null)
                     return;
-
+            
                 _bandPic = ImageSource.FromFile(file.Path);
-                Debug.WriteLine(file.Path);
-            }
-
+                BandPic = ImageSource.FromFile(file.Path);
         }
 
         private DelegateCommand _goBackCommand;
@@ -98,6 +97,7 @@ namespace PrismAria.ViewModels
         {
             this.navigationService = navigationService;
             this.pageDialogService = pageDialogService;
+            _bandPic = "sample_pic.png";
         }
 	}
 }

@@ -7,6 +7,8 @@ namespace PrismAria.Views
         public BandSongsAndAlbumsPage()
         {
             InitializeComponent();
+            if (Device.RuntimePlatform.Equals(Device.iOS))
+                this.Title = "Songs and Albums";
         }
     }
 }

@@ -114,6 +114,8 @@ class MonoPackageManager_Resources {
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Media.Abstractions.dll",
 		"Plugin.Media.dll",
+		"Plugin.MediaManager.Abstractions.dll",
+		"Plugin.MediaManager.dll",
 		"Plugin.Permissions.Abstractions.dll",
 		"Plugin.Permissions.dll",
 		"Plugin.Settings.Abstractions.dll",
