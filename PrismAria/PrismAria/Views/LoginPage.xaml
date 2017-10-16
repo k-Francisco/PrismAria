@@ -6,73 +6,69 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.LoginPage">
 
-    <Grid RowSpacing="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+   
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 Orientation="Vertical"
+                 BackgroundColor="#FAFAFA">
+        <Image HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,64,0,0"
+               HeightRequest="170"
+               WidthRequest="170">
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS">Icon-76.png</On>
+                    <On Platform="Android">icon_big.png</On>
+                </OnPlatform>
+            </Image.Source>
+        </Image>
 
-        <Label Grid.Row="0"
-               Text="Aria"
-               TextColor="Black"
+        <Label Text="ARIA"
+               FontAttributes="Bold"
                FontSize="62"
+               TextColor="#212121"
                HorizontalOptions="Center"
-               VerticalOptions="End"
-               Margin="0,0,0,16">
+               VerticalOptions="Center"
+               Margin="0,-20,0,0">
             <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS">Milkshake</On>
-                    <On Platform="Android">Milkshake.otf#Milkshake</On>
+                    <On Platform="iOS">Bryant</On>
+                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
                 </OnPlatform>
             </Label.FontFamily>
         </Label>
 
-        <StackLayout Grid.Row="1">
-            <StackLayout.Spacing>
-                <OnPlatform x:TypeArguments="x:Double"
-                            Android="4"
-                            iOS="12"/>
-            </StackLayout.Spacing>
-            <StackLayout.Padding>
-                <OnPlatform x:TypeArguments="Thickness"
-                            Android="16,32,16,32"
-                            iOS="16,52,16,32"/>
-            </StackLayout.Padding>
+        <Label Text="A multi-platform application for audio and video band promotion"
+               FontSize="Medium"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS">Bryant</On>
+                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
 
-            <Button
-                x:Name="LogLog"
-                Text="Login"
-                BackgroundColor="#2C3E50"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center"
-                TextColor="White"/>
-
-            <Button
+        <Button
                 Command="{Binding FbLoginCommand}"
                 Text="Login with facebook"
                 BackgroundColor="#3B5998"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Center"
-                TextColor="White"/>
-
-            <Label Text="Sign up here!"
-                   TextColor="#2C3E50"
-                   HorizontalOptions="Center"
-                   FontSize="16">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS">Bryant</On>
-                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                    </OnPlatform>
-                </Label.FontFamily>
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
-
-        </StackLayout>
-
-    </Grid>
+                TextColor="White"
+                Margin="16,32,16,0">
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS">Bryant</On>
+                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>
+    </StackLayout>
   
 </ContentPage>

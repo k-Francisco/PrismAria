@@ -30,7 +30,7 @@
                     </Grid.RowDefinitions>
 
                     <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                             BackgroundColor="#2C3E50"/>
+                             BackgroundColor="#F79012"/>
 
                     <Image Grid.Column="0" Grid.Row="0"
                            Source="ic_left_arrow.png"
@@ -107,8 +107,8 @@
                                     Text="Follow"
                                     BorderRadius="8"
                                     BorderWidth="2"
-                                    BorderColor="#2C3E50"
-                                    TextColor="#2C3E50"
+                                    BorderColor="#F79012"
+                                    TextColor="#212121"
                                     BackgroundColor="Transparent"
                                     Margin="8">
                                     <Button.FontFamily>
@@ -122,7 +122,7 @@
                                 <Label Grid.Row="1" Grid.Column="1" 
                                    Text="23,002,231 &#10; Followers"
                                    FontSize="Medium"
-                                   TextColor="#2C3E50"
+                                   TextColor="#212121"
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="Center"
                                    HorizontalOptions="Center"
@@ -138,7 +138,7 @@
 
                             <Label Text="Popular"
                                FontSize="Large"
-                               TextColor="#2C3E50"
+                               TextColor="#212121"
                                Margin="16,8,0,0">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
@@ -186,7 +186,7 @@
 
                                             <Label Grid.Row="0" Grid.Column="2"
                                                Text="{Binding SongName}"
-                                               TextColor="#2C3E50"
+                                               TextColor="#212121"
                                                FontSize="20"
                                                Margin="8,0,0,0"
                                                VerticalOptions="End">
@@ -200,7 +200,7 @@
 
                                             <Label Grid.Row="1" Grid.Column="2"
                                                Text="{Binding SongListenedCount}"
-                                               TextColor="#2C3E50"
+                                               TextColor="#212121"
                                                FontSize="20"
                                                Margin="8,0,0,0">
                                                 <Label.FontFamily>
@@ -220,7 +220,7 @@
                                HorizontalOptions="End"
                                FontSize="12"
                                Margin="0,0,16,0"
-                               TextColor="#2C3E50">
+                               TextColor="#212121">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
                                         <On Platform="iOS">Bryant</On>
@@ -231,7 +231,7 @@
 
                             <Label Text="Albums"
                                FontSize="Large"
-                               TextColor="#2C3E50"
+                               TextColor="#212121"
                                Margin="16,8,0,0">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
@@ -259,7 +259,7 @@
 
                                             <Label Text="{Binding AlbumTitle}"
                                                FontSize="Medium"
-                                               TextColor="#2C3E50"
+                                               TextColor="#212121"
                                                HorizontalOptions="Center">
                                                 <Label.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String">
@@ -291,7 +291,7 @@
                                HorizontalOptions="End"
                                FontSize="12"
                                Margin="0,0,16,16"
-                               TextColor="#2C3E50">
+                               TextColor="#212121">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
                                         <On Platform="iOS">Bryant</On>
@@ -369,8 +369,8 @@
                                     Text="Follow"
                                     BorderRadius="8"
                                     BorderWidth="2"
-                                    BorderColor="#2C3E50"
-                                    TextColor="#2C3E50"
+                                    BorderColor="#F79012"
+                                    TextColor="#212121"
                                     BackgroundColor="Transparent"
                                     Margin="8">
                                 <Button.FontFamily>
@@ -384,7 +384,7 @@
                             <Label Grid.Row="1" Grid.Column="1" 
                                    Text="23,002,231 &#10; Followers"
                                    FontSize="Medium"
-                                   TextColor="#2C3E50"
+                                   TextColor="#212121"
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="Center"
                                    HorizontalOptions="Center"
@@ -400,7 +400,7 @@
 
                         <Label Text="Popular"
                                FontSize="Large"
-                               TextColor="#2C3E50"
+                               TextColor="#212121"
                                Margin="16,8,0,0">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
@@ -448,7 +448,7 @@
 
                                         <Label Grid.Row="0" Grid.Column="2"
                                                Text="{Binding SongName}"
-                                               TextColor="#2C3E50"
+                                               TextColor="#212121"
                                                FontSize="20"
                                                Margin="8,0,0,0"
                                                VerticalOptions="End">
@@ -462,7 +462,7 @@
 
                                         <Label Grid.Row="1" Grid.Column="2"
                                                Text="{Binding SongListenedCount}"
-                                               TextColor="#2C3E50"
+                                               TextColor="#212121"
                                                FontSize="20"
                                                Margin="8,0,0,0">
                                             <Label.FontFamily>
@@ -482,7 +482,7 @@
                                HorizontalOptions="End"
                                FontSize="12"
                                Margin="0,0,16,0"
-                               TextColor="#2C3E50">
+                               TextColor="#212121">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS">Bryant</On>
@@ -493,7 +493,7 @@
 
                         <Label Text="Albums"
                                FontSize="Large"
-                               TextColor="#2C3E50"
+                               TextColor="#212121"
                                Margin="16,8,0,0">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
@@ -521,7 +521,7 @@
 
                                         <Label Text="{Binding AlbumTitle}"
                                                FontSize="Medium"
-                                               TextColor="#2C3E50"
+                                               TextColor="#212121"
                                                HorizontalOptions="Center">
                                             <Label.FontFamily>
                                                 <OnPlatform x:TypeArguments="x:String">
@@ -553,7 +553,7 @@
                                HorizontalOptions="End"
                                FontSize="12"
                                Margin="0,0,16,16"
-                               TextColor="#2C3E50">
+                               TextColor="#212121">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS">Bryant</On>

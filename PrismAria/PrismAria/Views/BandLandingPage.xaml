@@ -5,7 +5,8 @@
             xmlns:views="clr-namespace:PrismAria.Views"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="PrismAria.Views.BandLandingPage"
-            AutomationId="BandLandingPage">
+            AutomationId="BandLandingPage"
+            BackgroundColor="#FAFAFA">
 
     <TabbedPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"

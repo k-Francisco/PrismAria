@@ -11,13 +11,6 @@ namespace PrismAria.Views
         public LoginPage()
         {
             InitializeComponent();
-            LogLog.Clicked += LogLog_Clicked;
-        }
-
-        private void LogLog_Clicked(object sender, System.EventArgs e)
-        {
-            var popPage = new Page1();
-            Navigation.PushPopupAsync(popPage, true);
         }
 
         protected override async void OnAppearing()

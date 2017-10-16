@@ -15,10 +15,10 @@
     </TabbedPage.Padding>
 
     <TabbedPage.Children>
-        <local:SubscriberFeed
-        Icon="ic_leaderboard.png"/>
         <local:SubscriberDIscoverPage
         Icon="ic_discover.png"/>
+        <local:SubscriberFeed
+        Icon="ic_leaderboard.png"/>
         <local:SubscriberFavoritesPage
         Icon="ic_favorites.png"/>
         <local:SubscriberNotificationPage

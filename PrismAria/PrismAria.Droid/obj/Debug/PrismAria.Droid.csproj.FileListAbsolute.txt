@@ -157,3 +157,4 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\i
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_details.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_edit.png
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\ic_delete.png
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria.Droid\obj\Debug\res\drawable\icon_big.png

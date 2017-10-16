@@ -28,6 +28,7 @@ namespace PrismAria.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
+            UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(247,144,18);
             CachedImageRenderer.Init();
             var ignore = new CircleTransformation();
             return base.FinishedLaunching(app, options);

@@ -31,9 +31,9 @@ namespace PrismAria
                await NavigationService.NavigateAsync("LoginPage", null, true, true);
             else {
                 if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.iOS))
-                    await NavigationService.NavigateAsync("BandLandingPage", null, true, true);
+                    await NavigationService.NavigateAsync("SubscriberLanding", null, true, true);
                 else
-                    await NavigationService.NavigateAsync("RootPage/BandLandingPage");
+                    await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
 
                 
             }
@@ -80,12 +80,13 @@ namespace PrismAria
             this.ChildAdded += RootPage_ChildAdded;
             this.ChildRemoved += RootPage_ChildRemoved;
             this.eventAggregator = eventAggregator;
+            this.BackgroundColor = Color.FromHex("#FAFAFA");
         }
 
         private void RootPage_ChildRemoved(object sender, ElementEventArgs e)
         {
-            BarBackgroundColor = Color.White;
-            BarTextColor = Color.FromHex("#2C3E50");
+            BarBackgroundColor = Color.FromHex("#FAFAFA");
+            BarTextColor = Color.FromHex("#212121");
             if(ToolbarItems.Count == 0)
             ToolbarItems.Add(userPageItem);
         }
@@ -97,13 +98,13 @@ namespace PrismAria
 
             if (e.Element.AutomationId.Equals("LandingPage") || e.Element.AutomationId.Equals("BandLandingPage"))
             {
-                BarBackgroundColor = Color.White;
-                BarTextColor = Color.FromHex("#2C3E50");
+                BarBackgroundColor = Color.FromHex("#FAFAFA");
+                BarTextColor = Color.FromHex("#212121");
                 ToolbarItems.Add(userPageItem);
             }
             else
             {
-                BarBackgroundColor = Color.FromHex("#2C3E50");
+                BarBackgroundColor = Color.FromHex("#F79012");
                 BarTextColor = Color.White;
                 ToolbarItems.Remove(userPageItem);
             }
