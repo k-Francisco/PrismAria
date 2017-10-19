@@ -24,6 +24,7 @@ namespace PrismAria.ViewModels
         private readonly IPageDialogService pageDialogService;
         private readonly IEventAggregator _eventAggregator;
         private readonly UserBandsService _userBandsService;
+        private Singleton _singleton;
         #region Close User Popup
 
         private DelegateCommand _closePopupCommand;
@@ -61,8 +62,20 @@ namespace PrismAria.ViewModels
         {
             
             PopupNavigation.Instance.PopAllAsync();
-            await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
-            
+            //Debug.WriteLine(await _singleton.webService.GetUserHistory(Settings.Token));
+            //try
+            //{
+            //    var ignore = JsonConvert.DeserializeObject<UserModel[]>(await _singleton.webService.GetUserHistory(Settings.Token));
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(e.Message);
+            //}
+            await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
+
+
+            //await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
+
         }
         #endregion
 
@@ -83,14 +96,7 @@ namespace PrismAria.ViewModels
             await PopupNavigation.Instance.PopAllAsync();
             try
             {
-                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
-                {
-                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/BandLandingPage/BandDetailsPage", UriKind.Absolute), null, true, true);
-                }
-                else
-                {
-                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/BandLandingPage/BandDetailsPage", UriKind.Absolute), null, true, true);
-                }
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/BandLandingPage/BandDetailsPage", UriKind.Absolute), null, true, true);
             }
             catch (Exception e)
             {
@@ -105,15 +111,7 @@ namespace PrismAria.ViewModels
             { }
             else {
                 await PopupNavigation.Instance.PopAllAsync();
-
-                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
-                {
-                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-                }
-                else
-                {
-                    await _navigationService.NavigateAsync(new Uri("http://myapp.com/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-                }
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
             }
         }
 
@@ -125,12 +123,13 @@ namespace PrismAria.ViewModels
             _navigationService = navigationService;
             this.pageDialogService = pageDialogService;
             _eventAggregator = eventAggregator;
-            var profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
-            UserPic = profile.Picture.Data.Url;
-            UserName = profile.Name;
+            var profile = JsonConvert.DeserializeObject<UserModel>(Settings.Profile);
+            UserPic = profile.ProfilePic;
+            UserName = profile.Fullname;
             _userBandsService = new UserBandsService();
             _userBands = _userBandsService.GetUserBands();
             _eventAggregator.GetEvent<UserBandsEvent>().Subscribe(PublishBand);
+            _singleton = Singleton.Instance;
         }
 
         private void PublishBand(UserBandModelForEvent obj)

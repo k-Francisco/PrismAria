@@ -30,12 +30,7 @@ namespace PrismAria
             if (Settings.Token.Equals(string.Empty))
                await NavigationService.NavigateAsync("LoginPage", null, true, true);
             else {
-                if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.iOS))
-                    await NavigationService.NavigateAsync("SubscriberLanding", null, true, true);
-                else
-                    await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
-
-                
+               await NavigationService.NavigateAsync("RootPage/SubscriberLanding");
             }
         }
 
@@ -57,6 +52,7 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<BandStatisticsPage>();
             Container.RegisterTypeForNavigation<BandArticlesPage>();
             Container.RegisterTypeForNavigation<BandCreationPage>();
+            Container.RegisterTypeForNavigation<NavigationPage>();
         }
     }
 
@@ -75,6 +71,7 @@ namespace PrismAria
 
         public RootPage(IEventAggregator eventAggregator)
         {
+            
             HelloCommand = new Command(ShowUserOption);
             userPageItem.Command = HelloCommand;
             this.ChildAdded += RootPage_ChildAdded;

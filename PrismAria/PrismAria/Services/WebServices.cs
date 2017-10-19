@@ -13,7 +13,7 @@ namespace PrismAria.Services
     {
         private HttpClient client;
         private Boolean isSuccess = false;
-        private string localAriaUrl = "http://192.168.1.10/Aria/public";
+        private string localAriaUrl = "http://192.168.254.100/Aria/public";
         //private string localAriaUrl = "http://ariaitproject.herokuapp.com";
         public WebServices() {
             client = CreateClient();
@@ -43,8 +43,8 @@ namespace PrismAria.Services
                 "\"fname\":\"" + fname + "\"," +
                 "\"lname\":\"" + lname + "\"," +
                 "\"fullname\":\"" + "" + "\"," +
-                "\"email\":\"" + "emailni@gmail.com" + "\"," +
-                "\"age\":\"" + "17" + "\"," +
+                "\"email\":\"" + "" + "\"," +
+                "\"age\":\"" + "" + "\"," +
                 "\"gender\":\"" + "Male" + "\"," +
                 "\"address\":\"" + address + "\"," +
                 "\"contact\":\"" + "09178882349" + "\"," +
@@ -69,7 +69,7 @@ namespace PrismAria.Services
         {
             try
             {
-                return await client.GetStringAsync(localAriaUrl + "/api/users");
+                return await client.GetStringAsync(localAriaUrl + "/api/getusers");
             }
             catch (Exception e)
             {
@@ -79,17 +79,52 @@ namespace PrismAria.Services
 
         }
 
+        public async Task<string> GetUserPreference(string userId) {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/preferences?user_id="+userId);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("error" + e.Message);
+                return e.Message;
+            }
+        }
+
+        public async Task<string> GetUserHistory(string userId) {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/userhistory?user_id=" + userId);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("error" + e.Message);
+                return e.Message;
+            }
+        }
 
         public async Task<string> GetBands() {
 
             try {
-                return await client.GetStringAsync(localAriaUrl + "/api/getBands");
+                return await client.GetStringAsync(localAriaUrl + "/api/bands");
             }
             catch (Exception e) {
                 Debug.WriteLine(e.Message);
                 return e.Message;
             }
 
+        }
+
+        public async Task<string> GetBandGenres(string bandId) {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/bandgenres?band_id=" + bandId);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("error" + e.Message);
+                return e.Message;
+            }
         }
 
         public async Task<bool> CreateBand(string userId, string bandName, string bandRole)

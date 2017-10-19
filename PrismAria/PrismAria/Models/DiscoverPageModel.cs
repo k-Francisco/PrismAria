@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,11 +15,34 @@ namespace PrismAria.Models
 
     }
 
-    public class BandModel {
+    //public class BandModel {
         
-        public string imgSource { get; set; }
-        public string bandName { get; set; }
-        public DelegateCommand<BandModel> BandClick { get; set; }
+    //    public string imgSource { get; set; }
+    //    public string bandName { get; set; }
+    //    public int bandId { get; set;}
+    //    public int followers { get; set; }
+    //    public int visit_count { get; set; }
+    //    public DelegateCommand<BandModel> BandClick { get; set; }
 
+    //}
+    public class BandModel
+    {
+        [JsonProperty("band_id")]
+        public int BandId { get; set; }
+        [JsonProperty("band_name")]
+        public string BandName { get; set; }
+        [JsonProperty("band_desc")]
+        public string BandDesc { get; set; }
+        [JsonProperty("num_followers")]
+        public object NumFollowers { get; set; }
+        [JsonProperty("visit_counts")]
+        public object VisitCounts { get; set; }
+        [JsonProperty("band_pic")]
+        public string BandPic { get; set; }
+        [JsonProperty("created_at")]
+        public string CreatedAt { get; set; }
+        [JsonProperty("updated_at")]
+        public string UpdatedAt { get; set; }
     }
+
 }

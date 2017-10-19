@@ -145,18 +145,15 @@
                   Padding="0"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand">
-        <ActivityIndicator IsRunning="False"
-                           IsVisible="False"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           Color="#212121"/>
-
 
         <flv:FlowListView FlowItemsSource="{Binding DiscoverList}"
                           FlowColumnCount="1"
                           HasUnevenRows="True"
                           SeparatorVisibility="None"
-                          FlowColumnTemplate="{StaticResource BotTemplate}"/>
+                          FlowColumnTemplate="{StaticResource BotTemplate}"
+                          IsPullToRefreshEnabled="True"
+                          IsRefreshing="{Binding IsListRefreshing}"
+                          RefreshCommand="{Binding RefreshCommand}"/>
 
 
 

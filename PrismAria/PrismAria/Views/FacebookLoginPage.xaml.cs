@@ -1,6 +1,8 @@
 ﻿using PrismAria.Controls;
+using PrismAria.PopupPages;
 using PrismAria.ViewModels;
 using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using System.Diagnostics;
 using Xamarin.Forms;
 
@@ -18,12 +20,14 @@ namespace PrismAria.Views
 
         private async void WebViewOnNavigated(object sender, WebNavigatedEventArgs e)
         {
+            
             var accessToken = ExtractAccessTokenFromUrl(e.Url);
-
+            
             if (accessToken != "")
             {
                 var vm = BindingContext as FacebookLoginPageViewModel;
-
+                await PopupNavigation.Instance.PopAllAsync();
+                await PopupNavigation.Instance.PushAsync(new LoadingPopupPage());
                 await vm.SetFacebookUserProfileAsync(accessToken);
             }
         }

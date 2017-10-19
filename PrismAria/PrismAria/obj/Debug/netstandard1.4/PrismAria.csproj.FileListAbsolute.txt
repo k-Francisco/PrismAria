@@ -19,9 +19,10 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\bin\Debug\netstandard1.4\PrismAria.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csproj.CoreCompileInputs.cache
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.App.xaml.g.cs
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.Page1.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.LoadingPopupPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.UserPopupPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.BandArticlesPage.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.BandCreationPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.BandDetailsPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.BandLandingPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.BandSongsAndAlbumsPage.xaml.g.cs
@@ -38,4 +39,3 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.dll
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.csprojResolveAssemblyReference.cache
-D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.BandCreationPage.xaml.g.cs

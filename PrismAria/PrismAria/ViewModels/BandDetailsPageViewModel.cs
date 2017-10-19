@@ -35,7 +35,7 @@ namespace PrismAria.ViewModels
             {
                 _service.AddBandMembers(_singleton.BandMemberCollection);
             }
-            _bandMemberCollectionHeight = (_singleton.BandArticles.Count/2) * 70;
+            _bandMemberCollectionHeight = (_singleton.BandMemberCollection.Count/2) * 80;
         }
 	}
 }

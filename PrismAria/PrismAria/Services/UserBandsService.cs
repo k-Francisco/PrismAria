@@ -14,12 +14,12 @@ namespace PrismAria.Services
         private ObservableCollection<UserBandModel> _userBands = new ObservableCollection<UserBandModel>();
         FacebookProfile profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
         public ObservableCollection<UserBandModel> GetUserBands() {
-            _userBands.Add(new UserBandModel() { userBandName = "Band Name Here", userBandImage = "sample_pic.png" });
+            _userBands.Add(new UserBandModel() { userBandName = "Paramore", userBandImage = "sample_pic.png" });
             return _userBands;
         }
 
         public void AddBands(string bandName, string bandRole, string bandPic) {
-            _userBands.Add(new UserBandModel() { userBandName = "Band Name Here", userBandImage = ImageSource.FromFile(bandPic) });
+            _userBands.Add(new UserBandModel() { userBandName = "Paramore", userBandImage = ImageSource.FromFile(bandPic) });
         }
     }
 }

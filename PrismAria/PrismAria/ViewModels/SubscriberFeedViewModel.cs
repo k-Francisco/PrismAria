@@ -8,29 +8,57 @@ using PrismAria.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 
 namespace PrismAria.ViewModels
 {
-	public class SubscriberFeedViewModel : BindableBase
+	public class SubscriberFeedViewModel : ChildViewBaseModel
 	{
-        private ArticlesService _service;
-        private ObservableCollection<ArticlesModel> _articles;
+        private Singleton _singleton;
+       
         private readonly INavigationService navigationService;
         private readonly IEventAggregator eventAggregator;
 
         public ObservableCollection<ArticlesModel> Articles
         {
-            get { return _articles; }
-            set { SetProperty(ref _articles, value); }
+            get { return _singleton.SubscriberArticlesCollection; }
+            set { SetProperty(ref _singleton.SubscriberArticlesCollection, value); }
         }
 
-        public SubscriberFeedViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
+        public override void OnNavigatingTo(NavigationParameters parameters)
         {
-            _service = new ArticlesService();
-            _articles = _service.GetArticles();
-            this.navigationService = navigationService;
-            this.eventAggregator = eventAggregator;
+            if (HasInitialized == true) return;
+            HasInitialized = true;
+
+            Debug.WriteLine("Articles Page Initialized");
         }
-	}
+
+        public SubscriberFeedViewModel(INavigationService navigationService, IEventAggregator eventAggregator):base(navigationService)
+        {
+            _singleton = Singleton.Instance;
+            this.eventAggregator = eventAggregator;
+
+            IsActiveChanged += HandleIsActive;
+            IsActiveChanged += HandleNotIsActive;
+        }
+
+        private void HandleNotIsActive(object sender, EventArgs e)
+        {
+            if (IsActive == false)
+                Debug.WriteLine("Articles Page Not anymore active");
+        }
+
+        private void HandleIsActive(object sender, EventArgs e)
+        {
+            if (IsActive)
+                _singleton.CollectionService.GenerateArticlesForSubscriber(_singleton.SubscriberArticlesCollection);
+        }
+
+        public override void Destroy()
+        {
+            IsActiveChanged -= HandleIsActive;
+            IsActiveChanged -= HandleNotIsActive;
+        }
+    }
 }

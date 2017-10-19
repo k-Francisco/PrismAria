@@ -15,17 +15,17 @@ namespace PrismAria.Services
         public ObservableCollection<FavoritesModel> GetFavorites() {
             
             if (favoritesCollection.Count == 0) {
-                var profile = JsonConvert.DeserializeObject<FacebookProfile>(Settings.Profile);
+                var profile = JsonConvert.DeserializeObject<UserModel>(Settings.Profile);
                 favoritesCollection.Add( 
                     new FavoritesModel() {
-                        bandImage = profile.Cover.Source,
+                        bandImage = profile.ProfilePic,
                         bandName = "PATD!",
                         songsAndAlbums = "3 albums, 20 songs"}
                     );
                 favoritesCollection.Add(
                     new FavoritesModel()
                     {
-                        bandImage = profile.Cover.Source,
+                        bandImage = profile.ProfilePic,
                         bandName = "Maroon 5",
                         songsAndAlbums = "3 albums, 20 songs"
                     }
@@ -33,7 +33,7 @@ namespace PrismAria.Services
                 favoritesCollection.Add(
                     new FavoritesModel()
                     {
-                        bandImage = profile.Cover.Source,
+                        bandImage = profile.ProfilePic,
                         bandName = "Fall out boys",
                         songsAndAlbums = "3 albums, 20 songs"
                     }
@@ -41,7 +41,7 @@ namespace PrismAria.Services
                 favoritesCollection.Add(
                     new FavoritesModel()
                     {
-                        bandImage = profile.Cover.Source,
+                        bandImage = profile.ProfilePic,
                         bandName = "Band Name Here",
                         songsAndAlbums = "3 albums, 20 songs"
                     }
@@ -49,7 +49,7 @@ namespace PrismAria.Services
                 favoritesCollection.Add(
                     new FavoritesModel()
                     {
-                        bandImage = profile.Cover.Source,
+                        bandImage = profile.ProfilePic,
                         bandName = "Band Name Here",
                         songsAndAlbums = "3 albums, 20 songs"
                     }

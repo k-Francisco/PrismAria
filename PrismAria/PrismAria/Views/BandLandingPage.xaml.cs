@@ -11,6 +11,7 @@ namespace PrismAria.Views
             if (Device.RuntimePlatform.Equals(Device.iOS))
             {
                 this.Children.Add(new UserPopupPage(false) { Icon = "ic_user.png", Title = "Profile" });
+                RootPage.SetHasNavigationBar(this, false);
             }
 
             this.Title = this.CurrentPage.AutomationId;

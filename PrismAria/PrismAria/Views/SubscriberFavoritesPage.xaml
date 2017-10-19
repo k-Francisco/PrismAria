@@ -9,6 +9,7 @@
              x:Class="PrismAria.Views.SubscriberFavoritesPage"
              AutomationId="Favorites"
              x:Name="mainLayout">
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"

@@ -19,7 +19,7 @@ namespace PrismAria.Services
             var httpClient = new HttpClient();
 
             var userJson = await httpClient.GetStringAsync(requestUrl);
-
+            System.Diagnostics.Debug.WriteLine(userJson);
             var facebookProfile = JsonConvert.DeserializeObject<FacebookProfile>(userJson);
 
             return facebookProfile;

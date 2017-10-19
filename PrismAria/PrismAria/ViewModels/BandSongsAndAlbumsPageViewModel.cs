@@ -32,6 +32,14 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _songCollectionHeight, value); }
         }
 
+        private int _albumCollectionHeight;
+        public int AlbumCollectionHeight
+        {
+            get { return _albumCollectionHeight; }
+            set { SetProperty(ref _albumCollectionHeight, value); }
+        }
+
+
         public BandSongsAndAlbumsPageViewModel()
         {
             _singleton = Singleton.Instance;
@@ -42,7 +50,8 @@ namespace PrismAria.ViewModels
                 service.AddSongs(_singleton.SongCollection);
                 service.AddAlbum(_singleton.AlbumCollection);
             }
-            _songCollectionHeight = _singleton.SongCollection.Count * 45;
+            _songCollectionHeight = _singleton.SongCollection.Count * 50;
+            _albumCollectionHeight = (_singleton.AlbumCollection.Count / 2) * 150;
         }
 	}
 }

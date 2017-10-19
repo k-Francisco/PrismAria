@@ -5,11 +5,13 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberNotificationPage"
              AutomationId="Notifications">
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="0,20,0,0"
                     Android="0"/>
     </ContentPage.Padding>
+    
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="Notification"/>
     </StackLayout>
