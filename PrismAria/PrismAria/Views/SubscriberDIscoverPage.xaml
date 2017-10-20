@@ -98,10 +98,12 @@
                                                  Margin="0"
                                                  CornerRadius="4"
                                                  HasShadow="True">
-                                            <ffImageLoading:CachedImage Source="{Binding imgSource}" 
+                                            <ffImageLoading:CachedImage Source="{Binding BandPic}" 
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"
-                                                                            Aspect="AspectFit">
+                                                                            DownsampleToViewSize="True"
+                                                                            DownsampleHeight="100"
+                                                                            Aspect="AspectFill">
                                                 <ffImageLoading:CachedImage.GestureRecognizers>
                                                     <TapGestureRecognizer NumberOfTapsRequired="1" 
                                                                           Command="{Binding BandClick}"
@@ -111,7 +113,7 @@
 
                                         </controls:CustomFrame>
 
-                                        <Label Text="{Binding bandName}"
+                                        <Label Text="{Binding BandName}"
                                                    FontSize="14"
                                                    LineBreakMode="TailTruncation"
                                                    WidthRequest="80"

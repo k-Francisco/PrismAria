@@ -49,38 +49,42 @@ namespace PrismAria.Services
                 }
                 catch (Exception e)
                 {
+                    //if the user has no preferences yet
                     Debug.WriteLine(e.Message);
                 }
 
                 if (isTherePreference)
                 {
-                    for (int i = 0; i < 10; i++)
+                    var preferencedBandGenres = new List<BandGenreModel>() { };
+                    var notPreferencedBandGenres = new List<BandGenreModel>() { };
+
+                    foreach (var item in preferencedBands)
                     {
-                        AddRelatedBandsToCollection(i, preferencedBands, bands, totalBandCount);
+                        var response2 = JsonConvert.DeserializeObject<BandGenreModel[]>(await Singleton.Instance.webService.GetBandGenres(item.BandId.ToString()));
+                        foreach (var item2 in response2.ToList())
+                            preferencedBandGenres.Add(item2);
+
+                        response2 = null;
+                    }
+
+                    foreach (var item in bands)
+                    {
+                        var response2 = JsonConvert.DeserializeObject<BandGenreModel[]>(await Singleton.Instance.webService.GetBandGenres(item.BandId.ToString()));
+                        foreach (var item2 in response2.ToList())
+                            notPreferencedBandGenres.Add(item2);
+
+                        response2 = null;
+                    }
+
+                    var showBandPage = new DelegateCommand<BandModel>((obj) =>
+                    {
+                        navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
+                    });
+                    for (int i = 0; i < 3; i++)
+                    {
+                        AddRelatedBandsToCollection(i, preferencedBands, bands, totalBandCount, preferencedBandGenres, notPreferencedBandGenres, showBandPage);
                     }
                 }
-
-
-
-                //    var showBandPage = new DelegateCommand<BandModel>((obj) => {
-                //        navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
-                //    });
-
-                //    var bands = new List<BandModel>() {
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Maroon 5", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Paramore", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Panic at the Disco!", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Sleeping with the sirens", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "All Time Low", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Slip Knot", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Up Dharma Down", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Rocksteady", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Orange and Lemons", BandClick = showBandPage },
-                //    new BandModel() { imgSource = "sample_pic.png", bandName = "Sugar Free", BandClick = showBandPage },
-                //};
-
-                //    foreach (var item in categories)
-                //        collection.Add(new DiscoverPageModel() { categoryName = item, bandList = bands });
 
                 isSuccess = true;
             }
@@ -91,72 +95,97 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        private async void AddRelatedBandsToCollection(int i, List<BandModel> preferencedBands, List<BandModel> bands, int totalBandCount)
+        private void AddRelatedBandsToCollection(int i, 
+            List<BandModel> preferencedBands, 
+            List<BandModel> bands, 
+            int totalBandCount, 
+            List<BandGenreModel> preferencedBandGenres, 
+            List<BandGenreModel> notPreferencedBandGenres,
+            DelegateCommand<BandModel> ShowBandPage)
         {
-            const int BasedOnGenre = 0;
+            const int BasedOnGenre = 0, BasedOnRanking = 1, BasedOnPopularity = 2;
+            double GenreScore = 0.0, PopularityWeightedPercentage = 0.0, RankingWeightedPercentage = 0.0;
             List<BandRecommendationScores> bandRecommendationRanking = new List<BandRecommendationScores>() { };
+            string category = "";
             foreach (var item in bands)
             {
-                bandRecommendationRanking.Add(new BandRecommendationScores() { bandId = item.BandId, band = item, BandScore = 0.00});
+                bandRecommendationRanking.Add(new BandRecommendationScores() { bandId = item.BandId, band = item, BandScore = 0.00 });
             }
-            var preferencedBandGenres = new List<BandGenreModel>() { };
-            var notPreferencedBandGenres = new List<BandGenreModel>() { };
+        
             switch (i)
             {
                 case BasedOnGenre:
-                    foreach (var item in preferencedBands)
-                    {
-                        var response = JsonConvert.DeserializeObject<BandGenreModel[]>(await Singleton.Instance.webService.GetBandGenres(item.BandId.ToString()));
-                        foreach (var item2 in response.ToList())
-                            preferencedBandGenres.Add(item2);
+                    GenreScore = 2.0;
+                    PopularityWeightedPercentage = .03;
+                    RankingWeightedPercentage = .03;
+                    category = "Genre Based"; 
+                    break;
 
-                        response = null;
-                    }
-                    
-                    foreach(var item in bands)
-                    {
-                        var response = JsonConvert.DeserializeObject<BandGenreModel[]>(await Singleton.Instance.webService.GetBandGenres(item.BandId.ToString()));
-                        foreach (var item2 in response.ToList())
-                            notPreferencedBandGenres.Add(item2);
+                case BasedOnRanking:
+                    GenreScore = 1.5;
+                    RankingWeightedPercentage = .04;
+                    PopularityWeightedPercentage = .03;
+                    category = "The top bands for this week!";
+                    break;
 
-                        response = null;
-                    }
-                    //if the bands matched the genres of the user's preferenced bands
-                    // +4 if it matched the 2 genres
-                    // +2 if it only matched 1 genre
-                    foreach (var item in bandRecommendationRanking) {
-                        foreach(var item2 in notPreferencedBandGenres)
+                case BasedOnPopularity:
+                    GenreScore = 1.5;
+                    RankingWeightedPercentage = .03;
+                    PopularityWeightedPercentage = .04;
+                    category = "Popular";
+                    break;
+            }
+
+            
+
+            //if the bands matched the genres of the user's preferenced bands
+            foreach (var item in bandRecommendationRanking)
+            {
+                foreach (var item2 in notPreferencedBandGenres)
+                {
+                    if (item.bandId == item2.BandId)
+                    {
+                        foreach (var item3 in preferencedBandGenres)
                         {
-                            if(item.bandId == item2.BandId)
+                            if (item3.GenreId == item2.GenreId)
                             {
-                                foreach (var item3 in preferencedBandGenres)
-                                {
-                                    if (item3.GenreId == item2.GenreId) {
-                                        item.BandScore += 2.00;
-                                        break;
-                                    }
-                                }
+                                item.BandScore += GenreScore;
+                                break;
                             }
                         }
                     }
-                    
-                    //score of the bands according to ranking
-                    //(((number of total bands - (rank-1))/number of total bands) *100) * weighted percentage = .03 or 30% of the perfect score which is 10
-                    foreach (var item in bandRecommendationRanking)
-                    {
-                        item.BandScore += (((totalBandCount - (item.bandId - 1)) / (double)totalBandCount) * 100) * .03;
-                    }
-
-
-
-                    foreach (var item in bandRecommendationRanking)
-                    {
-                        Debug.WriteLine(item.bandId + " " + item.BandScore);
-                    }
-
-                    break;
+                }
             }
+
+            //score of the bands according to ranking
+            //(((number of total bands - (rank-1))/number of total bands) *100) * weighted percentage 
+            foreach (var item in bandRecommendationRanking)
+            {
+                item.BandScore += (((totalBandCount - (item.bandId - 1)) / (double)totalBandCount) * 100) * RankingWeightedPercentage;
+            }
+
+            //score of the bands according to popularity
+            //(((number of total bands - (popularity rank - 1))/number of total bands) * 100) * weighted percentage
+            foreach (var item in bandRecommendationRanking)
+            {
+                item.BandScore += (((totalBandCount - (item.bandId - 1)) / (double)totalBandCount) * 100) * PopularityWeightedPercentage;
+            }
+
+            
+            var sortedList = bandRecommendationRanking.OrderByDescending(p => p.BandScore);
+            var modelList = new List<BandModel>() { };
+            foreach (var item in sortedList)
+            {
+                //Debug.WriteLine(item.band.BandName + " " + item.BandScore);
+                item.band.BandClick = ShowBandPage;
+                modelList.Add(item.band);
+            }
+
+            Singleton.Instance.DiscoverCollection.Add(new DiscoverPageModel() { categoryName = category, bandList = modelList });
+            bandRecommendationRanking.Clear();
         }
+
+       
 
         public void GenerateArticlesForSubscriber(ObservableCollection<ArticlesModel> collection) {
             for (int i = 0; i < 10; i++)

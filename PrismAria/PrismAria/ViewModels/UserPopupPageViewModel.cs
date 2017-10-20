@@ -71,10 +71,10 @@ namespace PrismAria.ViewModels
             //{
             //    Debug.WriteLine(e.Message);
             //}
-            await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
+            //await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
 
 
-            //await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
+            await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
 
         }
         #endregion

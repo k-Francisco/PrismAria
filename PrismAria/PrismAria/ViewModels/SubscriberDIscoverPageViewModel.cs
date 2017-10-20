@@ -85,7 +85,13 @@ namespace PrismAria.ViewModels
             if (_isConnected)
             {
                 _singleton.DiscoverCollection.Clear();
-                if (await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService))
+                var pleaseWait = await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
+                Debug.WriteLine(pleaseWait.ToString());
+                if (pleaseWait)
+                {
+                    _isListRefreshing = false;
+                }
+                else
                 {
                     _isListRefreshing = false;
                 }

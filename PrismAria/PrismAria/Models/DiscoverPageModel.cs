@@ -43,6 +43,7 @@ namespace PrismAria.Models
         public string CreatedAt { get; set; }
         [JsonProperty("updated_at")]
         public string UpdatedAt { get; set; }
+        public DelegateCommand<BandModel> BandClick { get; set; }
     }
 
 }
