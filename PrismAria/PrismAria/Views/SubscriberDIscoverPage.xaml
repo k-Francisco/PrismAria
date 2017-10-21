@@ -69,9 +69,6 @@
 
                 <StackLayout
                         Padding="0,16,0,-10">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer/>
-                    </StackLayout.GestureRecognizers>
                     <Label Text="{Binding categoryName}"
                                TextColor="#212121"
                                FontSize="Large"
@@ -93,25 +90,52 @@
                                     <StackLayout
                                             Orientation="Vertical"
                                             Margin="16,0,-10,0">
-                                        <controls:CustomFrame
+                                        <OnPlatform x:TypeArguments="View">
+                                            <On Platform="iOS">
+                                                <controls:CustomFrame
                                                  Padding="0"
                                                  Margin="0"
                                                  CornerRadius="4"
                                                  HasShadow="True">
-                                            <ffImageLoading:CachedImage Source="{Binding BandPic}" 
+                                                    <ffImageLoading:CachedImage Source="{Binding BandPic}" 
                                                                             HeightRequest="100" 
                                                                             WidthRequest="100"
                                                                             DownsampleToViewSize="True"
                                                                             DownsampleHeight="100"
                                                                             Aspect="AspectFill">
-                                                <ffImageLoading:CachedImage.GestureRecognizers>
-                                                    <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                        <ffImageLoading:CachedImage.GestureRecognizers>
+                                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
                                                                           Command="{Binding BandClick}"
                                                                           CommandParameter="{Binding .}"/>
-                                                </ffImageLoading:CachedImage.GestureRecognizers>
-                                            </ffImageLoading:CachedImage>
+                                                        </ffImageLoading:CachedImage.GestureRecognizers>
+                                                    </ffImageLoading:CachedImage>
 
-                                        </controls:CustomFrame>
+                                                </controls:CustomFrame>
+                                            </On>
+                                            
+                                            <On Platform="Android">
+                                                <Frame
+                                                 Padding="0"
+                                                 Margin="0"
+                                                 CornerRadius="4"
+                                                 HasShadow="True">
+                                                    <ffImageLoading:CachedImage Source="{Binding BandPic}" 
+                                                                            HeightRequest="100" 
+                                                                            WidthRequest="100"
+                                                                            DownsampleToViewSize="True"
+                                                                            DownsampleHeight="100"
+                                                                            Aspect="AspectFill">
+                                                        <ffImageLoading:CachedImage.GestureRecognizers>
+                                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                          Command="{Binding BandClick}"
+                                                                          CommandParameter="{Binding .}"/>
+                                                        </ffImageLoading:CachedImage.GestureRecognizers>
+                                                    </ffImageLoading:CachedImage>
+
+                                                </Frame>
+                                            </On>
+                                        </OnPlatform>
+                                        
 
                                         <Label Text="{Binding BandName}"
                                                    FontSize="14"
@@ -155,9 +179,8 @@
                           FlowColumnTemplate="{StaticResource BotTemplate}"
                           IsPullToRefreshEnabled="True"
                           IsRefreshing="{Binding IsListRefreshing}"
-                          RefreshCommand="{Binding RefreshCommand}"/>
-
-
+                          RefreshCommand="{Binding RefreshCommand}"
+                          FlowItemTappedCommand="{Binding SampleCommand}"/>
 
     </StackLayout>
 </ContentPage>

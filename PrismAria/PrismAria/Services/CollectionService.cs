@@ -31,21 +31,25 @@ namespace PrismAria.Services
                 
                 try
                 {
-                    var userPreference = JsonConvert.DeserializeObject<UserPreferenceModel[]>(await Singleton.Instance.webService.GetUserPreference(Settings.Token));
-                    isTherePreference = true;
+                    if(Singleton.Instance.userPreference == null)
+                        Singleton.Instance.userPreference = JsonConvert.DeserializeObject<UserPreferenceModel[]>(await Singleton.Instance.webService.GetUserPreference(Settings.Token));
 
-                    foreach (var item in response.ToList())
+                    if(Singleton.Instance.userPreference.Any())
                     {
-                        foreach(var item2 in userPreference.ToList())
+                        isTherePreference = true;
+
+                        foreach (var item in response.ToList())
                         {
-                            if (item.BandId.Equals(item2.BandId))
+                            foreach (var item2 in Singleton.Instance.userPreference.ToList())
                             {
-                                bands.Remove(item);
-                                preferencedBands.Add(item);
+                                if (item.BandId.Equals(item2.BandId))
+                                {
+                                    bands.Remove(item);
+                                    preferencedBands.Add(item);
+                                }
                             }
                         }
                     }
-
                 }
                 catch (Exception e)
                 {
@@ -78,12 +82,18 @@ namespace PrismAria.Services
 
                     var showBandPage = new DelegateCommand<BandModel>((obj) =>
                     {
-                        navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
+                        var navigationParameters = new NavigationParameters();
+                        navigationParameters.Add("model", obj);
+                        navigationService.NavigateAsync(new Uri("SubscriberViewBandPage?_title="+obj.BandName, UriKind.Relative), navigationParameters, false, true);
                     });
                     for (int i = 0; i < 3; i++)
                     {
                         AddRelatedBandsToCollection(i, preferencedBands, bands, totalBandCount, preferencedBandGenres, notPreferencedBandGenres, showBandPage);
                     }
+                }
+                else
+                {
+                    AddNotRelatedBandsToCollection();
                 }
 
                 isSuccess = true;
@@ -93,6 +103,11 @@ namespace PrismAria.Services
             }
 
             return isSuccess;
+        }
+
+        private void AddNotRelatedBandsToCollection()
+        {
+            
         }
 
         private void AddRelatedBandsToCollection(int i, 

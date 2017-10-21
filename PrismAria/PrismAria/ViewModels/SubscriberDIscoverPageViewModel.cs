@@ -36,15 +36,7 @@ namespace PrismAria.ViewModels
         private IEventAggregator _ea;
         private readonly IPageDialogService _pageDialogService;
 
-        public SubscriberDIscoverPageViewModel(IEventAggregator ea, INavigationService navigationService, IPageDialogService pageDialogService):base(navigationService)
-        {
-            _ea = ea;
-            _pageDialogService = pageDialogService;
-            _singleton = Singleton.Instance;
-
-            IsActiveChanged += HandleIsActive;
-            IsActiveChanged += HandleNotIsActive;
-        }
+        
 
         private void HandleNotIsActive(object sender, EventArgs e)
         {
@@ -60,6 +52,7 @@ namespace PrismAria.ViewModels
                 if (_singleton.DiscoverCollection.Count == 0)
                 {
                     _isListRefreshing = true;
+                    Debug.WriteLine("list refreshing? " + _isListRefreshing);
                     PopulateCollection();
                 }
                 else
@@ -77,7 +70,18 @@ namespace PrismAria.ViewModels
         private void Refresh()
         {
             _isListRefreshing = true;
+            //Debug.WriteLine("list refreshing? " + _isListRefreshing);
             PopulateCollection();
+        }
+
+
+        private DelegateCommand<DiscoverPageModel> _sampleCommand;
+        public DelegateCommand<DiscoverPageModel> SampleCommand =>
+            _sampleCommand ?? (_sampleCommand = new DelegateCommand<DiscoverPageModel>(Sample));
+
+        private void Sample(DiscoverPageModel obj)
+        {
+            Debug.WriteLine(obj.categoryName);
         }
 
         private async void PopulateCollection()
@@ -87,20 +91,23 @@ namespace PrismAria.ViewModels
                 _singleton.DiscoverCollection.Clear();
                 var pleaseWait = await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
                 Debug.WriteLine(pleaseWait.ToString());
-                if (pleaseWait)
+                if (pleaseWait == true)
                 {
-                    _isListRefreshing = false;
+                   
+                    Debug.WriteLine("refreshing should hide");
                 }
                 else
                 {
-                    _isListRefreshing = false;
+                  
                 }
             }
             else
             {
                 await _pageDialogService.DisplayAlertAsync("Connectivity issues", "Cannot load because your device is not connected to the internet", "ok");
-                _isListRefreshing = false;
+                
             }
+            _isListRefreshing = false;
+            //Debug.WriteLine("list refreshing? " + _isListRefreshing);
         }
 
         public override void OnNavigatingTo(NavigationParameters parameters)
@@ -115,6 +122,16 @@ namespace PrismAria.ViewModels
         {
             IsActiveChanged -= HandleIsActive;
             IsActiveChanged -= HandleNotIsActive;
+        }
+
+        public SubscriberDIscoverPageViewModel(IEventAggregator ea, INavigationService navigationService, IPageDialogService pageDialogService) : base(navigationService)
+        {
+            _ea = ea;
+            _pageDialogService = pageDialogService;
+            _singleton = Singleton.Instance;
+
+            IsActiveChanged += HandleIsActive;
+            IsActiveChanged += HandleNotIsActive;
         }
     }
 }

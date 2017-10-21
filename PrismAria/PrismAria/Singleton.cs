@@ -51,6 +51,10 @@ namespace PrismAria
         public WebServices webService = new WebServices();
         #endregion
 
+        #region User Preferences
+        public UserPreferenceModel[] userPreference;
+        #endregion
+
         #region Genres
         public List<GenreModel> genres = new List<GenreModel>() {
             new GenreModel(){ id=1, genreName = "Alternative", genreDesc = "Alternative"},

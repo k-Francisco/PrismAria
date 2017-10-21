@@ -136,5 +136,6 @@ namespace PrismAria.ViewModels
         {
             _userBandsService.AddBands(obj.userBandName, obj.userBandRole, obj.userBandImage);
         }
+        
     }
 }

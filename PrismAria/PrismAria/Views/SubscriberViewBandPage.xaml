@@ -9,7 +9,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberViewBandPage"
              BackgroundColor="White"
-             Title="Band Page"
+             Title="{Binding Title}"
              AutomationId="SubPage">
 
     <controls:HorizontalListView
@@ -33,7 +33,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ffimage:CachedImage Grid.Column="0" Grid.Row="0"
-                                                 Source="sample_pic.png"
+                                                 Source="{Binding BandImage}"
                                                  Aspect="AspectFill"
                                                  DownsampleToViewSize="True"
                                                  HeightRequest="120"
@@ -46,7 +46,7 @@
                 </ffimage:CachedImage>
 
                 <Label Grid.Row="0" Grid.Column="1"
-                                   Text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+                                   Text="{Binding BandDesc}"
                                    FontSize="14"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
@@ -60,13 +60,14 @@
                 </Label>
 
                 <Button Grid.Row="1" Grid.Column="0"
-                                    Text="Follow"
+                                    Text="{Binding ButtonText}"
                                     BorderRadius="8"
                                     BorderWidth="2"
                                     BorderColor="#F79012"
-                                    TextColor="#212121"
-                                    BackgroundColor="Transparent"
-                                    Margin="8">
+                                    TextColor="{Binding ButtonTextColor}"
+                                    BackgroundColor="{Binding ButtonBackgroundColor}"
+                                    Margin="8"
+                                    Command="{Binding FollowBandCommand}">
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS">Bryant</On>
@@ -76,7 +77,7 @@
                 </Button>
 
                 <Label Grid.Row="1" Grid.Column="1" 
-                                   Text="23,002,231 &#10; Followers"
+                                   Text="{Binding FollowerCount}"
                                    FontSize="Medium"
                                    TextColor="#212121"
                                    HorizontalTextAlignment="Center"

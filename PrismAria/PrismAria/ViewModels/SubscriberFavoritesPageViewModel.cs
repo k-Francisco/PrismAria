@@ -30,10 +30,11 @@ namespace PrismAria.ViewModels
 
         private void Sample(FavoritesModel obj)
         {
-            if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
-                navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
-            else
-                navigationService.NavigateAsync("SubscriberViewBandPage", null, true, true);
+            //if (Xamarin.Forms.Device.RuntimePlatform.Equals(Xamarin.Forms.Device.Android))
+            //    navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
+            //else
+            //    navigationService.NavigateAsync("SubscriberViewBandPage", null, true, true);
+            navigationService.NavigateAsync("SubscriberViewBandPage", null, false, true);
         }
 
         public SubscriberFavoritesPageViewModel(IEventAggregator ea, INavigationService navigationService)

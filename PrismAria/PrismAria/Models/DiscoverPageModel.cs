@@ -15,16 +15,6 @@ namespace PrismAria.Models
 
     }
 
-    //public class BandModel {
-        
-    //    public string imgSource { get; set; }
-    //    public string bandName { get; set; }
-    //    public int bandId { get; set;}
-    //    public int followers { get; set; }
-    //    public int visit_count { get; set; }
-    //    public DelegateCommand<BandModel> BandClick { get; set; }
-
-    //}
     public class BandModel
     {
         [JsonProperty("band_id")]
