@@ -385,7 +385,55 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        
+        public async Task<bool> FollowBand(string userId, string bandId) {
+
+            isSuccess = false;
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl + "/api/followBand?user_id=" + userId + "&band_id=" + bandId);
+                var result = response.EnsureSuccessStatusCode();
+                if(result.IsSuccessStatusCode)
+                isSuccess = true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async Task<bool> UnFollowBand(string userId, string bandId)
+        {
+
+            isSuccess = false;
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl + "/api/unfollowBand?user_id=" + userId + "&band_id=" + bandId);
+                var result = response.EnsureSuccessStatusCode();
+                if (result.IsSuccessStatusCode)
+                    isSuccess = true;
+                Debug.WriteLine("Success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async void VisitBand(string bandId) {
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl + "/api/visitCount?band_id=" + bandId);
+                var result = response.EnsureSuccessStatusCode();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
 
     }
 }

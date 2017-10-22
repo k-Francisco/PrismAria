@@ -32,11 +32,11 @@
                     </Grid.RowDefinitions>
 
                     <ffImage:CachedImage Grid.Row="0"
-                                             Source="{Binding bandImage}"
+                                             Source="{Binding BandPic}"
                                              Aspect="AspectFill">
                     </ffImage:CachedImage>
                     <Label Grid.Row="1"
-                           Text="{Binding bandName}"
+                           Text="{Binding BandName}"
                            FontAttributes="Bold"
                            TextColor="#212121"
                            FontSize="Medium"
@@ -50,7 +50,7 @@
                     </Label>
 
                     <Label Grid.Row="1"
-                           Text="{Binding songsAndAlbums}"
+                           Text="{Binding NumFollowers}"
                            TextColor="#212121"
                            FontSize="Small"
                            Margin="0,20,0,0">

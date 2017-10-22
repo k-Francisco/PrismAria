@@ -38,6 +38,7 @@ namespace PrismAria
         #region Observable Collections
         public ObservableCollection<DiscoverPageModel> DiscoverCollection = new ObservableCollection<DiscoverPageModel>() { };
         public ObservableCollection<ArticlesModel> SubscriberArticlesCollection = new ObservableCollection<ArticlesModel>() { };
+        public ObservableCollection<BandModel> FavoritesCollection = new ObservableCollection<BandModel>() { };
         public ObservableCollection<UserBandModel> UserBandCollection { get; set; }
         public ObservableCollection<BandMembersModel> BandMemberCollection = new ObservableCollection<BandMembersModel>() { };
         public ObservableCollection<ArticlesModel> BandArticlesCollection = new ObservableCollection<ArticlesModel>() { };

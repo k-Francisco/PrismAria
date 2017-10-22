@@ -72,36 +72,20 @@ namespace PrismAria.ViewModels
             PopulateCollection();
         }
 
-
-        private DelegateCommand<DiscoverPageModel> _sampleCommand;
-        public DelegateCommand<DiscoverPageModel> SampleCommand =>
-            _sampleCommand ?? (_sampleCommand = new DelegateCommand<DiscoverPageModel>(Sample));
-
-        private void Sample(DiscoverPageModel obj)
-        {
-            Debug.WriteLine(obj.categoryName);
-        }
-
         private async void PopulateCollection()
         {
             if (_isConnected)
             {
                 _singleton.DiscoverCollection.Clear();
                 var pleaseWait = await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
-                if (pleaseWait == true)
+                if (!pleaseWait)
                 {
-                   
-                    Debug.WriteLine("refreshing should hide");
-                }
-                else
-                {
-                  
+                    await _pageDialogService.DisplayAlertAsync("Ooops!", "It seems like we encountered a problem", "Ok");
                 }
             }
             else
             {
                 await _pageDialogService.DisplayAlertAsync("Connectivity issues", "Cannot load because your device is not connected to the internet", "ok");
-                
             }
             IsListRefreshing = false;
         }

@@ -31,21 +31,23 @@ namespace PrismAria.Services
                 
                 try
                 {
-                    if(Singleton.Instance.userPreference == null)
-                        Singleton.Instance.userPreference = JsonConvert.DeserializeObject<UserPreferenceModel[]>(await Singleton.Instance.webService.GetUserPreference(Settings.Token));
+                    Singleton.Instance.userPreference = null;
+                    Singleton.Instance.userPreference = JsonConvert.DeserializeObject<UserPreferenceModel[]>(await Singleton.Instance.webService.GetUserPreference(Settings.Token));
 
                     if(Singleton.Instance.userPreference.Any())
                     {
                         isTherePreference = true;
-
+                        Singleton.Instance.FavoritesCollection.Clear();
                         foreach (var item in response.ToList())
                         {
                             foreach (var item2 in Singleton.Instance.userPreference.ToList())
                             {
+                                Debug.WriteLine(item2.UserId + " " + item2.BandId);
                                 if (item.BandId.Equals(item2.BandId))
                                 {
                                     bands.Remove(item);
                                     preferencedBands.Add(item);
+                                    Singleton.Instance.FavoritesCollection.Add(item);
                                 }
                             }
                         }
@@ -84,7 +86,7 @@ namespace PrismAria.Services
                     {
                         var navigationParameters = new NavigationParameters();
                         navigationParameters.Add("model", obj);
-                        navigationService.NavigateAsync(new Uri("SubscriberViewBandPage?_title="+obj.BandName, UriKind.Relative), navigationParameters, false, true);
+                        navigationService.NavigateAsync(new Uri("SubscriberViewBandPage", UriKind.Relative), navigationParameters, false, true);
                     });
                     for (int i = 0; i < 3; i++)
                     {
@@ -231,7 +233,7 @@ namespace PrismAria.Services
 
         public async Task<bool>PopulateBandAlbums(string bandId) {
 
-            var isSuccess = false;
+            isSuccess = false;
             try
             {
                 Singleton.Instance.AlbumCollection.Clear();
@@ -248,7 +250,7 @@ namespace PrismAria.Services
 
         public async Task<bool> PopulateBandSongs(List<string> albumIds)
         {
-            var isSuccess = false;
+            isSuccess = false;
             try
             {
                 Singleton.Instance.SongCollection.Clear();

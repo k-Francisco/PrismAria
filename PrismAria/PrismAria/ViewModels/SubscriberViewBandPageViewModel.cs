@@ -1,6 +1,9 @@
-﻿using Prism.Commands;
+﻿using Plugin.Connectivity;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
+using PrismAria.Helpers;
 using PrismAria.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +17,8 @@ namespace PrismAria.ViewModels
 	public class SubscriberViewBandPageViewModel : BindableBase, INavigationAware
 	{
         private readonly INavigationService navigationService;
+        private readonly IPageDialogService pageDialogService;
+        private bool _isConnected = CrossConnectivity.Current.IsConnected;
         private BandModel _band;
 
         private string _title = "";
@@ -69,18 +74,49 @@ namespace PrismAria.ViewModels
         public DelegateCommand FollowBandCommand =>
             _followBandCommand ?? (_followBandCommand = new DelegateCommand(FollowBand));
 
-        private void FollowBand()
+        private async void FollowBand()
         {
-            if (ButtonState)
+            if (_isConnected)
             {
-                ChangeButtonStyle(ButtonState);
-                ButtonState = false;
+                if (ButtonState)
+                {
+                    if(await Singleton.Instance.webService.UnFollowBand(Settings.Token, _band.BandId.ToString()))
+                    {
+                        var followers = Convert.ToInt32(_band.NumFollowers.ToString()) - 1;
+                        _band.NumFollowers = followers.ToString();
+                        FollowerCount = followers.ToString() + "\nFollowers";
+                        Singleton.Instance.FavoritesCollection.Remove(_band);
+                        ChangeButtonStyle(false);
+                        ButtonState = false;
+                    }
+                    else
+                    {
+                        await pageDialogService.DisplayAlertAsync("Ooops!", "It seems like we encountered a problem", "Ok");
+                    }
+                    
+                }
+                else
+                {
+                    if (await Singleton.Instance.webService.FollowBand(Settings.Token, _band.BandId.ToString()))
+                    {
+                        var followers = Convert.ToInt32(_band.NumFollowers.ToString()) + 1;
+                        _band.NumFollowers = followers.ToString();
+                        FollowerCount = followers.ToString() + "\nFollowers";
+                        Singleton.Instance.FavoritesCollection.Add(_band);
+                        ChangeButtonStyle(true);
+                        ButtonState = true;
+                    }
+                    else
+                    {
+                        await pageDialogService.DisplayAlertAsync("Ooops!", "It seems like we encountered a problem", "Ok");
+                    }
+                }
             }
             else
             {
-                ChangeButtonStyle(ButtonState);
-                ButtonState = true;
+                await pageDialogService.DisplayAlertAsync("Connectivity issues", "Cannot load because your device is not connected to the internet", "ok");
             }
+            
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -95,8 +131,14 @@ namespace PrismAria.ViewModels
             BandImage = _band.BandPic;
             BandDesc = _band.BandDesc;
             FollowerCount = _band.NumFollowers.ToString() + "\n Followers";
-            ChangeButtonStyle(CheckIfFollowed());
+
+            if (CheckIfFollowed())
+                ChangeButtonStyle(true);
+            else
+                ChangeButtonStyle(false);
+
             GetBandAlbums();
+            Singleton.Instance.webService.VisitBand(_band.BandId.ToString());
         }
 
         private async void GetBandSongs()
@@ -209,7 +251,7 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _albumHeight, value); }
         }
 
-        private string _buttonText = "Follow";
+        private string _buttonText = "";
         public string ButtonText
         {
             get { return _buttonText; }
@@ -231,9 +273,14 @@ namespace PrismAria.ViewModels
         }
 
 
-        public SubscriberViewBandPageViewModel(INavigationService navigationService)
+        public SubscriberViewBandPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             this.navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
+            CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+            {
+                _isConnected = args.IsConnected;
+            };
         }
 
         private bool CheckIfFollowed()
