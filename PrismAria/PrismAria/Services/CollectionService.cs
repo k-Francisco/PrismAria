@@ -203,33 +203,51 @@ namespace PrismAria.Services
 
        
 
-        public void GenerateArticlesForSubscriber(ObservableCollection<ArticlesModel> collection) {
-            for (int i = 0; i < 10; i++)
+        public async Task<bool> GenerateArticlesForSubscriber() {
+            isSuccess = false;
+            var list = new List<ArticlesModel>();
+            
+            try
             {
-                collection.Add(
-                new ArticlesModel()
+                foreach (var item in Singleton.Instance.FavoritesCollection)
                 {
-                    BandName = "Maroon 5",
-                    BandPic = "sample_pic.png",
-                    ArticleTitle = "New Album",
-                    Article = "Our album named shit is very nice and shit"
-                });
+                    var response = JsonConvert.DeserializeObject<ArticlesModel[]>(await Singleton.Instance.webService.GetBandArticles(item.BandId.ToString()));
+                    foreach (var item2 in response)
+                    {
+                        item2.BandName = item.BandName;
+                        item2.BandPic = item.BandPic;
+                        list.Add(item2);
+                    }
+                }
+
+                var sortedList = list.OrderByDescending(i => i.ArtId).ToList();
+                foreach (var item in sortedList)
+                    Singleton.Instance.SubscriberArticlesCollection.Add(item);
+
+                isSuccess = true;
+
             }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
         }
 
-        public void AddBandArticles(ObservableCollection<ArticlesModel> collection) {
-            for(int i = 0; i < 10; i++)
-            {
-                collection.Add(
-                new ArticlesModel()
-                {
-                    BandName = "Maroon 5",
-                    BandPic = "sample_pic.png",
-                    ArticleTitle = "New Album",
-                    Article = "Our album named shit is very nice and shit"
-                });
-            }
-        }
+        //public void AddBandArticles(ObservableCollection<ArticlesModel> collection) {
+        //    for(int i = 0; i < 10; i++)
+        //    {
+        //        collection.Add(
+        //        new ArticlesModel()
+        //        {
+        //            BandName = "Maroon 5",
+        //            BandPic = "sample_pic.png",
+        //            ArticleTitle = "New Album",
+        //            Article = "Our album named shit is very nice and shit"
+        //        });
+        //    }
+        //}
 
         public async Task<bool>PopulateBandAlbums(string bandId) {
 

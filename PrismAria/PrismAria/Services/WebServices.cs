@@ -435,5 +435,17 @@ namespace PrismAria.Services
             }
         }
 
+        public async Task<string> GetBandArticles(string bandId) {
+
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/bandarticles?band_id="+bandId);
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
     }
 }

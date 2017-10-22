@@ -19,7 +19,10 @@
     <flv:FlowListView FlowItemsSource="{Binding Articles}"
                       FlowColumnCount="1"
                       HasUnevenRows="True"
-                      SeparatorVisibility="None">
+                      SeparatorVisibility="None"
+                      IsRefreshing="{Binding IsListRefreshing}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}">
         <flv:FlowListView.FlowColumnTemplate>
             <DataTemplate>
                 <Grid Margin="0,8,0,8">
@@ -56,31 +59,36 @@
                         </Label.FontFamily>
                     </Label>
 
-                    <Label Grid.Row="1"
-                           Text="{Binding ArticleTitle}"
+                    <StackLayout Grid.Row="1"
+                                 Margin="16,4,0,12"
+                                 Orientation="Vertical">
+
+                        <Label Grid.Row="1"
+                           Text="{Binding ArtTitle}"
                            FontAttributes="Bold"
                            TextColor="#212121"
-                           FontSize="32"
-                           Margin="16,4,0,0">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS">Bryant</On>
-                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
+                           FontSize="32">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
 
-                    <Label Grid.Row="1"
-                           Text="{Binding Article}"
-                           FontSize="Small"
-                           Margin="16,48,0,8">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS">Bryant</On>
-                                <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
+                        <Label Grid.Row="1"
+                           Text="{Binding Content}"
+                           FontSize="Small">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                    </StackLayout>
+                    
 
                     <BoxView Grid.Row="1"
                              HeightRequest="1"

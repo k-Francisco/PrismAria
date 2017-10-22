@@ -13,7 +13,7 @@ namespace PrismAria.ViewModels
 	public class BandArticlesPageViewModel : ChildViewBaseModel
 	{
         private Singleton _singleton;
-        private ArticlesService service;
+        //private ArticlesService service;
 
         public ObservableCollection<ArticlesModel> BandArticlesCollection
         {
@@ -24,8 +24,8 @@ namespace PrismAria.ViewModels
         public BandArticlesPageViewModel(INavigationService navigationService):base(navigationService)
         {
             _singleton = Singleton.Instance;
-            service = new ArticlesService();
-            _singleton.CollectionService.AddBandArticles(_singleton.BandArticlesCollection);
+            //service = new ArticlesService();
+            //_singleton.CollectionService.AddBandArticles(_singleton.BandArticlesCollection);
         }
 	}
 }
