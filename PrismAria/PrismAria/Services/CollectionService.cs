@@ -140,7 +140,7 @@ namespace PrismAria.Services
                     GenreScore = 1.5;
                     RankingWeightedPercentage = .04;
                     PopularityWeightedPercentage = .03;
-                    category = "The top bands for this week!";
+                    category = "Weekly Top Bands!";
                     break;
 
                 case BasedOnPopularity:
@@ -191,7 +191,6 @@ namespace PrismAria.Services
             var modelList = new List<BandModel>() { };
             foreach (var item in sortedList)
             {
-                //Debug.WriteLine(item.band.BandName + " " + item.BandScore);
                 item.band.BandClick = ShowBandPage;
                 modelList.Add(item.band);
             }
@@ -228,6 +227,45 @@ namespace PrismAria.Services
                     Article = "Our album named shit is very nice and shit"
                 });
             }
+        }
+
+        public async Task<bool>PopulateBandAlbums(string bandId) {
+
+            var isSuccess = false;
+            try
+            {
+                Singleton.Instance.AlbumCollection.Clear();
+                var response = JsonConvert.DeserializeObject<BandPageAlbum>(await Singleton.Instance.webService.GetBandAlbum(bandId));
+                Singleton.Instance.AlbumCollection.Add(new BandPageAlbum() { Band = response.Band, Albums = response.Albums });
+                isSuccess = true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return isSuccess;   
+        }
+
+        public async Task<bool> PopulateBandSongs(List<string> albumIds)
+        {
+            var isSuccess = false;
+            try
+            {
+                Singleton.Instance.SongCollection.Clear();
+                
+                foreach(var item in albumIds)
+                {
+                    var response = JsonConvert.DeserializeObject<BandPagePopularModel>(await Singleton.Instance.webService.GetBandSongs(item));
+                    Singleton.Instance.SongCollection.Add(response);
+                }
+                isSuccess = true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
         }
 
     }

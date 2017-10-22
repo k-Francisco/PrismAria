@@ -44,15 +44,22 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _followerCount, value); }
         }
 
-        private ObservableCollection<BandPagePopularModel> _popularList = new ObservableCollection<BandPagePopularModel>();
-        public ObservableCollection<BandPagePopularModel> PopularList
+        private ObservableCollection<Song> _popularList = new ObservableCollection<Song>();
+        public ObservableCollection<Song> PopularList
         {
             get { return _popularList; }
             set { SetProperty(ref _popularList, value); }
         }
 
-        private ObservableCollection<BandPageAlbum> _albumList = new ObservableCollection<BandPageAlbum>();
-        public ObservableCollection<BandPageAlbum> AlbumList
+        private ObservableCollection<Song> _wholeBandSong = new ObservableCollection<Song>();
+        public ObservableCollection<Song> WholeBandSong
+        {
+            get { return _wholeBandSong; }
+            set { SetProperty(ref _wholeBandSong, value); }
+        }
+
+        private ObservableCollection<Album> _albumList = new ObservableCollection<Album>();
+        public ObservableCollection<Album> AlbumList
         {
             get { return _albumList; }
             set { SetProperty(ref _albumList, value); }
@@ -88,8 +95,97 @@ namespace PrismAria.ViewModels
             BandImage = _band.BandPic;
             BandDesc = _band.BandDesc;
             FollowerCount = _band.NumFollowers.ToString() + "\n Followers";
-            //Debug.WriteLine(CheckIfFollowed().ToString());
             ChangeButtonStyle(CheckIfFollowed());
+            GetBandAlbums();
+        }
+
+        private async void GetBandSongs()
+        {
+            var albumIds = new List<string>();
+            if (AlbumList.Count != 0)
+            {
+                foreach (var item in AlbumList)
+                    albumIds.Add(item.AlbumId.ToString());
+
+                try
+                {
+                    if (await Singleton.Instance.CollectionService.PopulateBandSongs(albumIds))
+                    {
+                        foreach (var item in Singleton.Instance.SongCollection)
+                        {
+                            foreach (var item2 in item.Songs)
+                            {
+                                item2.AlbumPic = item.Album.AlbumPic;
+                                WholeBandSong.Add(item2);
+                                
+                                if (item2.NumPlays == null)
+                                    item2.NumPlays = "0";
+                            }
+                        }
+
+                        if(WholeBandSong.Count != 0)
+                        {
+                            var sortedList = WholeBandSong.OrderByDescending(s => Convert.ToInt32(s.NumPlays.ToString())).ToList();
+
+                            if (WholeBandSong.Count >= 5)
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Debug.WriteLine(sortedList[i].SongAudio);
+                                    PopularList.Add(sortedList[i]);
+                                    PopularHeight += 80;
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < WholeBandSong.Count; i++)
+                                {
+                                    Debug.WriteLine(sortedList[i].SongAudio);
+                                    PopularList.Add(sortedList[i]);
+                                    PopularHeight += 80;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+                
+            }
+           
+        }
+
+        private async void GetBandAlbums()
+        {
+            if(await Singleton.Instance.CollectionService.PopulateBandAlbums(_band.BandId.ToString()))
+            {
+                foreach(var item in Singleton.Instance.AlbumCollection[0].Albums)
+                {
+                    var isNull = false;
+                    if (item.NumLikes == null)
+                        isNull = true;
+
+                        AlbumList.Add(new Album()
+                        {
+                            AlbumName = item.AlbumName,
+                            AlbumDesc = item.AlbumDesc,
+                            AlbumId = item.AlbumId,
+                            AlbumPic = item.AlbumPic,
+                            BandId = item.BandId,
+                            CreatedAt = item.CreatedAt,
+                            NumLikes = isNull ? "0 likes" : item.NumLikes.ToString() + " likes",
+                            UpdatedAt = item.UpdatedAt
+                        });
+                }
+                if((Singleton.Instance.AlbumCollection[0].Albums.Count%2) == 1)
+                    AlbumHeight = ((Singleton.Instance.AlbumCollection[0].Albums.Count / 2) * 150) + 150;
+                else
+                    AlbumHeight = ((Singleton.Instance.AlbumCollection[0].Albums.Count / 2) * 150);
+
+                GetBandSongs();
+            } 
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
@@ -113,7 +209,7 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _albumHeight, value); }
         }
 
-        private string _buttonText = "";
+        private string _buttonText = "Follow";
         public string ButtonText
         {
             get { return _buttonText; }
@@ -137,30 +233,6 @@ namespace PrismAria.ViewModels
 
         public SubscriberViewBandPageViewModel(INavigationService navigationService)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                _popularList.Add(new BandPagePopularModel()
-                {
-                    SongAlbum = "sample_pic.png",
-                    SongName = "Lami ilaba",
-                    SongListenedCount = "23,000,032"
-                });
-            }
-
-            _popularHeight = 3 * 80;
-
-            for (int i = 0; i < 4; i++)
-            {
-                _albumList.Add(new BandPageAlbum()
-                {
-                    AlbumPic = "sample_pic.png",
-                    AlbumTitle = "Album Title",
-                    AlbumLikes = "15,000 liked this"
-                });
-            }
-
-            _albumHeight = (4 / 2) * 150;
-
             this.navigationService = navigationService;
         }
 
@@ -184,7 +256,6 @@ namespace PrismAria.ViewModels
 
         private void ChangeButtonStyle(bool v)
         {
-            System.Diagnostics.Debug.WriteLine("changing button style");
             if(v)
             {
                 ButtonText = "Following";

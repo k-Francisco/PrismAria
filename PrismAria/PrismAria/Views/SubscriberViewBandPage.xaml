@@ -132,7 +132,7 @@
                                                VerticalOptions="Center"/>
 
                             <ffimage:CachedImage Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
-                                                             Source="{Binding SongAlbum}"
+                                                             Source="{Binding AlbumPic}"
                                                              Aspect="AspectFill"
                                                              DownsampleToViewSize="True"
                                                              HeightRequest="70"
@@ -142,21 +142,21 @@
                                                              VerticalOptions="Center"/>
 
                             <Label Grid.Row="0" Grid.Column="2"
-                                               Text="{Binding SongName}"
+                                               Text="{Binding SongAudio}"
                                                TextColor="#212121"
-                                               FontSize="20"
+                                               FontSize="14"
                                                Margin="8,0,0,0"
                                                VerticalOptions="End">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
                                         <On Platform="iOS">Bryant</On>
-                                        <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
                                     </OnPlatform>
                                 </Label.FontFamily>
                             </Label>
 
                             <Label Grid.Row="1" Grid.Column="2"
-                                               Text="{Binding SongListenedCount}"
+                                               Text="{Binding NumPlays}"
                                                TextColor="#212121"
                                                FontSize="20"
                                                Margin="8,0,0,0">
@@ -214,7 +214,7 @@
                                                              WidthRequest="140"
                                                              HorizontalOptions="Center"/>
 
-                            <Label Text="{Binding AlbumTitle}"
+                            <Label Text="{Binding AlbumName}"
                                                FontSize="Medium"
                                                TextColor="#212121"
                                                HorizontalOptions="Center">
@@ -226,7 +226,7 @@
                                 </Label.FontFamily>
                             </Label>
 
-                            <Label Text="{Binding AlbumLikes}"
+                            <Label Text="{Binding NumLikes}"
                                                FontSize="Small"
                                                HorizontalOptions="Center"
                                                Margin="0,-8,0,12">

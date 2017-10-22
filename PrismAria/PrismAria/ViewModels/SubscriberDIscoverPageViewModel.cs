@@ -51,8 +51,7 @@ namespace PrismAria.ViewModels
             {
                 if (_singleton.DiscoverCollection.Count == 0)
                 {
-                    _isListRefreshing = true;
-                    Debug.WriteLine("list refreshing? " + _isListRefreshing);
+                    IsListRefreshing = true;
                     PopulateCollection();
                 }
                 else
@@ -69,8 +68,7 @@ namespace PrismAria.ViewModels
 
         private void Refresh()
         {
-            _isListRefreshing = true;
-            //Debug.WriteLine("list refreshing? " + _isListRefreshing);
+            IsListRefreshing = true;
             PopulateCollection();
         }
 
@@ -90,7 +88,6 @@ namespace PrismAria.ViewModels
             {
                 _singleton.DiscoverCollection.Clear();
                 var pleaseWait = await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
-                Debug.WriteLine(pleaseWait.ToString());
                 if (pleaseWait == true)
                 {
                    
@@ -106,8 +103,7 @@ namespace PrismAria.ViewModels
                 await _pageDialogService.DisplayAlertAsync("Connectivity issues", "Cannot load because your device is not connected to the internet", "ok");
                 
             }
-            _isListRefreshing = false;
-            //Debug.WriteLine("list refreshing? " + _isListRefreshing);
+            IsListRefreshing = false;
         }
 
         public override void OnNavigatingTo(NavigationParameters parameters)

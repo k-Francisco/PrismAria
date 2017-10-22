@@ -69,6 +69,20 @@
 
                 <StackLayout
                         Padding="0,16,0,-10">
+
+                    <Label Text="View All"
+                           FontSize="Small"
+                           HorizontalOptions="End"
+                           Margin="0,8,16,-28"
+                           FontAttributes="Bold">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS">Bryant</On>
+                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+
                     <Label Text="{Binding categoryName}"
                                TextColor="#212121"
                                FontSize="Large"
@@ -112,7 +126,7 @@
 
                                                 </controls:CustomFrame>
                                             </On>
-                                            
+
                                             <On Platform="Android">
                                                 <Frame
                                                  Padding="0"
@@ -135,7 +149,7 @@
                                                 </Frame>
                                             </On>
                                         </OnPlatform>
-                                        
+
 
                                         <Label Text="{Binding BandName}"
                                                    FontSize="14"

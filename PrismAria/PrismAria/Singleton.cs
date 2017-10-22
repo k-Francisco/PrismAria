@@ -53,6 +53,7 @@ namespace PrismAria
 
         #region User Preferences
         public UserPreferenceModel[] userPreference;
+        public BandModel recentlyViewedBand;
         #endregion
 
         #region Genres

@@ -13,7 +13,7 @@ namespace PrismAria.Services
     {
         private HttpClient client;
         private Boolean isSuccess = false;
-        private string localAriaUrl = "http://192.168.254.100/Aria/public";
+        private string localAriaUrl = "http://192.168.254.106/Aria/public";
         //private string localAriaUrl = "http://ariaitproject.herokuapp.com";
         public WebServices() {
             client = CreateClient();
@@ -273,12 +273,12 @@ namespace PrismAria.Services
 
         }
 
-        public async Task<string> GetBandSongs(string bandId)
+        public async Task<string> GetBandSongs(string albumId)
         {
 
             try
             {
-                return await client.GetStringAsync(localAriaUrl + "/api/songs?band_id=" + bandId);
+                return await client.GetStringAsync(localAriaUrl + "/api/bandsongs?album_id=" + albumId);
             }
             catch (Exception e)
             {
