@@ -189,17 +189,17 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<bool> EditBandPic(MediaFile file) {
+        public async Task<bool> EditBandPic(MediaFile file, string bandId) {
             isSuccess = false;
             
-            var shet = new MultipartFormDataContent();
-            shet.Add(new StringContent("1"), "\"bandId\"");
-            shet.Add(new StreamContent(file.GetStream()), "\"bandPic\"", file.Path);
+            var contents = new MultipartFormDataContent();
+            contents.Add(new StringContent(bandId), "\"bandId\"");
+            contents.Add(new StreamContent(file.GetStream()), "\"bandPic\"", file.Path);
             
 
             try
             {
-                var post = await client.PostAsync(localAriaUrl + "/api/editBandPic", shet);
+                var post = await client.PostAsync(localAriaUrl + "/api/editBandPic", contents);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;
@@ -216,6 +216,39 @@ namespace PrismAria.Services
 
             return isSuccess;
         }
+
+        public async Task<bool> AddSongs(string albumId, string songDesc, byte[] song, string genreId, string bandId, string songName) {
+            isSuccess = false;
+
+            var contents = new MultipartFormDataContent();
+            contents.Add(new StringContent(albumId), "\"album_id\"");
+            contents.Add(new StringContent(songDesc), "\"song_desc\"");
+            contents.Add(new StringContent(genreId), "\"genre_id\"");
+            contents.Add(new StringContent(bandId), "\"band_id\"");
+            System.IO.MemoryStream stream = new System.IO.MemoryStream(song);
+            contents.Add(new StreamContent(stream), "\"song_audio\"", songName+".mp3");
+            try
+            {
+                var post = await client.PostAsync(localAriaUrl + "/api/addSongs", contents);
+                var result = post.EnsureSuccessStatusCode();
+                if (result.IsSuccessStatusCode)
+                    isSuccess = true;
+
+
+                var data = await result.Content.ReadAsStringAsync();
+                Debug.WriteLine(data);
+                Debug.WriteLine("success");
+                stream.Flush();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        
 
         public async Task<bool> EditBandDetails() {
             isSuccess = false;
@@ -301,23 +334,18 @@ namespace PrismAria.Services
 
         }
 
-        public async Task<bool> AddAlbum() {
+        public async Task<bool> AddAlbum(string albumName, string albumDesc, MediaFile albumPic, string bandId) {
             isSuccess = false;
-            // wala pay picture kay shet
-            //var contents = CreateBody(
-            //    "{" +
-            //    "\"album_name\":\"" + "album numba wan" + "\"," +
-            //    "\"album_desc\":\"" + "asus numba wan" + "\"," +
-            //    "\"band_id\":\"" + "1" + "\"" +
-            //    "}"
-            //    );
-            var contents = CreateBody(
-                ""
-                );
+
+            var contents = new MultipartFormDataContent();
+            contents.Add(new StringContent(bandId), "\"band_id\"");
+            contents.Add(new StringContent(albumName), "\"album_name\"");
+            contents.Add(new StringContent(albumDesc), "\"album_desc\"");
+            contents.Add(new StreamContent(albumPic.GetStream()), "\"album_pic\"", albumPic.Path);
 
             try
             {
-                var post = await client.PostAsync(localAriaUrl + "/api/addAlbum?"+"album_name=pak album&"+"album_desc=no desc&"+"band_id=1", contents);
+                var post = await client.PostAsync(localAriaUrl + "/api/addAlbum", contents);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;
@@ -363,7 +391,7 @@ namespace PrismAria.Services
 
         public async Task<bool> DeleteAlbum(){
             isSuccess = false;
-            // wala pay picture kay shet
+            
             var contents = CreateBody(
                 ""
                 );

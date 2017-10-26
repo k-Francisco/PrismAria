@@ -1,4 +1,8 @@
-﻿using Plugin.Media;
+﻿using GetLocalFilePath.Plugin;
+using Plugin.FilePicker;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Plugin.MediaManager;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -17,6 +21,7 @@ namespace PrismAria.ViewModels
 	{
         private readonly INavigationService navigationService;
         private readonly IPageDialogService pageDialogService;
+        private MediaFile _mediaFile;
         private ObservableCollection<string> _roleList= new ObservableCollection<string>() {
              "Vocalist",
             "Guitarist",
@@ -73,13 +78,13 @@ namespace PrismAria.ViewModels
             }
             
             
-                var file = await CrossMedia.Current.PickPhotoAsync();
-                if (file == null)
+                _mediaFile = await CrossMedia.Current.PickPhotoAsync();
+                if (_mediaFile == null)
                     return;
 
 
-            await Singleton.Instance.webService.EditBandPic(file);
-            BandPic = ImageSource.FromFile(file.Path);
+            
+            BandPic = ImageSource.FromFile(_mediaFile.Path);
         }
 
         private DelegateCommand _createBandCommand;
@@ -88,8 +93,11 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            //var path = BandPic.ToString().Replace("File: ","");
-           // await Singleton.Instance.webService.EditBandPic(path);
+            //await Singleton.Instance.webService.EditBandPic(_mediaFile);   
+            //await Singleton.Instance.webService.AddAlbum("1st album","album shot", _mediaFile, "1");
+
+            var shet = await CrossFilePicker.Current.PickFile();
+            await Singleton.Instance.webService.AddSongs("1", "description here", shet.DataArray, "1", "1", "song name here");
         }
 
         private DelegateCommand _goBackCommand;

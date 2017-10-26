@@ -71,9 +71,15 @@ namespace PrismAria.ViewModels
             await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
             await PopupNavigation.Instance.PopAllAsync();
 
+
+            
+            //Play a song code
             //var path = new System.Uri("/Aria/public/assets/music/Charlie Puth covers How Deep Is Your Love by Calvin Harris in the Live Lounge.mp3").AbsolutePath;
             //Debug.WriteLine(path);
             //await CrossMediaManager.Current.Play("http://192.168.254.107" + path);
+
+
+            //Add a song
 
 
         }
