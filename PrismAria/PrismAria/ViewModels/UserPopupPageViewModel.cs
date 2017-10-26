@@ -1,4 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using GetLocalFilePath.Plugin;
+using Newtonsoft.Json;
+using PCLStorage;
+using Plugin.Connectivity;
+using Plugin.FilePicker;
+using Plugin.Media.Abstractions;
+using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -23,7 +30,7 @@ namespace PrismAria.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService pageDialogService;
         private readonly IEventAggregator _eventAggregator;
-        private readonly UserBandsService _userBandsService;
+        private bool _isConnected = CrossConnectivity.Current.IsConnected;
         private Singleton _singleton;
         #region Close User Popup
 
@@ -60,38 +67,30 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            
-            PopupNavigation.Instance.PopAllAsync();
-            //Debug.WriteLine(await _singleton.webService.GetUserHistory(Settings.Token));
-            //try
-            //{
-            //    var ignore = JsonConvert.DeserializeObject<UserModel[]>(await _singleton.webService.GetUserHistory(Settings.Token));
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.WriteLine(e.Message);
-            //}
-            //await _singleton.CollectionService.GenerateBandsToExplore(_singleton.DiscoverCollection, _navigationService);
-
 
             await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
+            await PopupNavigation.Instance.PopAllAsync();
+
+            //var path = new System.Uri("/Aria/public/assets/music/Charlie Puth covers How Deep Is Your Love by Calvin Harris in the Live Lounge.mp3").AbsolutePath;
+            //Debug.WriteLine(path);
+            //await CrossMediaManager.Current.Play("http://192.168.254.107" + path);
+
 
         }
         #endregion
 
-        private ObservableCollection<UserBandModel> _userBands;
-        public ObservableCollection<UserBandModel> UserBands
+        public ObservableCollection<UserBandModelForEvent> UserBands
         {
-            get { return _userBands; }
-            set { SetProperty(ref _userBands, value); }
+            get { return Singleton.Instance.UserBandCollection; }
+            set { SetProperty(ref Singleton.Instance.UserBandCollection, value); }
         }
 
 
-        private DelegateCommand<UserBandModel> _navigateToBandCommand;
-        public DelegateCommand<UserBandModel> NavigateToBandCommand =>
-            _navigateToBandCommand ?? (_navigateToBandCommand = new DelegateCommand<UserBandModel>(NavigateToBand));
+        private DelegateCommand<UserBandModelForEvent> _navigateToBandCommand;
+        public DelegateCommand<UserBandModelForEvent> NavigateToBandCommand =>
+            _navigateToBandCommand ?? (_navigateToBandCommand = new DelegateCommand<UserBandModelForEvent>(NavigateToBand));
 
-        private async void NavigateToBand(UserBandModel obj)
+        private async void NavigateToBand(UserBandModelForEvent obj)
         {
             await PopupNavigation.Instance.PopAllAsync();
             try
@@ -126,15 +125,34 @@ namespace PrismAria.ViewModels
             var profile = JsonConvert.DeserializeObject<UserModel>(Settings.Profile);
             UserPic = profile.ProfilePic;
             UserName = profile.Fullname;
-            _userBandsService = new UserBandsService();
-            _userBands = _userBandsService.GetUserBands();
-            _eventAggregator.GetEvent<UserBandsEvent>().Subscribe(PublishBand);
             _singleton = Singleton.Instance;
+            PopulateUserBands();
+
+            CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+            {
+                _isConnected = args.IsConnected;
+            };
+        }
+
+        private async void PopulateUserBands()
+        {
+            if (!_singleton.UserBandCollection.Any())
+            {
+                if (_isConnected)
+                {
+                    if (!await _singleton.CollectionService.PopulateUserBands())
+                    {
+                        await pageDialogService.DisplayAlertAsync("Ooops!", "It seems like we encountered a problem", "Ok");
+                    }
+                }
+                else
+                    await pageDialogService.DisplayAlertAsync("Connectivity issues", "Cannot load because your device is not connected to the internet", "ok");
+            }
         }
 
         private void PublishBand(UserBandModelForEvent obj)
         {
-            _userBandsService.AddBands(obj.userBandName, obj.userBandRole, obj.userBandImage);
+            //_userBandsService.AddBands(obj.userBandName, obj.userBandRole, obj.userBandImage);
         }
         
     }

@@ -13,7 +13,7 @@ namespace PrismAria.Services
     {
         private HttpClient client;
         private Boolean isSuccess = false;
-        private string localAriaUrl = "http://192.168.254.106/Aria/public";
+        private string localAriaUrl = "http://192.168.254.102/Aria/public";
         //private string localAriaUrl = "http://ariaitproject.herokuapp.com";
         public WebServices() {
             client = CreateClient();
@@ -154,10 +154,10 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<string> GetBandMembers() {
+        public async Task<string> GetAllBandMembers() {
             try
             {
-                return await client.GetStringAsync(localAriaUrl + "/api/getmembers");
+                return await client.GetStringAsync(localAriaUrl + "/api/members");
             }
             catch (Exception e)
             {
@@ -189,17 +189,17 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<bool> EditBandPic(System.IO.Stream bandPic) {
+        public async Task<bool> EditBandPic(MediaFile file) {
             isSuccess = false;
-            //var contents = CreateBody("{" +
-            //    "\"band_pic\":\"" + bandPic + "\"," +
-            //    "\"band_id\":\"" + "2" + "\"" +
-            //    "}");
-            var contents = CreateBody("");
+            
+            var shet = new MultipartFormDataContent();
+            shet.Add(new StringContent("1"), "\"bandId\"");
+            shet.Add(new StreamContent(file.GetStream()), "\"bandPic\"", file.Path);
+            
 
             try
             {
-                var post = await client.PostAsync(localAriaUrl + "/api/editbandPic?band_id=2&band_pic=" + bandPic, contents);
+                var post = await client.PostAsync(localAriaUrl + "/api/editBandPic", shet);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;

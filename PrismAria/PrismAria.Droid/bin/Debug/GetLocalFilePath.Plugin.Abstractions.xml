@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GetLocalFilePath.Plugin.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:GetLocalFilePath.Plugin.Abstractions.IGetLocalFilePath">
+            <summary>
+            Interface for GetLocalFilePath
+            </summary>
+        </member>
+    </members>
+</doc>

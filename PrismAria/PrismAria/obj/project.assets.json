@@ -193,6 +193,17 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
+      "PCLStorage/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
+        }
+      },
       "Plugin.MediaManager/0.4.5": {
         "type": "package",
         "compile": {
@@ -1304,6 +1315,28 @@
           "lib/netstandard1.0/Plugin.Connectivity.dll": {}
         }
       },
+      "Xam.Plugin.FilePicker/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.dll": {}
+        }
+      },
+      "Xam.Plugin.GetLocalFilePath/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.dll": {}
+        }
+      },
       "Xam.Plugin.Media/3.0.1": {
         "type": "package",
         "dependencies": {
@@ -1316,6 +1349,20 @@
         "runtime": {
           "lib/netstandard1.0/Plugin.Media.Abstractions.dll": {},
           "lib/netstandard1.0/Plugin.Media.dll": {}
+        }
+      },
+      "Xam.Plugin.SimpleAudioPlayer/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Plugin.SimpleAudioPlayer.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.SimpleAudioPlayer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.SimpleAudioPlayer.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.SimpleAudioPlayer.dll": {}
         }
       },
       "Xam.Plugins.Settings/3.0.1": {
@@ -1698,6 +1745,51 @@
         "newtonsoft.json.10.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "PCLStorage/1.0.2": {
+      "sha512": "9If+1ZFCk3QaT/asfiL+J9FMnx2CTMrLCU8tDMUOI/aCGWGWl9vJ1/KcMkjf92op23ZknenvYJZBLDAqE3sFlg==",
+      "type": "package",
+      "path": "pclstorage/1.0.2",
+      "files": [
+        "lib/monoandroid/PCLStorage.Abstractions.dll",
+        "lib/monoandroid/PCLStorage.Abstractions.xml",
+        "lib/monoandroid/PCLStorage.dll",
+        "lib/monoandroid/PCLStorage.xml",
+        "lib/monotouch/PCLStorage.Abstractions.dll",
+        "lib/monotouch/PCLStorage.Abstractions.xml",
+        "lib/monotouch/PCLStorage.dll",
+        "lib/monotouch/PCLStorage.xml",
+        "lib/net45/PCLStorage.Abstractions.dll",
+        "lib/net45/PCLStorage.Abstractions.xml",
+        "lib/net45/PCLStorage.dll",
+        "lib/net45/PCLStorage.xml",
+        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
+        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
+        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
+        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
+        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
+        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
+        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
+        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
+        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
+        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
+        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
+        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
+        "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll",
+        "lib/portable-win8+wpa81/PCLStorage.Abstractions.xml",
+        "lib/portable-win8+wpa81/PCLStorage.dll",
+        "lib/portable-win8+wpa81/PCLStorage.xml",
+        "lib/sl5/PCLStorage.Abstractions.dll",
+        "lib/sl5/PCLStorage.Abstractions.xml",
+        "lib/sl5/PCLStorage.dll",
+        "lib/sl5/PCLStorage.xml",
+        "lib/wp8/PCLStorage.Abstractions.dll",
+        "lib/wp8/PCLStorage.Abstractions.xml",
+        "lib/wp8/PCLStorage.dll",
+        "lib/wp8/PCLStorage.xml",
+        "pclstorage.1.0.2.nupkg.sha512",
+        "pclstorage.nuspec"
       ]
     },
     "Plugin.MediaManager/0.4.5": {
@@ -5134,6 +5226,103 @@
         "xam.plugin.connectivity.nuspec"
       ]
     },
+    "Xam.Plugin.FilePicker/1.1.0": {
+      "sha512": "K+JeyEKor8YJ+KIfBCZhrQg/UqJ/mfriwzL1spW+BH6e3/boCmv/YNYWO34gysVkuzGDJfZTemibK13IcLhORQ==",
+      "type": "package",
+      "path": "xam.plugin.filepicker/1.1.0",
+      "files": [
+        "lib/MonoAndroid10/Plugin.FilePicker.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.FilePicker.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.FilePicker.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.FilePicker.dll",
+        "lib/MonoAndroid10/Plugin.FilePicker.pdb",
+        "lib/MonoAndroid10/Plugin.FilePicker.xml",
+        "lib/MonoTouch10/Plugin.FilePicker.Abstractions.dll",
+        "lib/MonoTouch10/Plugin.FilePicker.Abstractions.xml",
+        "lib/MonoTouch10/Plugin.FilePicker.dll",
+        "lib/MonoTouch10/Plugin.FilePicker.xml",
+        "lib/UAP10/Plugin.FilePicker.Abstractions.dll",
+        "lib/UAP10/Plugin.FilePicker.Abstractions.pdb",
+        "lib/UAP10/Plugin.FilePicker.Abstractions.xml",
+        "lib/UAP10/Plugin.FilePicker.dll",
+        "lib/UAP10/Plugin.FilePicker.pdb",
+        "lib/UAP10/Plugin.FilePicker.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.pdb",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.pdb",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.xml",
+        "lib/win8/Plugin.FilePicker.Abstractions.dll",
+        "lib/win8/Plugin.FilePicker.Abstractions.pdb",
+        "lib/win8/Plugin.FilePicker.Abstractions.xml",
+        "lib/win8/Plugin.FilePicker.dll",
+        "lib/win8/Plugin.FilePicker.pdb",
+        "lib/win8/Plugin.FilePicker.xml",
+        "lib/wp8/Plugin.FilePicker.Abstractions.dll",
+        "lib/wp8/Plugin.FilePicker.Abstractions.pdb",
+        "lib/wp8/Plugin.FilePicker.Abstractions.xml",
+        "lib/wp8/Plugin.FilePicker.dll",
+        "lib/wp8/Plugin.FilePicker.pdb",
+        "lib/wp8/Plugin.FilePicker.xml",
+        "lib/wpa81/Plugin.FilePicker.Abstractions.dll",
+        "lib/wpa81/Plugin.FilePicker.Abstractions.pdb",
+        "lib/wpa81/Plugin.FilePicker.Abstractions.xml",
+        "lib/wpa81/Plugin.FilePicker.dll",
+        "lib/wpa81/Plugin.FilePicker.pdb",
+        "lib/wpa81/Plugin.FilePicker.xml",
+        "readme.txt",
+        "xam.plugin.filepicker.1.1.0.nupkg.sha512",
+        "xam.plugin.filepicker.nuspec"
+      ]
+    },
+    "Xam.Plugin.GetLocalFilePath/1.0.0": {
+      "sha512": "dCQ2VrhMGJ2Pt8nSmm3WXh/hGyzHY9nV5MjKYolNHerJGCnSQG3qS1blCzHK3Dr2k1jPE9qpj7scRtlwI5s69A==",
+      "type": "package",
+      "path": "xam.plugin.getlocalfilepath/1.0.0",
+      "files": [
+        "lib/MonoAndroid10/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/MonoAndroid10/GetLocalFilePath.Plugin.Abstractions.pdb",
+        "lib/MonoAndroid10/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/MonoAndroid10/GetLocalFilePath.Plugin.dll",
+        "lib/MonoAndroid10/GetLocalFilePath.Plugin.pdb",
+        "lib/MonoAndroid10/GetLocalFilePath.Plugin.xml",
+        "lib/MonoTouch10/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/MonoTouch10/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/MonoTouch10/GetLocalFilePath.Plugin.dll",
+        "lib/MonoTouch10/GetLocalFilePath.Plugin.xml",
+        "lib/Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/Xamarin.iOS10/GetLocalFilePath.Plugin.dll",
+        "lib/Xamarin.iOS10/GetLocalFilePath.Plugin.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.pdb",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.pdb",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.xml",
+        "lib/win8/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/win8/GetLocalFilePath.Plugin.Abstractions.pdb",
+        "lib/win8/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/win8/GetLocalFilePath.Plugin.dll",
+        "lib/win8/GetLocalFilePath.Plugin.pdb",
+        "lib/win8/GetLocalFilePath.Plugin.xml",
+        "lib/wp8/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/wp8/GetLocalFilePath.Plugin.Abstractions.pdb",
+        "lib/wp8/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/wp8/GetLocalFilePath.Plugin.dll",
+        "lib/wp8/GetLocalFilePath.Plugin.pdb",
+        "lib/wp8/GetLocalFilePath.Plugin.xml",
+        "lib/wpa81/GetLocalFilePath.Plugin.Abstractions.dll",
+        "lib/wpa81/GetLocalFilePath.Plugin.Abstractions.pdb",
+        "lib/wpa81/GetLocalFilePath.Plugin.Abstractions.xml",
+        "lib/wpa81/GetLocalFilePath.Plugin.dll",
+        "lib/wpa81/GetLocalFilePath.Plugin.pdb",
+        "lib/wpa81/GetLocalFilePath.Plugin.xml",
+        "xam.plugin.getlocalfilepath.1.0.0.nupkg.sha512",
+        "xam.plugin.getlocalfilepath.nuspec"
+      ]
+    },
     "Xam.Plugin.Media/3.0.1": {
       "sha512": "g/FOs1yxjrHGlcVp4tNcSIAl92dazWxCLP2N1/h8P9h/eGsFj8uIgrJDZrtb1Laam2//4A8FyQy8kzOODWNGnA==",
       "type": "package",
@@ -5167,6 +5356,43 @@
         "readme.txt",
         "xam.plugin.media.3.0.1.nupkg.sha512",
         "xam.plugin.media.nuspec"
+      ]
+    },
+    "Xam.Plugin.SimpleAudioPlayer/1.0.1": {
+      "sha512": "fMD0lM//imTxfzaPRgV+TKStBszAPliz6CZyehGZZbfdtS2bXUf79pTBTlKgbxux4hX7dd9THY2GbUouvayJDw==",
+      "type": "package",
+      "path": "xam.plugin.simpleaudioplayer/1.0.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.SimpleAudioPlayer.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.SimpleAudioPlayer.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.SimpleAudioPlayer.XML",
+        "lib/MonoAndroid10/Plugin.SimpleAudioPlayer.dll",
+        "lib/MonoAndroid10/Plugin.SimpleAudioPlayer.pdb",
+        "lib/UAP10/Plugin.SimpleAudioPlayer.Abstractions.dll",
+        "lib/UAP10/Plugin.SimpleAudioPlayer.Abstractions.pdb",
+        "lib/UAP10/Plugin.SimpleAudioPlayer.XML",
+        "lib/UAP10/Plugin.SimpleAudioPlayer.dll",
+        "lib/UAP10/Plugin.SimpleAudioPlayer.pdb",
+        "lib/UAP10/Plugin.SimpleAudioPlayer.pri",
+        "lib/Xamarin.Mac20/Plugin.SimpleAudioPlayer.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.SimpleAudioPlayer.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.SimpleAudioPlayer.dll",
+        "lib/Xamarin.Mac20/Plugin.SimpleAudioPlayer.xml",
+        "lib/Xamarin.iOS10/Plugin.SimpleAudioPlayer.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.SimpleAudioPlayer.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.SimpleAudioPlayer.XML",
+        "lib/Xamarin.iOS10/Plugin.SimpleAudioPlayer.dll",
+        "lib/Xamarintvos/Plugin.SimpleAudioPlayer.Abstractions.dll",
+        "lib/Xamarintvos/Plugin.SimpleAudioPlayer.Abstractions.pdb",
+        "lib/Xamarintvos/Plugin.SimpleAudioPlayer.dll",
+        "lib/Xamarintvos/Plugin.SimpleAudioPlayer.xml",
+        "lib/netstandard1.0/Plugin.SimpleAudioPlayer.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.SimpleAudioPlayer.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.SimpleAudioPlayer.deps.json",
+        "lib/netstandard1.0/Plugin.SimpleAudioPlayer.dll",
+        "lib/netstandard1.0/Plugin.SimpleAudioPlayer.pdb",
+        "xam.plugin.simpleaudioplayer.1.0.1.nupkg.sha512",
+        "xam.plugin.simpleaudioplayer.nuspec"
       ]
     },
     "Xam.Plugins.Settings/3.0.1": {
@@ -5560,13 +5786,17 @@
       "Microsoft.NETCore.Portable.Compatibility >= 1.0.1",
       "NETStandard.Library >= 1.6.1",
       "Newtonsoft.Json >= 10.0.3",
+      "PCLStorage >= 1.0.2",
       "Plugin.MediaManager >= 0.4.5",
       "Prism.Core >= 6.3.0",
       "Prism.Forms >= 6.3.0",
       "Prism.Unity.Forms >= 6.3.0",
       "Rg.Plugins.Popup >= 1.1.0-pre2",
       "Xam.Plugin.Connectivity >= 3.0.3",
+      "Xam.Plugin.FilePicker >= 1.1.0",
+      "Xam.Plugin.GetLocalFilePath >= 1.0.0",
       "Xam.Plugin.Media >= 3.0.1",
+      "Xam.Plugin.SimpleAudioPlayer >= 1.0.1",
       "Xam.Plugins.Settings >= 3.0.1",
       "Xamarin.FFImageLoading >= 2.2.20",
       "Xamarin.FFImageLoading.Forms >= 2.2.20",
@@ -5610,6 +5840,10 @@
     "frameworks": {
       "netstandard1.4": {
         "dependencies": {
+          "PCLStorage": {
+            "target": "Package",
+            "version": "1.0.2"
+          },
           "Plugin.MediaManager": {
             "target": "Package",
             "version": "0.4.5"
@@ -5621,6 +5855,10 @@
           "Rg.Plugins.Popup": {
             "target": "Package",
             "version": "1.1.0-pre2"
+          },
+          "Xam.Plugin.GetLocalFilePath": {
+            "target": "Package",
+            "version": "1.0.0"
           },
           "Xamarin.FFImageLoading": {
             "target": "Package",
@@ -5651,6 +5889,10 @@
             "target": "Package",
             "version": "3.0.1"
           },
+          "Xam.Plugin.SimpleAudioPlayer": {
+            "target": "Package",
+            "version": "1.0.1"
+          },
           "Xam.Plugin.Connectivity": {
             "target": "Package",
             "version": "3.0.3"
@@ -5670,6 +5912,10 @@
           "Prism.Unity.Forms": {
             "target": "Package",
             "version": "6.3.0"
+          },
+          "Xam.Plugin.FilePicker": {
+            "target": "Package",
+            "version": "1.1.0"
           },
           "Microsoft.NETCore.Portable.Compatibility": {
             "target": "Package",

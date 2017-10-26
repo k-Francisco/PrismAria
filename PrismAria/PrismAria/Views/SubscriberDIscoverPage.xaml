@@ -65,8 +65,8 @@
                 </StackLayout>
             </DataTemplate>-->
 
-            <DataTemplate x:Key="BotTemplate">
-
+            <!--<DataTemplate x:Key="BotTemplate">
+                
                 <StackLayout
                         Padding="0,16,0,-10">
 
@@ -170,6 +170,113 @@
                     </controls:HorizontalListView>
                 </StackLayout>
 
+            </DataTemplate>-->
+
+            <DataTemplate x:Key="BotTemplate">
+                <ViewCell>
+                    <StackLayout
+                        Padding="0,16,0,-10">
+
+                        <Label Text="View All"
+                           FontSize="Small"
+                           HorizontalOptions="End"
+                           Margin="0,8,16,-28"
+                           FontAttributes="Bold">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                        <Label Text="{Binding categoryName}"
+                               TextColor="#212121"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               Margin="16,0">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">Bryant</On>
+                                    <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+
+                        <controls:HorizontalListView ItemSource="{Binding bandList}"
+                                        Orientation="Horizontal" HeightRequest="140">
+                            <controls:HorizontalListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout
+                                            Orientation="Vertical"
+                                            Margin="16,0,-10,0">
+                                            <OnPlatform x:TypeArguments="View">
+                                                <On Platform="iOS">
+                                                    <controls:CustomFrame
+                                                 Padding="0"
+                                                 Margin="0"
+                                                 CornerRadius="4"
+                                                 HasShadow="True">
+                                                        <ffImageLoading:CachedImage Source="{Binding BandPic}" 
+                                                                            HeightRequest="100" 
+                                                                            WidthRequest="100"
+                                                                            DownsampleToViewSize="True"
+                                                                            DownsampleHeight="100"
+                                                                            Aspect="AspectFill">
+                                                            <ffImageLoading:CachedImage.GestureRecognizers>
+                                                                <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                          Command="{Binding BandClick}"
+                                                                          CommandParameter="{Binding .}"/>
+                                                            </ffImageLoading:CachedImage.GestureRecognizers>
+                                                        </ffImageLoading:CachedImage>
+
+                                                    </controls:CustomFrame>
+                                                </On>
+
+                                                <On Platform="Android">
+                                                    <Frame
+                                                 Padding="0"
+                                                 Margin="0"
+                                                 CornerRadius="4"
+                                                 HasShadow="True">
+                                                        <ffImageLoading:CachedImage Source="{Binding BandPic}" 
+                                                                            HeightRequest="100" 
+                                                                            WidthRequest="100"
+                                                                            DownsampleToViewSize="True"
+                                                                            DownsampleHeight="100"
+                                                                            Aspect="AspectFill">
+                                                            <ffImageLoading:CachedImage.GestureRecognizers>
+                                                                <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                          Command="{Binding BandClick}"
+                                                                          CommandParameter="{Binding .}"/>
+                                                            </ffImageLoading:CachedImage.GestureRecognizers>
+                                                        </ffImageLoading:CachedImage>
+
+                                                    </Frame>
+                                                </On>
+                                            </OnPlatform>
+
+
+                                            <Label Text="{Binding BandName}"
+                                                   FontSize="14"
+                                                   LineBreakMode="TailTruncation"
+                                                   WidthRequest="80"
+                                                   XAlign="Center">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String">
+                                                        <On Platform="iOS">Bryant</On>
+                                                        <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
+                                                    </OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </controls:HorizontalListView.ItemTemplate>
+                        </controls:HorizontalListView>
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
 
         </ResourceDictionary>
@@ -186,7 +293,7 @@
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand">
 
-        <flv:FlowListView FlowItemsSource="{Binding DiscoverList}"
+        <!--<flv:FlowListView FlowItemsSource="{Binding DiscoverList}"
                           FlowColumnCount="1"
                           HasUnevenRows="True"
                           SeparatorVisibility="None"
@@ -194,7 +301,17 @@
                           IsPullToRefreshEnabled="True"
                           IsRefreshing="{Binding IsListRefreshing}"
                           RefreshCommand="{Binding RefreshCommand}"
-                          FlowItemTappedCommand="{Binding SampleCommand}"/>
+                          FlowItemTappedCommand="{Binding SampleCommand}"/>-->
+
+        <ListView ItemsSource="{Binding DiscoverList}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsListRefreshing}"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  ItemTemplate="{StaticResource BotTemplate}"
+                  CachingStrategy="RecycleElement">
+        </ListView>
 
     </StackLayout>
 </ContentPage>

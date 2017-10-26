@@ -65,10 +65,7 @@ namespace PrismAria.ViewModels
             _pickBandImageCommand ?? (_pickBandImageCommand = new DelegateCommand(PickBandImage));
 
         private async void PickBandImage()
-        {
-            await CrossMedia.Current.Initialize();
-           
-
+        {  
             if(!CrossMedia.Current.IsPickPhotoSupported)
             {
                 await pageDialogService.DisplayAlertAsync("Error", "The device deos not support picking of photos", "Ok");
@@ -79,9 +76,20 @@ namespace PrismAria.ViewModels
                 var file = await CrossMedia.Current.PickPhotoAsync();
                 if (file == null)
                     return;
-            
-                _bandPic = ImageSource.FromFile(file.Path);
-                BandPic = ImageSource.FromFile(file.Path);
+
+
+            await Singleton.Instance.webService.EditBandPic(file);
+            BandPic = ImageSource.FromFile(file.Path);
+        }
+
+        private DelegateCommand _createBandCommand;
+        public DelegateCommand CreateBandCommand =>
+            _createBandCommand ?? (_createBandCommand = new DelegateCommand(CreateBand));
+
+        private async void CreateBand()
+        {
+            //var path = BandPic.ToString().Replace("File: ","");
+           // await Singleton.Instance.webService.EditBandPic(path);
         }
 
         private DelegateCommand _goBackCommand;
@@ -97,6 +105,7 @@ namespace PrismAria.ViewModels
         {
             this.navigationService = navigationService;
             this.pageDialogService = pageDialogService;
+            CrossMedia.Current.Initialize();
             _bandPic = "sample_pic.png";
         }
 	}

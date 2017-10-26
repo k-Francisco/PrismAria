@@ -82,12 +82,20 @@ namespace PrismAria.ViewModels
                 {
                     if(await Singleton.Instance.webService.UnFollowBand(Settings.Token, _band.BandId.ToString()))
                     {
-                        var followers = Convert.ToInt32(_band.NumFollowers.ToString()) - 1;
-                        _band.NumFollowers = followers.ToString();
-                        FollowerCount = followers.ToString() + "\nFollowers";
-                        Singleton.Instance.FavoritesCollection.Remove(_band);
-                        ChangeButtonStyle(false);
-                        ButtonState = false;
+                        try
+                        {
+                            var followers = Convert.ToInt32(_band.NumFollowers.ToString()) - 1;
+                            _band.NumFollowers = followers.ToString();
+                            FollowerCount = followers.ToString() + "\nFollowers";
+                            Singleton.Instance.FavoritesCollection.Remove(_band);
+                            ChangeButtonStyle(false);
+                            ButtonState = false;
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.WriteLine(e.Message);
+                        }
+                        
                     }
                     else
                     {
@@ -103,6 +111,7 @@ namespace PrismAria.ViewModels
                         _band.NumFollowers = followers.ToString();
                         FollowerCount = followers.ToString() + "\nFollowers";
                         Singleton.Instance.FavoritesCollection.Add(_band);
+                        Singleton.Instance.userPreference.ToList().Add(new UserPreferenceModel() { BandId = _band.BandId, UserId = Settings.Token});
                         ChangeButtonStyle(true);
                         ButtonState = true;
                     }
@@ -130,7 +139,7 @@ namespace PrismAria.ViewModels
             Title = _band.BandName;
             BandImage = _band.BandPic;
             BandDesc = _band.BandDesc;
-            FollowerCount = _band.NumFollowers.ToString() + "\n Followers";
+            FollowerCount = _band.NumFollowers.ToString() + "\nFollowers";
 
             if (CheckIfFollowed())
                 ChangeButtonStyle(true);

@@ -39,7 +39,7 @@ namespace PrismAria
         public ObservableCollection<DiscoverPageModel> DiscoverCollection = new ObservableCollection<DiscoverPageModel>() { };
         public ObservableCollection<ArticlesModel> SubscriberArticlesCollection = new ObservableCollection<ArticlesModel>() { };
         public ObservableCollection<BandModel> FavoritesCollection = new ObservableCollection<BandModel>() { };
-        public ObservableCollection<UserBandModel> UserBandCollection { get; set; }
+        public ObservableCollection<UserBandModelForEvent> UserBandCollection = new ObservableCollection<UserBandModelForEvent>() { };
         public ObservableCollection<BandMembersModel> BandMemberCollection = new ObservableCollection<BandMembersModel>() { };
         public ObservableCollection<ArticlesModel> BandArticlesCollection = new ObservableCollection<ArticlesModel>() { };
         public ObservableCollection<BandPagePopularModel> SongCollection = new ObservableCollection<BandPagePopularModel>() { };

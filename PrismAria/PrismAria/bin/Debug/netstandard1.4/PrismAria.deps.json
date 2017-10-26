@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.4/",
-    "signature": "ce938337db15d293252177ab8cb6898dfe906e16"
+    "signature": "099a0020ff8d70227cc71f6e44ab14d81ac6e94e"
   },
   "compilationOptions": {},
   "targets": {
@@ -14,13 +14,17 @@
           "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
+          "PCLStorage": "1.0.2",
           "Plugin.MediaManager": "0.4.5",
           "Prism.Core": "6.3.0",
           "Prism.Forms": "6.3.0",
           "Prism.Unity.Forms": "6.3.0",
           "Rg.Plugins.Popup": "1.1.0-pre2",
           "Xam.Plugin.Connectivity": "3.0.3",
+          "Xam.Plugin.FilePicker": "1.1.0",
+          "Xam.Plugin.GetLocalFilePath": "1.0.0",
           "Xam.Plugin.Media": "3.0.1",
+          "Xam.Plugin.SimpleAudioPlayer": "1.0.1",
           "Xam.Plugins.Settings": "3.0.1",
           "Xamarin.FFImageLoading": "2.2.20",
           "Xamarin.FFImageLoading.Forms": "2.2.20",
@@ -163,6 +167,12 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "pclstorage/1.0.2": {
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll": {}
         }
       },
       "plugin.mediamanager/0.4.5": {
@@ -834,6 +844,18 @@
           "lib/netstandard1.0/Plugin.Connectivity.dll": {}
         }
       },
+      "xam.plugin.filepicker/1.1.0": {
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.dll": {}
+        }
+      },
+      "xam.plugin.getlocalfilepath/1.0.0": {
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.Abstractions.dll": {},
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/GetLocalFilePath.Plugin.dll": {}
+        }
+      },
       "xam.plugin.media/3.0.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -841,6 +863,15 @@
         "runtime": {
           "lib/netstandard1.0/Plugin.Media.Abstractions.dll": {},
           "lib/netstandard1.0/Plugin.Media.dll": {}
+        }
+      },
+      "xam.plugin.simpleaudioplayer/1.0.1": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.SimpleAudioPlayer.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.SimpleAudioPlayer.dll": {}
         }
       },
       "xam.plugins.settings/3.0.1": {
@@ -981,6 +1012,13 @@
       "sha512": "sha512-wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
+    },
+    "pclstorage/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9If+1ZFCk3QaT/asfiL+J9FMnx2CTMrLCU8tDMUOI/aCGWGWl9vJ1/KcMkjf92op23ZknenvYJZBLDAqE3sFlg==",
+      "path": "pclstorage/1.0.2",
+      "hashPath": "pclstorage.1.0.2.nupkg.sha512"
     },
     "plugin.mediamanager/0.4.5": {
       "type": "package",
@@ -1507,12 +1545,33 @@
       "path": "xam.plugin.connectivity/3.0.3",
       "hashPath": "xam.plugin.connectivity.3.0.3.nupkg.sha512"
     },
+    "xam.plugin.filepicker/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-K+JeyEKor8YJ+KIfBCZhrQg/UqJ/mfriwzL1spW+BH6e3/boCmv/YNYWO34gysVkuzGDJfZTemibK13IcLhORQ==",
+      "path": "xam.plugin.filepicker/1.1.0",
+      "hashPath": "xam.plugin.filepicker.1.1.0.nupkg.sha512"
+    },
+    "xam.plugin.getlocalfilepath/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dCQ2VrhMGJ2Pt8nSmm3WXh/hGyzHY9nV5MjKYolNHerJGCnSQG3qS1blCzHK3Dr2k1jPE9qpj7scRtlwI5s69A==",
+      "path": "xam.plugin.getlocalfilepath/1.0.0",
+      "hashPath": "xam.plugin.getlocalfilepath.1.0.0.nupkg.sha512"
+    },
     "xam.plugin.media/3.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-g/FOs1yxjrHGlcVp4tNcSIAl92dazWxCLP2N1/h8P9h/eGsFj8uIgrJDZrtb1Laam2//4A8FyQy8kzOODWNGnA==",
       "path": "xam.plugin.media/3.0.1",
       "hashPath": "xam.plugin.media.3.0.1.nupkg.sha512"
+    },
+    "xam.plugin.simpleaudioplayer/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fMD0lM//imTxfzaPRgV+TKStBszAPliz6CZyehGZZbfdtS2bXUf79pTBTlKgbxux4hX7dd9THY2GbUouvayJDw==",
+      "path": "xam.plugin.simpleaudioplayer/1.0.1",
+      "hashPath": "xam.plugin.simpleaudioplayer.1.0.1.nupkg.sha512"
     },
     "xam.plugins.settings/3.0.1": {
       "type": "package",

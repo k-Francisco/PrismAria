@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GetLocalFilePath.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:GetLocalFilePath.Plugin.CrossGetLocalFilePath">
+            <summary>
+            Cross platform GetLocalFilePath implemenations
+            </summary>
+        </member>
+        <member name="P:GetLocalFilePath.Plugin.CrossGetLocalFilePath.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+        <member name="T:GetLocalFilePath.Plugin.GetLocalFilePathImplementation">
+            <summary>
+            Implementation for Feature
+            </summary>
+        </member>
+    </members>
+</doc>

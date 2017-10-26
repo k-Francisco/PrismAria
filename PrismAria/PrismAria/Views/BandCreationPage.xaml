@@ -106,7 +106,8 @@
             <Picker ItemsSource="{Binding RoleList}"
                     SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
 
-            <Button Text="Create"/>
+            <Button Text="Create"
+                    Command="{Binding CreateBandCommand}"/>
 
         </StackLayout>
 

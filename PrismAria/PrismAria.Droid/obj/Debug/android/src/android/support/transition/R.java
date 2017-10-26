@@ -3317,6 +3317,8 @@ containing a value of this type.
         public static final int toolbar=0x7f030043;
     }
     public static final class string {
+        public static final int ApplicationName=0x7f0a003f;
+        public static final int Hello=0x7f0a003e;
         public static final int abc_action_bar_home_description=0x7f0a0015;
         public static final int abc_action_bar_home_description_format=0x7f0a0016;
         public static final int abc_action_bar_home_subtitle_description_format=0x7f0a0017;

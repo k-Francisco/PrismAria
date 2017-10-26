@@ -20,6 +20,7 @@
       </intent-filter>
     </activity>
     <receiver android:enabled="true" android:label="Connectivity Plugin Broadcast Receiver" android:name="md55acd92097db1193d6a1e7330cb14252a.ConnectivityChangeBroadcastReceiver" />
+    <activity android:configChanges="orientation|screenSize" android:name="md520c46725dc61fcf80ec8b8957aac5201.FilePickerActivity" />
     <activity android:configChanges="orientation|screenSize" android:name="md5f1b52d9f1d5d1981437e7e130649468a.MediaPickerActivity" />
     <service android:name="md5cb45d68da0a4a063a9a2b86b6adab38d.MediaPlayerService">
       <intent-filter>
