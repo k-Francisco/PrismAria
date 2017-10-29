@@ -1,7 +1,13 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using Prism.Navigation;
+using PrismAria.Events;
 using PrismAria.Models;
+using PrismAria.PopupPages;
 using PrismAria.Services;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,49 +15,84 @@ using System.Linq;
 
 namespace PrismAria.ViewModels
 {
-	public class BandSongsAndAlbumsPageViewModel : BindableBase
+	public class BandSongsAndAlbumsPageViewModel : ChildViewBaseModel
 	{
-        private Singleton _singleton;
-        private BandSongAndAlbumService service;
-        public ObservableCollection<BandPagePopularModel> SongCollection
+
+        public ObservableCollection<Album> AlbumCollection
         {
-            get { return _singleton.SongCollection; }
-            set { SetProperty(ref _singleton.SongCollection, value); }
+            get { return Singleton.Instance.BandAlbumCollection; }
+            set { SetProperty(ref Singleton.Instance.BandAlbumCollection, value); }
         }
 
-        public ObservableCollection<BandPageAlbum> AlbumCollection
-        {
-            get { return _singleton.AlbumCollection; }
-            set { SetProperty(ref _singleton.AlbumCollection, value); }
-        }
+        private DelegateCommand _addAlbumCommand;
+        private readonly IEventAggregator eventAggregator;
 
-        private int _songCollectionHeight;
-        public int SongCollectionHeight
-        {
-            get { return _songCollectionHeight; }
-            set { SetProperty(ref _songCollectionHeight, value); }
-        }
+        public DelegateCommand AddAlbumCommand =>
+            _addAlbumCommand ?? (_addAlbumCommand = new DelegateCommand(AddAlbum));
 
-        private int _albumCollectionHeight;
-        public int AlbumCollectionHeight
+        private void AddAlbum()
         {
-            get { return _albumCollectionHeight; }
-            set { SetProperty(ref _albumCollectionHeight, value); }
+            PopupNavigation.Instance.PushAsync(new AddAlbumPopupPage(), true);
         }
 
 
-        public BandSongsAndAlbumsPageViewModel()
-        {
-            _singleton = Singleton.Instance;
-            service = new BandSongAndAlbumService();
+        private DelegateCommand<Album> _albumTappedCommand;
+        public DelegateCommand<Album> AlbumTappedCommand =>
+            _albumTappedCommand ?? (_albumTappedCommand = new DelegateCommand<Album>(AlbumTapped));
 
-            for (int i = 0; i < 5; i++)
+        private async void AlbumTapped(Album obj)
+        {
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("model", obj);
+            try
             {
-                service.AddSongs(_singleton.SongCollection);
-                service.AddAlbum(_singleton.AlbumCollection);
+                await _navigationService.NavigateAsync("SongsPagez", parameters, true, true);
             }
-            _songCollectionHeight = _singleton.SongCollection.Count * 50;
-            _albumCollectionHeight = (_singleton.AlbumCollection.Count / 2) * 150;
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
         }
-	}
+
+        public BandSongsAndAlbumsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator):base(navigationService)
+        {
+            IsActiveChanged += HandleIsActive;
+            IsActiveChanged += HandleIsNotActive;
+            this.eventAggregator = eventAggregator;
+            eventAggregator.GetEvent<AddAlbumEvent>().Subscribe(AddAlbumVersion2);
+        }
+
+        private async void AddAlbumVersion2()
+        {
+            await Singleton.Instance.CollectionService.PopulateBandPageAlbums(Singleton.Instance.currBandId.ToString(), AlbumCollection);
+        }
+
+        private void HandleIsNotActive(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void HandleIsActive(object sender, EventArgs e)
+        {
+            if (IsActive)
+            {
+                if(AlbumCollection.Count == 0)
+                {
+                    await Singleton.Instance.CollectionService.PopulateBandPageAlbums(Singleton.Instance.currBandId.ToString(), AlbumCollection);
+                }
+            }
+        }
+
+        public override void Destroy()
+        {
+            IsActiveChanged -= HandleIsActive;
+            IsActiveChanged -= HandleIsNotActive;
+        }
+
+        public override void OnNavigatingTo(NavigationParameters parameters)
+        {
+            if (HasInitialized == true) return;
+            HasInitialized = true;
+        }
+    }
 }

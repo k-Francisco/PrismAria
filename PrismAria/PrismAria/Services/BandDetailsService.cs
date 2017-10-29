@@ -8,8 +8,8 @@ namespace PrismAria.Services
 {
     public class BandDetailsService
     {
-        public void AddBandMembers(ObservableCollection<BandMembersModel> collection) {
-            collection.Add(new BandMembersModel() { MemberPic = "sample_pic.png", MemberName = "Member Name", MemberRole = "Member Role"});
-        }
+        //public void AddBandMembers(ObservableCollection<BandMembersModel> collection) {
+        //    collection.Add(new BandMembersModel() { MemberPic = "sample_pic.png", MemberName = "Member Name", MemberRole = "Member Role"});
+        //}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Plugin.Connectivity;
+using Plugin.MediaManager;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -68,6 +69,36 @@ namespace PrismAria.ViewModels
         {
             get { return _albumList; }
             set { SetProperty(ref _albumList, value); }
+        }
+
+
+        private DelegateCommand<Song> _playSongCommand;
+        public DelegateCommand<Song> PlaySongCommand =>
+            _playSongCommand ?? (_playSongCommand = new DelegateCommand<Song>(PlaySong));
+
+        private async void PlaySong(Song obj)
+        {
+            var path = new System.Uri("/Aria/public/assets/music/" + obj.SongAudio).AbsolutePath;
+            await CrossMediaManager.Current.Play("http://192.168.254.102" + path);
+        }
+
+
+        private DelegateCommand<Album> _viewAlbumCommand;
+        public DelegateCommand<Album> ViewAlbumCommand =>
+            _viewAlbumCommand ?? (_viewAlbumCommand = new DelegateCommand<Album>(ViewAlbum));
+
+        private async void ViewAlbum(Album obj)
+        {
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("model", obj);
+            try
+            {
+                await navigationService.NavigateAsync("SongsPagez", parameters, true, true);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
         }
 
         private DelegateCommand _followBandCommand;

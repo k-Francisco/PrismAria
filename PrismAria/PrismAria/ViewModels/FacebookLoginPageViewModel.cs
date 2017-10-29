@@ -73,7 +73,7 @@ namespace PrismAria.ViewModels
                     Fbprofile.FirstName,
                     Fbprofile.LastName,
                     Fbprofile.Name,
-                    "",
+                    Fbprofile.Gender,
                     Fbprofile.Picture.Data.Url);
 
                 if (register)
@@ -97,34 +97,6 @@ namespace PrismAria.ViewModels
                     await pageDialogService.DisplayAlertAsync("Ooops!", "It seems like there is a problem. Please login again.", "OK");
                 }
             }
-            //else
-            //{
-            //    bool register = await webserve.RegisterUser(Fbprofile.Id,
-            //        Fbprofile.FirstName,
-            //        Fbprofile.LastName,
-            //        Fbprofile.Name,
-            //        "",
-            //        "https://graph.facebook.com/v2.10/" + Fbprofile.Id + "picture?width=1920");
-
-
-            //    if (register)
-            //    {
-            //        var user = JsonConvert.DeserializeObject<UserModel[]>(await webserve.GetUsers());
-            //        foreach(var item2 in user)
-            //        {
-            //            if (item2.Fullname.Equals(Fbprofile.Name))
-            //            {
-            //                Settings.Token = item2.UserId;
-            //                Settings.Profile = JsonConvert.SerializeObject(item2);
-            //                CloseLoginPage();
-            //                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
-            //                return;
-            //            }
-            //        }
-            //    }
-            //    else
-            //        await pageDialogService.DisplayAlertAsync("Ooops!", "It seems like there is a problem. Please login again.", "OK");
-            //}
         }
     }
 }

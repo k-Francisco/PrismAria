@@ -17,6 +17,7 @@ namespace PrismAria.Models
         public string userBandImage { get; set; }
         public string userBandName { get; set; }
         public string userBandRole { get; set; }
+        public int userBandId { get; set; }
     }
 
     public class UserBandModel

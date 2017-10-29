@@ -234,6 +234,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\AudioSliderRenderer.cs" />
     <Compile Include="CustomRenderers\CustomFrameRenderer.cs" />
     <Compile Include="CustomRenderers\CustomNavigationPageRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
@@ -340,6 +341,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\custom_slider.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

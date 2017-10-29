@@ -1,7 +1,10 @@
-﻿using Plugin.Media.Abstractions;
+﻿using Newtonsoft.Json;
+using Plugin.Media.Abstractions;
+using PrismAria.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -36,22 +39,34 @@ namespace PrismAria.Services
             return contents;
         }
 
-        public async Task<bool> RegisterUser(string userId, string fname, string lname, string completeName, string address, string pic)
+        public async Task<bool> RegisterUser(string userId, string fname, string lname, string completeName, string gender, string pic)
         {
             isSuccess = false;
             var contents = CreateBody("{\"user_id\":\"" + userId + "\"," +
                 "\"fname\":\"" + fname + "\"," +
                 "\"lname\":\"" + lname + "\"," +
-                "\"fullname\":\"" + "" + "\"," +
-                "\"email\":\"" + "" + "\"," +
+                //"\"fullname\":\"" + "" + "\"," +
+                "\"email\":\"" + "emailni@gmail.com" + "\"," +
                 "\"age\":\"" + "" + "\"," +
-                "\"gender\":\"" + "Male" + "\"," +
-                "\"address\":\"" + address + "\"," +
-                "\"contact\":\"" + "09178882349" + "\"," +
+                "\"gender\":\"" + gender + "\"," +
+                "\"address\":\"" + "" + "\"," +
+                "\"contact\":\"" + "" + "\"," +
                 "\"bio\":\"" + "" + "\"," +
-                "\"pic\":\"" + pic + "\"}");
+                "\"pic\":\"" + pic + "\"" +
+                "}");
             try {
                 var postResult = await client.PostAsync(localAriaUrl + "/api/saveUser", contents);
+                //var postResult = await client.PostAsync(localAriaUrl + "/api/saveUser?" +
+                //    "user_id=" + userId +
+                //    "&fname=" + fname +
+                //    "&lname=" + lname +
+                //    "&email=" + "emailni@gmail.com" +
+                //    "&age=" + "" +
+                //    "&gender=" + gender +
+                //    "&address=" + "" +
+                //    "&contact=" + "" +
+                //    "&bio=" + "" +
+                //    "&pic=" + pic, contents);
                 var result = postResult.EnsureSuccessStatusCode();
                 if (postResult.IsSuccessStatusCode)
                     isSuccess = true;
@@ -127,7 +142,7 @@ namespace PrismAria.Services
             }
         }
 
-        public async Task<bool> CreateBand(string userId, string bandName, string bandRole)
+        public async Task<bool> CreateBand(string userId, string bandName, string bandDesc,string bandRole, MediaFile pic)
         {
             isSuccess = false;
             var contents = CreateBody("{" +
@@ -141,11 +156,14 @@ namespace PrismAria.Services
                 var post = await client.PostAsync(localAriaUrl + "/api/createBand", contents);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
+                {
                     isSuccess = true;
 
-                //var data = await result.Content.ReadAsStringAsync();
-                //Debug.WriteLine(data);
-                //Debug.WriteLine("success");
+                    //var data = await result.Content.ReadAsStringAsync();
+                    //Debug.WriteLine(data);
+                    var data = JsonConvert.DeserializeObject<BandMembersModel>(await result.Content.ReadAsStringAsync());
+                    await EditBandPic(pic, data.Band.Id.ToString());
+                }
             }
             catch (Exception e) {
                 Debug.WriteLine(e.Message);
@@ -158,6 +176,17 @@ namespace PrismAria.Services
             try
             {
                 return await client.GetStringAsync(localAriaUrl + "/api/members");
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public async Task<string> GetMembersOfTheBand(string bandId) {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/bandmembers?band_id="+bandId);
             }
             catch (Exception e)
             {
@@ -199,7 +228,7 @@ namespace PrismAria.Services
 
             try
             {
-                var post = await client.PostAsync(localAriaUrl + "/api/editBandPic", contents);
+                var post = await client.PostAsync(localAriaUrl + "/api/editbandPic", contents);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;
@@ -225,6 +254,7 @@ namespace PrismAria.Services
             contents.Add(new StringContent(songDesc), "\"song_desc\"");
             contents.Add(new StringContent(genreId), "\"genre_id\"");
             contents.Add(new StringContent(bandId), "\"band_id\"");
+            //contents.Add(new StringContent(songName), "\"song_title\"");
             System.IO.MemoryStream stream = new System.IO.MemoryStream(song);
             contents.Add(new StreamContent(stream), "\"song_audio\"", songName+".mp3");
             try
@@ -235,8 +265,8 @@ namespace PrismAria.Services
                     isSuccess = true;
 
 
-                var data = await result.Content.ReadAsStringAsync();
-                Debug.WriteLine(data);
+                //var data = await result.Content.ReadAsStringAsync();
+                //Debug.WriteLine(data);
                 Debug.WriteLine("success");
                 stream.Flush();
             }

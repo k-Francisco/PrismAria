@@ -10,6 +10,10 @@ PrismAria.Droid.SplashActivity, PrismAria.Droid;md5a028cc1fb0b122b8509bdb81bf308
 PrismAria.Droid.SplashActivity, PrismAria.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity
 PrismAria.Droid.SplashActivity;md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity
 prismaria.droid.SplashActivity;md5a028cc1fb0b122b8509bdb81bf308f99.SplashActivity
+PrismAria.Droid.CustomRenderers.AudioSliderRenderer, PrismAria.Droid;md52afd1bc2b0438d27113fc6044af0fe61.AudioSliderRenderer
+PrismAria.Droid.CustomRenderers.AudioSliderRenderer, PrismAria.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52afd1bc2b0438d27113fc6044af0fe61.AudioSliderRenderer
+PrismAria.Droid.CustomRenderers.AudioSliderRenderer;md52afd1bc2b0438d27113fc6044af0fe61.AudioSliderRenderer
+prismaria.droid.customrenderers.AudioSliderRenderer;md52afd1bc2b0438d27113fc6044af0fe61.AudioSliderRenderer
 PrismAria.Droid.CustomRenderers.CustomFrameRenderer, PrismAria.Droid;md52afd1bc2b0438d27113fc6044af0fe61.CustomFrameRenderer
 PrismAria.Droid.CustomRenderers.CustomFrameRenderer, PrismAria.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md52afd1bc2b0438d27113fc6044af0fe61.CustomFrameRenderer
 PrismAria.Droid.CustomRenderers.CustomFrameRenderer;md52afd1bc2b0438d27113fc6044af0fe61.CustomFrameRenderer

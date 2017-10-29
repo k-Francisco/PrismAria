@@ -12,7 +12,6 @@ namespace PrismAria.Models
     {
         public string categoryName { get; set; }
         public List<BandModel> bandList { get; set; }
-
     }
 
     public class BandModel

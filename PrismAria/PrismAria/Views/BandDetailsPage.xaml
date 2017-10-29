@@ -17,12 +17,8 @@
                     Android="0"/>
     </ContentPage.Padding>
 
-    <controls:HorizontalListView Orientation="Vertical"
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="FillAndExpand"
-                                 Padding="0">
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                     BackgroundColor="#FAFAFA">
+        <StackLayout BackgroundColor="#FAFAFA"
+                     Spacing="0">
 
             <Grid Padding="8">
                 <Grid.ColumnDefinitions>
@@ -31,7 +27,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ffimage:CachedImage Grid.Column="0"
-                                 Source="sample_pic.png"
+                                 Source="{Binding BandPic}"
                                  DownsampleToViewSize="True"
                                  DownsampleHeight="70"
                                  Aspect="Fill"
@@ -47,7 +43,7 @@
                 </ffimage:CachedImage>
 
                 <Label Grid.Column="1"
-                   Text="Band Name Here"
+                   Text="{Binding BandName}"
                    FontSize="Large"
                    FontAttributes="Bold"
                    TextColor="#212121"
@@ -61,7 +57,7 @@
                 </Label>
 
                 <Label Grid.Column="1"
-                       Text="Band Description here"
+                       Text="{Binding BandDesc}"
                        FontSize="Small"
                        Margin="0,32,0,16">
                     <Label.FontFamily>
@@ -103,7 +99,7 @@
             <flv:FlowListView FlowItemsSource="{Binding BandMembersCollection}"
                               HasUnevenRows="True"
                               SeparatorVisibility="None"
-                              FlowColumnCount="2"
+                              FlowColumnCount="1"
                               HeightRequest="{Binding BandMemberCollectionHeight}">
                 <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
@@ -114,7 +110,7 @@
                             </Grid.ColumnDefinitions>
 
                             <ffimage:CachedImage Grid.Column="0"
-                                                 Source="{Binding MemberPic}"
+                                                 Source="{Binding memberPic}"
                                                  DownsampleToViewSize="True"
                                                  DownsampleHeight="50"
                                                  Aspect="Fill"
@@ -129,7 +125,7 @@
                             </ffimage:CachedImage>
 
                             <Label Grid.Column="1"
-                                   Text="{Binding MemberName}"
+                                   Text="{Binding memberName}"
                                    FontSize="Small"
                                    FontAttributes="Bold"
                                    TextColor="#212121"
@@ -143,7 +139,7 @@
                             </Label>
 
                             <Label Grid.Column="1"
-                                   Text="{Binding MemberRole}"
+                                   Text="{Binding Bandrole}"
                                    FontSize="Small"
                                    Margin="8,24,0,0">
                                 <Label.FontFamily>
@@ -174,6 +170,6 @@
             </Label>
 
         </StackLayout>
-    </controls:HorizontalListView>
+    
   
 </ContentPage>

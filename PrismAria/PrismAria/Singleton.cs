@@ -7,7 +7,7 @@ using System.Text;
 
 namespace PrismAria
 {
-    public sealed class Singleton
+    public sealed class Singleton 
     {
 
         private static volatile Singleton _instance;
@@ -40,7 +40,7 @@ namespace PrismAria
         public ObservableCollection<ArticlesModel> SubscriberArticlesCollection = new ObservableCollection<ArticlesModel>() { };
         public ObservableCollection<BandModel> FavoritesCollection = new ObservableCollection<BandModel>() { };
         public ObservableCollection<UserBandModelForEvent> UserBandCollection = new ObservableCollection<UserBandModelForEvent>() { };
-        public ObservableCollection<BandMembersModel> BandMemberCollection = new ObservableCollection<BandMembersModel>() { };
+        public ObservableCollection<Member> BandMemberCollection = new ObservableCollection<Member>() { };
         public ObservableCollection<ArticlesModel> BandArticlesCollection = new ObservableCollection<ArticlesModel>() { };
         public ObservableCollection<BandPagePopularModel> SongCollection = new ObservableCollection<BandPagePopularModel>() { };
         public ObservableCollection<BandPageAlbum> AlbumCollection = new ObservableCollection<BandPageAlbum>() { };
@@ -78,6 +78,12 @@ namespace PrismAria
             new GenreModel(){ id=17, genreName = "Romance", genreDesc = "Romance"},
             new GenreModel(){ id=18, genreName = "Soul", genreDesc = "Soul"},
         };
+        #endregion
+
+        #region Current Band variables
+        public ObservableCollection<Album> BandAlbumCollection = new ObservableCollection<Album>();
+        public ObservableCollection<Song> BandSongCollection = new ObservableCollection<Song>() { };
+        public int currBandId;
         #endregion
 
     }

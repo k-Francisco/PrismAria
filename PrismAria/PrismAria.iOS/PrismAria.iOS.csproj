@@ -89,6 +89,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\AudioSliderRenderer.cs" />
     <Compile Include="CustomRenderers\CustomFrameRenderer.cs" />
     <Compile Include="CustomRenderers\CustomNavigationPageRenderer.cs" />
     <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />

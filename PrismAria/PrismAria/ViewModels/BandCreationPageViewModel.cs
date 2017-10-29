@@ -7,6 +7,9 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using PrismAria.Helpers;
+using PrismAria.PopupPages;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -93,11 +96,24 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            //await Singleton.Instance.webService.EditBandPic(_mediaFile);   
-            //await Singleton.Instance.webService.AddAlbum("1st album","album shot", _mediaFile, "1");
+            //var shet = await CrossFilePicker.Current.PickFile();
+            //await Singleton.Instance.webService.AddSongs("1", "description here", shet.DataArray, "1", "17", "song name here");
+            await PopupNavigation.Instance.PushAsync(new LoadingPopupPage());
+            var success = await Singleton.Instance.webService.CreateBand(Settings.Token, BandName, BandDesc, RoleList[SelectedIndex].ToString(), _mediaFile);
 
-            var shet = await CrossFilePicker.Current.PickFile();
-            await Singleton.Instance.webService.AddSongs("1", "description here", shet.DataArray, "1", "1", "song name here");
+            if (success)
+            {
+                try
+                {
+                    await PopupNavigation.Instance.PopAllAsync();
+                    await navigationService.GoBackAsync();
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+
+            }
         }
 
         private DelegateCommand _goBackCommand;
@@ -114,7 +130,7 @@ namespace PrismAria.ViewModels
             this.navigationService = navigationService;
             this.pageDialogService = pageDialogService;
             CrossMedia.Current.Initialize();
-            _bandPic = "sample_pic.png";
+            BandPic = "sample_pic.png";
         }
 	}
 }

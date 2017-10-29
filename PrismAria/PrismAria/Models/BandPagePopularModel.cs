@@ -44,6 +44,8 @@ namespace PrismAria.Models
     {
         [JsonProperty("song_id")]
         public int SongId { get; set; }
+        [JsonProperty("song_title")]
+        public string SongTitle { get; set; }
         [JsonProperty("song_desc")]
         public string SongDesc { get; set; }
         [JsonProperty("song_audio")]

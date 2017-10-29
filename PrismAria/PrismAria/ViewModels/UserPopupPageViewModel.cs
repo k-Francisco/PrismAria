@@ -71,17 +71,6 @@ namespace PrismAria.ViewModels
             await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
             await PopupNavigation.Instance.PopAllAsync();
 
-
-            
-            //Play a song code
-            //var path = new System.Uri("/Aria/public/assets/music/Charlie Puth covers How Deep Is Your Love by Calvin Harris in the Live Lounge.mp3").AbsolutePath;
-            //Debug.WriteLine(path);
-            //await CrossMediaManager.Current.Play("http://192.168.254.107" + path);
-
-
-            //Add a song
-
-
         }
         #endregion
 
@@ -98,10 +87,20 @@ namespace PrismAria.ViewModels
 
         private async void NavigateToBand(UserBandModelForEvent obj)
         {
-            await PopupNavigation.Instance.PopAllAsync();
             try
             {
-                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/BandLandingPage/BandDetailsPage", UriKind.Absolute), null, true, true);
+                NavigationParameters parameters = new NavigationParameters();
+                var response = JsonConvert.DeserializeObject<BandModel[]>(await _singleton.webService.GetBands());
+                foreach (var item in response.ToList())
+                {
+                    if(item.BandId == obj.userBandId)
+                    {
+                        parameters.Add("model", item);
+                        break;
+                    }
+                }
+                await PopupNavigation.Instance.PopAllAsync();
+                await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/BandLandingPage/BandDetailsPage", UriKind.Absolute), parameters, true, true);
             }
             catch (Exception e)
             {
