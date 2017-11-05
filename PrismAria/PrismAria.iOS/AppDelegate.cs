@@ -8,6 +8,7 @@ using Prism.Unity;
 using Microsoft.Practices.Unity;
 using FFImageLoading.Forms.Touch;
 using FFImageLoading.Transformations;
+using Plugin.FilePicker;
 
 namespace PrismAria.iOS
 {

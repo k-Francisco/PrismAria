@@ -16,7 +16,7 @@ namespace PrismAria.Services
     {
         private HttpClient client;
         private Boolean isSuccess = false;
-        private string localAriaUrl = "http://192.168.254.102/Aria/public";
+        public string localAriaUrl = "http://192.168.254.108/Aria/public";
         //private string localAriaUrl = "http://ariaitproject.herokuapp.com";
         public WebServices() {
             client = CreateClient();
@@ -145,10 +145,17 @@ namespace PrismAria.Services
         public async Task<bool> CreateBand(string userId, string bandName, string bandDesc,string bandRole, MediaFile pic)
         {
             isSuccess = false;
+            //var contents = CreateBody("{" +
+            //    "\"user_id\":\"" + userId + "\"," +
+            //    "\"band_role_create\":\"" + bandRole.ToString() + "\"," +
+            //    "\"band_name\":\"" + bandName + "\"" +
+            //    "}");
+
             var contents = CreateBody("{" +
                 "\"user_id\":\"" + userId + "\"," +
                 "\"band_role_create\":\"" + bandRole.ToString() + "\"," +
-                "\"band_name\":\"" + bandName + "\"" +
+                "\"band_name\":\"" + bandName + "\"," +
+                "\"band_desc\":\"" + bandDesc + "\"" +
                 "}");
 
             try
@@ -237,6 +244,7 @@ namespace PrismAria.Services
                 var data = await result.Content.ReadAsStringAsync();
                 Debug.WriteLine(data);
                 Debug.WriteLine("success");
+                await Singleton.Instance.CollectionService.PopulateUserBands();
             }
             catch (Exception e)
             {
@@ -248,15 +256,15 @@ namespace PrismAria.Services
 
         public async Task<bool> AddSongs(string albumId, string songDesc, byte[] song, string genreId, string bandId, string songName) {
             isSuccess = false;
-
+            
             var contents = new MultipartFormDataContent();
             contents.Add(new StringContent(albumId), "\"album_id\"");
+            contents.Add(new StringContent(songName), "\"song_title\"");
             contents.Add(new StringContent(songDesc), "\"song_desc\"");
             contents.Add(new StringContent(genreId), "\"genre_id\"");
             contents.Add(new StringContent(bandId), "\"band_id\"");
-            //contents.Add(new StringContent(songName), "\"song_title\"");
             System.IO.MemoryStream stream = new System.IO.MemoryStream(song);
-            contents.Add(new StreamContent(stream), "\"song_audio\"", songName+".mp3");
+            contents.Add(new StreamContent(stream), "\"song_audio\"", songName + ".mp3");
             try
             {
                 var post = await client.PostAsync(localAriaUrl + "/api/addSongs", contents);

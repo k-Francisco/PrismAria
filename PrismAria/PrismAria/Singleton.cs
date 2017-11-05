@@ -1,4 +1,5 @@
-﻿using PrismAria.Models;
+﻿using Plugin.MediaManager.Abstractions.EventArguments;
+using PrismAria.Models;
 using PrismAria.Services;
 using System;
 using System.Collections.Generic;
@@ -48,8 +49,10 @@ namespace PrismAria
 
 
         #region Services
+        public string AriaUrl = "http://192.168.254.108/Aria/public";
         public CollectionService CollectionService = new CollectionService();
         public WebServices webService = new WebServices();
+        public MediaFileChangedEventArgs MediaFileArgs;
         #endregion
 
         #region User Preferences

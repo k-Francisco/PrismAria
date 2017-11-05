@@ -78,8 +78,8 @@ namespace PrismAria.ViewModels
 
         private async void PlaySong(Song obj)
         {
-            var path = new System.Uri("/Aria/public/assets/music/" + obj.SongAudio).AbsolutePath;
-            await CrossMediaManager.Current.Play("http://192.168.254.102" + path);
+            var path = new System.Uri("/assets/music/" + obj.SongAudio).AbsolutePath;
+            await CrossMediaManager.Current.Play(Singleton.Instance.AriaUrl + path);
         }
 
 

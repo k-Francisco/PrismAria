@@ -1,4 +1,6 @@
 ﻿using Plugin.Connectivity;
+using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions.EventArguments;
 using Prism;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -46,6 +48,11 @@ namespace PrismAria.ViewModels
             CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
             {
                 _isConnected = args.IsConnected;
+            };
+
+            CrossMediaManager.Current.MediaFileChanged += (object sender, MediaFileChangedEventArgs e) =>
+            {
+                Singleton.Instance.MediaFileArgs = e;
             };
         }
 

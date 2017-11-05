@@ -2,6 +2,7 @@
 using Plugin.Media.Abstractions;
 using Plugin.MediaManager;
 using Plugin.MediaManager.Abstractions;
+using Plugin.MediaManager.Abstractions.EventArguments;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -62,10 +63,17 @@ namespace PrismAria.ViewModels
         public DelegateCommand<Song> PlaySongCommand =>
             _playSongCommand ?? (_playSongCommand = new DelegateCommand<Song>(PlaySong));
 
+        private Song lastSong;
         private async void PlaySong(Song obj)
         {
-            var path = new System.Uri("/Aria/public/assets/music/" + obj.SongAudio).AbsolutePath;
-            await media.Play("http://192.168.254.102"+path);
+            if (lastSong != null)
+                lastSong.isPlaying = false;
+
+            lastSong = obj;
+            var path = new System.Uri("/assets/music/" + obj.SongAudio).AbsolutePath;
+            await media.Play(Singleton.Instance.AriaUrl + path);
+            lastSong.isPlaying = true;
+
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -97,12 +105,6 @@ namespace PrismAria.ViewModels
 
         private async void AddSong(SongModel obj)
         {
-            //System.Diagnostics.Debug.WriteLine(obj.SongName);
-            //System.Diagnostics.Debug.WriteLine(obj.SongDesc);
-            //System.Diagnostics.Debug.WriteLine(obj.GenreId);
-            //System.Diagnostics.Debug.WriteLine(obj.SongFile.FileName);
-            //System.Diagnostics.Debug.WriteLine(_album.AlbumId);
-            //System.Diagnostics.Debug.WriteLine(Singleton.Instance.currBandId.ToString());
             if (await Singleton.Instance.webService.AddSongs(_album.AlbumId.ToString(), obj.SongDesc,obj.SongFile.DataArray,obj.GenreId, Singleton.Instance.currBandId.ToString(), obj.SongName))
             {
                 await PopupNavigation.Instance.PopAllAsync();
