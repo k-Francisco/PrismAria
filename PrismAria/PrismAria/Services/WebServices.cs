@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Plugin.Media.Abstractions;
+using PrismAria.Helpers;
 using PrismAria.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace PrismAria.Services
     {
         private HttpClient client;
         private Boolean isSuccess = false;
-        public string localAriaUrl = "http://192.168.254.108/Aria/public";
+        public string localAriaUrl = "http://192.168.254.106/Aria/public";
         //private string localAriaUrl = "http://ariaitproject.herokuapp.com";
         public WebServices() {
             client = CreateClient();
@@ -142,20 +143,17 @@ namespace PrismAria.Services
             }
         }
 
-        public async Task<bool> CreateBand(string userId, string bandName, string bandDesc,string bandRole, MediaFile pic)
+        public async Task<bool> CreateBand(string userId, string bandName, string bandDesc,string bandRole, MediaFile pic, int firstGenre, int secondGenre)
         {
             isSuccess = false;
-            //var contents = CreateBody("{" +
-            //    "\"user_id\":\"" + userId + "\"," +
-            //    "\"band_role_create\":\"" + bandRole.ToString() + "\"," +
-            //    "\"band_name\":\"" + bandName + "\"" +
-            //    "}");
 
             var contents = CreateBody("{" +
                 "\"user_id\":\"" + userId + "\"," +
                 "\"band_role_create\":\"" + bandRole.ToString() + "\"," +
                 "\"band_name\":\"" + bandName + "\"," +
-                "\"band_desc\":\"" + bandDesc + "\"" +
+                "\"genre_select_1\":\"" + firstGenre + "\"," +
+                "\"genre_select_2\":\"" + secondGenre + "\"," +
+                "\"bandDescr\":\"" + bandDesc + "\"" +
                 "}");
 
             try
@@ -165,9 +163,6 @@ namespace PrismAria.Services
                 if (result.IsSuccessStatusCode)
                 {
                     isSuccess = true;
-
-                    //var data = await result.Content.ReadAsStringAsync();
-                    //Debug.WriteLine(data);
                     var data = JsonConvert.DeserializeObject<BandMembersModel>(await result.Content.ReadAsStringAsync());
                     await EditBandPic(pic, data.Band.Id.ToString());
                 }
@@ -272,9 +267,8 @@ namespace PrismAria.Services
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;
 
-
-                //var data = await result.Content.ReadAsStringAsync();
-                //Debug.WriteLine(data);
+                var data = JsonConvert.DeserializeObject<Song>(await result.Content.ReadAsStringAsync());
+                Singleton.Instance.BandSongCollection.Add(data);
                 Debug.WriteLine("success");
                 stream.Flush();
             }
@@ -286,8 +280,114 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        
+        public async Task<bool> AddPlaylist(string title, string desc, MediaFile image) {
+            isSuccess = false;
 
+            var contents = new MultipartFormDataContent();
+            contents.Add(new StringContent(Settings.Token), "\"user_id\"");
+            contents.Add(new StringContent(title), "\"pl_title\"");
+            contents.Add(new StringContent(desc), "\"pl_desc\"");
+            contents.Add(new StreamContent(image.GetStream()), "\"pl_image\"", image.Path);
+
+
+            try
+            {
+                var response = await client.PostAsync(localAriaUrl + "/api/AddPlayList", contents);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                var data = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine(data);
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async Task<bool> UpdatePlaylist(string playlistId, string title, string desc, MediaFile image)
+        {
+            isSuccess = false;
+
+            var contents = new MultipartFormDataContent();
+            contents.Add(new StringContent(playlistId), "\"pl_id\"");
+            contents.Add(new StringContent(title), "\"pl_title\"");
+            contents.Add(new StringContent(desc), "\"pl_desc\"");
+            contents.Add(new StreamContent(image.GetStream()), "\"pl_image\"", image.Path);
+
+
+            try
+            {
+                var response = await client.PostAsync(localAriaUrl + "/api/updateplaylist", contents);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                Debug.WriteLine("success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async Task<bool> DeletePlaylist(string playlistId)
+        {
+            isSuccess = false;
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl + "/api/DeletePlayList?pl_id="+playlistId);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                Debug.WriteLine("success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async Task<string> GetAllPlaylist()
+        {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/getAllPlaylist");
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public async Task<bool> AddSongToPlaylist(string songId, string genreId, string playlistId)
+        {
+            isSuccess = false;
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl + "/api/addSongToPlaylist?song_id="+songId+"&genre_id="+genreId+"&pl_id="+playlistId);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                Debug.WriteLine("success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+        
         public async Task<bool> EditBandDetails() {
             isSuccess = false;
             //var contents = CreateBody("{" +

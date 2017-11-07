@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using PrismAria.ViewModels;
+using Xamarin.Forms;
 
 namespace PrismAria.Views
 {

@@ -94,7 +94,11 @@ namespace PrismAria
         private void RootPage_ChildAdded(object sender, ElementEventArgs e)
         {
             if (e.Element.AutomationId.Equals("BandLandingPage"))
+            {
                 isSubscriber = false;
+                Singleton.Instance.isSubscriber = false;
+            }
+                
 
             if (e.Element.AutomationId.Equals("LandingPage") || e.Element.AutomationId.Equals("BandLandingPage"))
             {

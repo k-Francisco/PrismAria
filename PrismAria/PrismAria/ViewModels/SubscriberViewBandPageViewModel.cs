@@ -138,13 +138,19 @@ namespace PrismAria.ViewModels
                 {
                     if (await Singleton.Instance.webService.FollowBand(Settings.Token, _band.BandId.ToString()))
                     {
-                        var followers = Convert.ToInt32(_band.NumFollowers.ToString()) + 1;
-                        _band.NumFollowers = followers.ToString();
-                        FollowerCount = followers.ToString() + "\nFollowers";
-                        Singleton.Instance.FavoritesCollection.Add(_band);
-                        Singleton.Instance.userPreference.ToList().Add(new UserPreferenceModel() { BandId = _band.BandId, UserId = Settings.Token});
-                        ChangeButtonStyle(true);
-                        ButtonState = true;
+                        try
+                        {
+                            var followers = Convert.ToInt32(_band.NumFollowers.ToString()) + 1;
+                            _band.NumFollowers = followers.ToString();
+                            FollowerCount = followers.ToString() + "\nFollowers";
+                            Singleton.Instance.FavoritesCollection.Add(_band);
+                            ChangeButtonStyle(true);
+                            ButtonState = true;
+                            Singleton.Instance.userPreference.ToList().Add(new UserPreferenceModel() { BandId = _band.BandId, UserId = Settings.Token });
+                        }
+                        catch (Exception e) {
+                            Debug.WriteLine(e.Message);
+                        }
                     }
                     else
                     {

@@ -310,7 +310,7 @@
                   IsRefreshing="{Binding IsListRefreshing}"
                   RefreshCommand="{Binding RefreshCommand}"
                   ItemTemplate="{StaticResource BotTemplate}"
-                  CachingStrategy="RecycleElement">
+                  CachingStrategy="RetainElement">
         </ListView>
 
     </StackLayout>

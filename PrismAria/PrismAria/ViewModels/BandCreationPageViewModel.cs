@@ -26,18 +26,58 @@ namespace PrismAria.ViewModels
         private readonly IPageDialogService pageDialogService;
         private MediaFile _mediaFile;
         private ObservableCollection<string> _roleList= new ObservableCollection<string>() {
-             "Vocalist",
-            "Guitarist",
+            "Vocalist",
+            "Lead Guitar",
+            "Rhythm Guitar",
             "Drummer",
-            "Pianist",
-            "Basist",
-            "Pakapin bobot"
+            "Keyboardist"
         };
         public ObservableCollection<string> RoleList
         {
             get { return _roleList; }
             set { SetProperty(ref _roleList, value); }
         }
+
+        private ObservableCollection<string> _genre = new ObservableCollection<string>() {
+                "Alternative",
+                "Blues",
+                "Classical",
+                "Country",
+                "Dance",
+                "Electronic",
+                "HipHop",
+                "Inspirational",
+                "Jazz",
+                "Opera",
+                "Pop",
+                "Punk",
+                "R&B",
+                "Rap",
+                "Reggae",
+                "Rock",
+                "Romance",
+                "Soul"
+        };
+        public ObservableCollection<string> Genre
+        {
+            get { return _genre; }
+            set { SetProperty(ref _genre, value); }
+        }
+
+        private int _firstGenreIndex;
+        public int FirstGenreIndex
+        {
+            get { return _firstGenreIndex; }
+            set { SetProperty(ref _firstGenreIndex, value); }
+        }
+
+        private int _secondGenreIndex;
+        public int SecondGenreIndex
+        {
+            get { return _secondGenreIndex; }
+            set { SetProperty(ref _secondGenreIndex, value); }
+        }
+
 
 
         private int _selectedIndex;
@@ -96,10 +136,8 @@ namespace PrismAria.ViewModels
 
         private async void CreateBand()
         {
-            //var shet = await CrossFilePicker.Current.PickFile();
-            //await Singleton.Instance.webService.AddSongs("1", "description here", shet.DataArray, "1", "17", "song name here");
             await PopupNavigation.Instance.PushAsync(new LoadingPopupPage());
-            var success = await Singleton.Instance.webService.CreateBand(Settings.Token, BandName, BandDesc, RoleList[SelectedIndex].ToString(), _mediaFile);
+            var success = await Singleton.Instance.webService.CreateBand(Settings.Token, BandName, BandDesc, RoleList[SelectedIndex].ToString(), _mediaFile, FirstGenreIndex+1, SecondGenreIndex+1);
 
             if (success)
             {

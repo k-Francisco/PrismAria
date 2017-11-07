@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace PrismAria.Models
         [JsonProperty("album")]
         public Album Album { get; set; }
     }
-    public class Song
+    public class Song : BindableBase
     {
         [JsonProperty("song_id")]
         public int SongId { get; set; }
@@ -34,7 +35,12 @@ namespace PrismAria.Models
         public string UpdatedAt { get; set; }
 
         public string AlbumPic { get; set; }
-        public bool isPlaying { get; set; }
+        private bool _isPlaying;
+        public bool IsPlaying
+        {
+            get { return _isPlaying; }
+            set { SetProperty(ref _isPlaying, value); }
+        }
     }
     public class SongAlbum
     {

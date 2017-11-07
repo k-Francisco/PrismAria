@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using PCLStorage;
 using Plugin.Connectivity;
 using Plugin.FilePicker;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Plugin.MediaManager;
 using Plugin.MediaManager.Abstractions;
@@ -71,6 +72,17 @@ namespace PrismAria.ViewModels
             await _navigationService.NavigateAsync("BandCreationPage", null, true, true);
             await PopupNavigation.Instance.PopAllAsync();
 
+            //var file = await CrossMedia.Current.PickPhotoAsync();
+            //if (file == null)
+            //    return;
+
+            //await _singleton.webService.AddPlaylist("sample playlist", "description", file);
+            //await _singleton.webService.UpdatePlaylist("3", "update na", "updated desc", file);
+
+            //await _singleton.webService.DeletePlaylist("2");
+
+            //Debug.WriteLine(await _singleton.webService.GetAllPlaylist());
+
         }
         #endregion
 
@@ -114,6 +126,7 @@ namespace PrismAria.ViewModels
             if (isSubscriber)
             { }
             else {
+                _singleton.isSubscriber = true;
                 await PopupNavigation.Instance.PopAllAsync();
                 await _navigationService.NavigateAsync(new Uri("http://myapp.com/RootPage/SubscriberLanding/Discover", UriKind.Absolute), null, true, true);
             }
@@ -153,11 +166,6 @@ namespace PrismAria.ViewModels
                 else
                     await pageDialogService.DisplayAlertAsync("Connectivity issues", "Cannot load because your device is not connected to the internet", "ok");
             }
-        }
-
-        private void PublishBand(UserBandModelForEvent obj)
-        {
-            //_userBandsService.AddBands(obj.userBandName, obj.userBandRole, obj.userBandImage);
         }
         
     }

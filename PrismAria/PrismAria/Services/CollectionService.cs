@@ -130,13 +130,15 @@ namespace PrismAria.Services
             {
                 case NewlyFormed:
                     var sortedList = response.OrderByDescending(d => Convert.ToDateTime(d.CreatedAt).Day).ToList();
+                    var modelList = new ObservableCollection<BandModel>();
                     foreach(var item in sortedList)
                     {
                         item.BandClick = showBandPage;
+                        modelList.Add(item);
                     }
                     category = "Newly Formed Bands";
                     
-                    collection.Add(new DiscoverPageModel() { categoryName = category, bandList = sortedList});
+                    collection.Add(new DiscoverPageModel() { categoryName = category, bandList = modelList });
                     break;
 
                 case MostFollowed:
@@ -149,12 +151,14 @@ namespace PrismAria.Services
                     if (!thereIsNull)
                     {
                         var sortedList2 = response.OrderByDescending(d => Convert.ToInt32(d.NumFollowers.ToString())).ToList();
+                        var modelList2 = new ObservableCollection<BandModel>();
                         foreach (var item in sortedList2)
                         {
                             item.BandClick = showBandPage;
+                            modelList2.Add(item);
                         }
                         category = "Most Followed";
-                        collection.Add(new DiscoverPageModel() { categoryName = category, bandList = sortedList2 });
+                        collection.Add(new DiscoverPageModel() { categoryName = category, bandList = modelList2 });
                     }
                     
                     break;
@@ -258,7 +262,7 @@ namespace PrismAria.Services
 
             
             var sortedList = bandRecommendationRanking.OrderByDescending(p => p.BandScore);
-            var modelList = new List<BandModel>() { };
+            var modelList = new ObservableCollection<BandModel>() { };
             foreach (var item in sortedList)
             {
                 if (i == 3)
@@ -427,7 +431,9 @@ namespace PrismAria.Services
 
             try
             {
-                Singleton.Instance.BandSongCollection.Clear();
+                if (!Singleton.Instance.currBandAlbumId.Equals(albumId))
+                {
+                    Singleton.Instance.BandSongCollection.Clear();
                 var response = JsonConvert.DeserializeObject<BandPagePopularModel>(await Singleton.Instance.webService.GetBandSongs(albumId));
                 foreach (var item in response.Songs)
                 {
@@ -435,6 +441,9 @@ namespace PrismAria.Services
                 }
 
                 isSuccess = true;
+                }
+                
+                Singleton.Instance.currBandAlbumId = albumId;
             }
             catch (Exception e)
             {

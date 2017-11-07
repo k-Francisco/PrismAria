@@ -49,7 +49,7 @@ namespace PrismAria
 
 
         #region Services
-        public string AriaUrl = "http://192.168.254.108/Aria/public";
+        public string AriaUrl = "http://192.168.254.106/Aria/public";
         public CollectionService CollectionService = new CollectionService();
         public WebServices webService = new WebServices();
         public MediaFileChangedEventArgs MediaFileArgs;
@@ -83,10 +83,13 @@ namespace PrismAria
         };
         #endregion
 
-        #region Current Band variables
+        #region Current Band variables and utilities
         public ObservableCollection<Album> BandAlbumCollection = new ObservableCollection<Album>();
         public ObservableCollection<Song> BandSongCollection = new ObservableCollection<Song>() { };
         public int currBandId;
+        public string currBandAlbumId = "";
+        public Song lastSong;
+        public bool isSubscriber = true;
         #endregion
 
     }
