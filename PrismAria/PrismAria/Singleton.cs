@@ -89,6 +89,7 @@ namespace PrismAria
         public int currBandId;
         public string currBandAlbumId = "";
         public Song lastSong;
+        public Song toBeModifiedSong;
         public bool isSubscriber = true;
         #endregion
 

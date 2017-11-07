@@ -78,11 +78,24 @@ namespace PrismAria.ViewModels
             else
             {
                 var choice2 = await dialogService.DisplayActionSheetAsync("Options", "Close", "", new string[] {
-                    "Edit song",
+                    "Edit Song",
                     "Delete Song"
                 });
 
-                
+                if(choice2.Equals("Edit Song"))
+                {
+                    Singleton.Instance.toBeModifiedSong = obj;
+                    await PopupNavigation.Instance.PushAsync(new EditPopupPage(), true);
+                }
+                if(choice2.Equals("Delete Song"))
+                {
+                    var delete = await dialogService.DisplayAlertAsync("","Are you sure you want to delete this song?", "OK", "CANCEL");
+                    System.Diagnostics.Debug.WriteLine(delete);
+                    if (delete)
+                    {
+                        await Singleton.Instance.webService.DeleteSong(obj.SongId.ToString());
+                    }
+                }
             }
             
         }
@@ -177,10 +190,15 @@ namespace PrismAria.ViewModels
             this.eventAggregator = eventAggregator;
             this.dialogService = dialogService;
             eventAggregator.GetEvent<AddSongEvent>().Subscribe(AddSong);
+            eventAggregator.GetEvent<EditSongEvent>().Subscribe(EditSong);
             isSubscriber = !Singleton.Instance.isSubscriber;
         }
 
-        public SongsPageViewModel() { }
+        private async void EditSong()
+        {
+            Singleton.Instance.BandSongCollection.Clear();
+            await Singleton.Instance.CollectionService.PopulateBandPageSongs("0", SongCollection);
+        }
 
         private async void AddSong(SongModel obj)
         {

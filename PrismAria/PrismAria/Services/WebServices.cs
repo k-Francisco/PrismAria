@@ -280,6 +280,55 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
+        public async Task<bool> EditSong(string songId, string songName, string songDesc, string genreId)
+        {
+            isSuccess = false;
+
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl+ "/api/updateSong?song_id=" + songId+ "&song_title="+songName+ "&song_desc="+songDesc+ "&genre_id="+genreId);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                Debug.WriteLine("success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async Task<bool> DeleteSong(string songId) {
+            isSuccess = false;
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl + "/api/deleteSong?song_id=" + songId);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                var dummy = Singleton.Instance.BandSongCollection;
+                foreach(var item in dummy)
+                {
+                    if (songId.Equals(item.SongId.ToString()))
+                    {
+                        Singleton.Instance.BandSongCollection.Remove(item);
+                        break;
+                    }
+                }
+                Debug.WriteLine("success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
         public async Task<bool> AddPlaylist(string title, string desc, MediaFile image) {
             isSuccess = false;
 
@@ -500,7 +549,7 @@ namespace PrismAria.Services
 
         public async Task<bool> EditAlbum() {
             isSuccess = false;
-            // wala pay picture kay shet
+            
             var contents = CreateBody(
                 "{" +
                 "\"album_name\":\"" + "album numba two" + "\"," +
@@ -527,7 +576,7 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<bool> DeleteAlbum(){
+        public async Task<bool> DeleteAlbum(string albumId){
             isSuccess = false;
             
             var contents = CreateBody(
@@ -536,7 +585,7 @@ namespace PrismAria.Services
 
             try
             {
-                var post = await client.PostAsync(localAriaUrl + "/api/deleteAlbum?album_id=2", contents);
+                var post = await client.PostAsync(localAriaUrl + "/api/deleteAlbum?album_id="+ albumId, contents);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;

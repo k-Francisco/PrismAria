@@ -36,6 +36,15 @@ namespace PrismAria.ViewModels
         }
 
 
+        private DelegateCommand<Album> _showOptionCommand;
+        public DelegateCommand<Album> ShowOptionCommand =>
+            _showOptionCommand ?? (_showOptionCommand = new DelegateCommand<Album>(ShowOption));
+
+        private void ShowOption(Album obj)
+        {
+            System.Diagnostics.Debug.WriteLine("hello");
+        }
+
         private DelegateCommand<Album> _albumTappedCommand;
         public DelegateCommand<Album> AlbumTappedCommand =>
             _albumTappedCommand ?? (_albumTappedCommand = new DelegateCommand<Album>(AlbumTapped));

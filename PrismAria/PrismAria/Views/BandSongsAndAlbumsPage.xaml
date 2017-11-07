@@ -42,6 +42,7 @@
                 </Label>
 
                 <Label Text="Add album"
+                       x:Name="AddAlbum"
                                 FontSize="Small"
                                 FontAttributes="Bold"
                                HorizontalOptions="EndAndExpand"
@@ -86,7 +87,16 @@
                                                  HeightRequest="120"
                                                  WidthRequest="120"
                                                  HorizontalOptions="Center"
-                                                 VerticalOptions="Center"/>
+                                                 VerticalOptions="Center">
+                        <ffimage:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="2"
+                                                  Command="{Binding Path=BindingContext.ShowOptionCommand, Source={x:Reference AddAlbum}}"
+                                                  CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding Path=BindingContext.AlbumTappedCommand, Source={x:Reference AddAlbum}}"
+                                                  CommandParameter="{Binding .}"/>
+                        </ffimage:CachedImage.GestureRecognizers>
+                    </ffimage:CachedImage>
 
                     <Label Grid.Column="1" Grid.Row="0"
                                    Text="{Binding AlbumName}"
