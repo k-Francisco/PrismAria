@@ -453,6 +453,22 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
+        public async void PopulateMyPlaylist(ObservableCollection<PlaylistModel> collection) {
+
+            var response = JsonConvert.DeserializeObject<PlaylistModel[]>(await Singleton.Instance.webService.GetAllPlaylist());
+            if (response.Any())
+            {
+                foreach (var item in response)
+                {
+                    if (item.PlCreator.Equals(Settings.Token))
+                    {
+                        collection.Add(item);
+                    }
+                }
+                isSuccess = true;
+            }
+        }
+
     }
 
     class BandRecommendationScores

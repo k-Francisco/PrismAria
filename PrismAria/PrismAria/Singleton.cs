@@ -58,6 +58,7 @@ namespace PrismAria
         #region User Preferences
         public UserPreferenceModel[] userPreference;
         public BandModel recentlyViewedBand;
+        public ObservableCollection<PlaylistModel> UserPlaylists = new ObservableCollection<PlaylistModel>();
         #endregion
 
         #region Genres
@@ -90,7 +91,9 @@ namespace PrismAria
         public string currBandAlbumId = "";
         public Song lastSong;
         public Song toBeModifiedSong;
+        public Album tobeModifiedAlbum;
         public bool isSubscriber = true;
+        public int editIdentifier = 0;
         #endregion
 
     }

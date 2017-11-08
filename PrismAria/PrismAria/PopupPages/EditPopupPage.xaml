@@ -28,6 +28,7 @@
             HasBackgroundAnimation="True"/>
     </popup:PopupPage.Animation>
 
+
     <StackLayout Orientation="Vertical"
                  BackgroundColor="#FAFAFA"
                  Margin="25"
@@ -58,7 +59,7 @@
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Song Description: "
+            <Label Text="Song Genre: "
                    VerticalOptions="Center"
                    Margin="0,0,8,0"/>
             <Picker ItemsSource="{Binding Genres}"
@@ -83,8 +84,6 @@
                     Command="{Binding CloseCommand}"
                 Text="Close"/>
         </Grid>
-
-
     </StackLayout>
 
 </popup:PopupPage>

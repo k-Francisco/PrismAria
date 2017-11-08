@@ -96,19 +96,23 @@ namespace PrismAria.ViewModels
             }
         }
 
+
         public EditPopupPageViewModel(IEventAggregator eventAggregator, IPageDialogService pageDialogService)
         {
+
             SongName = Singleton.Instance.toBeModifiedSong.SongTitle;
             SongDesc = Singleton.Instance.toBeModifiedSong.SongDesc;
 
-            foreach(var item in Singleton.Instance.genres)
+            foreach (var item in Singleton.Instance.genres)
             {
-                if(item.id == Singleton.Instance.toBeModifiedSong.GenreId)
+                if (item.id == Singleton.Instance.toBeModifiedSong.GenreId)
                 {
-                    SelectedIndex = item.id-1;
+                    SelectedIndex = item.id - 1;
                     break;
                 }
             }
+
+            
 
             this.eventAggregator = eventAggregator;
             this.pageDialogService = pageDialogService;

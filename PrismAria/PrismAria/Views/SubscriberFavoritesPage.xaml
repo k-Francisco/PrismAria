@@ -5,6 +5,7 @@
              xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:controls="clr-namespace:PrismAria.Controls;assembly=PrismAria"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismAria.Views.SubscriberFavoritesPage"
              AutomationId="Favorites"
@@ -16,56 +17,51 @@
                     Android="0"/>
     </ContentPage.Padding>
 
-    <flv:FlowListView FlowItemsSource="{Binding FavoritesCollection}"
-                      FlowColumnCount="2"
-                      HasUnevenRows="True"
-                      FlowItemTappedCommand="{Binding SampleCommand}"
-                      SeparatorVisibility="None">
+    <StackLayout Orientation="Vertical"
+                 Margin="0,8,0,0">
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand">
+            <Label Text="My Playlists"
+                   VerticalOptions="Center"
+                   Margin="16,0,0,0"/>
+            <Image Source="ic_add.png"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding AddPlaylistCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
 
-        <flv:FlowListView.FlowColumnTemplate>
-            <DataTemplate>
-                <Grid
-                        Margin="8,12,8,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="130"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-
-                    <ffImage:CachedImage Grid.Row="0"
-                                             Source="{Binding BandPic}"
-                                             Aspect="AspectFill">
-                    </ffImage:CachedImage>
-                    <Label Grid.Row="1"
-                           Text="{Binding BandName}"
-                           FontAttributes="Bold"
-                           TextColor="#212121"
-                           FontSize="Medium"
-                           HorizontalOptions="Center"
-                           Margin="0">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS">Bryant</On>
-                                <On Platform="Android">BryantBoldAlt-Regular.otf#Bryant</On>
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
-
-                    <Label Grid.Row="1"
-                           Text="{Binding NumFollowers}"
-                           TextColor="#212121"
-                           FontSize="Small"
-                           Margin="0,20,0,0"
-                           HorizontalOptions="Center">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS">Bryant</On>
-                                <On Platform="Android">BryantMediumAlt-Regular.otf#Bryant</On>
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
-                </Grid>
-            </DataTemplate>
-        </flv:FlowListView.FlowColumnTemplate>
-    </flv:FlowListView>
+        <controls:HorizontalListView ItemSource="{Binding MyPlaylists}"
+                                     Orientation="Horizontal"
+                                     HeightRequest="140"
+                                     HorizontalOptions="FillAndExpand">
+            <controls:HorizontalListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical"
+                                     WidthRequest="100"
+                                     HeightRequest="120"
+                                     Margin="16,16"
+                                     Spacing="0">
+                            <ffImage:CachedImage Source="{Binding Image}"
+                                                 Aspect="AspectFit"
+                                                 DownsampleToViewSize="True"
+                                                 DownsampleHeight="100"
+                                                 HeightRequest="100"
+                                                 WidthRequest="100"/>
+                            <Label Text="{Binding PlTitle}"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"
+                                   TextColor="#212121"
+                                   HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </controls:HorizontalListView.ItemTemplate>
+        </controls:HorizontalListView>
+    </StackLayout>
     
 </ContentPage>

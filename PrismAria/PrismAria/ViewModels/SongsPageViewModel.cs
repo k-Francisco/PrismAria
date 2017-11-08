@@ -36,7 +36,6 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref _albumTitle, value); }
         }
 
-        //private ObservableCollection<Song> _songCollection = new ObservableCollection<Song>();
         public ObservableCollection<Song> SongCollection
         {
             get { return Singleton.Instance.BandSongCollection; }
@@ -84,13 +83,13 @@ namespace PrismAria.ViewModels
 
                 if(choice2.Equals("Edit Song"))
                 {
+                    Singleton.Instance.editIdentifier = 1;
                     Singleton.Instance.toBeModifiedSong = obj;
                     await PopupNavigation.Instance.PushAsync(new EditPopupPage(), true);
                 }
                 if(choice2.Equals("Delete Song"))
                 {
                     var delete = await dialogService.DisplayAlertAsync("","Are you sure you want to delete this song?", "OK", "CANCEL");
-                    System.Diagnostics.Debug.WriteLine(delete);
                     if (delete)
                     {
                         await Singleton.Instance.webService.DeleteSong(obj.SongId.ToString());
@@ -194,10 +193,22 @@ namespace PrismAria.ViewModels
             isSubscriber = !Singleton.Instance.isSubscriber;
         }
 
-        private async void EditSong()
+        private void EditSong()
         {
-            Singleton.Instance.BandSongCollection.Clear();
-            await Singleton.Instance.CollectionService.PopulateBandPageSongs("0", SongCollection);
+            //Singleton.Instance.BandSongCollection.Clear();
+            //await Singleton.Instance.CollectionService.PopulateBandPageSongs("0", SongCollection);
+            var dummy = SongCollection;
+            foreach (var item in dummy)
+            {
+                if(item.SongId == Singleton.Instance.toBeModifiedSong.SongId)
+                {
+                    item.SongTitle = Singleton.Instance.toBeModifiedSong.SongTitle;
+                    item.SongDesc = Singleton.Instance.toBeModifiedSong.SongDesc;
+                    item.GenreId = Singleton.Instance.toBeModifiedSong.GenreId;
+                    
+                    break;
+                }
+            }
         }
 
         private async void AddSong(SongModel obj)

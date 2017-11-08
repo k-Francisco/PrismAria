@@ -57,6 +57,8 @@ namespace PrismAria
             Container.RegisterTypeForNavigation<SongsPage>("SongsPagez");
             Container.RegisterTypeForNavigation<AddSongPopupPage, AddSongPopupPageViewModel>();
             Container.RegisterTypeForNavigation<EditPopupPage, EditPopupPageViewModel>();
+            Container.RegisterTypeForNavigation<EditAlbumPopupPage, EditAlbumPopupPageViewModel>();
+            Container.RegisterTypeForNavigation<AddPlaylistPopupPage, AddPlaylistPopupPageViewModel>();
         }
     }
 

@@ -291,6 +291,8 @@ namespace PrismAria.Services
                 if (response.IsSuccessStatusCode)
                     isSuccess = true;
 
+                var data = JsonConvert.DeserializeObject<Song>(await response.Content.ReadAsStringAsync());
+                Singleton.Instance.toBeModifiedSong = data;
                 Debug.WriteLine("success");
             }
             catch (Exception e)
@@ -329,8 +331,9 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<bool> AddPlaylist(string title, string desc, MediaFile image) {
-            isSuccess = false;
+        public async Task<string> AddPlaylist(string title, string desc, MediaFile image) {
+
+            string data;
 
             var contents = new MultipartFormDataContent();
             contents.Add(new StringContent(Settings.Token), "\"user_id\"");
@@ -346,15 +349,15 @@ namespace PrismAria.Services
                 if (response.IsSuccessStatusCode)
                     isSuccess = true;
 
-                var data = await response.Content.ReadAsStringAsync();
-                Debug.WriteLine(data);
+                data = await response.Content.ReadAsStringAsync();
+                return data;
+
             }
             catch(Exception e)
             {
                 Debug.WriteLine(e.Message);
+                return e.Message;
             }
-
-            return isSuccess;
         }
 
         public async Task<bool> UpdatePlaylist(string playlistId, string title, string desc, MediaFile image)
@@ -547,15 +550,15 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
-        public async Task<bool> EditAlbum() {
+        public async Task<bool> EditAlbum(string albumName, string albumDesc, string albumId, string bandId) {
             isSuccess = false;
             
             var contents = CreateBody(
                 "{" +
-                "\"album_name\":\"" + "album numba two" + "\"," +
-                "\"album_desc\":\"" + "asus numba two" + "\"," +
-                "\"album_id\":\"" + "1" + "\"," +
-                "\"band_id\":\"" + "1" + "\"" +
+                "\"album_name\":\"" + albumName + "\"," +
+                "\"album_desc\":\"" + albumDesc + "\"," +
+                "\"album_id\":\"" + albumId + "\"," +
+                "\"band_id\":\"" + bandId + "\"" +
                 "}"
                 );
 
@@ -578,14 +581,10 @@ namespace PrismAria.Services
 
         public async Task<bool> DeleteAlbum(string albumId){
             isSuccess = false;
-            
-            var contents = CreateBody(
-                ""
-                );
 
             try
             {
-                var post = await client.PostAsync(localAriaUrl + "/api/deleteAlbum?album_id="+ albumId, contents);
+                var post = await client.GetAsync(localAriaUrl + "/api/deleteAlbum?album_id="+ albumId);
                 var result = post.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                     isSuccess = true;

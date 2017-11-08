@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using PrismAria.Events;
 using PrismAria.Models;
 using PrismAria.PopupPages;
@@ -26,6 +27,7 @@ namespace PrismAria.ViewModels
 
         private DelegateCommand _addAlbumCommand;
         private readonly IEventAggregator eventAggregator;
+        private readonly IPageDialogService pageDialogService;
 
         public DelegateCommand AddAlbumCommand =>
             _addAlbumCommand ?? (_addAlbumCommand = new DelegateCommand(AddAlbum));
@@ -40,9 +42,37 @@ namespace PrismAria.ViewModels
         public DelegateCommand<Album> ShowOptionCommand =>
             _showOptionCommand ?? (_showOptionCommand = new DelegateCommand<Album>(ShowOption));
 
-        private void ShowOption(Album obj)
+        private async void ShowOption(Album obj)
         {
-            System.Diagnostics.Debug.WriteLine("hello");
+            var choice = await pageDialogService.DisplayActionSheetAsync("", "Cancel", "", new string[] { "Edit Album", "Delete Album" } );
+            if(choice.Equals("Delete Album"))
+            {
+                var delete = await pageDialogService.DisplayAlertAsync("", "Are you sure you want to delete this album?", "OK", "CANCEL");
+                if (delete)
+                {
+                    if (!await Singleton.Instance.webService.DeleteAlbum(obj.AlbumId.ToString()))
+                    {
+                        await pageDialogService.DisplayAlertAsync("Oops!", "There was a problem deleting the album", "Ok");
+                    }
+                    else
+                    {
+                        await Singleton.Instance.CollectionService.PopulateBandPageAlbums(Singleton.Instance.currBandId.ToString(), AlbumCollection);
+                    }
+                }
+            }
+            if(choice.Equals("Edit Album"))
+            {
+                try
+                {
+                    Singleton.Instance.tobeModifiedAlbum = obj;
+                    await PopupNavigation.Instance.PushAsync(new EditAlbumPopupPage(), true);
+                }
+                catch(Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                
+            }
         }
 
         private DelegateCommand<Album> _albumTappedCommand;
@@ -63,12 +93,14 @@ namespace PrismAria.ViewModels
             }
         }
 
-        public BandSongsAndAlbumsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator):base(navigationService)
+        public BandSongsAndAlbumsPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator, IPageDialogService pageDialogService):base(navigationService)
         {
             IsActiveChanged += HandleIsActive;
             IsActiveChanged += HandleIsNotActive;
             this.eventAggregator = eventAggregator;
+            this.pageDialogService = pageDialogService;
             eventAggregator.GetEvent<AddAlbumEvent>().Subscribe(AddAlbumVersion2);
+            eventAggregator.GetEvent<EditAlbumEvent>().Subscribe(AddAlbumVersion2);
         }
 
         private async void AddAlbumVersion2()
