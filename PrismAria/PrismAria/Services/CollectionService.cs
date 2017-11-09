@@ -89,11 +89,12 @@ namespace PrismAria.Services
                         response2 = null;
                     }
 
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 2; i++)
                     {
                         AddRelatedBandsToCollection(i, 
                             preferencedBands, 
                             bands, 
+                            response.ToList(),
                             totalBandCount, 
                             preferencedBandGenres, 
                             notPreferencedBandGenres, 
@@ -101,15 +102,14 @@ namespace PrismAria.Services
                             collection);
                     }
 
-                    for (int i = 0; i < 2; i++)
-                        AddNotRelatedBandsToCollection(collection, response, i, preferencedBands, showBandPage);
+                    //for (int i = 0; i < 2; i++)
+                    //    AddNotRelatedBandsToCollection(collection, response, i, preferencedBands, showBandPage);
 
                 }
                 else
                 {
-                    if(response.Length != 0)
-                    for(int i = 0; i < 2; i++)
-                        AddNotRelatedBandsToCollection(collection,response, i, preferencedBands, showBandPage);
+
+
                 }
 
                 isSuccess = true;
@@ -178,13 +178,14 @@ namespace PrismAria.Services
         private void AddRelatedBandsToCollection(int i, 
             List<BandModel> preferencedBands, 
             List<BandModel> bands, 
+            List<BandModel> allBands,
             int totalBandCount, 
             List<BandGenreModel> preferencedBandGenres, 
             List<BandGenreModel> notPreferencedBandGenres,
             DelegateCommand<BandModel> ShowBandPage,
             ObservableCollection<DiscoverPageModel> collection)
         {
-            const int BasedOnGenre = 0, BasedOnRanking = 1, BasedOnPopularity = 2, RisingStars = 3; 
+            const int BasedOnPopularity = 0, BasedOnRanking = 1, BasedOnGenre = 2, RisingStars = 3; 
             double GenreScore = 0.0, PopularityWeightedPercentage = 0.0, RankingWeightedPercentage = 0.0;
             List<BandRecommendationScores> bandRecommendationRanking = new List<BandRecommendationScores>() { };
             string category = "";
@@ -195,11 +196,11 @@ namespace PrismAria.Services
         
             switch (i)
             {
-                case BasedOnGenre:
-                    GenreScore = 2.0;
-                    PopularityWeightedPercentage = .03;
+                case BasedOnPopularity:
+                    GenreScore = 1.5;
                     RankingWeightedPercentage = .03;
-                    category = "Genre Based"; 
+                    PopularityWeightedPercentage = .04;
+                    category = "Popular";
                     break;
 
                 case BasedOnRanking:
@@ -209,11 +210,11 @@ namespace PrismAria.Services
                     category = "Weekly Top Bands!";
                     break;
 
-                case BasedOnPopularity:
-                    GenreScore = 1.5;
+                case BasedOnGenre:
+                    GenreScore = 2.0;
+                    PopularityWeightedPercentage = .03;
                     RankingWeightedPercentage = .03;
-                    PopularityWeightedPercentage = .04;
-                    category = "Popular";
+                    category = "Genre Based";
                     break;
 
                 case RisingStars:
@@ -247,7 +248,7 @@ namespace PrismAria.Services
             }
 
             //score of the bands according to ranking
-            //(((number of total bands - (rank-1))/number of total bands) *100) * weighted percentage 
+            //(((number of total bands - (rank-1))/number of total bands) *100) * weighted percentage
             foreach (var item in bandRecommendationRanking)
             {
                 item.BandScore += (((totalBandCount - (item.bandId - 1)) / (double)totalBandCount) * 100) * RankingWeightedPercentage;
@@ -257,39 +258,67 @@ namespace PrismAria.Services
             //(((number of total bands - (popularity rank - 1))/number of total bands) * 100) * weighted percentage
             foreach (var item in bandRecommendationRanking)
             {
-                item.BandScore += (((totalBandCount - (item.bandId - 1)) / (double)totalBandCount) * 100) * PopularityWeightedPercentage;
+                var rank = DetermineRank(item, allBands);
+                item.BandScore += (((totalBandCount - (rank - 1)) / (double)totalBandCount) * 100) * PopularityWeightedPercentage;
             }
 
-            
-            var sortedList = bandRecommendationRanking.OrderByDescending(p => p.BandScore);
             var modelList = new ObservableCollection<BandModel>() { };
-            foreach (var item in sortedList)
+            if (i != 1)
             {
-                if (i == 3)
+                var sortedList = bandRecommendationRanking.OrderByDescending(p => p.BandScore);
+                foreach (var item in sortedList)
                 {
-                    var start = Convert.ToDateTime(item.band.CreatedAt);
-                    if((DateTime.Now.Month - start.Month) == 0)
+                    if (i == 3)
                     {
-                        Debug.WriteLine((DateTime.Now.Month - start.Month).ToString());
+                        var start = Convert.ToDateTime(item.band.CreatedAt);
+                        if((DateTime.Now.Month - start.Month) == 0)
+                        {
+                            Debug.WriteLine((DateTime.Now.Month - start.Month).ToString());
+                            item.band.BandClick = ShowBandPage;
+                            modelList.Add(item.band);
+                        }
+                    }
+                    else
+                    {
                         item.band.BandClick = ShowBandPage;
                         modelList.Add(item.band);
                     }
                 }
-                else
+                if(i == 4)
                 {
-                    item.band.BandClick = ShowBandPage;
-                    modelList.Add(item.band);
+                    category = "Listen To Them Again";
+                    foreach (var item in preferencedBands)
+                        modelList.Add(item);
                 }
+            
+                    collection.Add(new DiscoverPageModel() { categoryName = category, bandList = modelList });
+                    bandRecommendationRanking.Clear();
             }
-            if(i == 4)
+            else
             {
-                category = "Listen To Them Again";
-                foreach (var item in preferencedBands)
+                var sortedshit = allBands.OrderByDescending(p => Convert.ToInt32(p.WeeklyScore));
+                foreach(var item in sortedshit)
+                {
                     modelList.Add(item);
+                }
+                collection.Add(new DiscoverPageModel() { categoryName = category, bandList = modelList });
+            }
+           
+        }
+
+        private int DetermineRank(BandRecommendationScores item, List<BandModel> allBands)
+        {
+            int rank = 1;
+            var sortedlist = allBands.OrderByDescending(p=>p.NumFollowers);
+            foreach(var item2 in sortedlist)
+            {
+                if (item2.BandId == item.bandId)
+                    break;
+                else
+                    rank++;
             }
 
-            collection.Add(new DiscoverPageModel() { categoryName = category, bandList = modelList });
-            bandRecommendationRanking.Clear();
+            return rank;
         }
 
         public async Task<bool> GenerateArticlesForSubscriber() {
@@ -466,6 +495,56 @@ namespace PrismAria.Services
                     }
                 }
                 isSuccess = true;
+            }
+        }
+
+        public async void PopulateSongsInPlaylist(ObservableCollection<Song> collection, int playlistId)
+        {
+            try
+            {
+                var plist = JsonConvert.DeserializeObject<PlistModel[]>(await Singleton.Instance.webService.GetAllPlist());
+                if (plist.Any())
+                {
+                    var songs = JsonConvert.DeserializeObject<Song[]>(await Singleton.Instance.webService.GetAllSongs());
+                    var albums = JsonConvert.DeserializeObject<Album[]>(await Singleton.Instance.webService.GetAllAlbums());
+                    var bands = JsonConvert.DeserializeObject<BandModel[]>(await Singleton.Instance.webService.GetBands());
+
+                    foreach (var plistItem in plist)
+                    {
+                        if (plistItem.PlId == playlistId)
+                        {
+                            foreach (var songItem in songs)
+                            {
+                                if (plistItem.SongId == songItem.SongId)
+                                {
+                                    foreach (var albumItem in albums)
+                                    {
+                                        if (songItem.AlbumId == albumItem.AlbumId)
+                                        {
+                                            foreach(var bandItem in bands)
+                                            {
+                                                if(albumItem.BandId == bandItem.BandId)
+                                                {
+                                                    songItem.AlbumPic = albumItem.AlbumPic;
+                                                    songItem.BandName = bandItem.BandName;
+                                                    collection.Add(songItem);
+                                                    break;
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
             }
         }
 

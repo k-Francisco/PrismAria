@@ -69,7 +69,13 @@ namespace PrismAria.ViewModels
                 {
                     if (choice.Equals(item.PlTitle))
                     {
-                        await Singleton.Instance.webService.AddSongToPlaylist(obj.SongId.ToString(), obj.GenreId.ToString(), item.PlId.ToString());
+                        if (await Singleton.Instance.webService.AddSongToPlaylist(obj.SongId.ToString(), obj.GenreId.ToString(), item.PlId.ToString())) {
+                            await dialogService.DisplayAlertAsync("", "Successfully added", "Ok");
+                        }
+                        else
+                        {
+                            await dialogService.DisplayAlertAsync("Oops", "There was an error adding the song to playlist", "Ok");
+                        }
                         break;
                     }
                 }

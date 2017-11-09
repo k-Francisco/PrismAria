@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismAria.Views.ViewAllSongsInPlaylistPage"
+             BackgroundColor="#FAFAFA">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                        iOS="0,20,0,0"
+                        Android="0"/>
+    </ContentPage.Padding>
+
+    <Grid ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                 BackgroundColor="#FAFAFA"/>
+
+        <Image Grid.Column="0" Grid.Row="0"
+               x:Name="OutImage"
+               Source="ic_back.png"
+               HeightRequest="20"
+               WidthRequest="20"
+                   Margin="16,0,0,0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GoBackCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+               Source="{Binding PlaylistPic}"
+               Margin="16,0,0,0"/>
+
+        <Label Grid.Row="1" Grid.Column="2"
+               Text="{Binding PlaylistName}"
+               Margin="20"
+               FontAttributes="Bold"
+               TextColor="#212121"
+               FontSize="Large"/>
+
+        <Label Grid.Row="1" Grid.Column="2"
+               Text="{Binding CreatorName}"
+               Margin="20,50,0,0"
+               FontSize="Small"/>
+
+        <flv:FlowListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                              FlowItemsSource="{Binding PlaylistSongs}"
+                              SeparatorVisibility="None"
+                              HasUnevenRows="True"
+                              FlowColumnCount="1"
+                          Margin="0,16,0,0"
+                          FlowItemTappedCommand="{Binding PlaySongCommand}">
+
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                               Source="{Binding AlbumPic}"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand">
+                            <!--<Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Path=BindingContext.PlaySongCommand, Source={x:Reference OutImage}}"
+                                                      CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image" Binding="{Binding IsPlaying}" Value="true">
+                                        <Setter Property="Source" Value="ic_pause.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image" Binding="{Binding IsPlaying}" Value="false">
+                                        <Setter Property="Source" Value="ic_play.png"/>
+                                    </DataTrigger>
+                                </Image.Triggers>-->
+                        </Image>
+
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="{Binding SongTitle}"
+                               FontAttributes="Bold"
+                               Margin="16,0,0,0"
+                               VerticalOptions="End"
+                               FontSize="Large"/>
+
+                        <Label Grid.Row="1" Grid.Column="1"
+                               Text="{Binding SongDesc}"
+                               Margin="16,0,0,0"
+                               VerticalOptions="Start"
+                               FontSize="Small"/>
+
+                        <Label Grid.Row="1" Grid.Column="1"
+                               Text="by "
+                               Margin="16,10,0,0"
+                               VerticalOptions="Center"
+                               FontSize="Small"/>
+
+                        <Label Grid.Row="1" Grid.Column="1"
+                               Text="{Binding BandName}"
+                               Margin="40,10,0,0"
+                               VerticalOptions="Center"
+                               FontSize="Small"
+                               FontAttributes="Bold"/>
+
+                        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                               Source="ic_more.png"
+                               HeightRequest="24"
+                               WidthRequest="24"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               Margin="0,0,24,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      Command="{Binding Path=BindingContext.OpenSongMenuCommand, Source={x:Reference OutImage}}"
+                                                      CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+
+
+                    </Grid>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+
+
+    </Grid>
+
+</ContentPage>

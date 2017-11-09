@@ -249,6 +249,18 @@ namespace PrismAria.Services
             return isSuccess;
         }
 
+        public async Task<string> GetAllSongs()
+        {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/songs");
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
         public async Task<bool> AddSongs(string albumId, string songDesc, byte[] song, string genreId, string bandId, string songName) {
             isSuccess = false;
             
@@ -420,6 +432,17 @@ namespace PrismAria.Services
             }
         }
 
+        public async Task<string> GetAllPlist() {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/getAllPlist");
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
         public async Task<bool> AddSongToPlaylist(string songId, string genreId, string playlistId)
         {
             isSuccess = false;
@@ -428,6 +451,27 @@ namespace PrismAria.Services
                 var response = await client.GetAsync(localAriaUrl + "/api/addSongToPlaylist?song_id="+songId+"&genre_id="+genreId+"&pl_id="+playlistId);
                 response.EnsureSuccessStatusCode();
                 if (response.IsSuccessStatusCode)
+                    isSuccess = true;
+
+                Debug.WriteLine("success");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public async Task<bool> RemoveSongFromPlaylist(string playlistId, string songId) {
+
+            isSuccess = false;
+
+            try
+            {
+                var response = await client.GetAsync(localAriaUrl+ "/api/removeSongFromPlaylist?pl_id="+playlistId+"&song_id="+songId);
+                var ensure = response.EnsureSuccessStatusCode();
+                if (ensure.IsSuccessStatusCode)
                     isSuccess = true;
 
                 Debug.WriteLine("success");
@@ -522,6 +566,18 @@ namespace PrismAria.Services
                 return e.Message;
             }
 
+        }
+
+        public async Task<string> GetAllAlbums()
+        {
+            try
+            {
+                return await client.GetStringAsync(localAriaUrl + "/api/AllAlbums");
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         public async Task<bool> AddAlbum(string albumName, string albumDesc, MediaFile albumPic, string bandId) {

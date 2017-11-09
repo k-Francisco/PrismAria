@@ -33,6 +33,13 @@ namespace PrismAria.ViewModels
             set { SetProperty(ref Singleton.Instance.UserPlaylists, value); }
         }
 
+        private ObservableCollection<PlaylistModel> _FollowedPlaylists;
+        public ObservableCollection<PlaylistModel> FollowedPlaylists
+        {
+            get { return _FollowedPlaylists; }
+            set { SetProperty(ref _FollowedPlaylists, value); }
+        }
+
         private DelegateCommand _addPlaylistCommand;
         public DelegateCommand AddPlaylistCommand =>
             _addPlaylistCommand ?? (_addPlaylistCommand = new DelegateCommand(AddPlaylist));
@@ -42,9 +49,29 @@ namespace PrismAria.ViewModels
             PopupNavigation.Instance.PushAsync(new AddPlaylistPopupPage());
         }
 
+        private DelegateCommand<PlaylistModel> _viewPlaylistCommand;
+        public DelegateCommand<PlaylistModel> ViewMyPlaylistCommand =>
+            _viewPlaylistCommand ?? (_viewPlaylistCommand = new DelegateCommand<PlaylistModel>(ViewMyPlaylist));
+
+        private void ViewMyPlaylist(PlaylistModel obj)
+        {
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("model", obj);
+
+            _navigationService.NavigateAsync("ViewAllSongsInPlaylistPage", parameters, true, true);
+        }
+
+        private DelegateCommand _viewAllPlaylistCommand;
+        public DelegateCommand ViewAllPlaylistCommand =>
+            _viewAllPlaylistCommand ?? (_viewAllPlaylistCommand = new DelegateCommand(ViewAllPlaylist));
+
+        private void ViewAllPlaylist()
+        {
+            _navigationService.NavigateAsync("ViewAllPlaylistPage", null,true,true);
+        }
+
         public SubscriberFavoritesPageViewModel(IEventAggregator ea, INavigationService navigationService):base(navigationService)
         {
-            Singleton.Instance.CollectionService.PopulateMyPlaylist(MyPlaylists);
             _ea = ea;
             IsActiveChanged += HandleIsActive;
             IsActiveChanged += HandleNotIsActive;
@@ -63,7 +90,11 @@ namespace PrismAria.ViewModels
 
         private void HandleIsActive(object sender, EventArgs e)
         {
-            
+            if (IsActive)
+            {
+                if(!MyPlaylists.Any())
+                    Singleton.Instance.CollectionService.PopulateMyPlaylist(MyPlaylists);
+            }
         }
 
         public override void OnNavigatingTo(NavigationParameters parameters)
@@ -73,5 +104,12 @@ namespace PrismAria.ViewModels
 
             Debug.WriteLine("Favorites Page Initialized");
         }
+
+        public override void Destroy()
+        {
+            IsActiveChanged -= HandleIsActive;
+            IsActiveChanged -= HandleNotIsActive;
+        }
     }
+
 }

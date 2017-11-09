@@ -45,3 +45,5 @@ D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\Prism
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.pdb
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.EditAlbumPopupPage.xaml.g.cs
 D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.PopupPages.AddPlaylistPopupPage.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.ViewAllSongsInPlaylistPage.xaml.g.cs
+D:\Xamarin Projects\PrismAria\PrismAria\PrismAria\obj\Debug\netstandard1.4\PrismAria.Views.ViewAllPlaylistPage.xaml.g.cs

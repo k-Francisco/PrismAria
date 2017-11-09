@@ -35,6 +35,7 @@ namespace PrismAria.Models
         public string UpdatedAt { get; set; }
 
         public string AlbumPic { get; set; }
+        public string BandName { get; set; }
         private bool _isPlaying;
         public bool IsPlaying
         {

@@ -17,16 +17,26 @@
                     Android="0"/>
     </ContentPage.Padding>
 
+    <controls:HorizontalListView Orientation="Vertical">
     <StackLayout Orientation="Vertical"
-                 Margin="0,8,0,0">
+                 Margin="0,8,0,0"
+                 Spacing="0">
+
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="FillAndExpand">
             <Label Text="My Playlists"
                    VerticalOptions="Center"
-                   Margin="16,0,0,0"/>
-            <Image Source="ic_add.png"
-                   HorizontalOptions="End"
-                   VerticalOptions="Center">
+                   Margin="16,0,0,0"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   TextColor="#212121"/>
+            <Image x:Name="AddIcon"
+                   Source="ic_add.png"
+                   WidthRequest="20"
+                   HeightRequest="20"
+                   HorizontalOptions="EndAndExpand"
+                   VerticalOptions="Center"
+                   Margin="16">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1"
                                           Command="{Binding AddPlaylistCommand}"/>
@@ -34,34 +44,130 @@
             </Image>
         </StackLayout>
 
-        <controls:HorizontalListView ItemSource="{Binding MyPlaylists}"
-                                     Orientation="Horizontal"
-                                     HeightRequest="140"
-                                     HorizontalOptions="FillAndExpand">
-            <controls:HorizontalListView.ItemTemplate>
+        <flv:FlowListView FlowItemsSource="{Binding MyPlaylists}"
+                              HasUnevenRows="True"
+                              SeparatorVisibility="None"
+                          HeightRequest="135"
+                              FlowColumnCount="3"
+                          Margin="0,-10,0,0"
+                          FlowItemTappedCommand="{Binding ViewMyPlaylistCommand}">
+
+            <flv:FlowListView.FlowColumnTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Vertical"
+                    <StackLayout Orientation="Vertical"
                                      WidthRequest="100"
                                      HeightRequest="120"
                                      Margin="16,16"
                                      Spacing="0">
-                            <ffImage:CachedImage Source="{Binding Image}"
+                        <ffImage:CachedImage Source="{Binding Image}"
                                                  Aspect="AspectFit"
                                                  DownsampleToViewSize="True"
                                                  DownsampleHeight="100"
                                                  HeightRequest="100"
                                                  WidthRequest="100"/>
-                            <Label Text="{Binding PlTitle}"
+                        <Label Text="{Binding PlTitle}"
                                    FontAttributes="Bold"
-                                   FontSize="Large"
-                                   TextColor="#212121"
+                                   FontSize="12"
+                               LineBreakMode="TailTruncation"
+                                   HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+
+            <Label Text="View All"
+                   HorizontalOptions="End"
+               VerticalOptions="Start"
+                   Margin="0,8,16,10"
+                   FontSize="Small"
+               FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding ViewAllPlaylistCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Text="Followed Playlists"
+                   VerticalOptions="Center"
+                   Margin="16,0,0,0"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   TextColor="#212121"/>
+
+            <flv:FlowListView FlowItemsSource="{Binding MyPlaylists}"
+                              HasUnevenRows="True"
+                              SeparatorVisibility="None"
+                          HeightRequest="135"
+                              FlowColumnCount="3"
+                          Margin="0,-10,0,0">
+
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical"
+                                     WidthRequest="100"
+                                     HeightRequest="120"
+                                     Margin="16,16"
+                                     Spacing="0">
+                        <ffImage:CachedImage Source="{Binding Image}"
+                                                 Aspect="AspectFit"
+                                                 DownsampleToViewSize="True"
+                                                 DownsampleHeight="100"
+                                                 HeightRequest="100"
+                                                 WidthRequest="100"/>
+                        <Label Text="{Binding PlTitle}"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                               LineBreakMode="TailTruncation"
+                                   HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+
+        <Label Text="View All"
+                   HorizontalOptions="End"
+               VerticalOptions="Start"
+                   Margin="0,8,16,10"
+                   FontSize="Small"
+               FontAttributes="Bold"/>
+
+            <Label Text="Followed Bands"
+                   VerticalOptions="Center"
+                   Margin="16,0,0,0"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   TextColor="#212121"/>
+
+            <flv:FlowListView FlowItemsSource="{Binding FavoritesCollection}"
+                              HasUnevenRows="True"
+                              SeparatorVisibility="None"
+                              FlowColumnCount="3"
+                          Margin="0,-10,0,10">
+
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical"
+                                     WidthRequest="100"
+                                     HeightRequest="120"
+                                     Margin="16,16"
+                                     Spacing="0">
+                            <ffImage:CachedImage Source="{Binding BandPic}"
+                                                 Aspect="AspectFit"
+                                                 DownsampleToViewSize="True"
+                                                 DownsampleHeight="100"
+                                                 HeightRequest="100"
+                                                 WidthRequest="100"/>
+                            <Label Text="{Binding BandName}"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                               LineBreakMode="TailTruncation"
                                    HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </controls:HorizontalListView.ItemTemplate>
-        </controls:HorizontalListView>
-    </StackLayout>
-    
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+
+        </StackLayout>
+    </controls:HorizontalListView>
+
 </ContentPage>
